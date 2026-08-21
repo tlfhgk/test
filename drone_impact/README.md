@@ -126,12 +126,14 @@ $#     cfm       cfl       cft       cfp     nidbo     death   negphs
 4. Solver = `SMP`, Precision = `Single`, `NCPU = 4` → **Run**
 5. 라이선스 환경변수는 LS-Run 이 알아서 잡아줍니다.
 
-### (b) 커맨드라인 (v251)
+### (b) 커맨드라인
 ```bat
 cd /d <이 폴더>
 "C:\Program Files\ANSYS Inc\v251\ansys\bin\winx64\lsdyna_sp.exe" ^
     i=main.k ncpu=4 memory=200m
 ```
+* `v251` = 2025 R1. **설치된 버전에 맞춰 폴더명을 바꾸세요** (2026 R1 이면 `v261`).
+  `dir "C:\Program Files\ANSYS Inc"` 로 확인하면 됩니다.
 * 정밀도: 이 모델은 **단정밀도(`lsdyna_sp.exe`) 로 충분**하고 배정밀도보다 약 2배 빠릅니다.
   `glstat` 에서 에너지 밸런스가 이상하면 `lsdyna_dp.exe` 로 바꿔 보세요.
 * 직접 exe 를 부를 때 라이선스를 못 찾으면 `set LSTC_LICENSE=ansys` 를 먼저 주세요.
@@ -174,6 +176,7 @@ cd /d <이 폴더>
 |---|---|
 | `PART 11 not found: *INITIAL_VELOCITY_GENERATION` | `STYP` 값 문제. **`STYP=1` 이 파트세트, `STYP=2` 가 단일 파트 ID** 입니다(`*CONTACT` 의 `SSTYP` 와 규칙이 반대라 헷갈립니다). `11,1,0.0,0.0,40.0,...` 이어야 합니다. |
 | `Missing data in Keyword - *LOAD_BLAST_SEGMENT_SET` | `blast.k` 를 재생성하세요. 카드를 하나로 합치고(세트 903), `aleid`·`sfnrb` 까지 전 필드를 명시했으며, `*SET_SEGMENT` 를 하중카드 **뒤**로 옮겨 하중카드가 파일 끝에 오지 않게 했습니다. |
+| `Request name dyna does not exist in the licensing pool` + `Error 70022` | **학생 라이선스 만료**입니다. 모델 문제가 아닙니다. 라이선스가 설치파일에 내장돼 있어서 **최신 Ansys Student 를 새로 받아 재설치**하는 것이 유일한 방법입니다(2020Rx 부터 라이선스 파일 교체 방식은 폐지). |
 | `E R R O R ... *INCLUDE ... file not found` | LS-Run 의 **Working directory** 가 `.k` 파일들이 있는 폴더가 아닙니다. |
 | 폭압이 너무 세거나 약함 | `blast.k` 의 `M`(현재 0.030 kg) 조정. `*DATABASE_BINARY_D3PLOT` 에서 blast pressure fringe 로 실제 걸린 압력을 먼저 확인하세요. |
 | 폭발이 아예 안 걸림 | `messag` 에서 `LOAD_BLAST` 경고 확인. 세그먼트 법선이 폭원 반대쪽이면 하중이 0 입니다. 정 안 되면 `main.k` 맨 아래 **ALTERNATIVE BURST MODEL** 블록(`*LOAD_SEGMENT_SET` + 압력 곡선)의 `$` 를 지우고, 상단 `*INCLUDE blast.k` 두 줄을 `$` 로 막으세요. |
