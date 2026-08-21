@@ -7,7 +7,10 @@ LiPo 배터리가 터지면서 기체가 산산조각 나는 시나리오입니�
 ```
 drone_impact/
 ├── generate_model.py   메쉬 생성기 (파이썬 3, 외부 라이브러리 불필요)
-├── main.k              마스터 덱 — control / material / section / contact / load
+├── main.k              마스터 덱 (LS-DYNA용) — control / material / section / contact / load
+├── make_openradioss.py main.k → main_openradioss.k 변환기
+├── main_openradioss.k  [자동생성] OpenRadioss용 덱 (라이선스 불필요)
+├── run_openradioss.bat OpenRadioss 실행 스크립트 (Windows)
 ├── building.k          [자동생성] 건물 절점·요소·바닥 구속 절점세트
 ├── drone.k             [자동생성] 드론 절점·요소
 └── blast.k             [자동생성] 배터리 폭발 하중 + 세그먼트세트 903/902
@@ -151,6 +154,49 @@ cd /d <이 폴더>
 3. 파편이 잘 보이게: `Appearance → Shading`, 그리고 Part 106/107(유리) 만 켜서 파단 확인.
 4. `glstat` 로 에너지 보존 확인 — **Added mass 가 전체 질량의 5% 를 넘으면**
    `*CONTROL_TIMESTEP` 의 `DT2MS` 를 더 작게(예 −2.0E-4) 주세요.
+
+---
+
+## 4-B. 라이선스 없이 돌리기 — OpenRadioss
+
+[OpenRadioss](https://github.com/OpenRadioss/OpenRadioss)는 Altair가 오픈소스로 공개한
+상용급 explicit 충돌 솔버입니다. **무료, 라이선스 서버 불필요, 요소 수 제한 없음**,
+그리고 **LS-DYNA `.k` 파일을 네이티브로 읽습니다.**
+
+```bat
+run_openradioss.bat        :: 스크립트 안의 OPENRADIOSS 경로만 본인 설치 위치로 수정
+```
+안에서 하는 일:
+```bat
+starter_win64.exe -i main_openradioss.k -np 4      :: .k 를 읽어 리스타트 파일 생성
+engine_win64.exe  -i main_openradioss_0001.rad -np 4
+anim_to_vtk_win64.exe main_openradiossA001 > ...vtk :: ParaView 로 볼 수 있게 변환
+```
+
+### LS-DYNA 덱과 무엇이 다른가
+
+OpenRadioss 는 LS-DYNA 키워드 **전부**가 아니라 리더(`dyna2rad`)가 매핑하는 것만
+읽습니다. `make_openradioss.py` 가 아래 네 군데를 바꿔서 `main_openradioss.k` 를
+만듭니다. 리더 소스를 직접 확인한 결과입니다.
+
+| 항목 | 처리 | 근거 |
+|---|---|---|
+| `*CONTACT_ERODING_SINGLE_SURFACE` | **그대로 사용** → `/INTER/TYPE7` | `convertcontacts.cxx` 가 부분문자열로 인식 |
+| `*LOAD_BODY_Z` | **그대로 사용** → `/GRAV` | `convertloads.cxx` |
+| `*LOAD_BLAST_ENHANCED` | **삭제** → `*LOAD_SHELL_SET` 압력펄스로 대체 | 개발자가 "blast/ALE 키워드는 미지원"이라고 명시 |
+| `*MAT_CRUSHABLE_FOAM` (배터리) | `*MAT_024` 로 교체 | 이름 맵에는 있으나 실제 변환 여부 미확인 |
+| `*MAT_ELASTIC` + `*MAT_ADD_EROSION` (유리) | 취성 `*MAT_024` 로 교체 | `convertprops.cxx` 가 파단두께만 읽어서 `SIGP1` 기준이 조용히 사라짐 |
+
+폭발은 `*LOAD_SHELL_SET`(→`/PLOAD`)로 드론 동체 셸세트 210에 압력펄스를 겁니다.
+동체 면적 144,000 mm², 질량 0.335 kg 기준으로 8.0E-4 GPa × 0.5 ms 삼각펄스 →
+패널이 약 85 m/s 로 튕겨나갑니다.
+
+### 처음 돌릴 때 반드시 볼 것
+
+`main_openradioss_0000.out` — **Starter 가 읽지 못한 키워드를 여기에 전부 적어줍니다.**
+아직 검증 못한 것이 남아 있습니다: `*SECTION_BEAM`(RC 기둥·보), `*MAT_RIGID` 의
+`CMO` 구속, `*CONTROL_*` 각종 카드, `*DATABASE_BINARY_D3PLOT` → 애니메이션 출력 매핑.
+이 파일 내용을 알려주시면 남은 것도 맞춰 드립니다.
 
 ---
 
