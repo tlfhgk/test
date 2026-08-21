@@ -170,6 +170,13 @@ cd /d <이 폴더>
 2. **압축 풀기** — 예: `C:\OpenRadioss`
    (안에 `exec`, `hm_cfg_files`, `extlib` 폴더가 보이면 정상)
 3. **ParaView 받기** — https://www.paraview.org/download/ (무료, 결과 보기용)
+   * 페이지 상단 드롭다운을 `Version = 최신`, `Type = ParaView Binary Installers`,
+     `OS = Windows` 로 두고, 파일명이 아래 형태인 **`.msi`** 를 받으세요:
+     `ParaView-<버전>-MPI-Windows-Python<버전>-msvc<연도>-AMD64.msi`
+   * 파일명에 **`osmesa`** 가 붙은 것은 화면 없는 서버용(소프트웨어 렌더링)이라
+     받지 마세요. 느립니다.
+   * `MPI` 가 붙어 있어도 그냥 단독 실행됩니다 — 신경 쓰실 필요 없습니다.
+   * `.zip` 은 설치 없이 압축만 푸는 버전입니다. 어느 쪽이든 무관합니다.
 4. `run_openradioss.bat` 을 열어 맨 위 두 줄만 수정:
    ```bat
    set OPENRADIOSS_PATH=C:\OpenRadioss    :: 2번에서 푼 위치
