@@ -1,0 +1,64 @@
+# Comparison axes. Every clause record tags one or more topic ids; the crosswalk
+# and the retrieval filters are both built on these.
+schema_version: 1
+topics:
+  - topic_id: T01
+    label_en: "Legal basis and binding nature"
+    label_ko: "법적 근거 및 구속력"
+    description_ko: "해당 문서가 법령인지, 규제지침인지, 산업 방법론인지와 그 강제력."
+  - topic_id: T02
+    label_en: "Applicability and scope"
+    label_ko: "적용범위"
+    description_ko: "신규 원전/기존 원전, 노형·출력 기준, 인허가 단계별 적용 대상."
+  - topic_id: T03
+    label_en: "Threat / aircraft characterisation"
+    label_ko: "위협(항공기) 정의"
+    description_ko: "항공기 종류, 질량, 속도, 연료량, 충돌 각도 등 입력 파라미터의 정의 방식."
+  - topic_id: T04
+    label_en: "Design basis vs beyond design basis"
+    label_ko: "설계기준 대 설계기준초과"
+    description_ko: "DBEE / BDBEE(DEC) 구분, 안전등급 요건 적용 여부."
+  - topic_id: T05
+    label_en: "Probabilistic screening criterion"
+    label_ko: "확률론적 스크리닝 기준"
+    description_ko: "설계기준 포함 여부를 가르는 발생빈도 기준(예: 1E-7/yr)."
+  - topic_id: T06
+    label_en: "Target and SSC selection"
+    label_ko: "평가대상 구조물·계통·기기 선정"
+    description_ko: "충돌 평가 대상 건물과 안전기능 지원 기기(전원, 케이블 등) 선정 방법."
+  - topic_id: T07
+    label_en: "Impact load definition"
+    label_ko: "충돌하중 정의"
+    description_ko: "Riera 하중-시간 함수, missile-target 상호작용 등 하중 산정 방법."
+  - topic_id: T08
+    label_en: "Local damage (perforation, scabbing)"
+    label_ko: "국부손상(관통·박리)"
+    description_ko: "경성 미사일에 의한 침투깊이, 배면 박리, 관통 평가."
+  - topic_id: T09
+    label_en: "Global structural response"
+    label_ko: "전체 구조응답"
+    description_ko: "비선형 유한요소 해석, 소성붕괴, 구조 건전성 평가."
+  - topic_id: T10
+    label_en: "Impact-induced vibration and shock"
+    label_ko: "충격유발 진동"
+    description_ko: "충돌로 유발된 진동이 기기·배관·전기설비에 미치는 영향."
+  - topic_id: T11
+    label_en: "Fire and fuel effects"
+    label_ko: "화재 및 연료 영향"
+    description_ko: "항공유 분산, 화구(fireball), 풀화재, 내부 침투 연료에 의한 영향."
+  - topic_id: T12
+    label_en: "Acceptance criteria / safety functions"
+    label_ko: "허용기준 및 안전기능"
+    description_ko: "노심냉각, 격납건전성, 사용후핵연료 냉각·수조 건전성 등 최종 판정기준."
+  - topic_id: T13
+    label_en: "Malicious vs accidental crash"
+    label_ko: "고의충돌 대 우발충돌"
+    description_ko: "테러 등 의도적 충돌과 사고성 추락의 규제상 취급 차이."
+  - topic_id: T14
+    label_en: "Documentation, review and information control"
+    label_ko: "문서화·심사·정보통제"
+    description_ko: "제출 문서, 심사 절차, 보안정보 비공개 처리."
+  - topic_id: T15
+    label_en: "Operator action and mitigative strategies"
+    label_ko: "운전원 조치 및 완화전략"
+    description_ko: "운전원 조치 인정 범위, 이동형 설비 등 완화전략 크레딧."

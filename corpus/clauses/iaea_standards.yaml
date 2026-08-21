@@ -1,0 +1,174 @@
+schema_version: 1
+source_id: IAEA-SSG-68
+also_covers: [IAEA-SSR-2-1, IAEA-SSG-79, IAEA-SRS-86, IAEA-SRS-87, IAEA-SRS-88]
+license_warning: >-
+  IAEA publications are copyrighted but freely downloadable. Records below are summaries.
+  Place downloaded PDFs in corpus/raw/ (gitignored) and run scripts/ingest_raw.py to index
+  the verbatim paragraphs locally.
+clauses:
+
+  - clause_id: IAEA-SSR-2-1-req17
+    source_id: IAEA-SSR-2-1
+    locator: "SSR-2/1 (Rev. 1), Requirement 17"
+    heading_en: "Internal and external hazards — top-level design requirement"
+    heading_ko: "내·외부 재해 — 최상위 설계요건"
+    topics: [T01, T04, T06]
+    text_status: summary
+    verification: model_knowledge
+    confidence: medium
+    summary_en: >-
+      SSR-2/1 requires that all foreseeable internal hazards and external hazards, including
+      the potential for natural and human-induced external events, be identified and their
+      effects evaluated; hazards that could affect the safety of the plant must be considered
+      in the design. This is the requirement under which aircraft crash enters the IAEA
+      design framework, with SSG-68 providing the recommendations on how to meet it.
+    summary_ko: >-
+      SSR-2/1은 자연적·인위적 외부사건 가능성을 포함하여 예측 가능한 모든 내부 및 외부
+      재해를 식별하고 그 영향을 평가할 것을 요구하며, 발전소 안전에 영향을 줄 수 있는
+      재해는 설계에 고려되어야 한다고 규정한다. 항공기 추락은 이 요건을 통해 IAEA 설계
+      체계에 편입되며, 이행 방법에 관한 권고는 SSG-68이 제공한다.
+    source_url: "https://www.iaea.org/publications/10646/safety-of-nuclear-power-plants-design"
+
+  - clause_id: IAEA-SSG-68-scope
+    source_id: IAEA-SSG-68
+    locator: "SSG-68, scope"
+    heading_en: "Scope: design against external events including aircraft crash"
+    heading_ko: "적용범위: 항공기 추락을 포함한 외부사건 대비 설계"
+    topics: [T01, T02, T04]
+    text_status: summary
+    verification: web_verified
+    confidence: high
+    summary_en: >-
+      SSG-68 (2021) provides recommendations on the design of nuclear installations for
+      protection against the effects of external events excluding earthquakes. It covers
+      natural external events (floods, extreme meteorological conditions, extreme winds,
+      volcanism) and human-induced external events (aircraft crashes, external explosions,
+      external fire) as well as combinations of external hazards. It gives design guidance
+      for the protection of structures, systems and components important to safety against
+      design-basis external events, and also gives recommendations on the selection of
+      beyond-design-basis external events in order to check and verify safety margins.
+      It supersedes NS-G-1.5.
+    summary_ko: >-
+      SSG-68(2021)은 지진을 제외한 외부사건의 영향으로부터 원자력시설을 보호하기 위한 설계
+      권고를 제공한다. 자연 외부사건(홍수, 극한 기상, 극한 풍속, 화산활동)과 인위적 외부사건
+      (항공기 추락, 외부 폭발, 외부 화재) 및 외부재해의 조합을 다룬다. 설계기준 외부사건에
+      대해 안전에 중요한 구조물·계통·기기를 보호하기 위한 설계지침을 제시하며, 안전여유도
+      확인·검증을 위한 설계기준초과 외부사건의 선정에 관한 권고도 제공한다. NS-G-1.5를
+      대체한다.
+    key_parameters:
+      covers_both_levels: "design basis external events AND beyond design basis (margin verification)"
+      human_induced_events: ["aircraft crash", "external explosion", "external fire"]
+      supersedes: "NS-G-1.5 (2003)"
+    source_url: "https://www.iaea.org/publications/14666/design-of-nuclear-installations-against-external-events-excluding-earthquakes"
+    notes: >-
+      Structural note for the comparison: SSG-68 is the only document in this corpus that
+      covers BOTH the design-basis and the beyond-design-basis level for aircraft crash in
+      one public, freely available text. It is therefore the natural bridge between the
+      Czech/EUR design-basis approach and the US beyond-design-basis approach.
+
+  - clause_id: IAEA-SSG-79-spl
+    source_id: IAEA-SSG-79
+    locator: "SSG-79 (site evaluation, human-induced external events) — screening probability level"
+    heading_en: "Screening probability level of 1E-7 per reactor-year"
+    heading_ko: "원자로-년당 1E-7 스크리닝 확률수준"
+    topics: [T05, T02]
+    text_status: summary
+    verification: web_verified
+    confidence: high
+    summary_en: >-
+      In some States a probability of 1E-7 per reactor-year is used in the design of new
+      facilities as one acceptable limit on the probability value for interacting events
+      having serious radiological consequences; this is considered a conservative value for
+      the screening probability level (SPL) if applied to all events of the same type, such
+      as all aircraft crashes or all explosions. Events screened in by the SPL are carried
+      into the design basis; events below it may be screened out.
+    summary_ko: >-
+      일부 국가에서는 심각한 방사선학적 결과를 초래할 수 있는 상호작용 사건의 확률에 대한
+      수용 가능한 한계값으로 신규 시설 설계 시 원자로-년당 1E-7을 사용한다. 이는 동일 유형의
+      모든 사건(예: 모든 항공기 추락, 모든 폭발)에 적용될 경우 스크리닝 확률수준(SPL)으로서
+      보수적인 값으로 간주된다. SPL에 의해 선별된 사건은 설계기준에 편입되고, 그 미만의
+      사건은 배제될 수 있다.
+    key_parameters:
+      spl_value: "1E-7 per reactor-year"
+      application_rule: "applied to all events of the same type collectively (e.g. all aircraft crashes)"
+      supersedes: "NS-G-3.1 (2002)"
+    source_url: "https://www-pub.iaea.org/MTCD/Publications/PDF/PUB2036_web.pdf"
+    notes: >-
+      DIRECT MATCH with the Czech criterion in CZ-329-2017-aircraft-dbe: the Czech decree's
+      "> once in 10,000,000 years" is the same 1E-7/yr screening level expressed as a
+      frequency. This is the strongest quantitative link in the whole crosswalk.
+
+  - clause_id: IAEA-SRS-86-framework
+    source_id: IAEA-SRS-86
+    locator: "Safety Reports Series No. 86"
+    heading_en: "Framework and roadmap for human-induced external events"
+    heading_ko: "인위적 외부사건에 대한 체계 및 로드맵"
+    topics: [T02, T04, T06]
+    text_status: summary
+    verification: web_verified
+    confidence: high
+    summary_en: >-
+      SRS No. 86 is the first of a three-part set (86, 87, 88) describing approaches to
+      human-induced external events with a focus on nuclear power plants. It provides the
+      general framework and a roadmap for performing the design and evaluation of protection
+      against such events, concentrating on the overall methodology and the considerations
+      important for its application to existing and new nuclear power plants.
+    summary_ko: >-
+      SRS 제86호는 원전을 중심으로 인위적 외부사건에 대한 접근방법을 기술하는 3부작
+      (86, 87, 88) 중 첫 번째 문서이다. 그러한 사건에 대한 방호의 설계 및 평가를 수행하기
+      위한 일반 체계와 로드맵을 제공하며, 전체 방법론과 기존·신규 원전 적용 시의 주요
+      고려사항에 중점을 둔다.
+    source_url: "https://www-pub.iaea.org/MTCD/Publications/PDF/P1721_web.pdf"
+
+  - clause_id: IAEA-SRS-87-structures
+    source_id: IAEA-SRS-87
+    locator: "Safety Reports Series No. 87"
+    heading_en: "Assessment of structures under human-induced external events"
+    heading_ko: "인위적 외부사건 하 구조물 평가"
+    topics: [T07, T08, T09, T10]
+    text_status: summary
+    verification: web_verified
+    confidence: high
+    summary_en: >-
+      SRS No. 87 is the structural-assessment volume of the three-part set. It supports the
+      quantitative evaluation of the engineering safety of facilities subjected to accidental
+      or postulated human-induced external events, addressing aircraft crash loading and its
+      effects on structures. It is the IAEA counterpart to the structural chapters of
+      NEI 07-13.
+    summary_ko: >-
+      SRS 제87호는 3부작 중 구조물 평가 편이다. 우발적 또는 가정된 인위적 외부사건을 받는
+      시설의 공학적 안전성을 정량적으로 평가하는 것을 지원하며, 항공기 충돌하중과 그 구조물
+      영향을 다룬다. NEI 07-13의 구조 관련 장(章)에 대응하는 IAEA 문서이다.
+    key_parameters:
+      role: "quantitative structural engineering safety evaluation"
+      counterpart: "NEI 07-13 structural chapters"
+    source_url: "https://www.iaea.org/publications/10953/safety-aspects-of-nuclear-power-plants-in-human-induced-external-events-assessment-of-structures"
+    notes: >-
+      This is the document the user's request refers to as "IAEA 87". Note it is a Safety
+      REPORT (informative, no recommendations language), not a Safety Guide — it carries less
+      normative weight than SSG-68 in the IAEA hierarchy.
+
+  - clause_id: IAEA-SRS-88-margins
+    source_id: IAEA-SRS-88
+    locator: "Safety Reports Series No. 88"
+    heading_en: "Plant and system margin assessment"
+    heading_ko: "발전소 및 계통 여유도 평가"
+    topics: [T04, T09, T12]
+    text_status: summary
+    verification: web_verified
+    confidence: high
+    summary_en: >-
+      SRS No. 88 describes procedures for calculating the margins of nuclear power plants in
+      relation to human-induced external hazards, focusing on plant and systems performance
+      evaluation rather than on individual structures. The HCLPF (high confidence of low
+      probability of failure) concept, introduced in the IAEA framework for technical
+      evaluation of such hazards, belongs to this margin-assessment layer.
+    summary_ko: >-
+      SRS 제88호는 개별 구조물이 아닌 발전소 및 계통 성능 평가에 중점을 두고, 인위적
+      외부재해에 대한 원전의 여유도를 산정하는 절차를 기술한다. 해당 재해의 기술적 평가를
+      위해 IAEA 체계에 도입된 HCLPF(낮은 파손확률에 대한 높은 신뢰도) 개념이 이 여유도
+      평가 계층에 속한다.
+    key_parameters:
+      concept: "HCLPF margin assessment"
+      level: "plant and system performance"
+    source_url: "https://www.iaea.org/publications/10914/safety-aspects-of-nuclear-power-plants-in-human-induced-external-events-margin-assessment"

@@ -1,0 +1,131 @@
+schema_version: 1
+source_id: CZ-329-2017
+also_covers: [CZ-263-2016, CZ-378-2016]
+locator_warning: >-
+  The § numbering of decree 329/2017 Sb. could not be confirmed while building this
+  database (sujb.gov.cz, zakonyprolidi.cz and tzb-info.cz were unreachable from the build
+  environment). Locators marked verification: to_verify give the substance correctly but
+  the section number must be checked against the official text before citation.
+clauses:
+
+  - clause_id: CZ-263-2016-enabling
+    source_id: CZ-263-2016
+    locator: "zákon č. 263/2016 Sb., § 24(7), § 44(4)(a)(b), § 45(4), § 46"
+    heading_en: "Statutory basis for the design decree"
+    heading_ko: "설계 시행령의 법적 근거"
+    topics: [T01]
+    text_status: summary
+    verification: web_verified
+    confidence: medium
+    summary_en: >-
+      Decree No. 329/2017 Sb. on requirements for the design of a nuclear installation was
+      issued by SÚJB under the empowering provisions of the Atomic Act (Act No. 263/2016
+      Sb.), namely § 24(7), § 44(4)(a) and (b), § 45(4) and § 46. The Atomic Act is the
+      binding primary legislation; the decree carries the technical design requirements.
+    summary_ko: >-
+      원자력시설 설계 요건에 관한 시행령 제329/2017호는 원자력법(제263/2016호)의 위임규정,
+      즉 제24조 제7항, 제44조 제4항 (a)·(b), 제45조 제4항, 제46조에 근거하여 SÚJB가
+      발령하였다. 원자력법이 구속력 있는 상위 법률이며, 기술적 설계요건은 시행령이 담는다.
+    source_url: "https://www.zakonyprolidi.cz/cs/2017-329"
+
+  - clause_id: CZ-329-2017-aircraft-dbe
+    source_id: CZ-329-2017
+    locator: "vyhláška č. 329/2017 Sb. — external initiating events / design basis (§ to_verify)"
+    heading_en: "Accidental aircraft crash as a design-basis external initiating event"
+    heading_ko: "설계기준 외부 기인사건으로서의 우발적 항공기 추락"
+    topics: [T02, T03, T04, T05, T13]
+    text_status: summary
+    verification: web_verified
+    confidence: medium
+    summary_en: >-
+      For a nuclear installation with a reactor thermal power exceeding 50 MW, the design
+      must provide resistance against an accidental aircraft crash. The design basis is set
+      by the intensity of the effects of an object whose frequency of falling onto an area
+      where it could cause a basic external initiating event is higher than once in
+      10,000,000 years (i.e. frequency > 1E-7 per year).
+    summary_ko: >-
+      원자로 열출력이 50 MW를 초과하는 원자력시설의 경우, 설계는 우발적 항공기 추락에
+      대한 저항성을 확보해야 한다. 설계기준은, 기본 외부 기인사건을 유발할 수 있는 구역에
+      낙하할 빈도가 1천만 년에 1회를 초과하는(즉 빈도 > 1E-7/년) 물체가 미치는 영향의
+      강도로 정해진다.
+    key_parameters:
+      applicability_threshold: "reactor thermal power > 50 MW"
+      crash_type: "accidental (náhodný pád letadla)"
+      screening_frequency: "> 1E-7 per year → included in the design basis"
+      basis_quantity: "intensity of the effects of the falling object"
+    source_url: "https://www.zakonyprolidi.cz/cs/2017-329"
+    notes: >-
+      KEY COMPARISON POINT. Czech law puts the accidental aircraft crash INSIDE the design
+      basis, selected by an explicit numerical frequency criterion. The US rule instead
+      places the large-commercial-aircraft impact OUTSIDE the design basis (beyond design
+      basis) and applies realistic rather than design-basis analysis. The two frameworks are
+      therefore not directly comparable requirement-for-requirement — see crosswalk CW-04
+      and CW-05.
+
+  - clause_id: CZ-329-2017-external-events-general
+    source_id: CZ-329-2017
+    locator: "vyhláška č. 329/2017 Sb. — vnější iniciační události (§ to_verify)"
+    heading_en: "External initiating events in the design basis"
+    heading_ko: "설계기준 내 외부 기인사건"
+    topics: [T04, T05, T06]
+    text_status: summary
+    verification: to_verify
+    confidence: low
+    summary_en: >-
+      The decree requires design bases (projektová východiska) to be established for external
+      initiating events (vnější iniciační události), covering natural and human-induced
+      hazards and their combinations, and requires structures, systems and components
+      important to safety to be designed to withstand the selected basic external initiating
+      events. Aircraft crash is one of the human-induced events in this set.
+    summary_ko: >-
+      본 시행령은 외부 기인사건(vnější iniciační události)에 대한 설계기준(projektová
+      východiska)을 수립하도록 요구하며, 자연재해와 인위적 재해 및 그 조합을 포괄한다.
+      또한 안전에 중요한 구조물·계통·기기가 선정된 기본 외부 기인사건을 견디도록 설계할
+      것을 요구한다. 항공기 추락은 이 중 인위적 사건에 해당한다.
+    source_url: "https://sujb.gov.cz/fileadmin/sujb/docs/legislativa/vyhlasky/329_2017.pdf"
+    notes: "GAP — obtain the official PDF and replace with verbatim § text via scripts/ingest_raw.py."
+
+  - clause_id: CZ-378-2016-siting
+    source_id: CZ-378-2016
+    locator: "vyhláška č. 378/2016 Sb. (siting)"
+    heading_en: "Site-stage evaluation of air traffic hazard"
+    heading_ko: "부지단계 항공교통 위험 평가"
+    topics: [T02, T05]
+    text_status: summary
+    verification: to_verify
+    confidence: low
+    summary_en: >-
+      Czech siting rules require the evaluation of external human-induced hazards at the
+      site, including air traffic (airports, air corridors, flight frequencies), which
+      produces the crash-frequency input used to decide whether aircraft crash enters the
+      design basis under decree 329/2017.
+    summary_ko: >-
+      체코 부지 관련 규정은 공항, 항공로, 운항빈도 등 항공교통을 포함한 부지의 인위적
+      외부 위험을 평가하도록 요구하며, 그 결과로 산출된 추락빈도가 시행령 329/2017에 따라
+      항공기 추락을 설계기준에 포함할지 결정하는 입력이 된다.
+    source_url: "https://www.zakonyprolidi.cz/cs/2016-378"
+    notes: "GAP — decree number and content both to be confirmed."
+
+  - clause_id: CZ-malicious-separation
+    source_id: CZ-263-2016
+    locator: "Atomic Act — physical protection provisions"
+    heading_en: "Malicious aircraft impact handled outside the design decree"
+    heading_ko: "고의적 항공기 충돌은 설계 시행령 밖에서 취급"
+    topics: [T13, T14]
+    text_status: editorial
+    verification: model_knowledge
+    confidence: low
+    summary_en: >-
+      In the Czech framework, as in most European frameworks, the deliberate (malicious)
+      aircraft impact is handled through nuclear security and physical protection provisions
+      rather than through the publicly available design decree, and the associated threat
+      characterisation is treated as sensitive information. The design decree addresses the
+      accidental crash.
+    summary_ko: >-
+      체코 체계에서는 대부분의 유럽 체계와 마찬가지로 고의적(악의적) 항공기 충돌은 공개된
+      설계 시행령이 아니라 핵안보 및 물리적방호 규정을 통해 다루어지며, 관련 위협 정의는
+      민감정보로 취급된다. 설계 시행령은 우발적 추락을 대상으로 한다.
+    notes: >-
+      EDITORIAL record — this is the database author's structural reading, not a citation.
+      It exists so that retrieval on "malicious / intentional crash / 고의충돌" returns an
+      explicit statement of where the Czech answer does and does not live.

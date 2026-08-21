@@ -1,0 +1,12 @@
+# Source documents are fetched locally, never committed: several are
+# copyrighted (IAEA, NEI) or licensed (EUR).
+corpus/raw/*
+!corpus/raw/.gitkeep
+
+# Build artefacts — rebuild with scripts/build_db.py
+db/
+export/
+
+__pycache__/
+*.pyc
+.venv/

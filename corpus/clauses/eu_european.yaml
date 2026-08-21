@@ -1,0 +1,133 @@
+schema_version: 1
+source_id: EU-EUR
+also_covers: [EU-2014-87-EURATOM, EU-WENRA-SRL]
+license_warning: >-
+  EUR (European Utility Requirements) is a licensed, proprietary document. No requirement
+  text is reproduced here; records describe only what is publicly known about its structure
+  and the role it plays. Obtain a licence for the technical values.
+clauses:
+
+  - clause_id: EU-EUR-scope
+    source_id: EU-EUR
+    locator: "EUR Volume 2 (Generic Nuclear Island Requirements), Rev. E"
+    heading_en: "Role of EUR in European new build"
+    heading_ko: "유럽 신규건설에서 EUR의 역할"
+    topics: [T01, T02]
+    text_status: summary
+    verification: web_verified
+    confidence: high
+    summary_en: >-
+      The European Utility Requirements are a utility-side reference technical specification
+      intended to carry the highest safety and competitiveness standards for new LWR plants
+      in Europe, used for design development and in bidding and licensing processes.
+      Revision E was finalised in December 2016. Volume 2 contains the generic Nuclear
+      Island requirements. EUR is contractual/commercial in nature, not a legal instrument:
+      it binds a vendor only through the procurement contract that invokes it.
+    summary_ko: >-
+      EUR(유럽 사업자 요건)은 유럽 내 신규 경수로에 대해 최고 수준의 안전성과 경쟁력
+      기준을 담고자 하는 사업자 측 참조 기술사양으로, 설계개발 및 입찰·인허가 과정에서
+      사용된다. Rev. E는 2016년 12월에 확정되었다. 제2권은 원자로계통(Nuclear Island)
+      일반 요건을 담는다. EUR은 법령이 아니라 계약·상업적 성격의 문서이며, EUR을 인용한
+      구매계약을 통해서만 공급자를 구속한다.
+    key_parameters:
+      revision: "E (December 2016)"
+      legal_nature: "contractual utility requirement, not regulation"
+    source_url: "https://europeanutilityrequirements.eu/"
+
+  - clause_id: EU-EUR-aircraft-crash
+    source_id: EU-EUR
+    locator: "EUR Volume 2, Chapter 2.4 (Design Basis) — aircraft crash"
+    heading_en: "Accidental and intentional aircraft crash load cases"
+    heading_ko: "우발적 및 고의적 항공기 충돌 하중조건"
+    topics: [T03, T04, T13]
+    text_status: summary
+    verification: web_verified
+    confidence: medium
+    summary_en: >-
+      EUR Volume 2 addresses aircraft crash within the design basis chapter and includes a
+      dedicated treatment of the intentional (malicious) aircraft crash in addition to the
+      accidental crash. Together with recent IAEA safety reports and some national
+      regulations (for example Belgium and Finland), EUR defines aircraft impact through
+      multiple threat scenarios with multi-level performance objectives, which can be grouped
+      into a design-basis external event level (DBEE) and a beyond-design-basis external
+      event level (BDBEE / design extension conditions).
+    summary_ko: >-
+      EUR 제2권은 설계기준 장(章)에서 항공기 충돌을 다루며, 우발적 추락에 더하여 고의적
+      (악의적) 항공기 충돌을 별도로 취급한다. 최근 IAEA 안전보고서 및 일부 국가 규제
+      (예: 벨기에, 핀란드)와 마찬가지로 EUR은 항공기 충돌을 복수의 위협 시나리오와
+      다단계 성능목표로 정의하며, 이는 설계기준 외부사건(DBEE) 수준과 설계기준초과
+      외부사건(BDBEE / 설계확장조건) 수준으로 묶을 수 있다.
+    key_parameters:
+      crash_types: ["accidental", "intentional / malicious"]
+      structure: "multiple threat scenarios × multi-level performance objectives"
+      levels: ["DBEE", "BDBEE / DEC"]
+    source_url: "https://europeanutilityrequirements.eu/sites/default/files/2023-04/TableOfContent2_4..pdf"
+    notes: >-
+      KEY COMPARISON POINT. EUR's multi-threat, multi-level structure is the main
+      architectural difference from the single-threat, single-level US rule: 10 CFR 50.150
+      defines one BDB threat and one pass/fail criterion set, whereas EUR grades scenarios
+      against graded objectives. See crosswalk CW-03 and CW-04.
+
+  - clause_id: EU-2014-87-framework
+    source_id: EU-2014-87-EURATOM
+    locator: "Council Directive 2014/87/Euratom"
+    heading_en: "EU legal framework and its explicit security carve-out"
+    heading_ko: "EU 법적 체계 및 보안 분야 제외"
+    topics: [T01, T13]
+    text_status: summary
+    verification: model_knowledge
+    confidence: medium
+    summary_en: >-
+      Directive 2014/87/Euratom, amending 2009/71/Euratom, strengthens the Community
+      framework for nuclear safety: it introduces a high-level nuclear safety objective of
+      preventing accidents and avoiding early or large radioactive releases, reinforces
+      defence in depth, and establishes periodic topical peer reviews among Member States.
+      It obliges Member States to have a national framework requiring hazards to be addressed
+      in design, but it does not itself prescribe an aircraft impact load. Security and
+      malicious acts fall outside the scope of the nuclear safety directive.
+    summary_ko: >-
+      2009/71/Euratom을 개정한 2014/87/Euratom 지침은 EU 원자력안전 체계를 강화한다.
+      사고 예방 및 조기·대량 방사성물질 방출 회피라는 상위 안전목표를 도입하고, 심층방어를
+      강화하며, 회원국 간 주제별 동료평가(topical peer review)를 정례화한다. 회원국이
+      설계단계에서 재해를 다루도록 하는 국가체계를 갖출 것을 의무화하지만, 항공기 충돌
+      하중 자체를 규정하지는 않는다. 보안 및 악의적 행위는 본 원자력안전지침의 적용범위
+      밖이다.
+    key_parameters:
+      prescribes_aircraft_load: false
+      security_in_scope: false
+      peer_review_cycle: "topical peer reviews every 6 years"
+    source_url: "https://eur-lex.europa.eu/eli/dir/2014/87/oj"
+
+  - clause_id: EU-WENRA-external-hazards
+    source_id: EU-WENRA-SRL
+    locator: "WENRA Safety Reference Levels (2020); Issue TU External Hazards guidance"
+    heading_en: "Harmonised European expectation on external hazards"
+    heading_ko: "외부재해에 대한 유럽 조화 기대수준"
+    topics: [T02, T04, T06]
+    text_status: summary
+    verification: web_verified
+    confidence: medium
+    summary_en: >-
+      WENRA reference levels require that natural hazards and human-made external hazards —
+      including aeroplane crash and other nearby transportation, industrial activities and
+      site-area conditions that can reasonably cause fires, explosions or other threats to
+      the plant — are, as a minimum, taken into account in the design of the plant according
+      to the site. Design extension conditions may result from events exceeding the design
+      basis. The reference levels were revised in 2014 following Fukushima Dai-ichi and the
+      EU stress tests, and again in 2020, with Issue TU providing the external-hazards
+      guidance.
+    summary_ko: >-
+      WENRA 안전기준수준은 자연재해와 인위적 외부재해 — 항공기 추락 및 인근 수송,
+      산업활동, 화재·폭발 등 발전소에 위협이 될 수 있는 부지주변 조건 포함 — 를 부지
+      특성에 따라 최소한 설계에 반영할 것을 요구한다. 설계기준을 초과하는 사건으로부터
+      설계확장조건(DEC)이 도출될 수 있다. 기준수준은 후쿠시마 사고와 EU 스트레스 테스트
+      이후 2014년에 개정되었고 2020년에 재개정되었으며, 외부재해 지침은 Issue TU가 담당한다.
+    key_parameters:
+      binding: false
+      role: "harmonisation reference implemented through national regulation"
+      guidance_document: "Issue TU: External Hazards (head document, 2020-06-01)"
+    source_url: "https://www.wenra.eu/sites/default/files/publications/wenra_guidance_on_issue_tu_head_document_-2020-06-01.pdf"
+    notes: >-
+      Relevance to the Czech records: SÚJB is a WENRA member and decree 329/2017 Sb. was
+      written in the post-2014 reference-level environment, which is why it carries an
+      explicit external-initiating-event design basis and a DEC concept.

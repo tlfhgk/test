@@ -1,0 +1,5 @@
+PyYAML>=6.0
+# optional — only for scripts/answer.py
+anthropic>=0.40
+# optional — only if `pdftotext` (poppler-utils) is unavailable for ingest_raw.py
+pypdf>=4.0

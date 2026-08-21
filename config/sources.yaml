@@ -1,0 +1,308 @@
+# ---------------------------------------------------------------------------
+# Source registry — aircraft impact / aircraft crash (항공기 충돌) regulatory corpus
+#
+# Every clause record in corpus/clauses/*.yaml MUST reference a source_id below.
+# `access` tells the ingest pipeline whether the verbatim text may be placed in
+# corpus/raw/ and redistributed with this repository.
+#
+#   access: public-domain  -> US federal government works; verbatim text may be
+#                             committed to corpus/raw/ and indexed in full.
+#   access: free-download  -> freely downloadable but copyrighted; keep local
+#                             only (corpus/raw/ is .gitignored), do not commit.
+#   access: proprietary    -> licence required; never commit text. Records stay
+#                             at summary level with a pointer to the source.
+# ---------------------------------------------------------------------------
+
+schema_version: 1
+generated_by: "aircraft-impact-rag"
+notes_ko: >-
+  이 레지스트리는 문서의 서지정보와 출처 URL만을 담는다. 본문(verbatim)은
+  라이선스 조건에 따라 corpus/raw/ 에 사용자가 직접 배치한 뒤
+  scripts/ingest_raw.py 로 색인한다.
+
+sources:
+
+  # ======================= UNITED STATES =============================
+  - source_id: US-10CFR50.150
+    jurisdiction: US
+    framework: "US NRC"
+    doc_number: "10 CFR 50.150"
+    title_orig: "Aircraft impact assessment"
+    title_ko: "항공기 충돌 평가"
+    issuer: "U.S. Nuclear Regulatory Commission"
+    instrument_type: regulation
+    binding: true
+    version: "current (as amended)"
+    origin_rule: "74 FR 28112, 'Consideration of Aircraft Impacts for New Nuclear Power Reactors', 12 June 2009"
+    effective_date: "2009-07-13"
+    language: en
+    access: public-domain
+    urls:
+      - "https://www.ecfr.gov/current/title-10/chapter-I/part-50/subject-group-ECFR448a4b6d297d970/section-50.150"
+      - "https://www.nrc.gov/reading-rm/doc-collections/cfr/part050/part050-0150"
+      - "https://www.govinfo.gov/content/pkg/CFR-2025-title10-vol1/pdf/CFR-2025-title10-vol1-sec50-150.pdf"
+      - "https://www.federalregister.gov/documents/2009/06/12/E9-13582/consideration-of-aircraft-impacts-for-new-nuclear-power-reactors"
+    role: "Binding requirement to perform a design-specific aircraft impact assessment (AIA) for new reactors."
+
+  - source_id: US-RG-1.217
+    jurisdiction: US
+    framework: "US NRC"
+    doc_number: "Regulatory Guide 1.217"
+    title_orig: "Guidance for the Assessment of Beyond-Design-Basis Aircraft Impacts"
+    title_ko: "설계기준 초과 항공기 충돌 평가 지침"
+    issuer: "U.S. Nuclear Regulatory Commission"
+    instrument_type: guidance
+    binding: false
+    version: "Revision 0"
+    issue_date: "2011-08"
+    language: en
+    access: public-domain
+    adams: "ML092900004"
+    urls:
+      - "https://www.federalregister.gov/documents/2011/08/12/2011-20513/guidance-for-the-assessment-of-beyond-design-basis-aircraft-impacts"
+      - "https://www.govinfo.gov/app/details/GOVPUB-Y3_N88-PURL-gpo37127"
+      - "https://www.govinfo.gov/content/pkg/FR-2011-08-12/html/2011-20513.htm"
+    role: "NRC staff position; endorses NEI 07-13 Rev. 8 as an acceptable method of meeting 10 CFR 50.150(a)."
+
+  - source_id: US-NEI-07-13
+    jurisdiction: US
+    framework: "US industry (NEI)"
+    doc_number: "NEI 07-13"
+    title_orig: "Methodology for Performing Aircraft Impact Assessments for New Plant Designs"
+    title_ko: "신규 원전 설계에 대한 항공기 충돌 평가 수행 방법론"
+    issuer: "Nuclear Energy Institute"
+    instrument_type: industry-methodology
+    binding: false
+    version: "Revision 8P (public version), April 2011"
+    prior_versions: ["Revision 7, May 2009"]
+    language: en
+    access: free-download
+    copyright_note: "© Nuclear Energy Institute. Public (redacted) version released through NRC ADAMS. Do not commit the text to this repository."
+    adams: "ML111440006 (Rev. 8P); ML091490723 (Rev. 7)"
+    urls:
+      - "https://www.nrc.gov/docs/ML1114/ML111440006.pdf"
+      - "https://www.nrc.gov/docs/ML1114/ML111440004.html"
+      - "https://www.nrc.gov/docs/ML0914/ML091490723.pdf"
+    role: "Reference methodology this database benchmarks the other frameworks against."
+
+  # ======================= CZECH REPUBLIC ============================
+  - source_id: CZ-263-2016
+    jurisdiction: CZ
+    framework: "Czech nuclear law"
+    doc_number: "zákon č. 263/2016 Sb."
+    title_orig: "Atomový zákon"
+    title_en: "Atomic Act"
+    title_ko: "체코 원자력법"
+    issuer: "Parlament České republiky"
+    instrument_type: act
+    binding: true
+    issue_date: "2016-07-14"
+    language: cs
+    access: free-download
+    urls:
+      - "https://www.zakonyprolidi.cz/cs/2016-263"
+      - "https://www.sagit.cz/info/sb16263"
+      - "https://faolex.fao.org/docs/pdf/cze192357.pdf"
+    role: "Primary legislation; empowers SÚJB decrees (§ 24(7), § 44(4)(a)(b), § 45(4), § 46 are the enabling provisions for decree 329/2017)."
+
+  - source_id: CZ-329-2017
+    jurisdiction: CZ
+    framework: "Czech nuclear law"
+    doc_number: "vyhláška č. 329/2017 Sb."
+    title_orig: "Vyhláška o požadavcích na projekt jaderného zařízení"
+    title_en: "Decree on requirements for the design of a nuclear installation"
+    title_ko: "원자력시설 설계 요건에 관한 시행령"
+    issuer: "Státní úřad pro jadernou bezpečnost (SÚJB)"
+    instrument_type: decree
+    binding: true
+    issue_date: "2017-09-26"
+    effective_date: "2017-11-01"
+    language: cs
+    access: free-download
+    urls:
+      - "https://sujb.gov.cz/fileadmin/sujb/docs/legislativa/vyhlasky/329_2017.pdf"
+      - "https://www.zakonyprolidi.cz/cs/2017-329"
+      - "https://www.sagit.cz/_texty/sb17329.htm"
+      - "https://e-sbirka.gov.cz/sb/2017/329"
+      - "https://www.tzb-info.cz/docu/predpisy/download/V329-2017.pdf"
+    role: "Binding Czech design requirements; contains the accidental-aircraft-crash design basis and the 1E-7/yr frequency criterion."
+
+  - source_id: CZ-378-2016
+    jurisdiction: CZ
+    framework: "Czech nuclear law"
+    doc_number: "vyhláška č. 378/2016 Sb."
+    title_orig: "Vyhláška o umístění jaderného zařízení"
+    title_en: "Decree on the siting of a nuclear installation"
+    title_ko: "원자력시설 부지선정에 관한 시행령"
+    issuer: "Státní úřad pro jadernou bezpečnost (SÚJB)"
+    instrument_type: decree
+    binding: true
+    language: cs
+    access: free-download
+    verification: to_verify
+    urls:
+      - "https://www.zakonyprolidi.cz/cs/2016-378"
+    role: "Siting-stage screening of external human-induced hazards, incl. air traffic, that feeds the design basis in 329/2017."
+
+  # ======================= EUROPE ====================================
+  - source_id: EU-EUR
+    jurisdiction: EU
+    framework: "European Utility Requirements"
+    doc_number: "EUR Volume 2"
+    title_orig: "European Utility Requirements for LWR Nuclear Power Plants — Volume 2, Generic Nuclear Island Requirements"
+    title_ko: "유럽 사업자 요건(EUR) 제2권"
+    issuer: "EUR Organisation"
+    instrument_type: utility-requirements
+    binding: false
+    version: "Revision E (Dec 2016); Revision F in circulation"
+    language: en
+    access: proprietary
+    copyright_note: "© EUR Organisation. Licence required. Only the public table of contents is referenced here; no requirement text is reproduced."
+    urls:
+      - "https://europeanutilityrequirements.eu/"
+      - "https://europeanutilityrequirements.eu/sites/default/files/2023-04/TableOfContent2_4..pdf"
+    role: "Buyer/utility requirements used in European new-build bid specifications; defines both accidental and intentional (malicious) aircraft crash load cases."
+
+  - source_id: EU-2014-87-EURATOM
+    jurisdiction: EU
+    framework: "Euratom"
+    doc_number: "Council Directive 2014/87/Euratom"
+    title_orig: "Council Directive 2014/87/Euratom amending Directive 2009/71/Euratom establishing a Community framework for the nuclear safety of nuclear installations"
+    title_ko: "원자력안전지침 개정 (2014/87/Euratom)"
+    issuer: "Council of the European Union"
+    instrument_type: directive
+    binding: true
+    issue_date: "2014-07-08"
+    language: en
+    access: public
+    urls:
+      - "https://eur-lex.europa.eu/eli/dir/2014/87/oj"
+    role: "Transposed nuclear safety objective and defence-in-depth obligation; the legal hook under which Member States require external-hazard robustness. Security/malicious acts are expressly outside its scope."
+
+  - source_id: EU-WENRA-SRL
+    jurisdiction: EU
+    framework: "WENRA"
+    doc_number: "WENRA Safety Reference Levels for Existing Reactors (2020) + Issue TU guidance"
+    title_orig: "WENRA Safety Reference Levels for Existing Reactors; Guidance Document Issue TU: External Hazards"
+    title_ko: "WENRA 안전기준수준 및 외부재해 지침(Issue TU)"
+    issuer: "Western European Nuclear Regulators Association"
+    instrument_type: harmonisation-reference
+    binding: false
+    version: "SRL 2020; Issue TU head document 2020-06-01"
+    language: en
+    access: public
+    urls:
+      - "https://wenra.eu/sites/default/files/publications/wenra_safety_reference_level_for_existing_reactors_2020.pdf"
+      - "https://www.wenra.eu/sites/default/files/publications/wenra_guidance_on_issue_tu_head_document_-2020-06-01.pdf"
+      - "https://www.wenra.eu/sites/default/files/publications/wenra-rhwg_t1_guidance_on_issue_t_head_document_2015-04-21.pdf"
+    role: "European harmonised expectations on external hazards (incl. aircraft crash) and design extension conditions; SÚJB is a WENRA member and 329/2017 reflects these levels."
+
+  # ======================= IAEA ======================================
+  - source_id: IAEA-SSR-2-1
+    jurisdiction: INT
+    framework: "IAEA Safety Standards"
+    doc_number: "SSR-2/1 (Rev. 1)"
+    title_orig: "Safety of Nuclear Power Plants: Design"
+    title_ko: "원전 설계 안전요건"
+    issuer: "International Atomic Energy Agency"
+    instrument_type: safety-requirements
+    binding: false
+    version: "Rev. 1 (2016)"
+    language: en
+    access: free-download
+    copyright_note: "© IAEA. Freely downloadable; keep text local, do not commit."
+    urls:
+      - "https://www.iaea.org/publications/10646/safety-of-nuclear-power-plants-design"
+    role: "Top-level design requirements; Requirement 17 covers internal and external hazards."
+
+  - source_id: IAEA-SSG-68
+    jurisdiction: INT
+    framework: "IAEA Safety Standards"
+    doc_number: "SSG-68"
+    title_orig: "Design of Nuclear Installations Against External Events Excluding Earthquakes"
+    title_ko: "지진을 제외한 외부사건에 대한 원자력시설 설계"
+    issuer: "International Atomic Energy Agency"
+    instrument_type: safety-guide
+    binding: false
+    version: "2021 (STI/PUB/1968)"
+    supersedes: "NS-G-1.5, External Events Excluding Earthquakes in the Design of Nuclear Power Plants (2003)"
+    language: en
+    access: free-download
+    copyright_note: "© IAEA. Freely downloadable; keep text local, do not commit."
+    urls:
+      - "https://www.iaea.org/publications/14666/design-of-nuclear-installations-against-external-events-excluding-earthquakes"
+      - "https://www-pub.iaea.org/MTCD/publications/PDF/PUB1968_web.pdf"
+    role: "Primary IAEA design guidance for aircraft crash; covers design basis and beyond-design-basis external events."
+
+  - source_id: IAEA-SSG-79
+    jurisdiction: INT
+    framework: "IAEA Safety Standards"
+    doc_number: "SSG-79"
+    title_orig: "Hazards Associated with Human Induced External Events in Site Evaluation for Nuclear Installations"
+    title_ko: "부지평가 시 인위적 외부사건 관련 재해"
+    issuer: "International Atomic Energy Agency"
+    instrument_type: safety-guide
+    binding: false
+    version: "(STI/PUB/2036)"
+    supersedes: "NS-G-3.1, External Human Induced Events in Site Evaluation for Nuclear Power Plants (2002)"
+    language: en
+    access: free-download
+    verification: to_verify
+    copyright_note: "© IAEA. Freely downloadable; keep text local, do not commit."
+    urls:
+      - "https://www.iaea.org/publications/15067/hazards-associated-with-human-induced-external-events-in-site-evaluation-for-nuclear-installations"
+      - "https://www-pub.iaea.org/MTCD/Publications/PDF/PUB2036_web.pdf"
+      - "https://www-pub.iaea.org/MTCD/publications/PDF/Pub1126_scr.pdf"
+    role: "Siting-stage hazard evaluation; source of the 1E-7/reactor-year screening probability level (SPL) concept."
+
+  - source_id: IAEA-SRS-86
+    jurisdiction: INT
+    framework: "IAEA Safety Reports"
+    doc_number: "Safety Reports Series No. 86"
+    title_orig: "Safety Aspects of Nuclear Power Plants in Human Induced External Events: General Considerations"
+    title_ko: "인위적 외부사건에서의 원전 안전 측면: 일반 고려사항"
+    issuer: "International Atomic Energy Agency"
+    instrument_type: safety-report
+    binding: false
+    version: "2017"
+    language: en
+    access: free-download
+    copyright_note: "© IAEA. Freely downloadable; keep text local, do not commit."
+    urls:
+      - "https://www-pub.iaea.org/MTCD/Publications/PDF/P1721_web.pdf"
+    role: "First of the three-part set; framework and roadmap for design/evaluation against human-induced external events."
+
+  - source_id: IAEA-SRS-87
+    jurisdiction: INT
+    framework: "IAEA Safety Reports"
+    doc_number: "Safety Reports Series No. 87"
+    title_orig: "Safety Aspects of Nuclear Power Plants in Human Induced External Events: Assessment of Structures"
+    title_ko: "인위적 외부사건에서의 원전 안전 측면: 구조물 평가"
+    issuer: "International Atomic Energy Agency"
+    instrument_type: safety-report
+    binding: false
+    version: "2018"
+    language: en
+    access: free-download
+    copyright_note: "© IAEA. Freely downloadable; keep text local, do not commit."
+    urls:
+      - "https://www.iaea.org/publications/10953/safety-aspects-of-nuclear-power-plants-in-human-induced-external-events-assessment-of-structures"
+      - "https://www-pub.iaea.org/MTCD/Publications/PDF/P1723_web.pdf"
+    role: "The IAEA counterpart to NEI 07-13's structural chapters: impact loading, local damage, global response, induced vibration."
+
+  - source_id: IAEA-SRS-88
+    jurisdiction: INT
+    framework: "IAEA Safety Reports"
+    doc_number: "Safety Reports Series No. 88"
+    title_orig: "Safety Aspects of Nuclear Power Plants in Human Induced External Events: Margin Assessment"
+    title_ko: "인위적 외부사건에서의 원전 안전 측면: 여유도 평가"
+    issuer: "International Atomic Energy Agency"
+    instrument_type: safety-report
+    binding: false
+    version: "2017"
+    language: en
+    access: free-download
+    copyright_note: "© IAEA. Freely downloadable; keep text local, do not commit."
+    urls:
+      - "https://www.iaea.org/publications/10914/safety-aspects-of-nuclear-power-plants-in-human-induced-external-events-margin-assessment"
+    role: "Plant/system-level margin (HCLPF-style) evaluation against human-induced external hazards."

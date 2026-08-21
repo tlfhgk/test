@@ -1,0 +1,159 @@
+schema_version: 1
+source_id: US-10CFR50.150
+
+# text_status:  summary | verbatim | editorial
+# verification: web_verified   - confirmed against a retrieved source this session
+#               model_knowledge- written from the assistant's knowledge, NOT re-checked
+#               to_verify      - locator or content uncertain, check before citing
+clauses:
+
+  - clause_id: US-10CFR50.150-a-1
+    locator: "10 CFR 50.150(a)(1)"
+    heading_en: "Assessment requirement and acceptance criteria"
+    heading_ko: "평가 의무 및 허용기준"
+    topics: [T01, T02, T12, T15]
+    text_status: summary
+    verification: web_verified
+    confidence: high
+    summary_en: >-
+      Each applicant within the scope of paragraph (a)(3) must perform a design-specific
+      assessment of the effects on the facility of the impact of a large, commercial aircraft.
+      Using realistic analyses, the applicant must identify and incorporate into the design
+      those design features and functional capabilities that show, with reduced use of
+      operator actions, that (i) the reactor core remains cooled or the containment remains
+      intact, and (ii) spent fuel cooling or spent fuel pool integrity is maintained.
+    summary_ko: >-
+      (a)(3)의 적용 대상 신청자는 대형 상용항공기 충돌이 시설에 미치는 영향에 대한
+      설계특정 평가를 수행해야 한다. 현실적(realistic) 해석을 사용하여, 운전원 조치
+      의존을 줄인 상태에서 (i) 노심냉각이 유지되거나 격납건물 건전성이 유지되고,
+      (ii) 사용후핵연료 냉각 또는 사용후핵연료저장조 건전성이 유지됨을 보이는
+      설계특성(design features) 및 기능적 능력(functional capabilities)을 도출하여
+      설계에 반영해야 한다.
+    key_parameters:
+      analysis_type: "realistic (best-estimate), not design-basis conservative"
+      criteria_logic: "(core cooling OR containment integrity) AND (SFP cooling OR SFP integrity)"
+      operator_action: "reduced use of operator actions"
+    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/subject-group-ECFR448a4b6d297d970/section-50.150"
+    notes: >-
+      This is the operative acceptance criterion the whole US framework hangs on. Note the
+      OR structure: neither containment integrity nor core cooling alone is mandatory.
+
+  - clause_id: US-10CFR50.150-a-2
+    locator: "10 CFR 50.150(a)(2)"
+    heading_en: "Aircraft impact characteristics"
+    heading_ko: "항공기 충돌 특성"
+    topics: [T03, T04, T13, T14]
+    text_status: summary
+    verification: model_knowledge
+    confidence: medium
+    summary_en: >-
+      The assessment is based on the beyond-design-basis impact of a large, commercial
+      aircraft used for long-distance flights in the United States, with aviation fuel
+      loading typical of such flights. The impact speed and angle of impact are to consider
+      the ability of both experienced and inexperienced pilots to control an aircraft at
+      the low altitude characteristic of nuclear power plant structures. The specific
+      impact characteristics to be used are provided by the NRC as security-related
+      information and are not publicly available.
+    summary_ko: >-
+      평가는 미국 내 장거리 운항에 사용되는 대형 상용항공기의 설계기준초과
+      (beyond-design-basis) 충돌을 대상으로 하며, 그러한 운항에 통상적인 항공유
+      적재량을 가정한다. 충돌속도와 충돌각도는 숙련·비숙련 조종사가 원전 구조물
+      높이의 저고도에서 항공기를 제어할 수 있는 능력을 고려하여 정한다. 실제 적용할
+      구체적 충돌 특성값은 NRC가 보안 관련 정보로 별도 제공하며 공개되지 않는다.
+    key_parameters:
+      classification: "beyond design basis (BDB)"
+      aircraft: "large commercial aircraft, long-distance US flights"
+      fuel: "aviation fuel loading typical of such flights"
+      numeric_values: "withheld — security-related information supplied by NRC"
+    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/subject-group-ECFR448a4b6d297d970/section-50.150"
+    notes: >-
+      IMPORTANT for comparison work: because the mass/velocity/fuel figures are withheld,
+      any numeric benchmark against EUR or Czech requirements can only be made at the level
+      of methodology, not at the level of the threat parameters themselves.
+
+  - clause_id: US-10CFR50.150-a-3
+    locator: "10 CFR 50.150(a)(3)"
+    heading_en: "Applicability"
+    heading_ko: "적용 대상"
+    topics: [T02]
+    text_status: summary
+    verification: model_knowledge
+    confidence: medium
+    summary_en: >-
+      The requirement applies to applicants for new reactors, including applicants for a
+      standard design certification, a standard design approval, a combined licence under
+      Part 52, a manufacturing licence, and a construction permit or operating licence for
+      a new reactor. Applicants that reference a design that has already undergone an
+      aircraft impact assessment do not have to repeat it. The rule is prospective: it does
+      not apply to the existing operating fleet licensed before the rule took effect.
+    summary_ko: >-
+      본 요건은 신규 원전 신청자, 즉 표준설계인증(DC), 표준설계승인(SDA),
+      10 CFR Part 52 통합운영허가(COL), 제조허가(ML), 신규 원전의 건설허가(CP)·
+      운영허가(OL) 신청자에게 적용된다. 이미 항공기 충돌 평가를 수행한 설계를 참조하는
+      신청자는 반복 수행할 필요가 없다. 본 규정은 장래효를 가지며 규칙 발효 전에
+      허가된 기존 가동 원전에는 적용되지 않는다.
+    key_parameters:
+      applies_to: "new reactor applicants (DC, SDA, COL, ML, CP, OL)"
+      excludes: "existing operating reactors licensed before 2009-07-13"
+    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/subject-group-ECFR448a4b6d297d970/section-50.150"
+    notes: "Verify the exact enumeration of subparagraphs (i)-(vi) against eCFR before citing in a licensing document."
+
+  - clause_id: US-10CFR50.150-b
+    locator: "10 CFR 50.150(b)"
+    heading_en: "Content of application — description of design features"
+    heading_ko: "신청서 기재사항 — 설계특성 기술"
+    topics: [T14]
+    text_status: summary
+    verification: model_knowledge
+    confidence: medium
+    summary_en: >-
+      The applicant must include in the application a description of the key design features
+      and functional capabilities identified by the assessment, together with the strategies
+      and the basis on which the acceptance criteria of (a)(1) are met. This description
+      becomes part of the final safety analysis report.
+    summary_ko: >-
+      신청자는 평가를 통해 도출된 핵심 설계특성 및 기능적 능력에 관한 기술과,
+      (a)(1)의 허용기준 충족 근거 및 전략을 신청서에 포함해야 하며, 이 기술내용은
+      최종안전성분석보고서(FSAR)의 일부가 된다.
+    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/subject-group-ECFR448a4b6d297d970/section-50.150"
+
+  - clause_id: US-10CFR50.150-c
+    locator: "10 CFR 50.150(c)"
+    heading_en: "Change control for key design features"
+    heading_ko: "핵심 설계특성 변경관리"
+    topics: [T14]
+    text_status: summary
+    verification: model_knowledge
+    confidence: low
+    summary_en: >-
+      Holders of a licence, design certification, design approval or manufacturing licence
+      subject to this section are restricted in changing the key design features and
+      functional capabilities credited in the assessment; changes are controlled through the
+      applicable change process rather than made freely.
+    summary_ko: >-
+      본 조의 적용을 받는 허가·설계인증·설계승인·제조허가 보유자는 평가에서 인정된
+      핵심 설계특성과 기능적 능력을 임의로 변경할 수 없으며, 해당 변경관리 절차를
+      통해 통제된다.
+    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/subject-group-ECFR448a4b6d297d970/section-50.150"
+    notes: "LOW CONFIDENCE on the exact change-control mechanism and paragraph lettering. Confirm against eCFR."
+
+  - clause_id: US-10CFR50.150-d
+    locator: "10 CFR 50.150(d)"
+    heading_en: "Withholding of the assessment from public disclosure"
+    heading_ko: "평가결과의 비공개"
+    topics: [T13, T14]
+    text_status: summary
+    verification: model_knowledge
+    confidence: medium
+    summary_en: >-
+      The aircraft impact assessment and the supporting analyses are treated as
+      security-related information and may be withheld from public disclosure under the
+      NRC's rules on public inspection of records (10 CFR 2.390).
+    summary_ko: >-
+      항공기 충돌 평가 및 관련 해석자료는 보안 관련 정보로 취급되어 NRC의 기록공개
+      규정(10 CFR 2.390)에 따라 비공개될 수 있다.
+    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/subject-group-ECFR448a4b6d297d970/section-50.150"
+    notes: >-
+      Practical consequence: the plant-specific AIA results for AP1000, US-EPR, ESBWR etc.
+      are not in the public FSARs, so a public-domain benchmark against NEI 07-13 outputs
+      is impossible. Only the methodology is public.
