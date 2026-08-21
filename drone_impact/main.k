@@ -1,0 +1,485 @@
+$#=============================================================================
+$# DRONE HIGH-SPEED IMPACT + BATTERY BURST  ON A 2-STORY COMMERCIAL BUILDING
+$#
+$#   solver : LS-DYNA (Ansys Student / LS-DYNA Student)  explicit, SMP
+$#   units  : kg - mm - ms - kN - GPa
+$#            length mm | time ms | mass kg | force kN | stress GPa
+$#            density kg/mm^3 (steel 7.85e-6) | velocity mm/ms = m/s
+$#            gravity 9.81e-3 mm/ms^2 | energy kJ
+$#
+$#   run    : lsdyna i=main.k ncpu=4 memory=200m
+$#   mesh   : python3 generate_model.py   (regenerates the 3 include files)
+$#
+$#   NOTE: every hand-written card below uses COMMA (free) format so the
+$#         column alignment can never be broken while editing.
+$#=============================================================================
+*KEYWORD
+*TITLE
+Drone impact and battery burst - 2 story retail building
+$
+$#-----------------------------------------------------------------------------
+$#  MESH INCLUDES
+$#-----------------------------------------------------------------------------
+*INCLUDE
+building.k
+*INCLUDE
+drone.k
+*INCLUDE
+blast.k
+$
+$#=============================================================================
+$#  1. CONTROL
+$#=============================================================================
+*CONTROL_TERMINATION
+$# endtim,endcyc,dtmin,endeng,endmas,nosol
+35.0,0,0.0,0.0,0.0
+$
+*CONTROL_TIMESTEP
+$# dtinit,tssfac,isdo,tslimt,dt2ms,lctm,erode,ms1st
+0.0,0.80,0,0.0,-5.0E-4,0,1,0
+$
+*CONTROL_ENERGY
+$# hgen,rwen,slnten,rylen
+2,2,2,2
+$
+*CONTROL_HOURGLASS
+$# ihq,qh
+4,0.05
+$
+*CONTROL_BULK_VISCOSITY
+$# q1,q2,type
+1.5,0.06,1
+$
+*CONTROL_ACCURACY
+$# osu,inn,pidosu,iacc
+1,4,0,0
+$
+*CONTROL_SHELL
+$# wrpang,esort,irnxx,istupd,theory,bwc,miter,proj
+20.0,1,-1,1,2,1,1,1
+$# rotascl,intgrd,lamsht,cstyp6,thshel
+1.0,0,0,1,0
+$# psstupd,sidt4tu,cntco,itsflg,irquad,w-mode,stretch,icrq
+0,0,0,0,0
+$# nfail1,nfail4,psnfail,keepcs,delfr,drcpsid,drcprm,intperr
+1,1,0,0,0
+$
+*CONTROL_SOLID
+$# esort,fmatrx,niptets,swlocl,psfail,t10jtol,icoh,tet13k
+1,0,4,1,0
+$
+*CONTROL_CONTACT
+$# slsfac,rwpnal,islchk,shlthk,penopt,thkchg,orien,enmass
+0.10,1.0,1,1,1,1,1,2
+$# usrstr,usrfrc,nsbcs,interm,xpene,ssthk,ecdt,tiedprj
+0,0,0,0,4.0,0,0,0
+$
+$#=============================================================================
+$#  2. OUTPUT
+$#=============================================================================
+*DATABASE_BINARY_D3PLOT
+$# dt   (0.25 ms  ->  140 animation states)
+0.25
+$
+*DATABASE_EXTENT_BINARY
+$# neiph,neips,maxint,strflg,sigflg,epsflg,rltflg,engflg
+0,0,3,1,1,1,1,1
+$# cmpflg,ieverp,beamip,dcomp,shge,stssz,n3thdt,ialemat
+0,0,4,1,1,1,2,1
+$
+*DATABASE_GLSTAT
+0.05
+*DATABASE_MATSUM
+0.05
+*DATABASE_SLEOUT
+0.05
+*DATABASE_RCFORC
+0.05
+*DATABASE_DEFORC
+0.05
+$
+$#=============================================================================
+$#  3. PART SETS
+$#=============================================================================
+*SET_PART_LIST
+$# sid  (10 = everything that may contact anything, incl. the ground)
+10
+101,102,103,104,105,106,107,108
+109,110,201,202,203,204,205,206
+$
+*SET_PART_LIST
+$# sid  (11 = drone only -> initial velocity)
+11
+201,202,203,204,205,206
+$
+$#=============================================================================
+$#  4. HOURGLASS
+$#=============================================================================
+*HOURGLASS
+$# hgid,ihq,qm,ibq,q1,q2,qb/vdc,qw
+1,6,1.0,0,1.5,0.06,0.10,0.10
+$
+$#=============================================================================
+$#  5. BUILDING - SECTIONS
+$#=============================================================================
+*SECTION_BEAM
+$# secid,elform,shrf,qr/irid,cst,scoor,nsm     RC column 400 x 400
+101,1,1.0,2,1
+$# ts1,ts2,tt1,tt2,nsloc,ntloc
+400.0,400.0,400.0,400.0
+$
+*SECTION_BEAM
+$# RC girder 300 (web) x 500 (depth)
+102,1,1.0,2,1
+300.0,300.0,500.0,500.0
+$
+*SECTION_BEAM
+$# aluminium curtain-wall mullion 60 x 100
+108,1,1.0,2,1
+60.0,60.0,100.0,100.0
+$
+*SECTION_SHELL
+$# secid,elform,shrf,nip,propt,qr/irid,icomp,setyp   2F RC slab t=180
+103,2,0.833,5,1
+180.0,180.0,180.0,180.0
+$
+*SECTION_SHELL
+$# roof RC slab t=180
+104,2,0.833,5,1
+180.0,180.0,180.0,180.0
+$
+*SECTION_SHELL
+$# facade concrete bands (bulkhead / spandrel / parapet) t=150
+105,2,0.833,3,1
+150.0,150.0,150.0,150.0
+$
+*SECTION_SHELL
+$# 1F storefront laminated glass t=10
+106,2,0.833,3,1
+10.0,10.0,10.0,10.0
+$
+*SECTION_SHELL
+$# 2F laminated glass t=10   <-- impact target
+107,2,0.833,3,1
+10.0,10.0,10.0,10.0
+$
+*SECTION_SHELL
+$# masonry infill side/rear walls t=200
+109,2,0.833,3,1
+200.0,200.0,200.0,200.0
+$
+*SECTION_SHELL
+$# rigid ground plane
+110,2,0.833,2,1
+20.0,20.0,20.0,20.0
+$
+$#=============================================================================
+$#  6. BUILDING - MATERIALS
+$#=============================================================================
+*MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE
+RC column (smeared concrete + rebar)
+$# mid,ro,e,pr,sigy,etan,fail,tdel
+101,2.50E-6,30.0,0.20,0.040,1.0,0.050,0.0
+$# c,p,lcss,lcsr,vp
+0.0,0.0,0,0,0.0
+$# eps1..eps8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$# es1..es8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$
+*MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE
+RC girder (smeared concrete + rebar)
+102,2.50E-6,30.0,0.20,0.040,1.0,0.050,0.0
+0.0,0.0,0,0,0.0
+$# eps1..eps8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$# es1..es8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$
+*MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE
+RC slab 2F
+103,2.40E-6,30.0,0.20,0.030,0.30,0.020,0.0
+0.0,0.0,0,0,0.0
+$# eps1..eps8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$# es1..es8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$
+*MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE
+RC slab roof
+104,2.40E-6,30.0,0.20,0.030,0.30,0.020,0.0
+0.0,0.0,0,0,0.0
+$# eps1..eps8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$# es1..es8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$
+*MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE
+Facade concrete band
+105,2.40E-6,30.0,0.20,0.030,0.30,0.015,0.0
+0.0,0.0,0,0,0.0
+$# eps1..eps8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$# es1..es8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$
+*MAT_ELASTIC_TITLE
+Laminated glass 1F
+$# mid,ro,e,pr,da,db,k
+106,2.50E-6,70.0,0.22
+$
+*MAT_ELASTIC_TITLE
+Laminated glass 2F
+107,2.50E-6,70.0,0.22
+$
+*MAT_ADD_EROSION_TITLE
+Glass 1F brittle fracture
+$# mid,excl,mxpres,mneps,effeps,voleps,numfip,ncs
+106,0.0,0.0,0.0,0.0,0.0,1.0,1.0
+$# mnpres,sigp1,sigvm,mxeps,epssh,sigth,impulse,failtm
+0.0,0.060,0.0,0.0020,0.0,0.0,0.0,0.0
+$
+*MAT_ADD_EROSION_TITLE
+Glass 2F brittle fracture
+107,0.0,0.0,0.0,0.0,0.0,1.0,1.0
+0.0,0.060,0.0,0.0020,0.0,0.0,0.0,0.0
+$
+*MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE
+Aluminium mullion
+108,2.70E-6,70.0,0.33,0.150,0.50,0.200,0.0
+0.0,0.0,0,0,0.0
+$# eps1..eps8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$# es1..es8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$
+*MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE
+Masonry infill wall
+109,1.90E-6,12.0,0.20,0.008,0.05,0.008,0.0
+0.0,0.0,0,0,0.0
+$# eps1..eps8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$# es1..es8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$
+*MAT_RIGID_TITLE
+Ground plane (fully fixed)
+$# mid,ro,e,pr,n,couple,m,alias
+110,2.40E-6,30.0,0.20
+$# cmo,con1,con2
+1.0,7,7
+$# a1,a2,a3,v1,v2,v3
+0.0,0.0,0.0,0.0,0.0,0.0
+$
+$#=============================================================================
+$#  7. BUILDING - PARTS
+$#=============================================================================
+*PART
+RC column
+$# pid,secid,mid,eosid,hgid,grav,adpopt,tmid
+101,101,101
+*PART
+RC girder
+102,102,102
+*PART
+2F RC slab
+103,103,103
+*PART
+Roof RC slab
+104,104,104
+*PART
+Facade concrete band
+105,105,105
+*PART
+Storefront glass 1F
+106,106,106
+*PART
+Storefront glass 2F - IMPACT TARGET
+107,107,107
+*PART
+Curtain wall mullion
+108,108,108
+*PART
+Masonry infill wall
+109,109,109
+*PART
+Ground
+110,110,110
+$
+$#=============================================================================
+$#  8. DRONE - SECTIONS
+$#=============================================================================
+*SECTION_SHELL
+$# CFRP body shell t=1.5
+201,2,0.833,3,1
+1.5,1.5,1.5,1.5
+$
+*SECTION_SHELL
+$# CFRP arm tube wall t=2.0
+202,2,0.833,3,1
+2.0,2.0,2.0,2.0
+$
+*SECTION_SHELL
+$# polycarbonate propeller t=3.0
+204,2,0.833,3,1
+3.0,3.0,3.0,3.0
+$
+*SECTION_SOLID
+$# secid,elform,aet   motor block
+203,1,0
+*SECTION_SOLID
+$# LiPo battery pack
+205,1,0
+*SECTION_SOLID
+$# gimbal / camera pod
+206,1,0
+$
+$#=============================================================================
+$#  9. DRONE - MATERIALS
+$#=============================================================================
+*MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE
+CFRP body frame (brittle)
+201,1.55E-6,60.0,0.30,0.500,0.0,0.006,0.0
+0.0,0.0,0,0,0.0
+$# eps1..eps8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$# es1..es8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$
+*MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE
+CFRP arm tube (brittle)
+202,1.55E-6,60.0,0.30,0.500,0.0,0.004,0.0
+0.0,0.0,0,0,0.0
+$# eps1..eps8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$# es1..es8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$
+*MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE
+BLDC motor (aluminium + copper windings)
+203,2.50E-6,70.0,0.33,0.200,0.60,0.350,0.0
+0.0,0.0,0,0,0.0
+$# eps1..eps8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$# es1..es8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$
+*MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE
+Propeller polycarbonate
+204,1.15E-6,3.0,0.40,0.060,0.15,0.060,0.0
+0.0,0.0,0,0,0.0
+$# eps1..eps8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$# es1..es8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$
+*MAT_CRUSHABLE_FOAM_TITLE
+LiPo battery pack (crushable cell stack)
+$# mid,ro,e,pr,lcid,tsc,damp
+205,2.00E-6,1.0,0.0,205,0.005,0.10
+$
+*MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE
+Gimbal / camera housing (ABS)
+206,1.80E-6,2.5,0.35,0.045,0.10,0.080,0.0
+0.0,0.0,0,0,0.0
+$# eps1..eps8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$# es1..es8
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+$
+*DEFINE_CURVE_TITLE
+Battery crush : yield stress [GPa] vs volumetric strain
+$# lcid,sidr,sfa,sfo,offa,offo,dattyp
+205,0,1.0,1.0,0.0,0.0,0
+0.00,0.008
+0.10,0.010
+0.30,0.015
+0.50,0.030
+0.70,0.100
+0.90,0.400
+$
+$#=============================================================================
+$# 10. DRONE - PARTS
+$#=============================================================================
+*PART
+UAV body frame
+201,201,201
+*PART
+UAV arm tube
+202,202,202
+$# pid,secid,mid,eosid,hgid
+*PART
+UAV motor
+203,203,203,0,1
+*PART
+UAV propeller
+204,204,204
+*PART
+UAV LiPo battery
+205,205,205,0,1
+*PART
+UAV gimbal pod
+206,206,206,0,1
+$
+$#=============================================================================
+$# 11. CONTACT   (eroding = keeps working after elements are deleted)
+$#=============================================================================
+*CONTACT_ERODING_SINGLE_SURFACE
+$# ssid,msid,sstyp,mstyp,sboxid,mboxid,spr,mpr
+10,0,2,0,0,0,1,1
+$# fs,fd,dc,vc,vdc,penchk,bt,dt
+0.20,0.15,0.0,0.0,20.0,0,0.0,1.0E20
+$# sfs,sfm,sst,mst,sfst,sfmt,fsf,vsf
+1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0
+$# isym,erosop,iadj
+0,1,1
+$# soft,sofscl,lcidab,maxpar,sbopt,depth,bsort,frcfrq
+1,0.10,0,1.025,4.0,5,0,1
+$
+$#=============================================================================
+$# 12. BOUNDARY CONDITIONS
+$#=============================================================================
+*BOUNDARY_SPC_SET
+$# nsid,cid,dofx,dofy,dofz,dofrx,dofry,dofrz
+1,0,1,1,1,1,1,1
+$
+$#=============================================================================
+$# 13. LOADS AND INITIAL CONDITIONS
+$#=============================================================================
+*INITIAL_VELOCITY_GENERATION
+$# nsid/pid,styp,omega,vx,vy,vz,ivatn,icid
+11,2,0.0,0.0,40.0,0.0,0,0
+$# xc,yc,zc,nx,ny,nz,phase,irigid
+0.0,0.0,0.0,0.0,0.0,0.0,0,0
+$
+*LOAD_BODY_Z
+$# lcid,sf,lciddr,xc,yc,zc,cid
+1,1.0,0,0.0,0.0,0.0,0
+$
+*DEFINE_CURVE_TITLE
+Gravity 9.81e-3 mm/ms^2
+1,0,1.0,1.0,0.0,0.0,0
+0.0,9.81E-3
+1000.0,9.81E-3
+$
+$#-----------------------------------------------------------------------------
+$# ALTERNATIVE BURST MODEL (use instead of blast.k if *LOAD_BLAST_ENHANCED is
+$# not licensed in your Student build): a prescribed internal pressure pulse
+$# on the body inner surface.  Uncomment the two blocks below AND comment out
+$# the "*INCLUDE blast.k" line at the top of this file.
+$#-----------------------------------------------------------------------------
+$*LOAD_SEGMENT_SET
+$$# ssid,lcid,sf,at
+$902,90,1.0,0.0
+$*DEFINE_CURVE_TITLE
+$Internal burst pressure [GPa] vs time [ms]
+$90,0,1.0,1.0,0.0,0.0,0
+$0.0,0.0
+$6.90,0.0
+$7.00,-0.050
+$7.30,-0.020
+$8.00,-0.004
+$9.00,0.0
+$1000.0,0.0
+$
+*END

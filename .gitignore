@@ -1,0 +1,15 @@
+# LS-DYNA run output
+d3plot*
+d3hsp
+d3dump*
+d3full*
+messag
+glstat
+matsum
+sleout
+rcforc
+deforc
+bg_switch
+kill_by_pid
+status.out
+*.tmp
