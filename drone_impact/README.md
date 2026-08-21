@@ -163,15 +163,39 @@ cd /d <이 폴더>
 상용급 explicit 충돌 솔버입니다. **무료, 라이선스 서버 불필요, 요소 수 제한 없음**,
 그리고 **LS-DYNA `.k` 파일을 네이티브로 읽습니다.**
 
+### 설치 (Windows, 10분)
+
+1. **OpenRadioss 받기** — https://github.com/OpenRadioss/OpenRadioss/releases
+   에서 최신 릴리스의 Windows 바이너리 zip 다운로드. 빌드할 필요 없습니다.
+2. **압축 풀기** — 예: `C:\OpenRadioss`
+   (안에 `exec`, `hm_cfg_files`, `extlib` 폴더가 보이면 정상)
+3. **ParaView 받기** — https://www.paraview.org/download/ (무료, 결과 보기용)
+4. `run_openradioss.bat` 을 열어 맨 위 두 줄만 수정:
+   ```bat
+   set OPENRADIOSS_PATH=C:\OpenRadioss    :: 2번에서 푼 위치
+   set OMP_NUM_THREADS=4                   :: 쓸 CPU 코어 수
+   ```
+5. **`run_openradioss.bat` 더블클릭.** 끝입니다.
+
+Intel oneAPI 런타임은 릴리스 zip에 `extlib\intelOneAPI_runtime` 로 같이 들어있어서
+따로 설치할 필요 없습니다. MPI도 필요 없습니다 — 이 스크립트는 SMP(스레드 병렬)로 돌립니다.
+
+### 스크립트가 하는 일
+
 ```bat
-run_openradioss.bat        :: 스크립트 안의 OPENRADIOSS 경로만 본인 설치 위치로 수정
+starter_win64.exe -i main_openradioss.k -np 1   :: .k 를 읽어 리스타트 파일 생성
+engine_win64.exe  -i main_openradioss_0001.rad  :: 실제 해석
+anim_to_vtk_win64.exe <animfile> > <animfile>.vtk   :: ParaView 용으로 변환
 ```
-안에서 하는 일:
-```bat
-starter_win64.exe -i main_openradioss.k -np 4      :: .k 를 읽어 리스타트 파일 생성
-engine_win64.exe  -i main_openradioss_0001.rad -np 4
-anim_to_vtk_win64.exe main_openradiossA001 > ...vtk :: ParaView 로 볼 수 있게 변환
-```
+환경변수(`RAD_CFG_PATH`, `RAD_H3D_PATH`, `KMP_STACKSIZE`, `PATH`)는 스크립트가
+OpenRadioss `INSTALL.md` 대로 알아서 설정합니다. 실행 폴더도 스크립트 자기 위치로
+맞추기 때문에 `*INCLUDE` 경로 문제가 생기지 않습니다.
+
+### 결과 보기 (ParaView)
+
+1. ParaView → `File > Open` → `main_openradiossA0..vtk` (`..` 로 묶인 시리즈 선택) → Apply
+2. 좌상단 드롭다운에서 표시할 값 선택 (변위/응력/소성변형률)
+3. 재생 버튼으로 애니메이션, `File > Save Animation` 으로 PNG 시퀀스 또는 avi 저장
 
 ### LS-DYNA 덱과 무엇이 다른가
 
