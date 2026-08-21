@@ -36,6 +36,24 @@ Run:  python3 make_openradioss.py
 
 import os
 
+# ---------------------------------------------------------------------------
+#  BURST : how the battery burst is applied in the OpenRadioss deck.
+#
+#    "off"     no burst.  Impact and fragmentation only.  This is the default
+#              because it is the configuration known to reach the Engine.
+#    "segment" *LOAD_SEGMENT_SET pressure pulse on segment set 902 (the drone
+#              body inner surface).  Unverified - see the note below.
+#
+#  *LOAD_SHELL_SET was tried first and the Starter rejected it:
+#      ERROR ID 3066  ** ERROR IN PRESSURE LOAD DEFINITION (SURFACE)
+#      -- PRESSURE LOAD ID: 210 ... NO SURFACE REFERENCED IN THE OPTION
+#  plus two warnings on the same block (a trailing field it does not accept,
+#  and a second card it expected).  The reader could not turn the shell-element
+#  set into a surface.  A segment set already is a surface, so it stands a
+#  better chance, but it has not been confirmed on a real run yet.
+# ---------------------------------------------------------------------------
+BURST = "off"
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 src = open(os.path.join(HERE, "main.k")).read()
 
@@ -144,19 +162,34 @@ $# es1..es8
 0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0""", "glazing")
 
 # ----------------------------------------------------------- burst pulse ----
-old_alt = src[src.index("$#-----------------------------------------------------------------------------\n$# ALTERNATIVE BURST MODEL"):src.index("*END")]
-new_alt = """$#-----------------------------------------------------------------------------
-$# BATTERY BURST - pressure pulse on the drone body shells (*LOAD_SHELL_SET
-$# maps to Radioss /PLOAD).  Shell set 210 is generated into drone.k.
+BURST_OFF = """$#-----------------------------------------------------------------------------
+$# BATTERY BURST - currently DISABLED for the OpenRadioss deck.
+$#
+$# The impact and the fragmentation do not need it: the drone arrives at
+$# 40 m/s carrying 1.73 kJ, which is what tears the airframe apart.
+$#
+$# To switch it on, set BURST = "segment" at the top of make_openradioss.py
+$# and re-run that script.  Read the comment there first - it explains what
+$# the Starter rejected and what is still unverified.
+$#-----------------------------------------------------------------------------
+$
+"""
+
+BURST_SEGMENT = """$#-----------------------------------------------------------------------------
+$# BATTERY BURST - pressure pulse on segment set 902, the drone body inner
+$# surface (generated into drone.k, normals pointing at the battery).
 $#
 $# Sizing: body shell area ~144,000 mm^2, body mass 0.335 kg.  A triangular
 $# pulse of 8.0E-4 GPa over 0.5 ms carries an impulse of about 29 kg.mm/ms,
 $# so the panels separate at roughly 85 m/s.  Pressure acts opposite to the
-$# shell normal and the body normals point outward, hence the negative sign.
+$# segment normal and 902 faces inward, hence the positive sign here.
+$#
+$# Only three fields on the card: the Starter warned about a trailing field
+$# on the *LOAD_SHELL_SET attempt, so AT is left at its default.
 $#-----------------------------------------------------------------------------
-*LOAD_SHELL_SET
-$# esid,lcid,sf,at
-210,90,1.0,0.0
+*LOAD_SEGMENT_SET
+$# ssid,lcid,sf
+902,90,1.0
 $
 *DEFINE_CURVE_TITLE
 Battery burst pressure [GPa] vs time [ms]
@@ -164,14 +197,21 @@ $# lcid,sidr,sfa,sfo,offa,offo,dattyp
 90,0,1.0,1.0,0.0,0.0,0
 0.0,0.0
 6.95,0.0
-7.05,-8.0E-4
-7.25,-4.0E-4
+7.05,8.0E-4
+7.25,4.0E-4
 7.55,0.0
 1000.0,0.0
 $
 """
-src = src.replace(old_alt, new_alt, 1)
+
+old_alt = src[src.index("$#-----------------------------------------------------------------------------\n$# ALTERNATIVE BURST MODEL"):src.index("*END")]
+if BURST == "off":
+    src = src.replace(old_alt, BURST_OFF, 1)
+elif BURST == "segment":
+    src = src.replace(old_alt, BURST_SEGMENT, 1)
+else:
+    raise SystemExit('make_openradioss.py: BURST must be "off" or "segment"')
 
 out = os.path.join(HERE, "main_openradioss.k")
 open(out, "w").write(src)
-print("wrote", out, "(%d lines)" % src.count("\n"))
+print("wrote", out, "(%d lines, BURST=%s)" % (src.count("\n"), BURST))

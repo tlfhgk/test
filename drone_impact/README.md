@@ -251,6 +251,28 @@ Unrecognized option: *LOAD_BLAST_ENHANCED
 원본 폴더에 `main.k`, `blast.inc`, 뭐가 있든 상관없습니다.
 결과 파일(`.out`, `A0xx`, `.vtk`)도 전부 이 하위폴더에 쌓입니다.
 
+### 배터리 폭발은 기본적으로 꺼져 있습니다
+
+OpenRadioss 덱은 `BURST = "off"` 로 생성됩니다. 충돌·파괴만 계산합니다.
+드론이 40 m/s, 1.73 kJ 로 들어오는 것이 기체를 찢는 주된 원인이라 폭발 없이도
+파괴 장면은 그대로 나옵니다.
+
+첫 시도였던 `*LOAD_SHELL_SET` 은 Starter 가 거부했습니다:
+```
+ERROR ID : 3066  ** ERROR IN PRESSURE LOAD DEFINITION (SURFACE)
+   -- PRESSURE LOAD ID: 210 ...  NO SURFACE REFERENCED IN THE OPTION
+```
+셸요소 세트를 면(surface)으로 바꾸지 못한 것입니다. 세그먼트 세트는 그 자체가
+면이라 가능성이 더 높지만 **아직 실제로 확인하지 못했습니다.**
+
+켜보시려면 `make_openradioss.py` 맨 위를 고치고 다시 돌리세요:
+```python
+BURST = "segment"      # "off" | "segment"
+```
+```bash
+python3 make_openradioss.py
+```
+
 ### 처음 돌릴 때 반드시 볼 것
 
 `main_openradioss_0000.out` — **Starter 가 읽지 못한 키워드를 여기에 전부 적어줍니다.**

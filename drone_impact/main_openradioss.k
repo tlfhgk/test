@@ -461,27 +461,14 @@ Gravity 9.81e-3 mm/ms^2
 1000.0,9.81E-3
 $
 $#-----------------------------------------------------------------------------
-$# BATTERY BURST - pressure pulse on the drone body shells (*LOAD_SHELL_SET
-$# maps to Radioss /PLOAD).  Shell set 210 is generated into drone.k.
+$# BATTERY BURST - currently DISABLED for the OpenRadioss deck.
 $#
-$# Sizing: body shell area ~144,000 mm^2, body mass 0.335 kg.  A triangular
-$# pulse of 8.0E-4 GPa over 0.5 ms carries an impulse of about 29 kg.mm/ms,
-$# so the panels separate at roughly 85 m/s.  Pressure acts opposite to the
-$# shell normal and the body normals point outward, hence the negative sign.
+$# The impact and the fragmentation do not need it: the drone arrives at
+$# 40 m/s carrying 1.73 kJ, which is what tears the airframe apart.
+$#
+$# To switch it on, set BURST = "segment" at the top of make_openradioss.py
+$# and re-run that script.  Read the comment there first - it explains what
+$# the Starter rejected and what is still unverified.
 $#-----------------------------------------------------------------------------
-*LOAD_SHELL_SET
-$# esid,lcid,sf,at
-210,90,1.0,0.0
-$
-*DEFINE_CURVE_TITLE
-Battery burst pressure [GPa] vs time [ms]
-$# lcid,sidr,sfa,sfo,offa,offo,dattyp
-90,0,1.0,1.0,0.0,0.0,0
-0.0,0.0
-6.95,0.0
-7.05,-8.0E-4
-7.25,-4.0E-4
-7.55,0.0
-1000.0,0.0
 $
 *END

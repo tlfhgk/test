@@ -73,7 +73,6 @@ SID_BASE_NODES = 1
 SID_SEG_FACADE = 901
 SID_SEG_DRONE  = 902
 SID_SEG_ALL    = 903
-SID_SHL_BODY   = 210      # drone body shells - burst pressure in the OpenRadioss deck
 
 
 # ============================================================================
@@ -213,15 +212,6 @@ def w_set_node(f, sid, ids):
         f.write("".join("%10d" % v for v in ids[i:i+8]) + "\n")
 
 
-def w_set_shell(f, sid, eids):
-    f.write("*SET_SHELL_LIST\n")
-    f.write("$#     sid       da1       da2       da3       da4\n")
-    f.write("%10d\n" % sid)
-    eids = sorted(eids)
-    for i in range(0, len(eids), 8):
-        f.write("".join("%10d" % v for v in eids[i:i+8]) + "\n")
-
-
 def w_set_segment(f, sid, quads):
     f.write("*SET_SEGMENT\n")
     f.write("$#     sid       da1       da2       da3       da4\n")
@@ -358,11 +348,11 @@ def build_drone():
         w_nodes(f, m.nodes)
         w_shells(f, m.shells)
         w_solids(f, m.solids)
-        f.write("$# 210 = body shells; the OpenRadioss deck puts the burst\n")
-        f.write("$#       pressure here (*LOAD_SHELL_SET), since OpenRadioss\n")
-        f.write("$#       does not read *LOAD_BLAST_ENHANCED\n")
-        w_set_shell(f, SID_SHL_BODY, [e for (e, pid, a, b, c, d) in m.shells
-                                      if pid == P_BODY])
+        f.write("$# 902 = drone body inner surface, normals pointing at the\n")
+        f.write("$#       battery.  Used by the burst pressure load in both\n")
+        f.write("$#       decks; lives here rather than in blast.inc so the\n")
+        f.write("$#       OpenRadioss deck can reach it.\n")
+        w_set_segment(f, SID_SEG_DRONE, seg_drone)
         f.write("$# end drone.k\n")
 
     return m, n_batt, seg_drone
@@ -399,10 +389,6 @@ def write_blast(nid_batt, seg_facade, seg_drone):
         f.write("$# 903 = building facade (normals face the interior) + drone body\n")
         f.write("$#       inner surface (normals face the charge)\n")
         w_set_segment(f, SID_SEG_ALL, seg_all)
-        f.write("$\n")
-        f.write("$# 902 = drone body inner surface only, used by the ALTERNATIVE\n")
-        f.write("$#       BURST MODEL (*LOAD_SEGMENT_SET) at the bottom of main.k\n")
-        w_set_segment(f, SID_SEG_DRONE, seg_drone)
         f.write("$# end blast.inc\n")
 
 
