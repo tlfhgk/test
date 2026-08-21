@@ -12,7 +12,7 @@
 | CW-03 | 항공기 위협은 어떻게 정의되며, 수치는 공개되는가? | **기준** | – | – | 구조 상이 | 비공개 | – | 부분 | – |
 | CW-04 | 대형 항공기 충돌은 설계기준사건인가, 설계기준초과사건인가? | **기준** | – | – | 구조 상이 | 구조 상이 | 부분 | 동등 | – |
 | CW-05 | 항공기 추락 포함 여부를 정하는 명시적 확률 스크리닝 기준이 있는가? | **기준** | – | – | 구조 상이 | – | – | 구조 상이 | – |
-| CW-06 | 어떤 구조물과 기기를 평가해야 하는가? | – | – | **기준** | 부분 | – | – | 부분 | – |
+| CW-06 | 어떤 구조물과 기기를 평가해야 하는가? | – | – | **기준** | 동등 | – | – | 부분 | – |
 | CW-07 | 충돌하중은 어떻게 정의되며 특정 방법이 강제되는가? | – | – | **기준** | 없음 | – | – | 동등 | 동등 |
 | CW-08 | 국부손상(침투·배면박리·관통)은 어떻게 평가하는가? | – | – | **기준** | 없음 | 비공개 | – | 구조 상이 | 부분 |
 | CW-09 | 합격/불합격 판정기준은 무엇인가? | **기준** | – | **기준** | 부분 | 구조 상이 | – | 동등 | – |
@@ -112,10 +112,10 @@
 | 문서 | 관계 | 내용 |
 |---|---|---|
 | `US-10CFR50.150` | **기준** | NO screening criterion. The threat is prescribed by rule, not selected by frequency. |
-| `CZ-329-2017` | 구조 상이 | > 1 in 10,000,000 years (i.e. > 1E-7/yr) for an object falling on an area where it could cause a basic external initiating event. |
+| `CZ-329-2017` | 구조 상이 | TWO levels. § 12: basic external design events generally = intensity of the territorial property with occurrence frequency 1E-4/yr (once per 10,000 years) or lower. § 13(2)(b): fall of an aircraft OR OTHER OBJECT = intensity of the effects of an object whose fall frequency onto an area where it could cause a basic external initiating event is > 1E-7/yr. |
 | `IAEA-SSG-68` | 구조 상이 | Footnote 9: in some States 1E-7 per reactor-year is used as an acceptable probability limit for interacting events with serious radiological consequences; conservative as an SPL only if applied to all events of the same type. Attributed to NS-G-3.1. |
 
-> **차이점/유의사항:** Strongest quantitative link in the crosswalk: CZ 329/2017 and the IAEA level are the same 1E-7/yr figure. Three caveats now verified against the primary text of SSG-68: (1) the IAEA presents it as what "some States" use, NOT as an IAEA-mandated value; (2) it is conservative only when applied to ALL events of one type collectively — applying 1E-7 to a single crash scenario is a different and less conservative reading; (3) SSG-68 adds a procedural requirement absent from the Czech decree: where an SPL approach is used, the annual exceedance frequency must be AGREED BEFORE the site hazard evaluation. Attribution correction: this database first credited the statement to SSG-79 from a search result; the text is footnote 9 of SSG-68, citing NS-G-3.1.
+> **차이점/유의사항:** Strongest quantitative link in the crosswalk: CZ 329/2017 and the IAEA level are the same 1E-7/yr figure. Three caveats now verified against the primary text of SSG-68: (1) the IAEA presents it as what "some States" use, NOT as an IAEA-mandated value; (2) it is conservative only when applied to ALL events of one type collectively — applying 1E-7 to a single crash scenario is a different and less conservative reading; (3) SSG-68 adds a procedural requirement absent from the Czech decree: where an SPL approach is used, the annual exceedance frequency must be AGREED BEFORE the site hazard evaluation. Attribution correction: this database first credited the statement to SSG-79 from a search result; the text is footnote 9 of SSG-68, citing NS-G-3.1. Second correction, from recovering the Czech § numbering: the decree operates TWO frequency levels, not one — 1E-4/yr for basic external design events generally (§ 12) and 1E-7/yr for a falling aircraft or other object (§ 13(2)(b)). The earlier version of this crosswalk compared the IAEA level against the Czech 1E-7 figure alone and so presented the Czech scheme as a single-threshold system. The three-orders-of-magnitude gap between § 12 and § 13(2)(b) is itself the finding: the Czech regulator treats a falling aircraft as far rarer than the events it otherwise designs for, which is what lets the crash stay inside the design basis without driving the whole design.
 
 근거 조항: `US-10CFR50.150-a-2`, `CZ-329-2017-aircraft-dbe`, `IAEA-SSG-68-fn9-spl`
 
@@ -130,7 +130,7 @@ NEI 07-13은 대상을 명확히 한정한다: 핵연료를 포함한 구조물(
 | 문서 | 관계 | 내용 |
 |---|---|---|
 | `US-NEI-07-13` | **기준** | Containment, SFP, structures housing heat-removal equipment; plus power supplies, cable runs and supporting components. |
-| `CZ-329-2017` | 부분 | Generic 'structures, systems and components important to safety' — broader in principle, less prescriptive in practice. |
+| `CZ-329-2017` | 동등 | § 13 scopes the aircraft provision to selected SSCs with influence on nuclear safety NECESSARY FOR MANAGING EMERGENCY CONDITIONS AND RADIATION EMERGENCIES — a narrowing structurally close to the US 'key design features and functional capabilities', not a blanket safety-SSC requirement. |
 | `IAEA-SSG-68` | 부분 | Protection of SSCs important to safety, based on site hazard evaluation and installation layout. |
 
 근거 조항: `US-NEI-07-13-scope`, `US-NEI-07-13-sufficiency`, `CZ-329-2017-external-events-general`, `IAEA-SSG-68-scope`, `IAEA-SSG-68-5.185-confinement`

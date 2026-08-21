@@ -2,10 +2,12 @@ schema_version: 1
 source_id: CZ-329-2017
 also_covers: [CZ-263-2016, CZ-378-2016]
 locator_warning: >-
-  The § numbering of decree 329/2017 Sb. could not be confirmed while building this
-  database (sujb.gov.cz, zakonyprolidi.cz and tzb-info.cz were unreachable from the build
-  environment). Locators marked verification: to_verify give the substance correctly but
-  the section number must be checked against the official text before citation.
+  The official PDF of decree 329/2017 Sb. is still unreachable from this environment
+  (sujb.gov.cz, zakonyprolidi.cz, tzb-info.cz and e-sbirka.gov.cz all return 403 at the
+  egress proxy). The § numbering below was recovered from search results quoting the decree
+  text and is recorded as web_verified, NOT primary_source: the wording is reproduced as
+  quoted by those sources and should be checked against the Sbírka zákonů before it is
+  cited in a licensing document.
 clauses:
 
   - clause_id: CZ-263-2016-enabling
@@ -30,60 +32,89 @@ clauses:
 
   - clause_id: CZ-329-2017-aircraft-dbe
     source_id: CZ-329-2017
-    locator: "vyhláška č. 329/2017 Sb. — external initiating events / design basis (§ to_verify)"
+    locator: "vyhláška č. 329/2017 Sb., § 13 odst. 2 písm. b)"
     heading_en: "Accidental aircraft crash as a design-basis external initiating event"
     heading_ko: "설계기준 외부 기인사건으로서의 우발적 항공기 추락"
-    topics: [T02, T03, T04, T05, T13]
+    topics: [T02, T03, T04, T05, T06, T13]
     text_status: summary
     verification: web_verified
-    confidence: medium
+    confidence: high
+    quoted_source_text_cs: >-
+      "pro stanovení odolnosti proti náhodnému pádu letadla nebo jiného objektu se vychází
+      z intenzity účinků pádu takového objektu, jehož četnost pádu na plochu, na níž může
+      způsobit základní vnější iniciační událost, je vyšší než jednou za 10 000 000 let"
     summary_en: >-
-      For a nuclear installation with a reactor thermal power exceeding 50 MW, the design
-      must provide resistance against an accidental aircraft crash. The design basis is set
-      by the intensity of the effects of an object whose frequency of falling onto an area
-      where it could cause a basic external initiating event is higher than once in
-      10,000,000 years (i.e. frequency > 1E-7 per year).
+      § 13(2)(b): to establish resistance against an accidental crash of an aircraft OR ANOTHER
+      OBJECT, the basis is the intensity of the effects of the fall of such an object whose
+      frequency of falling onto an area where it could cause a basic external initiating event
+      is higher than once in 10,000,000 years (frequency > 1E-7 per year).
+      § 13 applies this to selected equipment, systems, structures and components with an
+      influence on nuclear safety that are NECESSARY FOR MANAGING EMERGENCY CONDITIONS AND
+      RADIATION EMERGENCIES, at nuclear installations with a reactor of thermal power
+      exceeding 50 MW.
     summary_ko: >-
-      원자로 열출력이 50 MW를 초과하는 원자력시설의 경우, 설계는 우발적 항공기 추락에
-      대한 저항성을 확보해야 한다. 설계기준은, 기본 외부 기인사건을 유발할 수 있는 구역에
-      낙하할 빈도가 1천만 년에 1회를 초과하는(즉 빈도 > 1E-7/년) 물체가 미치는 영향의
-      강도로 정해진다.
+      § 13(2)(b): 항공기 **또는 기타 물체**의 우발적 낙하에 대한 저항성을 정하는 기준은,
+      기본 외부 기인사건을 유발할 수 있는 구역에 낙하할 빈도가 1천만 년에 1회를 초과하는
+      (빈도 > 1E-7/년) 물체의 낙하 영향 강도이다.
+      § 13은 이를 열출력 50 MW를 초과하는 원자로를 가진 원자력시설에서, 핵안전에 영향을
+      미치며 **사고조건 및 방사선비상 관리에 필요한** 선정 설비·계통·구조물·기기에 적용한다.
     key_parameters:
       applicability_threshold: "reactor thermal power > 50 MW"
-      crash_type: "accidental (náhodný pád letadla)"
+      ssc_scope: "selected SSCs with influence on nuclear safety NECESSARY for managing emergency conditions and radiation emergencies — not all safety SSCs"
+      crash_type: "accidental (náhodný pád letadla nebo jiného objektu) — aircraft OR other object"
       screening_frequency: "> 1E-7 per year → included in the design basis"
       basis_quantity: "intensity of the effects of the falling object"
     source_url: "https://www.zakonyprolidi.cz/cs/2017-329"
     notes: >-
       KEY COMPARISON POINT. Czech law puts the accidental aircraft crash INSIDE the design
       basis, selected by an explicit numerical frequency criterion. The US rule instead
-      places the large-commercial-aircraft impact OUTSIDE the design basis (beyond design
-      basis) and applies realistic rather than design-basis analysis. The two frameworks are
-      therefore not directly comparable requirement-for-requirement — see crosswalk CW-04
-      and CW-05.
+      places the large-commercial-aircraft impact OUTSIDE the design basis and applies
+      realistic rather than design-basis analysis — see CW-04 and CW-05.
+      Two refinements recovered with the § locator, both of which narrow the earlier reading
+      of this record: (1) the provision covers an aircraft OR ANOTHER OBJECT, so it is a
+      generic falling-object rule rather than an aircraft-specific one; (2) the SSC scope is
+      not all safety-related SSCs but those necessary for MANAGING EMERGENCY CONDITIONS AND
+      RADIATION EMERGENCIES — a narrowing that is structurally close to the US "key design
+      features and functional capabilities", and closer to it than a blanket design-basis
+      requirement would be.
 
   - clause_id: CZ-329-2017-external-events-general
     source_id: CZ-329-2017
-    locator: "vyhláška č. 329/2017 Sb. — vnější iniciační události (§ to_verify)"
-    heading_en: "External initiating events in the design basis"
-    heading_ko: "설계기준 내 외부 기인사건"
+    locator: "vyhláška č. 329/2017 Sb., § 6 and § 12"
+    heading_en: "External initiating events in the design basis and the general 1E-4/yr level"
+    heading_ko: "설계기준 내 외부 기인사건 및 일반 1E-4/년 수준"
     topics: [T04, T05, T06]
     text_status: summary
-    verification: to_verify
-    confidence: low
+    verification: web_verified
+    confidence: medium
     summary_en: >-
-      The decree requires design bases (projektová východiska) to be established for external
-      initiating events (vnější iniciační události), covering natural and human-induced
-      hazards and their combinations, and requires structures, systems and components
-      important to safety to be designed to withstand the selected basic external initiating
-      events. Aircraft crash is one of the human-induced events in this set.
+      § 6 requires the basic design bases (projektová východiska) to establish the basic
+      external design events for the territory where the nuclear installation is to be sited.
+      § 12 then fixes their intensity: the intensity of a basic external design event must
+      equal the intensity of the evaluated territorial property with an occurrence frequency
+      of ONCE PER 10,000 YEARS (1E-4 per year) or lower, except for territorial properties
+      for which other occurrence frequencies must be used under the siting assessment
+      methodology. Design bases must ensure compliance with the principles of safe use of
+      nuclear energy for basic external design events and their highly probable combinations,
+      using a conservative approach.
     summary_ko: >-
-      본 시행령은 외부 기인사건(vnější iniciační události)에 대한 설계기준(projektová
-      východiska)을 수립하도록 요구하며, 자연재해와 인위적 재해 및 그 조합을 포괄한다.
-      또한 안전에 중요한 구조물·계통·기기가 선정된 기본 외부 기인사건을 견디도록 설계할
-      것을 요구한다. 항공기 추락은 이 중 인위적 사건에 해당한다.
-    source_url: "https://sujb.gov.cz/fileadmin/sujb/docs/legislativa/vyhlasky/329_2017.pdf"
-    notes: "GAP — obtain the official PDF and replace with verbatim § text via scripts/ingest_raw.py."
+      § 6은 기본 설계기준(projektová východiska)이 원자력시설이 입지할 지역에 대한 기본
+      외부 설계사건을 설정하도록 요구한다. § 12는 그 강도를 정한다: 기본 외부 설계사건의
+      강도는 발생빈도가 **1만 년에 1회(1E-4/년)** 이하인 평가 대상 지역특성의 강도와
+      같아야 하며, 부지선정 평가방법론에 따라 다른 발생빈도를 적용해야 하는 지역특성은
+      예외로 한다. 설계기준은 기본 외부 설계사건 및 그 발생가능성이 높은 조합에 대해
+      보수적 접근법으로 원자력 안전이용 원칙의 준수를 보장해야 한다.
+    key_parameters:
+      general_external_event_frequency: "1E-4 per year (once per 10,000 years) or lower"
+      approach: "conservative"
+      relationship_to_aircraft: "aircraft/falling objects use the separate 1E-7/yr level in § 13(2)(b) — three orders of magnitude lower"
+    source_url: "https://www.zakonyprolidi.cz/cs/2017-329"
+    notes: >-
+      IMPORTANT STRUCTURAL FINDING. The Czech decree operates TWO frequency levels, not one:
+      1E-4/yr for basic external design events generally (§ 12), and 1E-7/yr for the fall of
+      an aircraft or other object (§ 13(2)(b)). The earlier version of this database recorded
+      only the 1E-7 figure and so misrepresented the decree as having a single screening
+      level. See crosswalk CW-05.
 
   - clause_id: CZ-378-2016-siting
     source_id: CZ-378-2016

@@ -150,7 +150,7 @@ crosswalk:
         note: "NO screening criterion. The threat is prescribed by rule, not selected by frequency."
       - source_id: CZ-329-2017
         relation: different-architecture
-        note: "> 1 in 10,000,000 years (i.e. > 1E-7/yr) for an object falling on an area where it could cause a basic external initiating event."
+        note: "TWO levels. § 12: basic external design events generally = intensity of the territorial property with occurrence frequency 1E-4/yr (once per 10,000 years) or lower. § 13(2)(b): fall of an aircraft OR OTHER OBJECT = intensity of the effects of an object whose fall frequency onto an area where it could cause a basic external initiating event is > 1E-7/yr."
       - source_id: IAEA-SSG-68
         relation: different-architecture
         note: "Footnote 9: in some States 1E-7 per reactor-year is used as an acceptable probability limit for interacting events with serious radiological consequences; conservative as an SPL only if applied to all events of the same type. Attributed to NS-G-3.1."
@@ -166,6 +166,14 @@ crosswalk:
       hazard evaluation.
       Attribution correction: this database first credited the statement to SSG-79 from a
       search result; the text is footnote 9 of SSG-68, citing NS-G-3.1.
+      Second correction, from recovering the Czech § numbering: the decree operates TWO
+      frequency levels, not one — 1E-4/yr for basic external design events generally (§ 12)
+      and 1E-7/yr for a falling aircraft or other object (§ 13(2)(b)). The earlier version of
+      this crosswalk compared the IAEA level against the Czech 1E-7 figure alone and so
+      presented the Czech scheme as a single-threshold system. The three-orders-of-magnitude
+      gap between § 12 and § 13(2)(b) is itself the finding: the Czech regulator treats a
+      falling aircraft as far rarer than the events it otherwise designs for, which is what
+      lets the crash stay inside the design basis without driving the whole design.
 
   - cw_id: CW-06
     topic_id: T06
@@ -181,8 +189,8 @@ crosswalk:
         relation: baseline
         note: "Containment, SFP, structures housing heat-removal equipment; plus power supplies, cable runs and supporting components."
       - source_id: CZ-329-2017
-        relation: partial
-        note: "Generic 'structures, systems and components important to safety' — broader in principle, less prescriptive in practice."
+        relation: equivalent
+        note: "§ 13 scopes the aircraft provision to selected SSCs with influence on nuclear safety NECESSARY FOR MANAGING EMERGENCY CONDITIONS AND RADIATION EMERGENCIES — a narrowing structurally close to the US 'key design features and functional capabilities', not a blanket safety-SSC requirement."
       - source_id: IAEA-SSG-68
         relation: partial
         note: "Protection of SSCs important to safety, based on site hazard evaluation and installation layout."

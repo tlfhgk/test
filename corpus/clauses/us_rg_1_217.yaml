@@ -61,11 +61,25 @@ clauses:
       exceptions or additional staff positions. The specific clarifications RG 1.217 attaches
       to NEI 07-13 Revision 8 could NOT be retrieved during the build of this database and
       are recorded here as an explicit gap.
+      NEGATIVE FINDING (not proof of absence): repeated searches return only the bare
+      endorsement sentence — "endorses the methodologies described in ... NEI 07-13 ...
+      Revision 8, issued April 2011" — with no accompanying "with the following exceptions"
+      or "except that" clause surfacing in any indexed source. This is consistent with an
+      unqualified endorsement, but the full Section C text has not been read, so an
+      unqualified endorsement is NOT established.
     summary_ko: >-
       산업계 문서를 승인하는 NRC 규제지침은 통상 명확화 사항·예외·추가 실무진 입장을
       부기한다. RG 1.217이 NEI 07-13 Rev.8에 대해 부기한 구체적 명확화 사항은 본 DB
       구축 시점에 확보하지 못했으며, 명시적 미확인 항목으로 기록한다.
+      **부정적 소견(부재의 증명은 아님):** 반복 검색 결과 승인 문장 자체 — "NEI 07-13
+      Rev.8(2011년 4월)에 기술된 방법론을 승인한다" — 외에 "다음 예외를 두고" 류의 단서
+      조항이 어떤 색인 자료에서도 나타나지 않는다. 이는 무조건부 승인과 일관되지만,
+      Section C 전문을 읽지 못했으므로 무조건부 승인이라고 **확정할 수는 없다**.
     source_url: "https://www.govinfo.gov/app/details/GOVPUB-Y3_N88-PURL-gpo37127"
     notes: >-
-      GAP. Resolve by obtaining RG 1.217 (ADAMS ML092900004) and re-running
-      scripts/ingest_raw.py; then replace this record with the verbatim Section C positions.
+      GAP. Resolve by obtaining RG 1.217 (ADAMS ML092900004, nrc.gov/docs/ML0929/ML092900004.pdf)
+      and re-running scripts/ingest_raw.py; then replace this record with the verbatim
+      Section C positions. This is the single highest-value remaining gap in the corpus:
+      it determines whether the US regulator accepts NEI 07-13 as written — including the
+      Modified NDRC / reduced Chang / reduced Degen / CEA-EDF selection in CW-08 — or with
+      qualifications.

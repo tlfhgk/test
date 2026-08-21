@@ -128,7 +128,9 @@ sources:
       - "https://www.sagit.cz/_texty/sb17329.htm"
       - "https://e-sbirka.gov.cz/sb/2017/329"
       - "https://www.tzb-info.cz/docu/predpisy/download/V329-2017.pdf"
-    role: "Binding Czech design requirements; contains the accidental-aircraft-crash design basis and the 1E-7/yr frequency criterion."
+    aircraft_provision: "§ 13 odst. 2 písm. b) — accidental fall of an aircraft or other object, > 1E-7/yr"
+    general_external_event_provision: "§ 6 and § 12 — basic external design events at 1E-4/yr or lower"
+    role: "Binding Czech design requirements; contains the accidental-aircraft-crash design basis and both frequency criteria."
 
   - source_id: CZ-378-2016
     jurisdiction: CZ
