@@ -184,6 +184,16 @@ cd /d <이 폴더>
    ```
 5. **`run_openradioss.bat` 더블클릭.** 끝입니다.
 
+> **경로에 한글이 있으면 주의.** OpenRadioss 의 Starter/Engine 은 포트란 파일 I/O 를
+> 쓰기 때문에 한글·공백이 섞인 경로에서 파일을 못 여는 경우가 있습니다. 원인 모를
+> file-not-found 가 뜨면 폴더째 `C:\sim\drone` 같은 **영문 경로로 복사**해서 다시
+> 돌려보세요. OpenRadioss 설치 경로(`C:\OpenRadioss`)도 마찬가지입니다.
+
+> **`.k` 파일 4개가 `.bat` 과 같은 폴더에 평평하게** 있어야 합니다
+> (`main_openradioss.k`, `building.k`, `drone.k`, 그리고 LS-DYNA 용 `main.k`/`blast.k`).
+> 압축을 풀 때 `drone_impact` 하위폴더가 생겼다면 안쪽 파일들을 꺼내거나, `.bat` 을
+> 그 폴더 안으로 옮기세요.
+
 Intel oneAPI 런타임은 릴리스 zip에 `extlib\intelOneAPI_runtime` 로 같이 들어있어서
 따로 설치할 필요 없습니다. MPI도 필요 없습니다 — 이 스크립트는 SMP(스레드 병렬)로 돌립니다.
 
