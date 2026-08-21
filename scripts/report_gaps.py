@@ -9,8 +9,14 @@ from __future__ import annotations
 
 import argparse
 import pathlib
+import signal
 import sqlite3
 import sys
+
+try:
+    signal.signal(signal.SIGPIPE, signal.SIG_DFL)
+except (AttributeError, ValueError):
+    pass
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DEFAULT_DB = ROOT / "db" / "aircraft_impact.db"
@@ -42,7 +48,8 @@ def main() -> int:
     print("-" * 72)
     rows = sorted(
         con.execute("""SELECT clause_id, source_id, locator, verification, confidence, notes
-                       FROM clauses WHERE verification != 'web_verified'"""),
+                       FROM clauses
+                       WHERE verification NOT IN ('primary_source', 'web_verified')"""),
         key=lambda r: (RANK.get(r["verification"], 9), r["clause_id"]),
     )
     for r in rows:

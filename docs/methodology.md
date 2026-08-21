@@ -25,38 +25,63 @@
 "이 DB에는 답이 없고, 답은 물리적방호 규정에 있을 것"이라는 사실 자체를
 반환하기 위해 존재합니다. 침묵보다 명시적 부재 표시가 낫다는 판단입니다.
 
-## 3. 구축 시 제약 (중요)
+## 3. 구축 시 제약과 원문 확보 경로
 
-이 DB는 아웃바운드 HTTPS가 조직 egress 정책으로 제한된 환경에서 구축되었습니다.
-`ecfr.gov`, `nrc.gov`, `law.cornell.edu`, `sujb.gov.cz`, `zakonyprolidi.cz`,
-`tzb-info.cz`, `www-pub.iaea.org` 등 **모든 원문 도메인이 403으로 차단**되어
-원문 PDF·HTML을 직접 확보하지 못했습니다.
+이 DB의 실행환경은 아웃바운드 HTTPS가 조직 egress 정책으로 **전면 차단**되어
+있습니다. `ecfr.gov`, `nrc.gov`, `law.cornell.edu`, `sujb.gov.cz`,
+`zakonyprolidi.cz`, `tzb-info.cz`, `www-pub.iaea.org`, `govinfo.gov`가 모두 CONNECT
+단계에서 403(`connect_rejected: gateway answered 403 to CONNECT`)을 반환하며,
+허용된 호스트는 패키지 레지스트리(pypi.org, registry.npmjs.org)와 Anthropic API뿐입니다.
+이는 정책 거부이므로 TLS 검증 해제나 프록시 우회로 회피하지 않았습니다.
 
-따라서 현재 코퍼스는 다음 두 경로로만 작성되었습니다.
+대신 다음 두 개의 **허용된 경로**로 원문을 확보했습니다.
 
-1. 웹 검색 결과로 확인된 내용 → `verification: web_verified`
-2. 확인하지 못한 배경지식 → `verification: model_knowledge` 또는 `to_verify`
+1. **사용자 Google Drive 커넥터** — 다음 3건을 확보하여 축자 색인했습니다.
 
-**축자 인용문은 단 한 건도 수록하지 않았습니다.** 확인할 수 없는 원문을
-그럴듯하게 재구성하는 것이 이 용도에서는 가장 위험한 실패 모드이기 때문입니다.
-조문번호가 불확실한 경우 locator에 `(§ to_verify)`를 남겼습니다.
+   | 문서 | 쪽수 | 확보 |
+   |---|---|---|
+   | NEI 07-13 Rev. 8P (2011.4) | 69 | ✔ |
+   | IAEA SSG-68 (STI/PUB/1968) | 112 | ✔ |
+   | IAEA Safety Reports Series No. 87 | 220 | ✔ |
 
-## 4. 알려진 공백
+   PDF는 `corpus/raw/`에 저장되고(gitignore), `scripts/ingest_raw.py`가 pypdf로
+   추출하여 704개 축자 청크로 색인합니다. 이 레코드들은 `primary_source` 등급입니다.
 
-`python3 scripts/report_gaps.py`가 항상 최신 목록을 출력합니다. 구축 시점의
-주요 공백은 다음과 같습니다.
+2. **웹 검색 도구** — 원문 접근이 불가능한 문서(체코 시행령, RG 1.217, EUR)에 대해
+   검색 결과로 확인된 내용만 `web_verified`로 기록했습니다.
+
+**축자 인용문은 확보한 3개 문서에 대해서만 존재합니다.** 나머지 문서에 대해
+확인할 수 없는 원문을 그럴듯하게 재구성하는 것은 이 용도에서 가장 위험한 실패
+모드이므로 하지 않았습니다.
+
+### 원문 대조로 정정된 사항
+
+원문을 확보한 뒤 초기 요약본에서 두 가지 오류가 드러났습니다. 둘 다 레코드에
+정정 이력을 남겨 두었습니다.
+
+- **1E-7 스크리닝 확률수준의 출처.** 초기에는 검색 결과에 근거해 SSG-79로
+  귀속시켰으나, 실제 문구는 **SSG-68 각주 9**에 있으며 NS-G-3.1을 인용합니다.
+  `IAEA-SSG-79-spl` 레코드는 `to_verify`로 강등되고 `superseded_by`로
+  `IAEA-SSG-68-fn9-spl`을 가리킵니다.
+- **NS-G-3.1의 지위.** SSG-68(2021)은 NS-G-3.1을 폐지된 문서가 아니라 살아있는
+  참고문헌 [9]로 인용합니다. 따라서 "SSG-79가 NS-G-3.1을 대체한다"는 초기 기재는
+  미확인으로 표시했습니다.
+
+## 4. 남은 공백
+
+`python3 scripts/report_gaps.py`가 항상 최신 목록을 출력합니다. 원문 확보 후의
+잔여 공백은 다음과 같습니다.
 
 | 레코드 | 공백 내용 | 해소 방법 |
 |---|---|---|
-| `US-RG-1.217-exceptions` | RG 1.217이 NEI 07-13 Rev.8 승인에 붙인 명확화·예외사항 미확인 | ADAMS ML092900004 확보 후 재색인 |
-| `CZ-329-2017-external-events-general` | 시행령 조문번호(§) 미확인 | SÚJB 공식 PDF 확보 |
-| `CZ-378-2016-siting` | 부지 시행령 번호 자체가 미확인 | 체코 관보 확인 |
-| `US-10CFR50.150-a-3`, `-b`, `-c`, `-d` | 항·호 세부 구조 미확인 | eCFR 대조 |
-| `CW-08` | NEI 07-13과 IAEA SRS 87이 각각 채택한 관통·박리 경험식(수정 NDRC, Degen, Chang 등)의 일치 여부 | 양 문서 원문 색인 후 비교 |
+| `US-RG-1.217-exceptions` | RG 1.217이 NEI 07-13 Rev.8 승인에 붙인 명확화·예외사항 | ADAMS ML092900004 확보 |
+| `CZ-329-2017-external-events-general` | 시행령 조문번호(§) | SÚJB 공식 PDF 확보 |
+| `CZ-378-2016-siting` | 부지 시행령 번호 자체 | 체코 관보 확인 |
+| `US-10CFR50.150-a-3`, `-b`, `-c`, `-d` | 항·호 세부 구조 | eCFR 대조 |
+| `EU-EUR-aircraft-crash` | 위협 시나리오 및 성능목표 수치 | EUR 라이선스 필요 |
 
-CW-08은 이 비교의 가장 실질적인 미해결 기술 질문입니다. 두 문서 모두 국부손상
-평가식을 제공한다는 사실까지는 확인되나, 어떤 경험식을 채택했고 결과가 일치하는지는
-요약 수준에서 답할 수 없습니다.
+**CW-08은 해소되었습니다** — NEI 07-13과 IAEA SRS-87의 경험식 채택 관계는 원문
+대조로 확정되어 더 이상 미해결 항목이 아닙니다.
 
 ## 5. 청킹 전략
 

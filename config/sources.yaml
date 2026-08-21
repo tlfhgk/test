@@ -79,6 +79,9 @@ sources:
     access: free-download
     copyright_note: "© Nuclear Energy Institute. Public (redacted) version released through NRC ADAMS. Do not commit the text to this repository."
     adams: "ML111440006 (Rev. 8P); ML091490723 (Rev. 7)"
+    obtained: true
+    obtained_via: "user's Google Drive (nei07-13.pdf, 69 pp., Rev. 8P)"
+    indexed_verbatim: true
     urls:
       - "https://www.nrc.gov/docs/ML1114/ML111440006.pdf"
       - "https://www.nrc.gov/docs/ML1114/ML111440004.html"
@@ -229,6 +232,10 @@ sources:
     language: en
     access: free-download
     copyright_note: "© IAEA. Freely downloadable; keep text local, do not commit."
+    obtained: true
+    obtained_via: "user's Google Drive (IAEA 68.pdf, 112 pp.)"
+    indexed_verbatim: true
+    aircraft_section: "paras. 5.161-5.192; screening probability level in footnote 9"
     urls:
       - "https://www.iaea.org/publications/14666/design-of-nuclear-installations-against-external-events-excluding-earthquakes"
       - "https://www-pub.iaea.org/MTCD/publications/PDF/PUB1968_web.pdf"
@@ -244,7 +251,7 @@ sources:
     instrument_type: safety-guide
     binding: false
     version: "(STI/PUB/2036)"
-    supersedes: "NS-G-3.1, External Human Induced Events in Site Evaluation for Nuclear Power Plants (2002)"
+    supersedes: "claimed to supersede NS-G-3.1 — NOT CONFIRMED. SSG-68 (2021) still cites NS-G-3.1 as a live reference [9], including for the 1E-7 screening probability level."
     language: en
     access: free-download
     verification: to_verify
@@ -285,6 +292,9 @@ sources:
     language: en
     access: free-download
     copyright_note: "© IAEA. Freely downloadable; keep text local, do not commit."
+    obtained: true
+    obtained_via: "user's Google Drive (IAEA SRS NO.87.pdf, 220 pp.)"
+    indexed_verbatim: true
     urls:
       - "https://www.iaea.org/publications/10953/safety-aspects-of-nuclear-power-plants-in-human-induced-external-events-assessment-of-structures"
       - "https://www-pub.iaea.org/MTCD/Publications/PDF/P1723_web.pdf"

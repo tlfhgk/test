@@ -11,13 +11,13 @@
 | CW-02 | 적용 대상이 신규 원전에 한정되는가, 기존 원전도 포함하는가? | **기준** | – | – | 구조 상이 | – | – | – | – |
 | CW-03 | 항공기 위협은 어떻게 정의되며, 수치는 공개되는가? | **기준** | – | – | 구조 상이 | 비공개 | – | 부분 | – |
 | CW-04 | 대형 항공기 충돌은 설계기준사건인가, 설계기준초과사건인가? | **기준** | – | – | 구조 상이 | 구조 상이 | 부분 | 동등 | – |
-| CW-05 | 항공기 추락 포함 여부를 정하는 명시적 확률 스크리닝 기준이 있는가? | **기준** | – | – | 구조 상이 | – | – | – | – |
+| CW-05 | 항공기 추락 포함 여부를 정하는 명시적 확률 스크리닝 기준이 있는가? | **기준** | – | – | 구조 상이 | – | – | 구조 상이 | – |
 | CW-06 | 어떤 구조물과 기기를 평가해야 하는가? | – | – | **기준** | 부분 | – | – | 부분 | – |
-| CW-07 | 충돌하중은 어떻게 정의되며 특정 방법이 강제되는가? | – | – | **기준** | 없음 | – | – | – | 동등 |
-| CW-08 | 국부손상(침투·배면박리·관통)은 어떻게 평가하는가? | – | – | **기준** | 없음 | 비공개 | – | – | 동등 |
-| CW-09 | 합격/불합격 판정기준은 무엇인가? | **기준** | – | **기준** | 부분 | 구조 상이 | – | – | – |
+| CW-07 | 충돌하중은 어떻게 정의되며 특정 방법이 강제되는가? | – | – | **기준** | 없음 | – | – | 동등 | 동등 |
+| CW-08 | 국부손상(침투·배면박리·관통)은 어떻게 평가하는가? | – | – | **기준** | 없음 | 비공개 | – | 구조 상이 | 부분 |
+| CW-09 | 합격/불합격 판정기준은 무엇인가? | **기준** | – | **기준** | 부분 | 구조 상이 | – | 동등 | – |
 | CW-10 | 고의적 충돌과 우발적 충돌을 함께 다루는가? | **기준** | – | – | – | 부분 | – | – | – |
-| CW-11 | 운전원 조치를 어느 정도까지 인정할 수 있는가? | **기준** | – | – | 없음 | 비공개 | – | 없음 | – |
+| CW-11 | 운전원 조치를 어느 정도까지 인정할 수 있는가? | **기준** | – | **기준** | 없음 | 비공개 | – | 없음 | – |
 | CW-12 | 평가결과는 어떻게 문서화·심사·공개되는가? | **기준** | – | **기준** | 부분 | – | – | – | – |
 
 범례: `baseline` = **기준** · `equivalent` = 동등 · `partial` = 부분 · `stricter` = 더 엄격 · `looser` = 더 완화 · `different-architecture` = 구조 상이 · `no-equivalent` = 없음 · `not-public` = 비공개 · `–` 해당 항목에 기재 없음
@@ -78,7 +78,7 @@
 
 > **차이점/유의사항:** CRITICAL for any benchmarking exercise: a numeric comparison of threat parameters between the US, Czech and EUR frameworks cannot be performed from public sources. Comparison is only meaningful at the level of method and acceptance logic.
 
-근거 조항: `US-10CFR50.150-a-2`, `CZ-329-2017-aircraft-dbe`, `EU-EUR-aircraft-crash`, `IAEA-SSG-68-scope`
+근거 조항: `US-10CFR50.150-a-2`, `US-NEI-07-13-riera`, `CZ-329-2017-aircraft-dbe`, `EU-EUR-aircraft-crash`, `IAEA-SSG-68-5.161-hazard-input`, `IAEA-SSG-68-5.181-fire`
 
 ### CW-04 — 대형 항공기 충돌은 설계기준사건인가, 설계기준초과사건인가?
 
@@ -93,13 +93,13 @@
 | `US-10CFR50.150` | **기준** | Explicitly beyond design basis; realistic (best-estimate) analysis, not design-basis conservatism. |
 | `CZ-329-2017` | 구조 상이 | Accidental crash sits INSIDE the design basis once the frequency criterion is met. |
 | `EU-EUR` | 구조 상이 | Multi-level: both DBEE and BDBEE/DEC performance objectives. |
-| `IAEA-SSG-68` | 동등 | Covers both levels; explicitly recommends selecting BDB external events to verify margins — the closest structural match to the US posture plus a design-basis layer. |
+| `IAEA-SSG-68` | 동등 | Covers both levels explicitly: para. 5.185 requires no perforation for an ACCIDENTAL crash (design basis), while para. 5.192 handles a BEYOND design basis crash by fully fuelled commercial airplanes with a best-estimate margin assessment. The closest structural match to the US posture, plus a design-basis layer the US rule lacks. |
 | `EU-WENRA-SRL` | 부분 | Aircraft crash in the design per site; DEC for events exceeding the design basis. |
 | `IAEA-SRS-88` | 부분 | Supplies the margin-assessment layer that the BDB level needs. |
 
 > **차이점/유의사항:** This is the single largest divergence in the corpus. Consequences: (a) US analyses may use realistic material properties and best-estimate methods that a Czech design-basis analysis would not accept; (b) Czech/EUR results carry design-basis safety classification obligations that the US BDB assessment does not trigger.
 
-근거 조항: `US-10CFR50.150-a-1`, `US-10CFR50.150-a-2`, `CZ-329-2017-aircraft-dbe`, `EU-EUR-aircraft-crash`, `IAEA-SSG-68-scope`, `EU-WENRA-external-hazards`, `IAEA-SRS-88-margins`
+근거 조항: `US-10CFR50.150-a-1`, `US-10CFR50.150-a-2`, `CZ-329-2017-aircraft-dbe`, `EU-EUR-aircraft-crash`, `IAEA-SSG-68-scope`, `IAEA-SSG-68-5.192-bdb`, `IAEA-SSG-68-5.185-confinement`, `EU-WENRA-external-hazards`, `IAEA-SRS-88-margins`
 
 ### CW-05 — 항공기 추락 포함 여부를 정하는 명시적 확률 스크리닝 기준이 있는가?
 
@@ -113,11 +113,11 @@
 |---|---|---|
 | `US-10CFR50.150` | **기준** | NO screening criterion. The threat is prescribed by rule, not selected by frequency. |
 | `CZ-329-2017` | 구조 상이 | > 1 in 10,000,000 years (i.e. > 1E-7/yr) for an object falling on an area where it could cause a basic external initiating event. |
-| `IAEA-SSG-79` | 구조 상이 | 1E-7 per reactor-year SPL, applied collectively to all events of the same type (e.g. all aircraft crashes). |
+| `IAEA-SSG-68` | 구조 상이 | Footnote 9: in some States 1E-7 per reactor-year is used as an acceptable probability limit for interacting events with serious radiological consequences; conservative as an SPL only if applied to all events of the same type. Attributed to NS-G-3.1. |
 
-> **차이점/유의사항:** Strongest quantitative link in the crosswalk: CZ 329/2017 and IAEA SSG-79 use the same 1E-7/yr level. Note the IAEA caveat that the value is conservative only when applied to ALL events of one type collectively — applying 1E-7 to a single crash scenario is a different and less conservative reading.
+> **차이점/유의사항:** Strongest quantitative link in the crosswalk: CZ 329/2017 and the IAEA level are the same 1E-7/yr figure. Three caveats now verified against the primary text of SSG-68: (1) the IAEA presents it as what "some States" use, NOT as an IAEA-mandated value; (2) it is conservative only when applied to ALL events of one type collectively — applying 1E-7 to a single crash scenario is a different and less conservative reading; (3) SSG-68 adds a procedural requirement absent from the Czech decree: where an SPL approach is used, the annual exceedance frequency must be AGREED BEFORE the site hazard evaluation. Attribution correction: this database first credited the statement to SSG-79 from a search result; the text is footnote 9 of SSG-68, citing NS-G-3.1.
 
-근거 조항: `US-10CFR50.150-a-2`, `CZ-329-2017-aircraft-dbe`, `IAEA-SSG-79-spl`
+근거 조항: `US-10CFR50.150-a-2`, `CZ-329-2017-aircraft-dbe`, `IAEA-SSG-68-fn9-spl`
 
 ### CW-06 — 어떤 구조물과 기기를 평가해야 하는가?
 
@@ -133,7 +133,7 @@ NEI 07-13은 대상을 명확히 한정한다: 핵연료를 포함한 구조물(
 | `CZ-329-2017` | 부분 | Generic 'structures, systems and components important to safety' — broader in principle, less prescriptive in practice. |
 | `IAEA-SSG-68` | 부분 | Protection of SSCs important to safety, based on site hazard evaluation and installation layout. |
 
-근거 조항: `US-NEI-07-13-scope`, `US-NEI-07-13-safety-function-assessment`, `CZ-329-2017-external-events-general`, `IAEA-SSG-68-scope`
+근거 조항: `US-NEI-07-13-scope`, `US-NEI-07-13-sufficiency`, `CZ-329-2017-external-events-general`, `IAEA-SSG-68-scope`, `IAEA-SSG-68-5.185-confinement`
 
 ### CW-07 — 충돌하중은 어떻게 정의되며 특정 방법이 강제되는가?
 
@@ -146,11 +146,14 @@ NEI 07-13은 국부하중과 전체하중의 산정, 재료 특성화, 파괴기
 | 문서 | 관계 | 내용 |
 |---|---|---|
 | `US-NEI-07-13` | **기준** | Integrated method: local + global loading, material characterisation, failure criteria; endorsed by RG 1.217. |
-| `IAEA-SRS-87` | 동등 | IAEA counterpart for structural assessment of aircraft crash loading — but a Safety Report, i.e. informative only. |
+| `IAEA-SRS-87` | 동등 | Also derives the soft-missile loading function by the Riera method (§2.2.2) — but a Safety Report, informative only. |
+| `IAEA-SSG-68` | 동등 | Paras. 5.168-5.176: load-time function for stiff/massive targets, coupled missile-target interaction for flexible targets; the regulatory body may specify aircraft type, mass and velocity. |
 | `CZ-329-2017` | 없음 | Decree sets the design basis, not the analysis method. |
 | `EU-2014-87-EURATOM` | 없음 | Directive prescribes no load or method. |
 
-근거 조항: `US-NEI-07-13-elements`, `US-RG-1.217-endorsement`, `IAEA-SRS-87-structures`, `CZ-329-2017-aircraft-dbe`, `EU-2014-87-framework`
+> **차이점/유의사항:** VERIFIED AGAINST BOTH PRIMARY TEXTS. NEI 07-13 and IAEA converge on method: both use a Riera-type force-time history and both provide a coupled missile-target interaction route for flexible targets. They diverge on WHO SUPPLIES THE NUMBERS. NEI 07-13 states that the rule "does not define a unique model of the aircraft nor its initial impact velocity" and that the Riera function is "provided to the vendors" — outside the public document. SSG-68 para. 5.170 instead says the aircraft type, mass and velocity "may be specified by the regulatory body", and para. 5.161 lets the site hazard evaluation express the result either as aircraft parameters or as load-time functions.
+
+근거 조항: `US-NEI-07-13-riera`, `US-RG-1.217-endorsement`, `IAEA-SRS-87-structures`, `IAEA-SSG-68-5.168-load-time`, `IAEA-SSG-68-5.170-missile-target`, `CZ-329-2017-aircraft-dbe`, `EU-2014-87-framework`
 
 ### CW-08 — 국부손상(침투·배면박리·관통)은 어떻게 평가하는가?
 
@@ -158,18 +161,19 @@ NEI 07-13은 국부하중과 전체하중의 산정, 재료 특성화, 파괴기
 
 **EN:** How is local damage — penetration, scabbing, perforation — evaluated?
 
-NEI 07-13은 경성 미사일이 철근콘크리트 벽체에 충돌할 때의 침투깊이, 배면 박리, 완전관통을 평가하는 산식을 직접 제공한다. 이 수준의 구체적 산식을 담은 대응 문서는 본 코퍼스에서 IAEA SRS 87뿐이다. 체코·EU 문서에는 대응 조항이 없다.
+**원문 대조로 확정된 항목.** 두 문서는 같은 경험식 계열을 쓰지만 규범적 성격이 다르다. NEI 07-13은 §2.1.2에서 사용할 식을 **특정한다**: 침투는 Modified NDRC, 배면박리 방지 두께는 reduced Chang, 관통 방지 두께는 reduced Degen, 관통속도는 CEA-EDF(Kar). IAEA SRS 87은 Chang, modified Chang, CRIEPI, NDRC/modified NDRC, Degen 식을 **카탈로그로 나열**할 뿐 선택을 강제하지 않는다. 결정적 차이는 IAEA가 명시한 단서다: 이 식들은 고체 발사체 시험 기반이므로 항공기 엔진·착륙장치에 적용할 때 0.60~0.65의 감소계수를 적용하는 것이 통상 적절하며, 저배근·횡철근 없는 표적 데이터에 기반한다. 한편 SSG-68 5.176은 강체 미사일용 경험식의 유효범위가 항공기 충돌과 일치하지 않으므로 적용성에 공학적 판단이 필요하다고 유보를 단다.
 
 | 문서 | 관계 | 내용 |
 |---|---|---|
-| `US-NEI-07-13` | **기준** | Explicit formulae for missile penetration, backside scabbing and complete perforation of RC walls. |
-| `IAEA-SRS-87` | 동등 | Same technical territory; formulation and empirical basis to be compared once both texts are ingested. |
+| `US-NEI-07-13` | **기준** | §2.1.2 SELECTS: Modified NDRC (penetration), reduced Chang (scabbing thickness), reduced Degen (perforation thickness), CEA-EDF per Kar (perforation velocity). Notes Degen/CEA-EDF/Chang/CRIEPI give comparable VP. |
+| `IAEA-SRS-87` | 부분 | PRESENTS the same formula family (Chang, modified Chang, CRIEPI, NDRC/modified NDRC, Degen) as a catalogue without mandating one; adds a 0.60-0.65 reduction factor for deformable aircraft engine parts and landing gear, and a lightly-reinforced-target validity caveat. |
+| `IAEA-SSG-68` | 구조 상이 | Para. 5.176 treats empirical rigid-missile formulas as an ALTERNATIVE for secondary missiles and debris only, warning their validity ranges usually do not coincide with aircraft impact; the primary route is a coupled non-linear model able to assess failure modes from spalling to perforation (5.174). |
 | `CZ-329-2017` | 없음 |  |
 | `EU-EUR` | 비공개 |  |
 
-> **차이점/유의사항:** OPEN TECHNICAL QUESTION for the next iteration: which empirical perforation/scabbing correlations each document adopts (modified NDRC, Degen, Chang, CEA-EDF, etc.) and whether they agree. This cannot be answered from the summaries in this database — it requires ingesting NEI 07-13 Rev. 8P and IAEA SRS No. 87 into corpus/raw/.
+> **차이점/유의사항:** RESOLVED — this was the open technical question in the first build of this database; it is now answered from both primary texts. The substantive finding is a hierarchy difference, not a formula disagreement: NEI 07-13 makes named empirical formulas the working method for local damage, whereas SSG-68 demotes them to an alternative for secondary missiles and debris and makes coupled non-linear analysis the primary route. An applicant using NEI 07-13 formulas in an IAEA-aligned jurisdiction should expect to justify (a) applicability of solid-projectile correlations to a crushable engine — SRS-87 suggests a 0.60-0.65 reduction factor — and (b) the reinforcement ratio of the real target versus the lightly reinforced test specimens the formulas came from.
 
-근거 조항: `US-NEI-07-13-failure-modes`, `IAEA-SRS-87-structures`
+근거 조항: `US-NEI-07-13-local-formulas`, `US-NEI-07-13-failure-modes`, `IAEA-SRS-87-structures`, `IAEA-SSG-68-5.170-missile-target`, `IAEA-SSG-68-5.163-effects`
 
 ### CW-09 — 합격/불합격 판정기준은 무엇인가?
 
@@ -177,17 +181,20 @@ NEI 07-13은 경성 미사일이 철근콘크리트 벽체에 충돌할 때의 �
 
 **EN:** What is the pass/fail criterion?
 
-미국 기준은 매우 구체적이다: 운전원 조치 의존을 줄인 상태에서 (노심냉각 또는 격납 건전성) 그리고 (사용후핵연료 냉각 또는 저장조 건전성). 두 쌍 모두 OR 구조라는 점이 중요하다 — 격납건전성 자체가 절대요건이 아니다. 체코·EUR·IAEA는 이런 형태의 단일 판정문 대신 안전기능 유지와 방사선학적 결과 제한이라는 일반 목표를 사용하며, EUR은 다단계 성능목표를 둔다.
+**원문 대조로 확정된 항목.** 미국 규정 기준은 (노심냉각 OR 격납건전성) AND (사용후핵연료 냉각 OR 저장조 건전성)이며, NEI 07-13 §2.5가 이를 구조 판정으로 번역한다: 격납은 (i) 강재 격납/강재라이너 콘크리트 격납의 관통이 없고 (ii) 노심손상 시 유효 완화전략 시행 전에 최대압력능력이 초과되지 않으면 수용된다. 저장조는 요구 최소수위 아래에서 라이너 누설이 없으면 국부적 압괴·균열이 있어도 수용된다. IAEA SSG-68 5.192는 설계기준초과 충돌에 대해 "대량 또는 조기 방출 방지에 필요한 안전상 중요 품목의 기능 유지"를 최소 허용기준으로 제시한다. 즉 두 체계 모두 설계기준초과·최적추정 해석이라는 점에서 일치하나, 판정 대상이 다르다 — 미국은 4개 발전소 기능을 명명하고, IAEA는 방출 기반 목표를 쓴다. 한편 SSG-68 5.185는 **우발적** 충돌에 대해서는 격납구조물의 무관통을 요구하여 훨씬 엄격하다.
 
 | 문서 | 관계 | 내용 |
 |---|---|---|
 | `US-10CFR50.150` | **기준** | (core cooling OR containment integrity) AND (SFP cooling OR SFP integrity), with reduced use of operator actions. |
-| `US-NEI-07-13` | **기준** | Translates structural damage into these safety-function outcomes. |
+| `US-NEI-07-13` | **기준** | §2.5: containment intact = no perforation AND ultimate pressure capability not exceeded before effective mitigation; SFP integrity = no liner leakage below required minimum water level, localized crushing/cracking acceptable. |
+| `IAEA-SSG-68` | 동등 | Para. 5.192 (BDB): at a minimum, items important to safety necessary to prevent large or early release remain functional; best estimate approach permitted. Para. 5.185 (accidental/DB): confinement structures withstand impact WITHOUT perforation. |
 | `EU-EUR` | 구조 상이 | Multi-level performance objectives graded by threat scenario. |
 | `IAEA-SRS-88` | 부분 | Margin-based plant/system performance evaluation rather than a binary criterion. |
 | `CZ-329-2017` | 부분 | General design-basis safety-function requirements; no aircraft-specific pass/fail statement. |
 
-근거 조항: `US-10CFR50.150-a-1`, `US-NEI-07-13-safety-function-assessment`, `EU-EUR-aircraft-crash`, `IAEA-SRS-88-margins`, `CZ-329-2017-external-events-general`
+> **차이점/유의사항:** The sharpest practical difference sits inside the containment test. NEI 07-13 §2.5.1 presumes a core damage event and asks only that the ultimate pressure capability hold long enough for mitigation; SSG-68 para. 5.185 requires confinement structures to withstand an accidental crash without perforation outright. The two are not in conflict because they sit at different hazard levels (BDB vs design basis) — which is exactly the CW-04 finding, now visible in the acceptance criteria themselves.
+
+근거 조항: `US-10CFR50.150-a-1`, `US-NEI-07-13-sufficiency`, `IAEA-SSG-68-5.192-bdb`, `IAEA-SSG-68-5.185-confinement`, `EU-EUR-aircraft-crash`, `IAEA-SRS-88-margins`, `CZ-329-2017-external-events-general`
 
 ### CW-10 — 고의적 충돌과 우발적 충돌을 함께 다루는가?
 
@@ -219,9 +226,10 @@ NEI 07-13은 경성 미사일이 철근콘크리트 벽체에 충돌할 때의 �
 | `US-10CFR50.150` | **기준** | 'with reduced use of operator actions' is written into the acceptance criterion itself. |
 | `CZ-329-2017` | 없음 |  |
 | `IAEA-SSG-68` | 없음 |  |
+| `US-NEI-07-13` | **기준** | In practice the methodology leans on operator-implemented 10 CFR 50.54(hh)(2) mitigation strategies; reconciled with 'reduced use of operator actions' by timing — mitigation need only be implementable before the ultimate pressure capability is challenged. |
 | `EU-EUR` | 비공개 |  |
 
-근거 조항: `US-10CFR50.150-a-1`
+근거 조항: `US-10CFR50.150-a-1`, `US-NEI-07-13-sufficiency`, `US-NEI-07-13-fire-spurious`
 
 ### CW-12 — 평가결과는 어떻게 문서화·심사·공개되는가?
 

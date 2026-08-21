@@ -1,0 +1,310 @@
+schema_version: 1
+source_id: IAEA-SSG-68
+provenance_note: >-
+  Every record in this file was written from the actual text of SSG-68 (STI/PUB/1968,
+  112 pp.), obtained from the user's Google Drive and indexed into this database by
+  scripts/ingest_raw.py. Paragraph numbers are exact. Short quoted fragments are marked
+  with quotation marks and attributed; the full text is in corpus/raw/ (gitignored).
+clauses:
+
+  - clause_id: IAEA-SSG-68-5.161-hazard-input
+    locator: "SSG-68, para. 5.161"
+    heading_en: "Form of the site hazard evaluation result"
+    heading_ko: "부지 재해평가 결과의 표현 형식"
+    topics: [T03, T05, T07]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      The result of the site hazard evaluation, based on a screening procedure to identify
+      the potential hazards associated with an aircraft crash, should be expressed either
+      as specific parameters for the aircraft (type, mass, velocity, stiffness) or as
+      load-time functions with associated impact areas. SSG-68 refers to NS-G-3.1 for the
+      hazard evaluation itself.
+    summary_ko: >-
+      항공기 추락 관련 잠재 재해를 식별하는 스크리닝 절차에 기반한 부지 재해평가 결과는
+      항공기별 파라미터(기종, 질량, 속도, 강성) 또는 관련 충돌면적을 수반한 하중-시간
+      함수 중 하나로 표현되어야 한다. SSG-68은 재해평가 자체에 대해서는 NS-G-3.1을 인용한다.
+    key_parameters:
+      output_form_a: "aircraft parameters: type, mass, velocity, stiffness"
+      output_form_b: "load-time functions with associated impact areas"
+      cross_reference: "NS-G-3.1 (SSG-68 reference [9])"
+    source_url: "https://www-pub.iaea.org/MTCD/publications/PDF/PUB1968_web.pdf"
+    notes: >-
+      NOTE ON DOCUMENT LINEAGE: SSG-68 (2021) cites NS-G-3.1 as a live reference, not as a
+      superseded one. Treat any claim that SSG-79 supersedes NS-G-3.1 as unconfirmed.
+
+  - clause_id: IAEA-SSG-68-5.163-effects
+    locator: "SSG-68, para. 5.163"
+    heading_en: "The five effects to be considered for a postulated aircraft crash"
+    heading_ko: "가정된 항공기 추락 시 고려해야 할 5가지 영향"
+    topics: [T08, T09, T10, T11, T12]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      The postulated aircraft crash is analysed to determine its effects on the installation
+      and the steps needed to keep radiological consequences below acceptable limits.
+      Five effects are to be considered:
+      (a) localized structural damage from impact of extremely stiff parts of the aircraft
+      (engine, landing gear), including penetration, spalling, scabbing and perforation
+      ("local effects");
+      (b) global structural damage, including deformations or displacements that prevent
+      the structure from performing its safety functions ("global effects");
+      (c) functional failure of SSCs due to induced vibrations in structural members and
+      safety related equipment ("vibration effects");
+      (d) effects of crash-initiated fires and explosions on SSCs;
+      (e) where relevant, effects on criticality safety of fuel or extinguishing water
+      entering buildings, e.g. through the ventilation system.
+    summary_ko: >-
+      가정된 항공기 추락은 시설에 미치는 영향과 방사선학적 결과를 허용한계 이하로
+      유지하기 위한 조치를 정하기 위해 해석한다. 고려 대상 5가지 영향:
+      (a) 항공기의 극히 강성이 큰 부분(엔진, 착륙장치) 충돌에 의한 국부 구조손상 —
+      침투, 표면박리(spalling), 배면박리(scabbing), 관통 포함("국부영향");
+      (b) 구조물이 안전기능을 수행하지 못하게 하는 과도 변형·변위를 포함한 전체 구조손상
+      ("전체영향");
+      (c) 구조부재 및 안전관련 기기의 유발진동에 의한 SSC 기능상실("진동영향");
+      (d) 충돌로 개시된 화재·폭발이 SSC에 미치는 영향;
+      (e) 해당되는 경우, 연료 또는 소화수가 환기계통 등을 통해 건물로 유입되어
+      임계안전에 미치는 영향.
+    key_parameters:
+      effects: ["local", "global", "vibration", "fire and explosion", "fuel/extinguishing water ingress → criticality"]
+    source_url: "https://www-pub.iaea.org/MTCD/publications/PDF/PUB1968_web.pdf"
+    notes: >-
+      IAEA's list is broader than NEI 07-13's three-part set (physical / shock / fire):
+      effect (e), criticality safety from fuel or extinguishing water ingress, has no
+      counterpart in the NEI scope statement.
+
+  - clause_id: IAEA-SSG-68-5.168-load-time
+    locator: "SSG-68, paras. 5.168-5.169"
+    heading_en: "Load-time function approach"
+    heading_ko: "하중-시간 함수 접근법"
+    topics: [T07]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      For impact analysis of stiff or massive structures, an equivalent load-time function
+      from the perpendicular impact of a defined deformable missile on a rigid target should
+      be derived analytically. Smoothing should filter spurious numerical noise, but physical
+      high-frequency effects should not be excluded. Load-time functions can be used for a
+      design basis external event, in which case the engineering design rules should comply
+      with the relevant national or international codes and proven engineering practice.
+    summary_ko: >-
+      강성이 크거나 질량이 큰 구조물의 충돌해석에는, 정의된 변형성 미사일이 강체 표적에
+      수직 충돌할 때의 등가 하중-시간 함수를 해석적으로 도출해야 한다. 수치적분에서
+      발생하는 허위 잡음은 평활화로 제거하되 물리적 고주파 성분은 배제하지 않아야 한다.
+      하중-시간 함수는 설계기준 외부사건에 사용할 수 있으며, 이 경우 공학적 설계규칙은
+      관련 국내·국제 기준 및 입증된 공학적 관행에 부합해야 한다.
+    source_url: "https://www-pub.iaea.org/MTCD/publications/PDF/PUB1968_web.pdf"
+
+  - clause_id: IAEA-SSG-68-5.170-missile-target
+    locator: "SSG-68, paras. 5.170-5.176"
+    heading_en: "Missile-target interaction (coupled) analysis"
+    heading_ko: "미사일-표적 상호작용(연성) 해석"
+    topics: [T07, T08, T09]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      For impact on flexible structures the load may be heavily influenced by dynamic
+      missile-target interaction, determined by a coupled analysis modelling the aircraft as
+      a deformable missile with its type, mass, stiffness, velocity and impact angle. The
+      type of aircraft, mass and velocity may be specified by the regulatory body. Stiff
+      components such as engines and landing gear are included, with the impact load defined
+      by the initial velocity of the missiles. The local area is modelled with enough concrete
+      volume elements through the thickness and non-linear concrete behaviour (different in
+      tension and compression, strain-rate and failure criteria), with reinforcing steel as
+      beam elements connected to the concrete; the model must be able to assess concrete
+      failure modes from spalling to perforation. Outside the local area the model may be
+      simplified. Empirical/semi-empirical formulas derived for rigid missiles are an
+      alternative for secondary missiles and debris, but their validity ranges usually do not
+      coincide with aircraft impact, so engineering judgement on applicability is necessary.
+    summary_ko: >-
+      유연 구조물 충돌에서는 미사일-표적 간 동적 상호작용이 하중에 크게 영향을 줄 수 있으며,
+      항공기를 기종·질량·강성·속도·충돌각을 갖는 변형성 미사일로 모델링한 연성해석으로
+      결정한다. 기종·질량·속도는 규제기관이 지정할 수 있다. 엔진·착륙장치 등 강성 부품을
+      포함하며 충돌하중은 미사일 초기속도로 정의된다. 국부영역은 두께방향으로 충분한 수의
+      콘크리트 체적요소와 비선형 재료거동(인장·압축 차이, 변형률속도, 파괴기준)으로
+      모델링하고 철근은 콘크리트에 연결된 보요소로 모델링하며, 표면박리부터 관통까지의
+      콘크리트 파괴모드를 평가할 수 있어야 한다. 국부영역 밖은 단순화할 수 있다. 강체
+      미사일용으로 도출된 경험식·반경험식은 2차 미사일·파편 평가의 대안이나, 적용 유효범위가
+      항공기 충돌과 일치하지 않으므로 적용성에 대한 공학적 판단이 필요하다.
+    key_parameters:
+      regulator_role: "type of aircraft, mass and velocity may be specified by the regulatory body"
+      empirical_formula_caveat: "validity ranges of rigid-missile formulas usually do not coincide with aircraft impact"
+    source_url: "https://www-pub.iaea.org/MTCD/publications/PDF/PUB1968_web.pdf"
+    notes: >-
+      Para. 5.176 is the IAEA's explicit reservation about exactly the empirical formulas
+      that NEI 07-13 adopts as its primary local-damage method. See crosswalk CW-08.
+
+  - clause_id: IAEA-SSG-68-5.177-vibration
+    locator: "SSG-68, paras. 5.177-5.180"
+    heading_en: "Induced vibration effects"
+    heading_ko: "유발진동 영향"
+    topics: [T10]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      In-structure response spectra should be calculated for all main structural elements of
+      buildings containing safety related items, with appropriate damping and an analysis
+      time long enough to capture dominating post-impact vibrations. Spurious high-frequency
+      noise should be filtered out before the induced vibration is used in component design.
+      Passive mechanical structures can normally sustain high frequencies without damage, and
+      some States apply a high-frequency cut-off in the in-structure response spectra — but
+      only where structural layouts are well defined, high structural damping at high
+      frequencies and structural discontinuities are accounted for, the calculated
+      displacement is below the defined acceptability threshold, and the vibration is
+      propagated over a distance in the structure.
+    summary_ko: >-
+      안전관련 품목이 있는 건물의 모든 주요 구조부재에 대해 층응답스펙트럼을 산정해야 하며,
+      적절한 감쇠를 적용하고 충돌 후 지배적 진동이 포함되도록 충분히 긴 해석시간을 둔다.
+      기기 설계에 유발진동을 반영하기 전에 허위 고주파 잡음을 제거해야 한다. 수동 기계
+      구조물은 통상 고주파를 손상 없이 견디며 일부 국가는 층응답스펙트럼에 고주파 차단을
+      적용하나, 구조배치가 명확히 정의되고 고주파에서의 높은 구조감쇠와 구조 불연속을
+      고려하며 산정 변위가 허용기준 미만이고 진동이 구조물 내 일정 거리로 전파되는 경우에만
+      사용해야 한다.
+    source_url: "https://www-pub.iaea.org/MTCD/publications/PDF/PUB1968_web.pdf"
+
+  - clause_id: IAEA-SSG-68-5.181-fire
+    locator: "SSG-68, para. 5.181"
+    heading_en: "Fire effects and the no-perforation rule for the outer wall"
+    heading_ko: "화재 영향 및 외벽 무관통 원칙"
+    topics: [T11, T12]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      "The outer wall of the structure should be designed to resist an aircraft crash.
+      Neither the aircraft nor parts of it should perforate the outer wall." The consequences
+      of released fuel are assessed considering: (a) the fire load, directly related to the
+      fuel carried by the reference aircraft at the target — the fuel loaded for the route
+      from the starting airport to the destination minus consumption from take-off and
+      cruising — plus other flammable materials from inside the aircraft (hand baggage,
+      luggage, payload, plastic sheeting, seats, flammable materials in the aircraft
+      structure) and flammable materials present at the site; (b) external fireballs;
+      (c) pool fires; (d) entry of fuel into buildings important to safety through normal
+      openings or as vapour/aerosol through air intake ducts, with subsequent fires;
+      (e) entry of combustion products into distribution systems, affecting personnel or
+      causing malfunctions such as electrical faults or emergency diesel generator failures.
+    summary_ko: >-
+      "구조물의 외벽은 항공기 추락에 저항하도록 설계되어야 한다. 항공기 또는 그 부품이
+      외벽을 관통해서는 안 된다." 방출 연료의 영향은 다음을 고려하여 평가한다:
+      (a) 화재하중 — 표적 지점에서 기준 항공기가 적재한 연료량(출발공항에서 목적지까지의
+      노선에 급유된 양에서 이륙·순항 소모량을 뺀 값)에 직접 관련되며, 기내 가연물
+      (수하물, 화물, 플라스틱 시트, 좌석, 기체 구조 내 가연재)과 부지 내 가연물 포함;
+      (b) 외부 화구(fireball); (c) 풀화재(pool fire); (d) 연료가 통상 개구부를 통해,
+      또는 증기·에어로졸 형태로 공기흡입 덕트를 통해 안전상 중요 건물로 유입되어 발생하는
+      후속 화재; (e) 연소생성물이 분배계통으로 유입되어 인원에 영향을 주거나 전기적 고장,
+      비상디젤발전기 고장 등 오작동을 유발하는 경우.
+    key_parameters:
+      fuel_definition: "route fuel from origin airport to destination, minus take-off and cruise consumption"
+      fire_phenomena: ["external fireball", "pool fire", "fuel ingress via openings and air intakes", "combustion product ingress"]
+    source_url: "https://www-pub.iaea.org/MTCD/publications/PDF/PUB1968_web.pdf"
+    notes: >-
+      Contrast with 10 CFR 50.150(a)(2), which specifies "aviation fuel loading typically
+      used" for long-distance US flights but withholds the number. SSG-68 instead gives a
+      derivation rule (route fuel minus consumption) that an applicant can actually apply.
+
+  - clause_id: IAEA-SSG-68-5.185-confinement
+    locator: "SSG-68, paras. 5.185, 5.190, 5.191"
+    heading_en: "Confinement structures, protective measures and load combination"
+    heading_ko: "격납구조물, 방호조치 및 하중조합"
+    topics: [T06, T09, T12]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      Structures performing a confinement function should be designed to withstand, without
+      perforation, the impact of an accidental aircraft crash (5.185). Where local failure
+      including scabbing could impair a safety function, measures are: improving structural
+      resistance (thickness, reinforcement, earth cover for buried distribution systems,
+      missile shields or other obstacles); locating redundant equipment in a separate area
+      with adequate physical separation; or qualifying the affected items for short transient
+      loads covering all critical failure modes of stability, integrity and functionality
+      (5.190). For load combination it is not necessary to combine all design loads with the
+      aircraft crash load — generally only loads present for a significant duration (dead
+      loads, actual live loads, normal operating equipment loads) need be combined (5.191).
+    summary_ko: >-
+      격납기능을 수행하는 구조물은 우발적 항공기 추락 충돌을 관통 없이 견디도록 설계되어야
+      한다(5.185). 배면박리를 포함한 국부파괴가 안전기능을 저해할 수 있는 경우의 조치는:
+      구조저항 향상(두께·철근 증대, 매설 분배계통의 복토 증대, 미사일 차폐 또는 기타 장애물
+      추가), 여유 기기를 충분한 이격거리를 둔 별도 구역에 배치(물리적 분리), 또는 영향 품목을
+      단시간 과도하중에 대해 검증(안정성·건전성·기능성의 모든 임계 파괴모드 포함)하는 것이다
+      (5.190). 하중조합에서는 모든 설계하중을 항공기 충돌하중과 조합할 필요가 없으며,
+      통상 상당 시간 존재하는 하중(고정하중, 실제 활하중, 기기 정상운전하중)만 조합하면
+      충분하다(5.191).
+    source_url: "https://www-pub.iaea.org/MTCD/publications/PDF/PUB1968_web.pdf"
+
+  - clause_id: IAEA-SSG-68-5.192-bdb
+    locator: "SSG-68, para. 5.192"
+    heading_en: "Beyond design basis aircraft crash — acceptance criterion and method"
+    heading_ko: "설계기준초과 항공기 충돌 — 허용기준 및 방법"
+    topics: [T04, T07, T12, T13]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      "If a beyond design basis aircraft crash involving fully fuelled commercial airplanes
+      is considered, acceptance criteria should be chosen such that, at a minimum, items
+      important to safety of the nuclear installation that are necessary to prevent large or
+      early release remain functional." A coupled analysis should be performed for beyond
+      design basis aircraft crashes; load-time functions can also be used. In both cases a
+      best estimate approach can be used for the margin assessment.
+    summary_ko: >-
+      "완전 급유된 상용항공기가 관련된 설계기준초과 항공기 충돌을 고려하는 경우, 허용기준은
+      최소한 대량 또는 조기 방출을 방지하는 데 필요한 원자력시설의 안전상 중요 품목이 기능을
+      유지하도록 선정되어야 한다." 설계기준초과 항공기 충돌에 대해서는 연성해석을 수행해야
+      하며 하중-시간 함수도 사용할 수 있다. 두 경우 모두 여유도 평가에 최적추정(best estimate)
+      접근법을 사용할 수 있다.
+    key_parameters:
+      threat: "fully fuelled commercial airplanes"
+      criterion: "items important to safety necessary to prevent large or early release remain functional"
+      method: "coupled analysis; load-time functions also permitted"
+      analysis_basis: "best estimate approach for margin assessment"
+    source_url: "https://www-pub.iaea.org/MTCD/publications/PDF/PUB1968_web.pdf"
+    notes: >-
+      THE DIRECT COUNTERPART TO 10 CFR 50.150. Both address a beyond-design-basis large
+      commercial aircraft and both permit best-estimate/realistic analysis. They diverge on
+      the criterion: SSG-68 uses the IAEA release-based objective (prevent large or early
+      release), while 50.150(a)(1) uses four named plant functions in an OR/AND structure.
+      See crosswalk CW-09.
+
+  - clause_id: IAEA-SSG-68-fn9-spl
+    locator: "SSG-68, footnote 9 (to Section 3, para. 3.3)"
+    heading_en: "The 1E-7 per reactor-year screening probability level"
+    heading_ko: "원자로-년당 1E-7 스크리닝 확률수준"
+    topics: [T05]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      "In some States, a value for the probability of 10^-7 per reactor-year is used in the
+      design of new facilities as an acceptable limit on the probability value for interacting
+      events that have serious radiological consequences. This is considered a conservative
+      value for the screening probability level if applied to all events of the same type
+      (e.g. all aircraft crashes, all explosions). Some initial events may have very low
+      limits on their acceptable probability and need to be considered in isolation."
+      SSG-68 attributes this to reference [9], NS-G-3.1. Where a screening probability level
+      approach is used, the annual frequency of exceedance to be considered should be agreed
+      before the site hazard evaluation.
+    summary_ko: >-
+      "일부 국가에서는 심각한 방사선학적 결과를 갖는 상호작용 사건의 확률에 대한 수용 가능한
+      한계값으로 신규 시설 설계 시 원자로-년당 10^-7 값을 사용한다. 이는 동일 유형의 모든
+      사건(예: 모든 항공기 추락, 모든 폭발)에 적용될 경우 스크리닝 확률수준으로서 보수적인
+      값으로 간주된다. 일부 초기사건은 수용 가능한 확률의 한계가 매우 낮아 개별적으로 고려할
+      필요가 있다." SSG-68은 이를 참고문헌 [9](NS-G-3.1)에 귀속시킨다. 스크리닝 확률수준
+      접근법을 사용하는 경우, 고려할 연간 초과빈도는 부지 재해평가 이전에 합의되어야 한다.
+    key_parameters:
+      spl_value: "1E-7 per reactor-year"
+      status: "used in some States; not an IAEA-mandated value"
+      application_rule: "conservative only if applied to all events of the same type collectively"
+      attributed_to: "NS-G-3.1 (SSG-68 reference [9])"
+      procedural_requirement: "the exceedance frequency must be agreed before the site hazard evaluation"
+    source_url: "https://www-pub.iaea.org/MTCD/publications/PDF/PUB1968_web.pdf"
+    notes: >-
+      CORRECTION OF AN EARLIER RECORD IN THIS DATABASE. The 1E-7 statement was initially
+      attributed to SSG-79 on the basis of a search result. The text actually appears as
+      footnote 9 of SSG-68, citing NS-G-3.1. See IAEA-SSG-79-spl, now superseded by this
+      record.
