@@ -28,7 +28,8 @@ $#-----------------------------------------------------------------------------
 building.k
 *INCLUDE
 drone.k
-$# blast.k is NOT included: OpenRadioss does not read *LOAD_BLAST_ENHANCED
+$# blast.inc is NOT included here - OpenRadioss cannot map the blast
+$# keywords.  The burst is applied at the bottom of this file instead.
 $
 $#=============================================================================
 $#  1. CONTROL

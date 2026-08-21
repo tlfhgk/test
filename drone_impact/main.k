@@ -25,7 +25,7 @@ building.k
 *INCLUDE
 drone.k
 *INCLUDE
-blast.k
+blast.inc
 $
 $#=============================================================================
 $#  1. CONTROL

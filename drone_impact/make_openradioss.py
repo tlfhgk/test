@@ -69,8 +69,9 @@ sub("""Drone impact and battery burst - 2 story retail building""",
 
 # ------------------------------------------------------------ no blast.k ----
 sub("""*INCLUDE
-blast.k
-""", "$# blast.k is NOT included: OpenRadioss does not read *LOAD_BLAST_ENHANCED\n",
+blast.inc
+""", "$# blast.inc is NOT included here - OpenRadioss cannot map the blast\n"
+     "$# keywords.  The burst is applied at the bottom of this file instead.\n",
     "blast include")
 
 # ------------------------------------------------------- battery material ----

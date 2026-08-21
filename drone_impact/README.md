@@ -13,7 +13,9 @@ drone_impact/
 ├── run_openradioss.bat OpenRadioss 실행 스크립트 (Windows)
 ├── building.k          [자동생성] 건물 절점·요소·바닥 구속 절점세트
 ├── drone.k             [자동생성] 드론 절점·요소
-└── blast.k             [자동생성] 배터리 폭발 하중 + 세그먼트세트 903/902
+└── blast.inc           [자동생성] 배터리 폭발 하중 + 세그먼트세트 903/902
+                        (`.k` 가 아닌 이유: OpenRadioss 리더가 실행폴더의
+                         `.k` 파일을 include 하지 않아도 주워 읽습니다)
 ```
 
 ---
@@ -232,6 +234,21 @@ OpenRadioss 는 LS-DYNA 키워드 **전부**가 아니라 리더(`dyna2rad`)가 
 동체 면적 144,000 mm², 질량 0.335 kg 기준으로 8.0E-4 GPa × 0.5 ms 삼각펄스 →
 패널이 약 85 m/s 로 튕겨나갑니다.
 
+### OpenRadioss 실행 폴더에는 이것만 두세요
+
+```
+main_openradioss.k    building.k    drone.k    run_openradioss.bat
+```
+**`main.k` 를 같은 폴더에 두지 마세요.** OpenRadioss 의 LS-DYNA 리더는 실행 폴더에 있는
+`.k` 파일을 include 하지 않아도 읽어버립니다. 폭발 하중 파일을 `blast.inc` 로 이름 지은
+것도 같은 이유입니다 — `.k` 였을 때 아래 에러가 났습니다.
+
+```
+ERROR ID : 100210  ** ERROR IN INPUT OPTIONS
+-- BLOCK: *LOAD_BLAST_ENHANCED
+Unrecognized option: *LOAD_BLAST_ENHANCED
+```
+
 ### 처음 돌릴 때 반드시 볼 것
 
 `main_openradioss_0000.out` — **Starter 가 읽지 못한 키워드를 여기에 전부 적어줍니다.**
@@ -262,10 +279,10 @@ OpenRadioss 는 LS-DYNA 키워드 **전부**가 아니라 리더(`dyna2rad`)가 
 | 증상 | 조치 |
 |---|---|
 | `PART 11 not found: *INITIAL_VELOCITY_GENERATION` | `STYP` 값 문제. **`STYP=1` 이 파트세트, `STYP=2` 가 단일 파트 ID** 입니다(`*CONTACT` 의 `SSTYP` 와 규칙이 반대라 헷갈립니다). `11,1,0.0,0.0,40.0,...` 이어야 합니다. |
-| `Missing data in Keyword - *LOAD_BLAST_SEGMENT_SET` | `blast.k` 를 재생성하세요. 카드를 하나로 합치고(세트 903), `aleid`·`sfnrb` 까지 전 필드를 명시했으며, `*SET_SEGMENT` 를 하중카드 **뒤**로 옮겨 하중카드가 파일 끝에 오지 않게 했습니다. |
+| `Missing data in Keyword - *LOAD_BLAST_SEGMENT_SET` | `blast.inc` 를 재생성하세요. 카드를 하나로 합치고(세트 903), `aleid`·`sfnrb` 까지 전 필드를 명시했으며, `*SET_SEGMENT` 를 하중카드 **뒤**로 옮겨 하중카드가 파일 끝에 오지 않게 했습니다. |
 | `Request name dyna does not exist in the licensing pool` + `Error 70022` | **학생 라이선스 만료**입니다. 모델 문제가 아닙니다. 라이선스가 설치파일에 내장돼 있어서 **최신 Ansys Student 를 새로 받아 재설치**하는 것이 유일한 방법입니다(2020Rx 부터 라이선스 파일 교체 방식은 폐지). |
 | `E R R O R ... *INCLUDE ... file not found` | LS-Run 의 **Working directory** 가 `.k` 파일들이 있는 폴더가 아닙니다. |
-| 폭압이 너무 세거나 약함 | `blast.k` 의 `M`(현재 0.030 kg) 조정. `*DATABASE_BINARY_D3PLOT` 에서 blast pressure fringe 로 실제 걸린 압력을 먼저 확인하세요. |
+| 폭압이 너무 세거나 약함 | `blast.inc` 의 `M`(현재 0.030 kg) 조정. `*DATABASE_BINARY_D3PLOT` 에서 blast pressure fringe 로 실제 걸린 압력을 먼저 확인하세요. |
 | 폭발이 아예 안 걸림 | `messag` 에서 `LOAD_BLAST` 경고 확인. 세그먼트 법선이 폭원 반대쪽이면 하중이 0 입니다. 정 안 되면 `main.k` 맨 아래 **ALTERNATIVE BURST MODEL** 블록(`*LOAD_SEGMENT_SET` + 압력 곡선)의 `$` 를 지우고, 상단 `*INCLUDE blast.k` 두 줄을 `$` 로 막으세요. |
 | 초기에 에너지가 튐 | `*CONTROL_CONTACT` 의 `SLSFAC` 를 0.05 로 낮추거나 접촉 `SOFT=2` 로 변경. |
 | 요소가 과도하게 뭉개져 계산이 느려짐 | `*CONTROL_TIMESTEP` 의 `ERODE=1` 이 켜져 있는지 확인. |
