@@ -333,6 +333,25 @@ dir /b "_run_openradioss\*.vtk"
 `Save Animation` 창에서 `Image Resolution` 을 **1920 x 1080** 으로, `Frame Rate` 를
 30 으로 두세요.
 
+### 6) PNG 시퀀스 -> mp4
+
+`make_video.bat` 을 **PNG 가 저장된 폴더에 복사하고 더블클릭**하면 끝입니다.
+ParaView 가 붙인 이름(`<이름>.0000.png`)을 알아서 찾아 `drone_impact.mp4` 를 만듭니다.
+
+ffmpeg 이 필요합니다 — https://www.gyan.dev/ffmpeg/builds/ 에서 `release essentials`
+zip 을 받아 풀고, `bin` 폴더를 PATH 에 넣거나 `make_video.bat` 의 `FFMPEG` 에
+`ffmpeg.exe` 전체 경로를 적으세요.
+
+스크립트 맨 위에서 조절할 수 있는 것:
+```bat
+set FPS=30      :: 낮출수록 느린 화면. 15 로 하면 2배 슬로모션
+set CRF=18      :: 화질. 0=무손실, 18=육안 무손실, 23=기본
+set OUT=drone_impact.mp4
+```
+
+편집 프로그램(다빈치 리졸브, 프리미어 등)을 쓰실 거면 이 단계를 건너뛰고 PNG
+시퀀스를 그대로 불러오세요. 자막·나레이션·속도 램프를 넣기 훨씬 편합니다.
+
 ### 화면 다듬기 (영상용)
 
 * 배경: `View > Color Map Editor` 말고 좌측 **Properties 하단 `Background`** 에서 단색/그라데이션
