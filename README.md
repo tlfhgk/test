@@ -65,6 +65,7 @@ scripts/make_matrix.py         비교 매트릭스 문서 생성
 scripts/report_gaps.py         출처 검증 상태 보고
 docs/comparison-matrix.md      비교 매트릭스 (자동생성)
 docs/methodology.md            방법론·출처검증 정책·한계
+docs/acquisition-checklist.md  확보해야 할 원문 목록 (우선순위별)
 ```
 
 ## 데이터베이스 스키마
