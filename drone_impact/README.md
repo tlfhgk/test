@@ -1,6 +1,6 @@
 # 드론 고속 충돌 + 배터리 폭발 — 2층 상가 건물 (LS-DYNA)
 
-Ansys Student / LS-DYNA Student 에서 그대로 돌아가는 explicit 충돌·파괴 해석 덱입니다.
+**Ansys 2025 R1 (LS-DYNA R14.1) Student** 에서 그대로 돌아가는 explicit 충돌·파괴 해석 덱입니다.
 드론이 40 m/s 로 날아가 2층 상가 건물 전면 유리에 처박히고, 충돌 1.5 ms 뒤
 LiPo 배터리가 터지면서 기체가 산산조각 나는 시나리오입니다.
 
@@ -109,14 +109,36 @@ $#     cfm       cfl       cft       cfp     nidbo     death   negphs
 
 ---
 
-## 4. 실행
+## 4. 실행 — Ansys 2025 R1 (LS-DYNA R14.1)
 
-```bash
-python3 generate_model.py          # 메쉬 재생성 (형상·요소크기 바꿨을 때만)
-lsdyna i=main.k ncpu=4 memory=200m # 또는 Ansys LS-DYNA Student GUI 에서 main.k 열기
+**Ansys 2025 R1 에 들어있는 LS-DYNA 는 R15 가 아니라 R14.1 입니다.**
+이 덱에 쓴 카드는 전부 R14 정식 지원 범위 안이라 수정 없이 그대로 돌아갑니다.
+
+> Workbench LS-DYNA(Mechanical) 는 `.k` 덱을 직접 먹지 않습니다.
+> 아래 **LS-Run** 또는 커맨드라인으로 푸세요.
+
+### (a) LS-Run — 권장
+1. 메쉬 재생성이 필요하면 먼저 `python3 generate_model.py`
+2. 시작메뉴에서 **LS-Run** 실행 (Ansys LS-DYNA Student 와 같이 설치됨)
+3. `Input file` 에 `main.k` 지정 → **Working directory 가 반드시
+   `building.k / drone.k / blast.k` 와 같은 폴더**여야 합니다 (`*INCLUDE` 가 상대경로)
+4. Solver = `SMP`, Precision = `Single`, `NCPU = 4` → **Run**
+5. 라이선스 환경변수는 LS-Run 이 알아서 잡아줍니다.
+
+### (b) 커맨드라인 (v251)
+```bat
+cd /d <이 폴더>
+"C:\Program Files\ANSYS Inc\v251\ansys\bin\winx64\lsdyna_sp.exe" ^
+    i=main.k ncpu=4 memory=200m
 ```
+* 정밀도: 이 모델은 **단정밀도(`lsdyna_sp.exe`) 로 충분**하고 배정밀도보다 약 2배 빠릅니다.
+  `glstat` 에서 에너지 밸런스가 이상하면 `lsdyna_dp.exe` 로 바꿔 보세요.
+* 직접 exe 를 부를 때 라이선스를 못 찾으면 `set LSTC_LICENSE=ansys` 를 먼저 주세요.
+* `ncpu=4` 가 거부되면 학생 라이선스 코어 수에 맞춰 2 또는 1 로 낮추세요.
 
-* 규모: **절점 11,526 / 요소 12,300** → Student 버전 제한(10만) 안쪽.
+### 규모
+* **절점 11,526 / 요소 12,300** → Ansys Student LS-DYNA 제한(약 128,000 절점·요소) 대비 10% 수준.
+  메쉬를 훨씬 촘촘하게 키울 여유가 있습니다.
 * 임계 시간증분 ≈ 1.2E-3 ms, 약 29,000 스텝. 노트북 4코어 기준 수 분.
 * `*DATABASE_BINARY_D3PLOT` dt = 0.25 ms → **애니메이션 140 프레임**.
 
@@ -149,9 +171,9 @@ lsdyna i=main.k ncpu=4 memory=200m # 또는 Ansys LS-DYNA Student GUI 에서 mai
 
 | 증상 | 조치 |
 |---|---|
-| `*CONTROL_SHELL` 4번째 카드에서 입력 오류 | 구버전 솔버입니다. `1,1,0,0,0` 줄과 그 위 `$# nfail1...` 주석을 지우세요. |
-| `*LOAD_BLAST_ENHANCED` 가 라이선스에 없음 | `main.k` 상단의 `*INCLUDE blast.k` 두 줄을 주석 처리하고, 맨 아래 **ALTERNATIVE BURST MODEL** 블록(`*LOAD_SEGMENT_SET` + 압력 곡선)의 `$` 를 제거하세요. |
-| 폭압이 너무 세거나 약함 | `blast.k` 의 `M` 조정. 환산계수 정의(모델단위→SI)는 솔버 버전별로 확인하고, `d3plot` 의 blast pressure 로 검증하세요. |
+| `E R R O R ... *INCLUDE ... file not found` | LS-Run 의 **Working directory** 가 `.k` 파일들이 있는 폴더가 아닙니다. |
+| 폭압이 너무 세거나 약함 | `blast.k` 의 `M`(현재 0.030 kg) 조정. `*DATABASE_BINARY_D3PLOT` 에서 blast pressure fringe 로 실제 걸린 압력을 먼저 확인하세요. |
+| 폭발이 아예 안 걸림 | `messag` 에서 `LOAD_BLAST` 경고 확인. 세그먼트 법선이 폭원 반대쪽이면 하중이 0 입니다. 정 안 되면 `main.k` 맨 아래 **ALTERNATIVE BURST MODEL** 블록(`*LOAD_SEGMENT_SET` + 압력 곡선)의 `$` 를 지우고, 상단 `*INCLUDE blast.k` 두 줄을 `$` 로 막으세요. |
 | 초기에 에너지가 튐 | `*CONTROL_CONTACT` 의 `SLSFAC` 를 0.05 로 낮추거나 접촉 `SOFT=2` 로 변경. |
 | 요소가 과도하게 뭉개져 계산이 느려짐 | `*CONTROL_TIMESTEP` 의 `ERODE=1` 이 켜져 있는지 확인. |
 
