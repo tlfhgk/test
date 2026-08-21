@@ -13,3 +13,6 @@ bg_switch
 kill_by_pid
 status.out
 *.tmp
+
+# local delivery bundle (regenerate with: zip -r drone_impact_lsdyna.zip drone_impact)
+drone_impact_lsdyna.zip
