@@ -3,11 +3,8 @@ setlocal enabledelayedexpansion
 REM ===========================================================================
 REM  Drone impact - OpenRadioss run script (Windows, SMP)
 REM
-REM  Only the two settings in STEP 1 need touching.  Double-click this file, or
-REM  run it from a cmd window; it always works in its own folder, so the
-REM  *INCLUDE paths in the deck resolve.
-REM
-REM  Environment variables follow OpenRadioss INSTALL.md.
+REM  Set OPENRADIOSS_PATH below to wherever the release zip was extracted.
+REM  If the zip added an extra folder level, this script finds it by itself.
 REM ===========================================================================
 
 REM ---- STEP 1 : edit these two ----------------------------------------------
@@ -15,13 +12,36 @@ set OPENRADIOSS_PATH=C:\OpenRadioss
 set OMP_NUM_THREADS=4
 REM ---------------------------------------------------------------------------
 
-if not exist "%OPENRADIOSS_PATH%\exec" (
-    echo.
-    echo [X] OpenRadioss not found at: %OPENRADIOSS_PATH%
-    echo     Edit OPENRADIOSS_PATH at the top of this file.
-    goto end
-)
+REM ---- locate the install ----------------------------------------------------
+set STARTER=
+if exist "%OPENRADIOSS_PATH%\exec\starter_win64.exe" goto found
 
+echo [i] starter_win64.exe not directly under %OPENRADIOSS_PATH%\exec
+echo [i] searching subfolders...
+for /f "delims=" %%F in ('dir /b /s "%OPENRADIOSS_PATH%\starter_win64.exe" 2^>nul') do set STARTER=%%F
+if "!STARTER!"=="" goto notfound
+
+for %%F in ("!STARTER!") do set EXECDIR=%%~dpF
+set EXECDIR=!EXECDIR:~0,-1!
+for %%P in ("!EXECDIR!") do set OPENRADIOSS_PATH=%%~dpP
+set OPENRADIOSS_PATH=!OPENRADIOSS_PATH:~0,-1!
+echo [i] found -^> !OPENRADIOSS_PATH!
+goto found
+
+:notfound
+echo.
+echo [X] starter_win64.exe was not found anywhere under:
+echo        %OPENRADIOSS_PATH%
+echo.
+echo     What is actually in there:
+dir /b "%OPENRADIOSS_PATH%" 2>nul
+echo.
+echo     Search the whole drive with:
+echo        where /r C:\ starter_win64.exe
+echo     then set OPENRADIOSS_PATH to the folder that CONTAINS "exec".
+goto end
+
+:found
 set RAD_CFG_PATH=%OPENRADIOSS_PATH%\hm_cfg_files
 set RAD_H3D_PATH=%OPENRADIOSS_PATH%\extlib\h3d\lib\win64
 set KMP_STACKSIZE=400m
@@ -29,7 +49,17 @@ set PATH=%OPENRADIOSS_PATH%\extlib\hm_reader\win64;%PATH%
 set PATH=%OPENRADIOSS_PATH%\extlib\intelOneAPI_runtime\win64;%PATH%
 set PATH=%OPENRADIOSS_PATH%\exec;%PATH%
 
+if not exist "%RAD_CFG_PATH%" echo [!] warning: hm_cfg_files not found at %RAD_CFG_PATH%
+
 cd /d "%~dp0"
+
+if not exist "main_openradioss.k" (
+    echo.
+    echo [X] main_openradioss.k is not in this folder:
+    echo        %~dp0
+    dir /b *.k 2>nul
+    goto end
+)
 
 echo.
 echo ============================================================
@@ -63,7 +93,7 @@ for %%C in (anim_to_vtk_win64.exe anim_to_vtk.exe) do (
 )
 if "!CONV!"=="" (
     echo     Converter not found on PATH - skipping.
-    echo     Look for anim_to_vtk* in %OPENRADIOSS_PATH%\exec and run it as:
+    echo     Look for anim_to_vtk* in %OPENRADIOSS_PATH%\exec and run:
     echo         anim_to_vtk_win64.exe ^<animfile^> ^> ^<animfile^>.vtk
 ) else (
     for %%F in (*A0??) do (
