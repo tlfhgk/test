@@ -234,20 +234,22 @@ OpenRadioss 는 LS-DYNA 키워드 **전부**가 아니라 리더(`dyna2rad`)가 
 동체 면적 144,000 mm², 질량 0.335 kg 기준으로 8.0E-4 GPa × 0.5 ms 삼각펄스 →
 패널이 약 85 m/s 로 튕겨나갑니다.
 
-### OpenRadioss 실행 폴더에는 이것만 두세요
+### 실행 폴더 격리 (스크립트가 알아서 합니다)
 
-```
-main_openradioss.k    building.k    drone.k    run_openradioss.bat
-```
-**`main.k` 를 같은 폴더에 두지 마세요.** OpenRadioss 의 LS-DYNA 리더는 실행 폴더에 있는
-`.k` 파일을 include 하지 않아도 읽어버립니다. 폭발 하중 파일을 `blast.inc` 로 이름 지은
-것도 같은 이유입니다 — `.k` 였을 때 아래 에러가 났습니다.
+OpenRadioss 의 LS-DYNA 리더는 **실행 폴더에 있는 `.k` 파일을 include 하지 않아도
+읽습니다.** `main.k` 가 같은 폴더에 있으면 그것도 읽히고, `main.k` 는 `blast.inc` 를
+include 하므로 결국 아래 에러가 납니다.
 
 ```
 ERROR ID : 100210  ** ERROR IN INPUT OPTIONS
 -- BLOCK: *LOAD_BLAST_ENHANCED
 Unrecognized option: *LOAD_BLAST_ENHANCED
 ```
+
+그래서 `run_openradioss.bat` 은 실행할 때마다 `_run_openradioss\` 하위폴더를 만들어
+**`main_openradioss.k` / `building.k` / `drone.k` 세 개만 복사한 뒤 거기서 돌립니다.**
+원본 폴더에 `main.k`, `blast.inc`, 뭐가 있든 상관없습니다.
+결과 파일(`.out`, `A0xx`, `.vtk`)도 전부 이 하위폴더에 쌓입니다.
 
 ### 처음 돌릴 때 반드시 볼 것
 

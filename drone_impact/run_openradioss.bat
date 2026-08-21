@@ -3,8 +3,12 @@ setlocal enabledelayedexpansion
 REM ===========================================================================
 REM  Drone impact - OpenRadioss run script (Windows, SMP)
 REM
-REM  Set OPENRADIOSS_PATH below to wherever the release zip was extracted.
-REM  If the zip added an extra folder level, this script finds it by itself.
+REM  The OpenRadioss LS-DYNA reader parses .k files that merely sit in the run
+REM  directory, whether or not anything includes them.  main.k and the blast
+REM  deck therefore have to be out of reach.  This script solves that by
+REM  copying only the three files OpenRadioss needs into a clean subfolder
+REM  (_run_openradioss) and running there, so the source folder can hold
+REM  anything at all.
 REM ===========================================================================
 
 REM ---- STEP 1 : edit these two ----------------------------------------------
@@ -51,15 +55,36 @@ set PATH=%OPENRADIOSS_PATH%\exec;%PATH%
 
 if not exist "%RAD_CFG_PATH%" echo [!] warning: hm_cfg_files not found at %RAD_CFG_PATH%
 
-cd /d "%~dp0"
-
-if not exist "main_openradioss.k" (
+REM ---- check the three inputs are here --------------------------------------
+set SRC=%~dp0
+set MISSING=
+for %%F in (main_openradioss.k building.k drone.k) do (
+    if not exist "%SRC%%%F" set MISSING=!MISSING! %%F
+)
+if not "!MISSING!"=="" (
     echo.
-    echo [X] main_openradioss.k is not in this folder:
-    echo        %~dp0
-    dir /b *.k 2>nul
+    echo [X] missing next to this script:!MISSING!
+    echo     folder: %SRC%
+    dir /b "%SRC%*.k" 2>nul
     goto end
 )
+
+REM ---- build a clean run directory -------------------------------------------
+REM  Only these three files go in.  main.k / blast.inc must never be visible to
+REM  the reader or it aborts on *LOAD_BLAST_ENHANCED.
+set RUNDIR=%SRC%_run_openradioss
+if not exist "%RUNDIR%" mkdir "%RUNDIR%"
+del /q "%RUNDIR%\*.k" >nul 2>&1
+del /q "%RUNDIR%\*.rad" >nul 2>&1
+copy /y "%SRC%main_openradioss.k" "%RUNDIR%\" >nul
+copy /y "%SRC%building.k"         "%RUNDIR%\" >nul
+copy /y "%SRC%drone.k"            "%RUNDIR%\" >nul
+
+cd /d "%RUNDIR%"
+echo.
+echo [i] run directory : %RUNDIR%
+echo [i] contains      :
+dir /b *.k
 
 echo.
 echo ============================================================
@@ -101,7 +126,8 @@ if "!CONV!"=="" (
         !CONV! %%F > %%F.vtk
     )
     echo.
-    echo     Open the *.vtk series in ParaView.
+    echo     Open the *.vtk series in ParaView, from:
+    echo         %RUNDIR%
 )
 
 echo.
@@ -111,8 +137,8 @@ goto end
 :fail
 echo.
 echo === RUN FAILED ===
-echo Open  main_openradioss_0000.out  and read the ERROR / WARNING lines.
-echo LS-DYNA keywords the reader could not map are listed there.
+echo Open this file and read the ERROR / WARNING lines:
+echo    %RUNDIR%\main_openradioss_0000.out
 
 :end
 echo.
