@@ -448,7 +448,8 @@ $# 13. LOADS AND INITIAL CONDITIONS
 $#=============================================================================
 *INITIAL_VELOCITY_GENERATION
 $# nsid/pid,styp,omega,vx,vy,vz,ivatn,icid
-11,2,0.0,0.0,40.0,0.0,0,0
+$# STYP=1 -> id 11 is a PART SET   (STYP=2 would mean a single PART id)
+11,1,0.0,0.0,40.0,0.0,0,0
 $# xc,yc,zc,nx,ny,nz,phase,irigid
 0.0,0.0,0.0,0.0,0.0,0.0,0,0
 $

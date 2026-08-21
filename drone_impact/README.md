@@ -8,9 +8,9 @@ LiPo 배터리가 터지면서 기체가 산산조각 나는 시나리오입니�
 drone_impact/
 ├── generate_model.py   메쉬 생성기 (파이썬 3, 외부 라이브러리 불필요)
 ├── main.k              마스터 덱 — control / material / section / contact / load
-├── building.k          [자동생성] 건물 절점·요소·경계절점세트·세그먼트세트
-├── drone.k             [자동생성] 드론 절점·요소·세그먼트세트
-└── blast.k             [자동생성] *LOAD_BLAST_ENHANCED (배터리 폭발)
+├── building.k          [자동생성] 건물 절점·요소·바닥 구속 절점세트
+├── drone.k             [자동생성] 드론 절점·요소
+└── blast.k             [자동생성] 배터리 폭발 하중 + 세그먼트세트 903/902
 ```
 
 ---
@@ -100,8 +100,9 @@ $#     cfm       cfl       cft       cfp     nidbo     death   negphs
 * `TBO = 7.0` ms — 충돌(5.5 ms) 1.5 ms 후 점화.
 * `NIDBO = 503088` — 폭원이 **배터리 중앙 절점을 따라다닙니다**(고정 좌표 아님).
 * `UNIT=5` + `CFM/CFL/CFT/CFP` = 1 / 0.001 / 0.001 / 1.0E+9 → kg-mm-ms-GPa 를 SI 로 환산.
-* 하중은 두 세그먼트 세트에 걸립니다: **902 = 동체 내면**(법선 안쪽 → 패널이 바깥으로 터짐),
-  **901 = 건물 전면**(법선 실내쪽 → 벽이 밖으로 뜯겨나감).
+* 하중은 **세그먼트세트 903** 하나에 걸립니다 = 건물 전면(법선 실내쪽 → 벽이 밖으로
+  뜯겨나감) + 드론 동체 내면(법선 폭원쪽 → 패널이 바깥으로 터짐), 총 2,784 세그먼트.
+  세트 902(동체 내면 1,440개)는 아래 대체 압력펄스 모델용으로 따로 남겨뒀습니다.
 
 **(4) 침식 접촉 — `*CONTACT_ERODING_SINGLE_SURFACE`**
 요소가 삭제된 뒤에도 새로 드러난 면으로 접촉이 계속 이어져야 파편이 서로 부딪히며 흩어집니다.
@@ -171,6 +172,8 @@ cd /d <이 폴더>
 
 | 증상 | 조치 |
 |---|---|
+| `PART 11 not found: *INITIAL_VELOCITY_GENERATION` | `STYP` 값 문제. **`STYP=1` 이 파트세트, `STYP=2` 가 단일 파트 ID** 입니다(`*CONTACT` 의 `SSTYP` 와 규칙이 반대라 헷갈립니다). `11,1,0.0,0.0,40.0,...` 이어야 합니다. |
+| `Missing data in Keyword - *LOAD_BLAST_SEGMENT_SET` | `blast.k` 를 재생성하세요. 카드를 하나로 합치고(세트 903), `aleid`·`sfnrb` 까지 전 필드를 명시했으며, `*SET_SEGMENT` 를 하중카드 **뒤**로 옮겨 하중카드가 파일 끝에 오지 않게 했습니다. |
 | `E R R O R ... *INCLUDE ... file not found` | LS-Run 의 **Working directory** 가 `.k` 파일들이 있는 폴더가 아닙니다. |
 | 폭압이 너무 세거나 약함 | `blast.k` 의 `M`(현재 0.030 kg) 조정. `*DATABASE_BINARY_D3PLOT` 에서 blast pressure fringe 로 실제 걸린 압력을 먼저 확인하세요. |
 | 폭발이 아예 안 걸림 | `messag` 에서 `LOAD_BLAST` 경고 확인. 세그먼트 법선이 폭원 반대쪽이면 하중이 0 입니다. 정 안 되면 `main.k` 맨 아래 **ALTERNATIVE BURST MODEL** 블록(`*LOAD_SEGMENT_SET` + 압력 곡선)의 `$` 를 지우고, 상단 `*INCLUDE blast.k` 두 줄을 `$` 로 막으세요. |
