@@ -282,6 +282,68 @@ python3 make_openradioss.py
 
 ---
 
+## 4-C. ParaView 로 보기 / 영상 뽑기
+
+결과는 전부 `_run_openradioss\` 안에 있습니다.
+
+### 1) VTK 파일이 있는지 먼저 확인
+
+```bat
+dir /b "_run_openradioss\*.vtk"
+```
+* **파일이 나오면** 바로 2번으로.
+* **아무것도 없으면** 변환기가 PATH 에 없어서 스킵된 것입니다. 직접 돌리세요
+  (cmd 창에서는 `for` 변수가 `%%F` 가 아니라 `%F` 입니다):
+  ```bat
+  cd /d "_run_openradioss 폴더 전체경로"
+  for %F in (main_openradiossA0??) do "C:\OpenRadioss\exec\anim_to_vtk_win64.exe" %F > %F.vtk
+  ```
+  `anim_to_vtk_win64.exe` 가 없으면 `dir /b /s C:\OpenRadioss\anim_to_vtk*` 로 찾으세요.
+
+### 2) 열기
+
+`File > Open` → `_run_openradioss` 폴더 → **`main_openradiossA..vtk`** 항목 선택.
+`..` 로 묶인 것이 전체 프레임 시리즈입니다. 개별 파일을 고르면 한 장만 열립니다.
+→ 왼쪽 아래 **Apply**.
+
+### 3) 파괴가 보이게 색 입히기
+
+상단 툴바의 색상 드롭다운(기본 `Solid Color`)에서 선택:
+
+| 항목 | 무엇이 보이나 |
+|---|---|
+| **EPSP** | **소성변형률 — 파괴 보여주기에 제일 좋습니다.** 부서지는 부분만 빨갛게 뜹니다 |
+| `VONM` | 폰미세스 응력 — 충격파가 건물로 퍼지는 것 |
+| `VEL` | 속도 — 파편이 튀는 방향과 빠르기 |
+
+그리고 **`Rescale to Custom Data Range`** 로 범위를 좁히세요. 자동 범위는 최대값에
+맞춰지기 때문에 대부분이 파랗게 죽습니다. EPSP 는 **0 ~ 0.02** 정도가 잘 보입니다.
+
+### 4) 재생
+
+상단 ▶ 버튼. 140 프레임(0.25 ms 간격)입니다.
+30 fps 로 뽑으면 **35 ms 를 4.7 초**로 보여주는 셈이라 자연스러운 슬로모션이 됩니다.
+
+### 5) 영상으로 저장
+
+`File > Save Animation` → 파일 형식 선택
+* **PNG 시퀀스** (권장) — 편집 프로그램에서 프레임레이트를 자유롭게 조절
+* **AVI** — 바로 영상 파일
+
+`Save Animation` 창에서 `Image Resolution` 을 **1920 x 1080** 으로, `Frame Rate` 를
+30 으로 두세요.
+
+### 화면 다듬기 (영상용)
+
+* 배경: `View > Color Map Editor` 말고 좌측 **Properties 하단 `Background`** 에서 단색/그라데이션
+* 좌하단 방향축과 색상바가 거슬리면 각각 토글 버튼으로 끄기
+* 카메라: 건물 정면 좌측 45도, 약간 위에서 내려다보는 각도가 충돌과 파편이 동시에 보입니다
+* 파편만 강조하려면 `Filters > Common > Threshold` 로 EPSP 가 큰 요소만 남기기
+* **재생 중 카메라를 움직이지 마세요** — 프레임마다 시점이 달라집니다.
+  카메라 워크가 필요하면 `View > Animation View` 에서 키프레임으로 넣으세요
+
+---
+
 ## 5. 자주 바꾸는 값
 
 | 목적 | 파일 | 위치 |
