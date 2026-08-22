@@ -126,12 +126,12 @@ crosswalk:
         relation: baseline
         note: "States the consequence of the BDB determination: NRC requirements for design-basis events do NOT apply to design features or functional capabilities selected solely to meet the aircraft impact rule."
       - source_id: EU-WENRA-SRL
-        relation: partial
-        note: "Aircraft crash in the design per site; DEC for events exceeding the design basis."
+        relation: different-architecture
+        note: "TU4.2: design basis events at an exceedance frequency not higher than 1E-4/yr; a 0.1 g seismic floor regardless of frequency; and for accidental airplane crashes a design basis event SHALL be defined to ensure minimum protection. TU1.1 covers both design basis and design extension conditions; footnote 88 excludes malicious acts."
       - source_id: IAEA-SRS-88
         relation: partial
         note: "Supplies the margin-assessment layer that the BDB level needs."
-    clause_ids: [US-10CFR50.150-a-1, US-10CFR50.150-a-2, CZ-329-2017-aircraft-dbe, EU-EUR-aircraft-crash, IAEA-SSG-68-scope, IAEA-SSG-68-5.192-bdb, IAEA-SSG-68-5.185-confinement, EU-WENRA-external-hazards, IAEA-SRS-88-margins]
+    clause_ids: [US-10CFR50.150-a-1, US-10CFR50.150-a-2, US-RG-1.217-bdb-consequence, CZ-329-2017-aircraft-dbe, CZ-329-2017-conservative-approach, EU-EUR-aircraft-crash, IAEA-SSG-68-scope, IAEA-SSG-68-5.192-bdb, IAEA-SSG-68-5.185-confinement, EU-WENRA-TU4-design-basis, EU-WENRA-TU1-objective, IAEA-SRS-88-margins]
     divergence_note: >-
       This is the single largest divergence in the corpus, and both sides are now confirmed
       from primary text. 10 CFR 50.150(a)(1) requires "realistic analyses" and RG 1.217
@@ -144,6 +144,12 @@ crosswalk:
       A NEW AND OVERRIDING CONSIDERATION: 10 CFR 50.150(d), added in April 2026, sunsets the
       entire US rule on 8 April 2027 unless the NRC extends it. The US side of this
       comparison has an expiry date; the Czech and IAEA sides do not.
+      WHY THE CZECH SIDE LOOKS AS IT DOES: WENRA reference level TU4.2 requires a 1E-4/yr
+      design basis exceedance frequency, a 0.1 g seismic floor regardless of frequency, and a
+      defined design basis event for accidental airplane crashes to ensure minimum protection.
+      Decree 329/2017 § 11(3), § 11(4)(a) and § 11(4)(b) reproduce that three-part structure
+      almost literally. The Czech placement of the crash inside the design basis is therefore
+      not a national idiosyncrasy but a transposition of the European harmonised expectation.
 
   - cw_id: CW-05
     topic_id: T05
@@ -167,7 +173,10 @@ crosswalk:
       - source_id: IAEA-SSG-68
         relation: different-architecture
         note: "Footnote 9 restates the same 1E-7 statement, citing NS-G-3.1."
-    clause_ids: [US-10CFR50.150-a-2, CZ-329-2017-aircraft-dbe, CZ-329-2017-external-events-general, IAEA-SSG-79-spl, IAEA-SSG-68-fn9-spl]
+      - source_id: EU-WENRA-SRL
+        relation: different-architecture
+        note: "TU4.2 sets 1E-4/yr for design basis events generally but does NOT state a figure for aircraft: it requires that a design basis event simply BE DEFINED to ensure minimum protection. The 1E-7 number is the Czech and IAEA contribution, not WENRA's."
+    clause_ids: [US-10CFR50.150-a-2, CZ-329-2017-aircraft-dbe, CZ-329-2017-external-events-general, IAEA-SSG-79-spl, IAEA-SSG-68-fn9-spl, EU-WENRA-TU4-design-basis, EU-WENRA-TU3-screening]
     divergence_note: >-
       Strongest quantitative link in the crosswalk: CZ 329/2017 and the IAEA level are the
       same 1E-7/yr figure. Three caveats now verified against the primary text of SSG-68:
@@ -210,6 +219,9 @@ crosswalk:
       - source_id: IAEA-SSG-68
         relation: partial
         note: "Protection of SSCs important to safety, based on site hazard evaluation and installation layout."
+      - source_id: EU-WENRA-SRL
+        relation: partial
+        note: "TU2.2 fixes a minimum mandatory hazard list that includes accidental aircraft crash; TU1.1 extends the safety demonstration to spent fuel storage."
     clause_ids: [US-NEI-07-13-scope, US-NEI-07-13-sufficiency, CZ-329-2017-external-events-general, IAEA-SSG-68-scope, IAEA-SSG-68-5.185-confinement]
 
   - cw_id: CW-07
@@ -362,6 +374,9 @@ crosswalk:
       - source_id: EU-2014-87-EURATOM
         relation: no-equivalent
         note: "Security and malicious acts are expressly outside the nuclear safety directive's scope."
+      - source_id: EU-WENRA-SRL
+        relation: no-equivalent
+        note: "Issue TU footnote 88: 'Within these reference levels malicious acts are not considered.'"
       - source_id: CZ-329-2017
         relation: equivalent
         note: "§ 10(1)(d) requires the design bases to include data from the physical protection plan derived from the consequence analysis of an INTENTIONAL ATTACK BY A TRANSPORT AIRCRAFT. The malicious case is an explicit design input, handled separately from the accidental fall in § 11(4)(b)."

@@ -1,0 +1,149 @@
+schema_version: 1
+source_id: EU-WENRA-SRL
+provenance_note: >-
+  Written from the text of "WENRA Safety Reference Levels for Existing Reactors 2020"
+  (17 February 2021), obtained from the user's Google Drive and indexed by
+  scripts/ingest_raw.py. Issue TU is the external hazards issue.
+clauses:
+
+  - clause_id: EU-WENRA-TU1-objective
+    locator: "WENRA SRL 2020, Issue TU, TU1.1"
+    heading_en: "External hazards as an integral part of the safety demonstration"
+    heading_ko: "안전성 입증의 필수 구성요소로서의 외부재해"
+    topics: [T01, T02, T04]
+    text_status: verbatim
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      "TU1.1 External hazards, comprising natural and external human induced hazards, shall be
+      considered an integral part of the safety demonstration of the plant (including spent
+      fuel storage). Threats from external hazards shall be removed or minimised as far as
+      reasonably practicable for all operational plant states. The safety demonstration in
+      relation to external hazards shall include assessments of the design basis and design
+      extension conditions with the aim to identify needs and opportunities for improvement."
+      Footnote 88 to this issue: "Within these reference levels malicious acts are not
+      considered."
+    summary_ko: >-
+      "TU1.1 자연재해 및 외부 인위적 재해로 구성되는 외부재해는 발전소(사용후핵연료 저장
+      포함) 안전성 입증의 필수 구성요소로 간주되어야 한다. 외부재해로 인한 위협은 모든
+      운전상태에 대해 합리적으로 실행 가능한 한 제거되거나 최소화되어야 한다. 외부재해에
+      관한 안전성 입증에는 개선 필요사항과 기회를 식별할 목적으로 설계기준 및 설계확장조건에
+      대한 평가가 포함되어야 한다."
+      본 이슈의 각주 88: "본 기준수준에서 악의적 행위는 고려하지 않는다."
+    key_parameters:
+      scope: "design basis AND design extension conditions"
+      malicious_acts: "expressly excluded from the reference levels"
+    source_url: "https://wenra.eu/sites/default/files/publications/wenra_safety_reference_level_for_existing_reactors_2020.pdf"
+
+  - clause_id: EU-WENRA-TU2-hazard-list
+    locator: "WENRA SRL 2020, Issue TU, TU2.1-TU2.2"
+    heading_en: "Mandatory external hazard list including accidental aircraft crash"
+    heading_ko: "우발적 항공기 추락을 포함한 필수 외부재해 목록"
+    topics: [T02, T06, T11]
+    text_status: verbatim
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      "TU2.1 All external hazards that might affect the site shall be identified, including any
+      related hazards (e.g. earthquake and tsunami, accidental aircraft crash with consequential
+      aircraft fuel fire). Justification shall be provided that the compiled list of external
+      hazards is complete and relevant to the site."
+      TU2.2 requires the list to include at least: geological hazards; seismotectonic hazards;
+      meteorological hazards; hydrological hazards; biological phenomena; external fire;
+      ACCIDENTAL AIRCRAFT CRASH; accidents at facilities outside the site area; transportation
+      accidents; electrical disturbances and electromagnetic interferences.
+    summary_ko: >-
+      "TU2.1 부지에 영향을 줄 수 있는 모든 외부재해를 식별해야 하며, 관련 재해(예: 지진과
+      쓰나미, **우발적 항공기 추락 및 그에 따른 항공유 화재**)를 포함한다. 작성된 외부재해
+      목록이 완전하고 부지에 적합함을 정당화해야 한다."
+      TU2.2는 목록에 최소한 다음을 포함하도록 요구한다: 지질재해; 지진구조재해; 기상재해;
+      수문재해; 생물현상; 외부화재; **우발적 항공기 추락**; 부지 외부 시설의 사고;
+      수송사고; 전기적 교란 및 전자기 간섭.
+    key_parameters:
+      aircraft_entry: "accidental aircraft crash with consequential aircraft fuel fire — a related-hazard pair"
+      list_status: "minimum mandatory list"
+    source_url: "https://wenra.eu/sites/default/files/publications/wenra_safety_reference_level_for_existing_reactors_2020.pdf"
+    notes: >-
+      Note that WENRA treats the crash and the ensuing fuel fire as a RELATED HAZARD PAIR to be
+      identified together — the same coupling SSG-68 para. 5.163(d) makes and that NEI 07-13
+      handles as its separate "fire effects" limb.
+
+  - clause_id: EU-WENRA-TU4-design-basis
+    locator: "WENRA SRL 2020, Issue TU, TU4.2"
+    heading_en: "Design basis exceedance frequency, the 0.1 g seismic floor and the aircraft minimum"
+    heading_ko: "설계기준 초과빈도, 0.1 g 내진 하한, 항공기 최소방호"
+    topics: [T04, T05, T12]
+    text_status: verbatim
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      "TU4.2 The exceedance frequencies of design basis events shall be low enough to ensure a
+      high degree of protection with respect to external hazards. An exceedance frequency not
+      higher than 10^-4 per annum shall be used for the design basis events. Where it is not
+      possible to calculate these frequencies with an acceptable degree of certainty, an event
+      shall be chosen and justified to reach an equivalent level of safety.
+      For the specific case of seismic loading, as a minimum, a horizontal peak ground
+      acceleration value of 0.1g (where 'g' is the acceleration due to gravity) shall be
+      applied, even if its exceedance frequency would be below 10^-4 per annum.
+      For accidental airplane crashes and explosion blast waves a design basis event shall be
+      defined to ensure a minimum protection of the plant."
+    summary_ko: >-
+      "TU4.2 설계기준사건의 초과빈도는 외부재해에 대해 높은 수준의 방호를 보장할 만큼
+      충분히 낮아야 한다. 설계기준사건에는 **연간 10^-4 이하의 초과빈도**를 사용해야 한다.
+      해당 빈도를 수용 가능한 확실성으로 산정할 수 없는 경우, 동등한 안전수준에 도달하는
+      사건을 선정하고 정당화해야 한다.
+      지진하중의 경우 최소한 **수평 최대지반가속도 0.1g**를 적용해야 하며, 그 초과빈도가
+      연간 10^-4 미만이더라도 그러하다.
+      **우발적 항공기 추락 및 폭발 폭풍파에 대해서는 발전소의 최소 방호를 보장하도록
+      설계기준사건을 정의해야 한다.**"
+    key_parameters:
+      design_basis_frequency: "not higher than 1E-4 per annum"
+      seismic_floor: "0.1 g horizontal PGA minimum, regardless of frequency"
+      aircraft_rule: "a design basis event shall be defined to ensure minimum protection — frequency-independent"
+    source_url: "https://wenra.eu/sites/default/files/publications/wenra_safety_reference_level_for_existing_reactors_2020.pdf"
+    notes: >-
+      KEY STRUCTURAL FINDING. This single reference level is the source of the three-part
+      structure found in Czech decree 329/2017: the 1E-4/yr design basis level (§ 11(3)), the
+      0.1 g seismic floor (§ 11(4)(a)) and a defined minimum design basis for the accidental
+      aircraft crash (§ 11(4)(b)). The Czech decree reads as a near-literal transposition of
+      TU4.2, which explains why its aircraft provision is paired with a seismic minimum and
+      why the crash sits inside the design basis rather than beyond it.
+      Note the difference in mechanism: WENRA requires a design basis event to be DEFINED for
+      the accidental aircraft crash to ensure minimum protection, without tying it to a
+      frequency; the Czech decree implements that by fixing the 1E-7/yr falling-object
+      criterion. WENRA does not state the 1E-7 figure.
+
+  - clause_id: EU-WENRA-TU3-screening
+    locator: "WENRA SRL 2020, Issue TU, TU3.1-TU3.3"
+    heading_en: "Screening and hazard assessment method"
+    heading_ko: "스크리닝 및 재해평가 방법"
+    topics: [T05, T07]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      TU3.1: hazards may be screened out on the basis of being incapable of posing a physical
+      threat, or being extremely unlikely with a high degree of confidence; care shall be taken
+      not to exclude hazards which in combination with others could pose a threat; the screening
+      process shall be based on conservative assumptions and its arguments justified.
+      TU3.2: for hazards not screened out, assessments shall use deterministic and, as far as
+      practicable, probabilistic methods reflecting the current state of science and technology,
+      producing a relationship between hazard severity and exceedance frequency where
+      practicable, and determining the maximum credible hazard severity where practicable.
+      TU3.3: assessments shall use all relevant site and regional data, extend beyond recorded
+      and historical data, give special consideration to hazards whose severity changes over
+      plant lifetime, justify methods and assumptions, and evaluate uncertainties.
+    summary_ko: >-
+      TU3.1: 물리적 위협이 될 수 없거나 높은 신뢰도로 극히 발생가능성이 낮은 재해는 배제할
+      수 있다. 다만 다른 재해와 조합될 경우 위협이 될 수 있는 재해를 배제하지 않도록 주의해야
+      한다. 스크리닝은 보수적 가정에 기반해야 하며 그 논거를 정당화해야 한다.
+      TU3.2: 배제되지 않은 재해는 결정론적 방법과, 실행 가능한 한 확률론적 방법을 사용하여
+      현재의 과학기술 수준을 반영해 평가하고, 실행 가능한 경우 재해강도와 초과빈도의 관계를
+      도출하며 최대 신뢰가능 재해강도를 정한다.
+      TU3.3: 부지·지역 자료를 모두 활용하고 기록·역사 자료를 넘어 확장하며, 수명기간 중
+      강도가 변하는 재해를 특별히 고려하고, 방법·가정을 정당화하며 불확실성을 평가한다.
+    key_parameters:
+      screening_basis: "incapable of physical threat OR extremely unlikely with high confidence"
+      combination_caution: "do not exclude hazards that combine into a threat"
+      methods: "deterministic and, as far as practicable, probabilistic"
+    source_url: "https://wenra.eu/sites/default/files/publications/wenra_safety_reference_level_for_existing_reactors_2020.pdf"

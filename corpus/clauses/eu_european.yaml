@@ -97,37 +97,3 @@ clauses:
       security_in_scope: false
       peer_review_cycle: "topical peer reviews every 6 years"
     source_url: "https://eur-lex.europa.eu/eli/dir/2014/87/oj"
-
-  - clause_id: EU-WENRA-external-hazards
-    source_id: EU-WENRA-SRL
-    locator: "WENRA Safety Reference Levels (2020); Issue TU External Hazards guidance"
-    heading_en: "Harmonised European expectation on external hazards"
-    heading_ko: "외부재해에 대한 유럽 조화 기대수준"
-    topics: [T02, T04, T06]
-    text_status: summary
-    verification: web_verified
-    confidence: medium
-    summary_en: >-
-      WENRA reference levels require that natural hazards and human-made external hazards —
-      including aeroplane crash and other nearby transportation, industrial activities and
-      site-area conditions that can reasonably cause fires, explosions or other threats to
-      the plant — are, as a minimum, taken into account in the design of the plant according
-      to the site. Design extension conditions may result from events exceeding the design
-      basis. The reference levels were revised in 2014 following Fukushima Dai-ichi and the
-      EU stress tests, and again in 2020, with Issue TU providing the external-hazards
-      guidance.
-    summary_ko: >-
-      WENRA 안전기준수준은 자연재해와 인위적 외부재해 — 항공기 추락 및 인근 수송,
-      산업활동, 화재·폭발 등 발전소에 위협이 될 수 있는 부지주변 조건 포함 — 를 부지
-      특성에 따라 최소한 설계에 반영할 것을 요구한다. 설계기준을 초과하는 사건으로부터
-      설계확장조건(DEC)이 도출될 수 있다. 기준수준은 후쿠시마 사고와 EU 스트레스 테스트
-      이후 2014년에 개정되었고 2020년에 재개정되었으며, 외부재해 지침은 Issue TU가 담당한다.
-    key_parameters:
-      binding: false
-      role: "harmonisation reference implemented through national regulation"
-      guidance_document: "Issue TU: External Hazards (head document, 2020-06-01)"
-    source_url: "https://www.wenra.eu/sites/default/files/publications/wenra_guidance_on_issue_tu_head_document_-2020-06-01.pdf"
-    notes: >-
-      Relevance to the Czech records: SÚJB is a WENRA member and decree 329/2017 Sb. was
-      written in the post-2014 reference-level environment, which is why it carries an
-      explicit external-initiating-event design basis and a DEC concept.

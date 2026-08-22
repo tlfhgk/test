@@ -218,7 +218,11 @@ sources:
       - "https://wenra.eu/sites/default/files/publications/wenra_safety_reference_level_for_existing_reactors_2020.pdf"
       - "https://www.wenra.eu/sites/default/files/publications/wenra_guidance_on_issue_tu_head_document_-2020-06-01.pdf"
       - "https://www.wenra.eu/sites/default/files/publications/wenra-rhwg_t1_guidance_on_issue_t_head_document_2015-04-21.pdf"
-    role: "European harmonised expectations on external hazards (incl. aircraft crash) and design extension conditions; SÚJB is a WENRA member and 329/2017 reflects these levels."
+    obtained: true
+    obtained_via: "user's Google Drive (SRL 2020, 17 Feb 2021; text extracted via the Drive connector)"
+    indexed_verbatim: true
+    aircraft_provision: "Issue TU — TU2.2 mandatory hazard list; TU4.2 design basis definition, 1E-4/yr, 0.1 g seismic floor, aircraft minimum protection"
+    role: "European harmonised expectations on external hazards (incl. aircraft crash) and design extension conditions. CONFIRMED as the structural source of Czech decree 329/2017 § 11(3), § 11(4)(a) and § 11(4)(b)."
 
   # ======================= IAEA ======================================
   - source_id: IAEA-SSR-2-1

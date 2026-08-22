@@ -104,14 +104,14 @@ docs/acquisition-checklist.md  확보해야 할 원문 목록 (우선순위별)
 
 | 등급 | 조항 레코드 |
 |---|---|
-| `primary_source` | 32 |
-| `web_verified` | 8 |
+| `primary_source` | 36 |
+| `web_verified` | 7 |
 | `model_knowledge` | 2 |
 | `to_verify` | 1 |
 
-여기에 더해 **원문 축자 청크 1,388개**가 색인되어 있습니다 —
-10 CFR 50.150, RG 1.217, NEI 07-13, 체코 시행령 329/2017,
-IAEA SSG-68 · SSG-79 · SSR-2/1 · SRS-86 · SRS-87 총 9개 문서 933쪽.
+여기에 더해 **원문 축자 청크 1,519개**가 색인되어 있습니다 —
+10 CFR 50.150, RG 1.217, NEI 07-13, 체코 시행령 329/2017, WENRA SRL 2020,
+IAEA SSG-68 · SSG-79 · SSR-2/1 · SRS-86 · SRS-87 총 10개 문서.
 
 이 DB를 구축한 실행환경은 아웃바운드 HTTPS가 조직 egress 정책으로 전면 차단되어
 (ecfr.gov, nrc.gov, sujb.gov.cz, www-pub.iaea.org 모두 CONNECT 403) 웹에서 원문을
