@@ -7,12 +7,12 @@
 
 | # | 비교 항목 | 10 CFR 50.150 | RG 1.217 | NEI 07-13 | CZ 263/2016 | CZ 329/2017 | CZ 378/2016 | EUR | 2014/87 | WENRA | SSR-2/1 | SSG-68 | SSG-79 | SRS-86 | SRS-87 | SRS-88 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| CW-01 | 항공기 충돌 요건은 어떤 형식의 문서가 담고 있으며 구속력이 있는가? | **기준** | **기준** | – | 구조 상이 | 구조 상이 | – | 구조 상이 | – | 부분 | – | 부분 | – | – | – | – |
-| CW-02 | 적용 대상이 신규 원전에 한정되는가, 기존 원전도 포함하는가? | **기준** | – | – | – | 구조 상이 | 구조 상이 | – | 구조 상이 | – | – | – | – | 부분 | – | – |
+| CW-01 | 항공기 충돌 요건은 어떤 형식의 문서가 담고 있으며 구속력이 있는가? | **기준** | **기준** | – | 구조 상이 | 구조 상이 | – | 구조 상이 | – | 부분 | 부분 | 부분 | – | – | – | – |
+| CW-02 | 적용 대상이 신규 원전에 한정되는가, 기존 원전도 포함하는가? | **기준** | – | – | – | 구조 상이 | 구조 상이 | – | 구조 상이 | – | 부분 | – | – | 부분 | – | – |
 | CW-03 | 항공기 위협은 어떻게 정의되며, 수치는 공개되는가? | **기준** | – | – | – | 구조 상이 | – | 구조 상이 | – | – | – | 부분 | – | – | – | – |
 | CW-04 | 대형 항공기 충돌은 설계기준사건인가, 설계기준초과사건인가? | **기준** | **기준** | – | 구조 상이 | 구조 상이 | – | 구조 상이 | 구조 상이 | 구조 상이 | – | 동등 | – | – | – | 부분 |
 | CW-05 | 항공기 추락 포함 여부를 정하는 명시적 확률 스크리닝 기준이 있는가? | **기준** | – | – | – | 구조 상이 | 구조 상이 | – | – | 구조 상이 | – | 구조 상이 | 구조 상이 | – | – | – |
-| CW-06 | 어떤 구조물과 기기를 평가해야 하는가? | – | – | **기준** | – | 동등 | – | – | – | 부분 | – | 부분 | – | – | – | – |
+| CW-06 | 어떤 구조물과 기기를 평가해야 하는가? | – | – | **기준** | – | 동등 | – | – | – | 부분 | 부분 | 부분 | – | – | – | – |
 | CW-07 | 충돌하중은 어떻게 정의되며 특정 방법이 강제되는가? | – | – | **기준** | – | 없음 | – | – | 없음 | – | – | 동등 | – | – | 동등 | – |
 | CW-08 | 국부손상(침투·배면박리·관통)은 어떻게 평가하는가? | – | **기준** | **기준** | – | 없음 | – | 비공개 | – | – | – | 구조 상이 | – | – | 부분 | – |
 | CW-09 | 합격/불합격 판정기준은 무엇인가? | **기준** | – | **기준** | – | 부분 | – | 구조 상이 | – | – | – | 동등 | – | – | – | 부분 |
@@ -41,10 +41,11 @@
 | `CZ-329-2017` | 구조 상이 | Binding decree that itself fixes the design-basis selection rule; method left to the applicant. |
 | `CZ-263-2016` | 구조 상이 | The Act itself defines design bases to span internal AND EXTERNAL threats and events (§ 2), and § 46(2)(e) obliges the design to ensure resistance against dangers from site properties and external influences. § 236 delegates the detail to SÚJB decrees. |
 | `EU-EUR` | 구조 상이 | Contractual utility requirement; binds only via the procurement contract. |
+| `IAEA-SSR-2-1` | 부분 | Requirement 17 is the top-level obligation — identify all foreseeable internal and external hazards, including human induced events, and evaluate their effects. Safety Requirements are non-binding until nationally adopted; SSG-68 paras. 5.161-5.192 elaborate this requirement for aircraft crash. |
 | `IAEA-SSG-68` | 부분 | Non-binding recommendations; becomes binding only through national adoption. |
 | `EU-WENRA-SRL` | 부분 | Harmonisation reference implemented through member regulators. |
 
-근거 조항: `US-10CFR50.150-a-1`, `US-RG-1.217-position`, `CZ-263-2016-design-basis-definition`, `CZ-263-2016-s46-design-duty`, `CZ-263-2016-enabling`, `EU-EUR-scope`, `IAEA-SSG-68-scope`, `EU-WENRA-TU1-objective`
+근거 조항: `US-10CFR50.150-a-1`, `US-RG-1.217-position`, `CZ-263-2016-design-basis-definition`, `CZ-263-2016-s46-design-duty`, `CZ-263-2016-enabling`, `EU-EUR-scope`, `IAEA-SSR-2-1-req17`, `IAEA-SSG-68-scope`, `EU-WENRA-TU1-objective`
 
 ### CW-02 — 적용 대상이 신규 원전에 한정되는가, 기존 원전도 포함하는가?
 
@@ -58,11 +59,12 @@
 |---|---|---|
 | `US-10CFR50.150` | **기준** | New reactor applicants only (DC, SDA, COL, ML, CP, OL); existing fleet excluded. |
 | `CZ-329-2017` | 구조 상이 | Applicability keyed to reactor thermal power > 50 MW, not to licensing vintage. |
+| `IAEA-SSR-2-1` | 부분 | Para. 5.17: the design shall consider natural and human induced external events identified in the SITE EVALUATION PROCESS, with causation and likelihood considered in postulating hazards — the same siting-to-design handoff Czech decree 378/2016 § 20(b)(8) makes procedurally. |
 | `IAEA-SRS-86` | 부분 | Explicitly addresses application to both existing and new plants. |
 | `CZ-378-2016` | 구조 상이 | Siting decree in force 1 Jan 2017 applies at the siting stage for every nuclear installation, with the aircraft fall the first-listed human-induced phenomenon (§ 3(1)(b)(1)); § 20(b)(8) hands the resulting design requirements to the design decree. |
 | `EU-2014-87-EURATOM` | 구조 상이 | Art. 8a(2)(a) applies the safety objective to installations first licensed for construction after 14 August 2014; 8a(2)(b) makes it a reference for improving existing ones. |
 
-근거 조항: `US-10CFR50.150-a-3`, `CZ-329-2017-aircraft-dbe`, `CZ-378-2016-scope`, `EU-2014-87-framework`, `IAEA-SRS-86-framework`
+근거 조항: `US-10CFR50.150-a-3`, `CZ-329-2017-aircraft-dbe`, `CZ-378-2016-scope`, `EU-2014-87-framework`, `IAEA-SSR-2-1-req17`, `IAEA-SRS-86-framework`
 
 ### CW-03 — 항공기 위협은 어떻게 정의되며, 수치는 공개되는가?
 
@@ -142,8 +144,11 @@ NEI 07-13은 대상을 명확히 한정한다: 핵연료를 포함한 구조물(
 | `CZ-329-2017` | 동등 | § 13 scopes the aircraft provision to selected SSCs with influence on nuclear safety NECESSARY FOR MANAGING EMERGENCY CONDITIONS AND RADIATION EMERGENCIES — a narrowing structurally close to the US 'key design features and functional capabilities', not a blanket safety-SSC requirement. |
 | `IAEA-SSG-68` | 부분 | Protection of SSCs important to safety, based on site hazard evaluation and installation layout. |
 | `EU-WENRA-SRL` | 부분 | TU2.2 fixes a minimum mandatory hazard list that includes accidental aircraft crash; TU1.1 extends the safety demonstration to spent fuel storage. |
+| `IAEA-SSR-2-1` | 부분 | Requirement 17 fixes the two design uses of a hazard — plant LAYOUT and the derivation of postulated initiating events and LOADINGS. 5.15A extends protection to common cause failure mechanisms generated by hazards; 5.19 names POWER AND CONTROL CABLING among the interactions to minimise; 5.15B requires multiple unit sites to consider a hazard impacting several or all units SIMULTANEOUSLY. |
 
-근거 조항: `US-NEI-07-13-scope`, `US-NEI-07-13-sufficiency`, `CZ-329-2017-external-events-general`, `IAEA-SSG-68-scope`, `IAEA-SSG-68-5.185-confinement`
+> **차이점/유의사항:** Two scope questions only the IAEA framework puts in writing for hazards generally, and neither has an aircraft-specific counterpart anywhere else in this corpus. MULTI-UNIT: SSR-2/1 para. 5.15B requires the design of a multiple unit site to account for one hazard impacting several or even all units at once. An aircraft impact is precisely such a hazard, yet 10 CFR 50.150, NEI 07-13, the Czech decrees and the WENRA reference levels all frame the aircraft assessment around a single installation. CABLING: SSR-2/1 para. 5.19 names power and control cabling explicitly. NEI 07-13 reaches the same place from the other direction, judging survivability on power supplies and cable runs rather than on components alone — so the two agree in substance while only the IAEA requirement states it as a design rule.
+
+근거 조항: `US-NEI-07-13-scope`, `US-NEI-07-13-sufficiency`, `CZ-329-2017-external-events-general`, `IAEA-SSR-2-1-req17`, `IAEA-SSG-68-scope`, `IAEA-SSG-68-5.185-confinement`
 
 ### CW-07 — 충돌하중은 어떻게 정의되며 특정 방법이 강제되는가?
 

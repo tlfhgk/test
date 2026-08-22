@@ -21,7 +21,9 @@
 검색 결과에 `★ ✓ ~ !` 기호로 노출되고, `scripts/answer.py`의 시스템 프롬프트가
 모델에게 이 등급을 답변에 반영하도록 강제합니다.
 
-현재: `primary_source` 47 · `web_verified` 3 · `model_knowledge` 1 · `to_verify` 0.
+현재: `primary_source` 50 · `web_verified` 1 · `model_knowledge` 0 · `to_verify` 0.
+남은 `web_verified` 1건(NRC AIA 검사 프로그램)은 코퍼스 문서가 아니라 웹페이지가 출처이므로
+승격 대상이 아닙니다.
 
 ## 3. 원문 확보 경로
 
@@ -65,8 +67,7 @@ Drive의 `download_file_content` 경로가 중간에 고장났을 때는 `read_f
 - **세 체계가 서로 다른 사건을 다룹니다**(CW-03). 미국은 대형 상용기, EUR 우발은
   경항공기·군용기, 체코는 1E-7/년 초과 모든 낙하물체. 어떤 비교든 이 전제를
   먼저 밝혀야 합니다.
-- 남은 미검증 1건(`IAEA-SSR-2-1-req17`)은 SSR-2/1 원문이 색인되어 있으므로
-  Requirement 17 문구를 확인해 승격할 수 있습니다.
+- 모든 조항 레코드가 원문 대조를 마쳤습니다(`model_knowledge` 0, `to_verify` 0).
 
 ## 6. 청킹 전략
 

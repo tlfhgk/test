@@ -104,10 +104,13 @@ docs/acquisition-checklist.md  확보해야 할 원문 목록 (우선순위별)
 
 | 등급 | 조항 레코드 |
 |---|---|
-| `primary_source` | 47 |
-| `web_verified` | 3 |
-| `model_knowledge` | 1 |
+| `primary_source` | **50** |
+| `web_verified` | 1 |
+| `model_knowledge` | **0** |
 | `to_verify` | **0** |
+
+유일한 `web_verified` 1건은 NRC의 AIA 검사 프로그램으로, 코퍼스에 포함된 문서가 아니라
+NRC 웹페이지가 출처입니다.
 
 여기에 더해 **축자 청크 2,184개**가 색인되어 있습니다 — **15개 소스 전부**:
 10 CFR 50.150, RG 1.217, NEI 07-13, 체코 원자력법 263/2016 · 설계 시행령 329/2017 ·
