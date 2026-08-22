@@ -1,0 +1,200 @@
+schema_version: 1
+source_id: CZ-263-2016
+also_covers: [CZ-378-2016]
+provenance_note: >-
+  Written from the official texts of Act No. 263/2016 Sb. (atomový zákon) and Decree No.
+  378/2016 Sb. (o umístění jaderného zařízení), supplied by the user as text files and
+  indexed by scripts/ingest_raw.py.
+clauses:
+
+  - clause_id: CZ-263-2016-design-basis-definition
+    source_id: CZ-263-2016
+    locator: "zákon č. 263/2016 Sb., § 2 — definition of projektová východiska"
+    heading_en: "Statutory definition of design bases, covering external threats and events"
+    heading_ko: "설계기준의 법률상 정의 — 외부 위협·사건 포함"
+    topics: [T01, T04]
+    text_status: verbatim
+    verification: primary_source
+    confidence: high
+    quoted_source_text_cs: >-
+      "projektovými východisky soubor údajů charakterizujících funkce, které jsou zajišťovány
+      systémy, konstrukcemi a komponentami jaderného zařízení při vnitřních a vnějších
+      ohroženích a událostech, a hodnoty nebo rozsahy hodnot řídících parametrů jaderného
+      zařízení, které jsou užívány při projektování jaderného zařízení"
+    summary_en: >-
+      The Atomic Act defines "design bases" (projektová východiska) as the set of data
+      characterising the functions ensured by the structures, systems and components of the
+      nuclear installation UNDER INTERNAL AND EXTERNAL THREATS AND EVENTS, together with the
+      values or ranges of values of the installation's governing parameters used in design.
+      External events are therefore inside the statutory definition of the design bases, not
+      an add-on introduced by the implementing decree.
+    summary_ko: >-
+      원자력법은 "설계기준(projektová východiska)"을, **내부 및 외부 위협·사건 하에서**
+      원자력시설의 구조물·계통·기기가 보장하는 기능을 특징짓는 자료의 집합과, 설계에
+      사용되는 시설 지배 파라미터의 값 또는 값의 범위로 정의한다. 따라서 외부사건은
+      시행령이 추가한 것이 아니라 설계기준의 법률상 정의 안에 이미 포함되어 있다.
+    source_url: "https://www.zakonyprolidi.cz/cs/2016-263"
+    notes: >-
+      This is why the Czech accidental aircraft crash sits inside the design basis: the
+      primary legislation defines design bases to span external events. The US framework has
+      no equivalent statutory hook — 10 CFR 50.150 sits outside the design basis by the NRC's
+      own determination (see US-RG-1.217-bdb-consequence).
+
+  - clause_id: CZ-263-2016-s46-design-duty
+    source_id: CZ-263-2016
+    locator: "zákon č. 263/2016 Sb., § 46 odst. 2 písm. e) a f)"
+    heading_en: "Statutory duty to ensure resistance against site properties and external influences"
+    heading_ko: "부지특성 및 외부영향에 대한 저항성 확보의 법률상 의무"
+    topics: [T01, T02, T04, T06]
+    text_status: verbatim
+    verification: primary_source
+    confidence: high
+    quoted_source_text_cs: >-
+      "e) zajistit odolnost a ochranu jaderného zařízení proti nebezpečí plynoucímu
+      z vlastností území k umístění jaderného zařízení a z vnějších vlivů,
+      f) stanovit požadavky na rozsah a způsob vyhodnocování odolnosti a ochrany podle
+      písmene e)"
+    summary_en: >-
+      § 46 ("Requirements for the design of a nuclear installation and for designing")
+      requires the design to: (e) ensure the resistance and protection of the installation
+      against dangers arising from the properties of the siting territory and from EXTERNAL
+      INFLUENCES; and (f) establish requirements for the scope and manner of evaluating that
+      resistance and protection. § 46 is one of the provisions § 236 empowers SÚJB to
+      implement by decree — which is decree 329/2017 Sb.
+    summary_ko: >-
+      § 46(「원자력시설 설계에 관한 요건 및 설계」)은 설계가 다음을 하도록 요구한다:
+      (e) 원자력시설 입지 지역의 특성 및 **외부영향**으로부터 발생하는 위험에 대한 시설의
+      저항성과 방호를 확보할 것; (f) (e)의 저항성·방호를 평가하는 범위와 방법에 관한 요건을
+      정할 것. § 46은 § 236이 SÚJB에 시행령 제정을 위임한 조항 중 하나이며, 그 시행령이
+      바로 329/2017이다.
+    source_url: "https://www.zakonyprolidi.cz/cs/2016-263"
+
+  - clause_id: CZ-263-2016-enabling
+    source_id: CZ-263-2016
+    locator: "zákon č. 263/2016 Sb., § 236"
+    heading_en: "The enabling provision for the SÚJB decrees"
+    heading_ko: "SÚJB 시행령의 위임 근거조항"
+    topics: [T01]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      § 236 is the single enabling provision under which SÚJB issues its implementing decrees.
+      It enumerates every authorisation, including § 24(7), § 44(4)(a)-(c), § 45(4), § 46(8)
+      and § 47(4)(a)-(c). Decree 329/2017 Sb. (design) is issued under § 24(7), § 44(4),
+      § 45(4) and § 46(8); decree 378/2016 Sb. (siting) is issued under § 24(7) and § 47(4).
+    summary_ko: >-
+      § 236은 SÚJB가 시행령을 발령하는 단일 위임 근거조항으로, § 24(7), § 44(4)(a)~(c),
+      § 45(4), § 46(8), § 47(4)(a)~(c) 등 모든 위임사항을 열거한다. 시행령 329/2017(설계)은
+      § 24(7)·§ 44(4)·§ 45(4)·§ 46(8)에, 시행령 378/2016(부지)은 § 24(7)·§ 47(4)에 근거한다.
+    source_url: "https://www.zakonyprolidi.cz/cs/2016-263"
+    notes: >-
+      Corrects the earlier record, which listed the individual authorisations as if they were
+      the enabling clause. The enabling clause is § 236; those sections are the subjects it
+      enumerates.
+
+  - clause_id: CZ-263-2016-dbt
+    source_id: CZ-263-2016
+    locator: "zákon č. 263/2016 Sb., § 2 odst. 4 písm. b)"
+    heading_en: "Design basis threat — defined in terms of a person, not an aircraft"
+    heading_ko: "설계기준위협 — 항공기가 아닌 '사람'으로 정의"
+    topics: [T13]
+    text_status: verbatim
+    verification: primary_source
+    confidence: high
+    quoted_source_text_cs: >-
+      "projektovou základní hrozbou soubor vlastností a schopností fyzické osoby, která se
+      nachází uvnitř nebo vně jaderného zařízení nebo u jaderného materiálu, které jsou
+      předmětem fyzické ochrany, a která je způsobilá s tímto předmětem úmyslně protiprávně
+      naložit"
+    summary_en: >-
+      The Atomic Act defines the design basis threat (projektová základní hrozba) as the set
+      of attributes and capabilities of a NATURAL PERSON, located inside or outside the
+      nuclear installation or at the nuclear material subject to physical protection, who is
+      capable of intentionally handling that subject unlawfully. Physical protection
+      (fyzická ochrana) is defined as the system of technical and organisational measures
+      preventing unauthorised activities with the installation or material.
+    summary_ko: >-
+      원자력법은 설계기준위협(projektová základní hrozba)을, 물리적방호 대상인 원자력시설
+      또는 핵물질의 내부 또는 외부에 있으면서 그 대상을 **고의로 위법하게 취급할 수 있는
+      자연인(사람)**의 속성과 능력의 집합으로 정의한다. 물리적방호는 시설·물질에 대한
+      비인가 행위를 방지하는 기술적·조직적 조치체계로 정의된다.
+    key_parameters:
+      dbt_subject: "a natural person, not a vehicle or aircraft"
+      linkage: "329/2017 § 10(1)(d) carries the consequence analysis of an intentional transport-aircraft attack from the physical protection plan into the design bases"
+    source_url: "https://www.zakonyprolidi.cz/cs/2016-263"
+    notes: >-
+      Important for CW-10. The statutory DBT is person-based, so the intentional aircraft
+      attack is not itself the DBT; it reaches the design through the physical protection plan
+      route in decree 329/2017 § 10(1)(d). The threat characterisation therefore stays inside
+      the non-public physical protection plan while the design obligation is public.
+
+  - clause_id: CZ-378-2016-s13-aircraft
+    source_id: CZ-378-2016
+    locator: "vyhláška č. 378/2016 Sb., § 13 — Pád letadla a jiných objektů"
+    heading_en: "Siting-stage probability of an aircraft fall exceeding the design's assumed resistance"
+    heading_ko: "부지단계 — 설계 상정 저항성을 초과하는 항공기 낙하의 확률 산정"
+    topics: [T02, T05, T06]
+    text_status: verbatim
+    verification: primary_source
+    confidence: high
+    quoted_source_text_cs: >-
+      "Posuzování území k umístění jaderného zařízení z hlediska pádu letadla a jiných objektů
+      musí být provedeno stanovením pravděpodobnosti pádu letadla a jiných objektů, jehož
+      důsledky překonají projektem jaderného zařízení předpokládanou odolnost systémů,
+      konstrukcí a komponent s vlivem na jadernou bezpečnost."
+    summary_en: >-
+      § 13 "Fall of an aircraft and other objects": the assessment of the siting territory in
+      respect of the fall of an aircraft and other objects must be carried out by DETERMINING
+      THE PROBABILITY of a fall of an aircraft or other object WHOSE CONSEQUENCES WOULD EXCEED
+      THE RESISTANCE, ASSUMED BY THE DESIGN of the nuclear installation, OF STRUCTURES,
+      SYSTEMS AND COMPONENTS WITH AN INFLUENCE ON NUCLEAR SAFETY.
+    summary_ko: >-
+      § 13 「항공기 및 기타 물체의 낙하」: 항공기 및 기타 물체의 낙하 관점에서의 부지 평가는,
+      **그 결과가 원자력시설 설계가 상정한 핵안전 영향 SSC의 저항성을 초과하게 되는** 항공기
+      또는 기타 물체 낙하의 **확률을 산정**함으로써 수행되어야 한다.
+    key_parameters:
+      quantity: "probability of a consequence-exceeding fall, not raw crash frequency"
+      reference_point: "the resistance of safety-relevant SSCs ASSUMED BY THE DESIGN"
+      decree_status: "378/2016 Sb., Sbírka částka 151/2016, in force 1 January 2017 — number CONFIRMED"
+    source_url: "https://www.zakonyprolidi.cz/cs/2016-378"
+    notes: >-
+      RESOLVES THE LAST to_verify RECORD, and the content is sharper than this database
+      previously guessed. The siting decree does not ask for a bare crash frequency: it asks
+      for the probability of a fall whose consequences would EXCEED the resistance the design
+      assumes. That makes siting and design mutually dependent — 378/2016 § 13 needs the
+      design's assumed resistance as its input, while 329/2017 § 11(4)(b) needs the
+      1E-7/yr falling-object screen as its input. The two decrees are iterated against each
+      other, which is exactly the feedback process SSG-68 para. 3.4 recommends between site
+      hazard evaluation and installation design.
+
+  - clause_id: CZ-378-2016-scope
+    source_id: CZ-378-2016
+    locator: "vyhláška č. 378/2016 Sb., § 3 odst. 1 písm. b), § 15, § 20"
+    heading_en: "Air-related site properties and the handoff to the design"
+    heading_ko: "항공 관련 부지특성 및 설계로의 인계"
+    topics: [T02, T06, T14]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      § 3(1)(b) lists the human-induced phenomena to be assessed at the site, opening with
+      (1) the fall of an aircraft and other objects and including (8) negative manifestations
+      of air, road, rail and water transport. § 15(1)(c) requires checking whether the
+      installation's land encroaches on the protection zone of AVIATION STRUCTURES — though
+      the outright siting prohibition in § 15(2) attaches only to road and railway protection
+      zones, not to the aviation one. § 20(b)(8) requires the siting safety report to state
+      the REQUIREMENTS FOR THE DESIGN OF THE NUCLEAR INSTALLATION ARISING FROM THE ASSESSMENT
+      OF THE TERRITORY — the formal handoff from decree 378/2016 to decree 329/2017.
+    summary_ko: >-
+      § 3(1)(b)는 부지에서 평가할 인위적 현상을 열거하며 (1) 항공기 및 기타 물체의 낙하로
+      시작하고 (8) 항공·도로·철도·수상 운송의 부정적 발현을 포함한다. § 15(1)(c)는 시설
+      부지가 **항공 시설물의 보호구역**에 저촉되는지 확인하도록 요구하나, § 15(2)의 입지
+      금지는 도로·철도 보호구역에만 걸리고 항공 보호구역에는 걸리지 않는다.
+      § 20(b)(8)은 부지 안전보고서에 **지역 평가로부터 도출된 원자력시설 설계에 대한 요건**을
+      기재하도록 요구한다 — 시행령 378/2016에서 329/2017로의 공식 인계 지점이다.
+    key_parameters:
+      hazard_list_position: "aircraft fall is the FIRST listed human-induced phenomenon"
+      aviation_zone: "checked under § 15(1)(c) but not a siting prohibition under § 15(2)"
+      handoff: "§ 20(b)(8) — design requirements arising from the site assessment"
+    source_url: "https://www.zakonyprolidi.cz/cs/2016-378"

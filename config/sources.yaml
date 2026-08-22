@@ -113,7 +113,11 @@ sources:
       - "https://www.zakonyprolidi.cz/cs/2016-263"
       - "https://www.sagit.cz/info/sb16263"
       - "https://faolex.fao.org/docs/pdf/cze192357.pdf"
-    role: "Primary legislation; empowers SÚJB decrees (§ 24(7), § 44(4)(a)(b), § 45(4), § 46 are the enabling provisions for decree 329/2017)."
+    obtained: true
+    obtained_via: "user-supplied text file"
+    indexed_verbatim: true
+    key_provisions: "§ 2 design-bases definition (internal AND external threats/events); § 2(4)(b) design basis threat; § 46(2)(e)-(f) resistance against site properties and external influences; § 47 siting; § 236 enabling clause"
+    role: "Primary legislation; § 236 empowers the SÚJB decrees 329/2017 (design) and 378/2016 (siting)."
 
   - source_id: CZ-329-2017
     jurisdiction: CZ
@@ -141,6 +145,7 @@ sources:
     seismic_floor: "§ 11 odst. 4 písm. a) — minimum postulated PGA of 0.1 g for the same SSC set"
     obtained: true
     obtained_via: "user's Google Drive (Sbírka zákonů částka 112, 48 pp.)"
+    statutory_basis: "Act 263/2016 Sb. § 236, implementing § 24(7), § 44(4), § 45(4), § 46(8)"
     indexed_verbatim: true
     role: "Binding Czech design requirements; contains the accidental-aircraft-crash design basis and both frequency criteria."
 
@@ -156,13 +161,14 @@ sources:
     binding: true
     language: cs
     access: free-download
-    verification: to_verify
-    obtained: false
-    acquisition_note: >-
-      A file supplied for this source is a SCANNED IMAGE PDF with no text layer (0
-      extractable characters over 11 pages). No OCR engine is available in this environment,
-      so it could not be read or indexed. Held in .quarantine/. The decree number itself
-      remains unconfirmed.
+    doc_number_confirmed: true
+    issue_date: "2016-11-07"
+    effective_date: "2017-01-01"
+    gazette: "Sbírka zákonů, částka 151/2016; platnost 18.11.2016"
+    aircraft_provision: "§ 13 Pád letadla a jiných objektů — probability of a fall whose consequences exceed the design-assumed SSC resistance"
+    obtained: true
+    obtained_via: "user-supplied text file"
+    indexed_verbatim: true
     urls:
       - "https://www.zakonyprolidi.cz/cs/2016-378"
     role: "Siting-stage screening of external human-induced hazards, incl. air traffic, that feeds the design basis in 329/2017."
@@ -200,7 +206,10 @@ sources:
     access: public
     urls:
       - "https://eur-lex.europa.eu/eli/dir/2014/87/oj"
-    role: "Transposed nuclear safety objective and defence-in-depth obligation; the legal hook under which Member States require external-hazard robustness. Security/malicious acts are expressly outside its scope."
+    obtained: true
+    obtained_via: "user-supplied text file (OJ L 219/42, 25.7.2014)"
+    indexed_verbatim: true
+    role: "Transposed nuclear safety objective (Art. 8a) and defence-in-depth obligation (Art. 8b). Art. 8b(1)(a) reaches extreme external natural and UNINTENDED man-made hazards, so the accidental crash is in scope and the deliberate one is not."
 
   - source_id: EU-WENRA-SRL
     jurisdiction: EU

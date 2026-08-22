@@ -38,6 +38,9 @@ crosswalk:
       - source_id: CZ-329-2017
         relation: different-architecture
         note: "Binding decree that itself fixes the design-basis selection rule; method left to the applicant."
+      - source_id: CZ-263-2016
+        relation: different-architecture
+        note: "The Act itself defines design bases to span internal AND EXTERNAL threats and events (§ 2), and § 46(2)(e) obliges the design to ensure resistance against dangers from site properties and external influences. § 236 delegates the detail to SÚJB decrees."
       - source_id: EU-EUR
         relation: different-architecture
         note: "Contractual utility requirement; binds only via the procurement contract."
@@ -47,7 +50,7 @@ crosswalk:
       - source_id: EU-WENRA-SRL
         relation: partial
         note: "Harmonisation reference implemented through member regulators."
-    clause_ids: [US-10CFR50.150-a-1, US-RG-1.217-endorsement, CZ-263-2016-enabling, EU-EUR-scope, IAEA-SSG-68-scope, EU-WENRA-external-hazards]
+    clause_ids: [US-10CFR50.150-a-1, US-RG-1.217-position, CZ-263-2016-design-basis-definition, CZ-263-2016-s46-design-duty, CZ-263-2016-enabling, EU-EUR-scope, IAEA-SSG-68-scope, EU-WENRA-TU1-objective]
 
   - cw_id: CW-02
     topic_id: T02
@@ -67,7 +70,13 @@ crosswalk:
       - source_id: IAEA-SRS-86
         relation: partial
         note: "Explicitly addresses application to both existing and new plants."
-    clause_ids: [US-10CFR50.150-a-3, CZ-329-2017-aircraft-dbe, IAEA-SRS-86-framework]
+      - source_id: CZ-378-2016
+        relation: different-architecture
+        note: "Siting decree in force 1 Jan 2017 applies at the siting stage for every nuclear installation, with the aircraft fall the first-listed human-induced phenomenon (§ 3(1)(b)(1)); § 20(b)(8) hands the resulting design requirements to the design decree."
+      - source_id: EU-2014-87-EURATOM
+        relation: different-architecture
+        note: "Art. 8a(2)(a) applies the safety objective to installations first licensed for construction after 14 August 2014; 8a(2)(b) makes it a reference for improving existing ones."
+    clause_ids: [US-10CFR50.150-a-3, CZ-329-2017-aircraft-dbe, CZ-378-2016-scope, EU-2014-87-framework, IAEA-SRS-86-framework]
 
   - cw_id: CW-03
     topic_id: T03
@@ -125,6 +134,12 @@ crosswalk:
       - source_id: US-RG-1.217
         relation: baseline
         note: "States the consequence of the BDB determination: NRC requirements for design-basis events do NOT apply to design features or functional capabilities selected solely to meet the aircraft impact rule."
+      - source_id: EU-2014-87-EURATOM
+        relation: different-architecture
+        note: "Art. 3 supplies the shared vocabulary: 'design basis' is the range of conditions and events taken explicitly into account so the installation withstands them within authorised limits by planned operation of safety systems; 'severe conditions' are more severe than design basis accidents. Art. 8b(1) requires both (d) design basis accidents and (e) severe conditions to be controlled."
+      - source_id: CZ-263-2016
+        relation: different-architecture
+        note: "§ 2 defines design bases to span internal AND external threats and events — the statutory reason the Czech accidental crash sits inside the design basis."
       - source_id: EU-WENRA-SRL
         relation: different-architecture
         note: "TU4.2: design basis events at an exceedance frequency not higher than 1E-4/yr; a 0.1 g seismic floor regardless of frequency; and for accidental airplane crashes a design basis event SHALL be defined to ensure minimum protection. TU1.1 covers both design basis and design extension conditions; footnote 88 excludes malicious acts."
@@ -176,7 +191,10 @@ crosswalk:
       - source_id: EU-WENRA-SRL
         relation: different-architecture
         note: "TU4.2 sets 1E-4/yr for design basis events generally but does NOT state a figure for aircraft: it requires that a design basis event simply BE DEFINED to ensure minimum protection. The 1E-7 number is the Czech and IAEA contribution, not WENRA's."
-    clause_ids: [US-10CFR50.150-a-2, CZ-329-2017-aircraft-dbe, CZ-329-2017-external-events-general, IAEA-SSG-79-spl, IAEA-SSG-68-fn9-spl, EU-WENRA-TU4-design-basis, EU-WENRA-TU3-screening]
+      - source_id: CZ-378-2016
+        relation: different-architecture
+        note: "§ 13 asks the siting assessment to determine the PROBABILITY of a fall whose consequences would exceed the resistance ASSUMED BY THE DESIGN — a consequence-conditioned probability, not a raw crash frequency."
+    clause_ids: [US-10CFR50.150-a-2, CZ-329-2017-aircraft-dbe, CZ-329-2017-external-events-general, CZ-378-2016-s13-aircraft, IAEA-SSG-79-spl, IAEA-SSG-68-fn9-spl, EU-WENRA-TU4-design-basis, EU-WENRA-TU3-screening]
     divergence_note: >-
       Strongest quantitative link in the crosswalk: CZ 329/2017 and the IAEA level are the
       same 1E-7/yr figure. Three caveats now verified against the primary text of SSG-68:
@@ -191,12 +209,19 @@ crosswalk:
       NS-G-3.1. An intermediate version of this database wrongly declared the SSG-79
       attribution an error; it was not. SSG-79 alone carries the per-aircraft-category
       screening procedure.
+      THE CZECH SCHEME IS A LOOP, NOT A THRESHOLD. Siting decree 378/2016 § 13 asks for the
+      probability of a fall whose consequences would EXCEED THE RESISTANCE THE DESIGN ASSUMES,
+      while design decree 329/2017 § 11(4)(b) sets that resistance from objects falling more
+      often than 1E-7/yr. Each decree takes the other's output as its input, so the pair must
+      be iterated — precisely the feedback process between site hazard evaluation and
+      installation design that SSG-68 para. 3.4 recommends. Neither the US nor the EUR
+      framework couples siting and design this explicitly.
       Second point, from the Czech primary text: the decree operates TWO
-      frequency levels, not one — 1E-4/yr for basic external design events generally (§ 12)
-      and 1E-7/yr for a falling aircraft or other object (§ 13(2)(b)). The earlier version of
+      frequency levels, not one — 1E-4/yr for basic external design events generally (§ 11(3))
+      and 1E-7/yr for a falling aircraft or other object (§ 11(4)(b)). The earlier version of
       this crosswalk compared the IAEA level against the Czech 1E-7 figure alone and so
       presented the Czech scheme as a single-threshold system. The three-orders-of-magnitude
-      gap between § 12 and § 13(2)(b) is itself the finding: the Czech regulator treats a
+      gap between § 11(3) and § 11(4)(b) is itself the finding: the Czech regulator treats a
       falling aircraft as far rarer than the events it otherwise designs for, which is what
       lets the crash stay inside the design basis without driving the whole design.
 
@@ -373,7 +398,10 @@ crosswalk:
         note: "Explicit separate treatment of the intentional aircraft crash alongside the accidental one."
       - source_id: EU-2014-87-EURATOM
         relation: no-equivalent
-        note: "Security and malicious acts are expressly outside the nuclear safety directive's scope."
+        note: "Art. 8b(1)(a) reaches 'extreme external natural and UNINTENDED man-made hazards' — the operative defence-in-depth clause covers the accidental crash and expressly not the deliberate one."
+      - source_id: CZ-263-2016
+        relation: different-architecture
+        note: "§ 2(4)(b) defines the design basis threat in terms of a NATURAL PERSON capable of intentional unlawful handling — not a vehicle or aircraft. The intentional aircraft attack therefore reaches the design through the physical protection plan, not through the DBT definition."
       - source_id: EU-WENRA-SRL
         relation: no-equivalent
         note: "Issue TU footnote 88: 'Within these reference levels malicious acts are not considered.'"
@@ -383,7 +411,7 @@ crosswalk:
       - source_id: US-RG-1.217
         relation: baseline
         note: "Section A: the non-public versions of RG 1.217 and NEI 07-13 carry the detailed methodology under Safeguards Information controls, available only to SGI-qualified personnel including plant designers."
-    clause_ids: [US-10CFR50.150-a-2, US-RG-1.217-sgi, EU-EUR-aircraft-crash, EU-2014-87-framework, CZ-329-2017-intentional-attack]
+    clause_ids: [US-10CFR50.150-a-2, US-RG-1.217-sgi, EU-EUR-aircraft-crash, EU-2014-87-framework, CZ-329-2017-intentional-attack, CZ-263-2016-dbt]
 
   - cw_id: CW-11
     topic_id: T15

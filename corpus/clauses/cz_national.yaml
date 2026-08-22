@@ -8,25 +8,6 @@ provenance_note: >-
   taken from the decree itself. Czech fragments are quoted from that text.
 clauses:
 
-  - clause_id: CZ-263-2016-enabling
-    source_id: CZ-263-2016
-    locator: "zákon č. 263/2016 Sb., § 24(7), § 44(4)(a)(b), § 45(4), § 46"
-    heading_en: "Statutory basis for the design decree"
-    heading_ko: "설계 시행령의 법적 근거"
-    topics: [T01]
-    text_status: summary
-    verification: web_verified
-    confidence: medium
-    summary_en: >-
-      Decree No. 329/2017 Sb. was issued by SÚJB under the empowering provisions of the Atomic
-      Act (Act No. 263/2016 Sb.). The Atomic Act is the binding primary legislation; the decree
-      carries the technical design requirements.
-    summary_ko: >-
-      시행령 제329/2017호는 원자력법(제263/2016호)의 위임규정에 근거하여 SÚJB가 발령하였다.
-      원자력법이 구속력 있는 상위 법률이며, 기술적 설계요건은 시행령이 담는다.
-    source_url: "https://www.zakonyprolidi.cz/cs/2017-329"
-    notes: "The Atomic Act itself is not yet indexed; the enabling-provision list is unverified."
-
   - clause_id: CZ-329-2017-intentional-attack
     source_id: CZ-329-2017
     locator: "vyhláška č. 329/2017 Sb., § 10 odst. 1 písm. d)"
@@ -190,31 +171,3 @@ clauses:
       conservative approach — whereas 10 CFR 50.150(a)(1) requires "realistic analyses" and
       RG 1.217 confirms design-basis requirements do not attach to features selected solely
       for the aircraft rule.
-
-  - clause_id: CZ-378-2016-siting
-    source_id: CZ-378-2016
-    locator: "vyhláška č. 378/2016 Sb. (siting) — number still unconfirmed"
-    heading_en: "Site-stage evaluation of air traffic hazard"
-    heading_ko: "부지단계 항공교통 위험 평가"
-    topics: [T02, T05]
-    text_status: summary
-    verification: to_verify
-    confidence: low
-    summary_en: >-
-      Czech siting rules are expected to require evaluation of external human-induced hazards
-      at the site, including air traffic, producing the crash-frequency input that decides
-      whether the fall of an aircraft enters the design basis under § 11(4)(b) of decree
-      329/2017. The decree 329/2017 refers repeatedly to "the method of assessment of the
-      territory for siting a nuclear installation", which is the siting instrument this record
-      stands for.
-    summary_ko: >-
-      체코 부지 규정은 항공교통을 포함한 부지의 인위적 외부 위험 평가를 요구하며, 그 결과인
-      추락빈도가 시행령 329/2017 § 11(4)(b)에 따라 항공기 낙하를 설계기준에 포함할지
-      결정하는 입력이 될 것으로 보인다. 329/2017은 "원자력시설 입지를 위한 지역 평가방법"을
-      반복 인용하는데, 본 레코드는 그 부지 관련 법령을 가리킨다.
-    source_url: "https://www.zakonyprolidi.cz/cs/2016-378"
-    notes: >-
-      STILL UNRESOLVED. A PDF supplied for this record was a SCANNED IMAGE with no text layer
-      (0 extractable characters across 11 pages) and no OCR engine is available in this
-      environment, so it could not be read or indexed; it is held in .quarantine/. Neither the
-      decree number nor the content is confirmed. Do not cite this record.
