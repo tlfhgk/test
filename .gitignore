@@ -7,6 +7,9 @@ corpus/raw/*
 db/
 export/
 
+# web/aircraft-impact.html is generated but IS committed: it is the
+# install-free deliverable, and it carries only the curated layer.
+
 __pycache__/
 *.pyc
 .venv/

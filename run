@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+# One command for everything. Run `./run` with no arguments for the menu.
+set -uo pipefail
+cd "$(dirname "$0")"
+PY=${PYTHON:-python3}
+
+need_db(){ [ -f db/aircraft_impact.db ] || { echo "데이터베이스가 없습니다. 먼저: ./run setup"; exit 1; }; }
+
+case "${1:-help}" in
+  setup)
+    echo "== 의존성 =="
+    $PY -m pip install -q PyYAML || exit 1
+    $PY -c "import pypdf" 2>/dev/null || $PY -m pip install -q pypdf
+    echo "== 데이터베이스 빌드 =="
+    $PY scripts/build_db.py || exit 1
+    if [ -n "$(ls -A corpus/raw 2>/dev/null | grep -v '^\.gitkeep$')" ]; then
+      echo "== 원문 색인 =="
+      $PY scripts/ingest_raw.py
+    else
+      echo "(corpus/raw 가 비어 있어 원문 색인은 건너뜁니다 — docs/usage.md 참조)"
+    fi
+    echo "== 문서·앱 생성 =="
+    $PY scripts/make_matrix.py
+    $PY scripts/export_web.py
+    echo
+    echo "완료. 다음을 해보세요:"
+    echo "  ./run find 관통          검색"
+    echo "  ./run app                브라우저 앱 열기"
+    ;;
+  find|search|q)
+    need_db; shift; $PY scripts/query.py "$@" ;;
+  ask)
+    need_db; shift; $PY scripts/answer.py "$@" ;;
+  app)
+    need_db
+    $PY scripts/export_web.py
+    f="$(pwd)/web/aircraft-impact.html"
+    echo "브라우저에서 열기: file://$f"
+    (command -v xdg-open >/dev/null && xdg-open "$f") \
+      || (command -v open >/dev/null && open "$f") \
+      || (command -v explorer.exe >/dev/null && explorer.exe "$(wslpath -w "$f" 2>/dev/null || echo "$f")") \
+      || true
+    ;;
+  gaps)   need_db; $PY scripts/report_gaps.py ;;
+  export) need_db; $PY scripts/export_rag.py ;;
+  rebuild)
+    $PY scripts/build_db.py && $PY scripts/ingest_raw.py && \
+    $PY scripts/make_matrix.py && $PY scripts/export_web.py ;;
+  *)
+    cat <<'TXT'
+항공기 충돌 규제 비교 DB
+
+  ./run setup            처음 한 번 — 설치 + 빌드 + 앱 생성
+  ./run find "검색어"     검색            (옵션: --jurisdiction CZ --topic T08 --kind raw)
+  ./run ask  "질문"       Claude 인용답변  (ANTHROPIC_API_KEY 필요)
+  ./run app              브라우저 앱 열기 (설치 불필요, 단독 HTML)
+  ./run gaps             출처 검증 상태
+  ./run export           벡터스토어용 JSONL 내보내기
+  ./run rebuild          코퍼스 수정 후 전체 재생성
+
+자세한 활용법: docs/usage.md
+TXT
+    ;;
+esac

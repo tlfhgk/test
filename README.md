@@ -32,20 +32,18 @@
 ## 빠른 시작
 
 ```bash
-pip install -r requirements.txt
-
-python3 scripts/build_db.py            # YAML 코퍼스 → db/aircraft_impact.db
-python3 scripts/query.py "체코 항공기 추락 설계기준 빈도"
-python3 scripts/make_matrix.py         # docs/comparison-matrix.md 재생성
-python3 scripts/report_gaps.py         # 미검증 항목 점검
+./run setup            # 설치 + 빌드 + 앱 생성 (처음 한 번)
+./run find 관통         # 검색
+./run app              # 브라우저 앱 열기
 ```
 
-원문을 넣어 축자(verbatim) 색인까지 하려면:
+### 설치 없이 쓰려면
 
-```bash
-bash scripts/fetch_sources.sh          # 공개 문서를 corpus/raw/ 로 내려받기
-python3 scripts/ingest_raw.py --replace
-```
+`web/aircraft-impact.html` 파일 하나를 더블클릭하면 됩니다. 서버도 인터넷도
+필요 없는 단독 파일이고, 검색·비교표·문서목록이 다 들어 있습니다.
+저작권 있는 축자 원문은 빠져 있어 그대로 공유해도 안전합니다.
+
+전체 명령과 실제 업무 시나리오는 **[`docs/usage.md`](docs/usage.md)** 를 보세요.
 
 ## 구조
 
@@ -62,10 +60,14 @@ scripts/query.py               검색 CLI
 scripts/answer.py              Claude 기반 인용형 RAG 응답
 scripts/export_rag.py          JSONL 내보내기 (벡터스토어 연동용)
 scripts/make_matrix.py         비교 매트릭스 문서 생성
+scripts/export_web.py          단독 브라우저 앱 생성
 scripts/report_gaps.py         출처 검증 상태 보고
 docs/comparison-matrix.md      비교 매트릭스 (자동생성)
 docs/methodology.md            방법론·출처검증 정책·한계
 docs/acquisition-checklist.md  확보해야 할 원문 목록 (우선순위별)
+docs/usage.md                  활용법 — 브라우저 앱 · CLI · 인용답변
+web/aircraft-impact.html       단독 브라우저 앱 (설치 불필요)
+run                            한 줄 실행 스크립트
 ```
 
 ## 데이터베이스 스키마

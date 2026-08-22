@@ -1,0 +1,508 @@
+<title>항공기 충돌 규제 대조기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+
+<style>
+:root{
+  --ground:#F4F6F8; --surface:#FFFFFF; --surface-2:#EDF0F4; --surface-3:#E3E8EE;
+  --ink:#161A21; --ink-2:#4C5563; --ink-3:#78818F;
+  --rule:#DCE1E8; --rule-strong:#C3CAD4;
+  --accent:#8C2F27; --accent-soft:#F2E3E1;
+  --us:#2C5C8A; --cz:#7A3E6E; --eu:#1F6B5E; --int:#8A6316; --multi:#54488A;
+  --ok:#2C6349;
+  --shadow:0 1px 2px rgba(20,26,35,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#101318; --surface:#171B22; --surface-2:#1E232B; --surface-3:#262C36;
+    --ink:#E5E9EF; --ink-2:#A2ABB9; --ink-3:#78828F;
+    --rule:#272D37; --rule-strong:#39414D;
+    --accent:#E08277; --accent-soft:#3A211E;
+    --us:#77AEDC; --cz:#CE93BE; --eu:#6FC3AF; --int:#D8AC5E; --multi:#A99BDD;
+    --ok:#79C2A0;
+    --shadow:0 1px 2px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101318; --surface:#171B22; --surface-2:#1E232B; --surface-3:#262C36;
+  --ink:#E5E9EF; --ink-2:#A2ABB9; --ink-3:#78828F;
+  --rule:#272D37; --rule-strong:#39414D;
+  --accent:#E08277; --accent-soft:#3A211E;
+  --us:#77AEDC; --cz:#CE93BE; --eu:#6FC3AF; --int:#D8AC5E; --multi:#A99BDD;
+  --ok:#79C2A0;
+  --shadow:0 1px 2px rgba(0,0,0,.4);
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:'IBM Plex Sans','IBM Plex Sans KR',system-ui,sans-serif;
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 20px 80px}
+h1,h2,h3{font-family:'IBM Plex Serif','IBM Plex Sans KR',Georgia,serif;text-wrap:balance;margin:0}
+h1{font-size:26px;font-weight:600;letter-spacing:-.01em}
+h2{font-size:18px;font-weight:600}
+h3{font-size:15.5px;font-weight:600;line-height:1.45}
+p{margin:0}
+a{color:var(--accent);text-underline-offset:2px}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.86em}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+
+/* ---------- masthead + search ---------- */
+.top{position:sticky;top:0;z-index:20;background:var(--ground);
+  border-bottom:1px solid var(--rule);padding-top:22px}
+/* .wrap carries the page's bottom padding; inside the sticky header that would
+   open an 80px band between the tabs and the rule. */
+.top .wrap{padding-bottom:0}
+.mast{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.mast .stat{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-3);
+  font-variant-numeric:tabular-nums}
+.searchrow{display:flex;gap:8px;align-items:stretch}
+#q{flex:1;min-width:0;padding:11px 14px;font:inherit;color:var(--ink);
+  background:var(--surface);border:1px solid var(--rule-strong);box-shadow:var(--shadow)}
+#q::placeholder{color:var(--ink-3)}
+#clear{padding:0 13px;border:1px solid var(--rule-strong);background:var(--surface);
+  color:var(--ink-2);font-size:13px;box-shadow:var(--shadow)}
+#clear:hover{background:var(--surface-2)}
+.tabs{display:flex;gap:2px;margin-top:12px}
+.tab{padding:8px 15px;font-size:13.5px;color:var(--ink-2);border:1px solid transparent;
+  border-bottom:2px solid transparent}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent);font-weight:500}
+.tab:hover{color:var(--ink)}
+.filters{display:flex;flex-wrap:wrap;gap:6px;padding:11px 0 13px}
+.f{padding:3px 10px;font-size:11.5px;border:1px solid var(--rule-strong);
+  background:var(--surface);color:var(--ink-2);white-space:nowrap}
+.f[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.f:hover{border-color:var(--ink-3)}
+
+/* ---------- presets ---------- */
+.presets{padding:20px 0 4px;display:flex;flex-direction:column;gap:9px}
+.presets .lbl{color:var(--ink-3);font-size:12.5px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:7px}
+.p{text-align:left;padding:9px 12px;border:1px solid var(--rule);background:var(--surface);
+  font-size:13.2px;color:var(--ink-2);box-shadow:var(--shadow);line-height:1.45}
+.p:hover{border-color:var(--accent);color:var(--ink)}
+.p b{display:block;color:var(--ink);font-weight:500;font-size:13.5px;margin-bottom:1px}
+
+/* ---------- results ---------- */
+.count{padding:16px 0 8px;font-size:12.5px;color:var(--ink-3);
+  font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+.list{display:flex;flex-direction:column;border:1px solid var(--rule);
+  background:var(--surface);box-shadow:var(--shadow)}
+.item{border-top:1px solid var(--rule)}
+.item:first-child{border-top:0}
+.hd{width:100%;display:grid;grid-template-columns:4px 1fr;text-align:left;align-items:stretch}
+.stripe{background:var(--ink-3)}
+.j-US .stripe{background:var(--us)} .j-CZ .stripe{background:var(--cz)}
+.j-EU .stripe{background:var(--eu)} .j-INT .stripe{background:var(--int)}
+.j-MULTI .stripe{background:var(--multi)}
+.hdb{padding:12px 15px;display:flex;flex-direction:column;gap:5px;min-width:0}
+.hd:hover .hdb{background:var(--surface-2)}
+.line1{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.loc{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-3)}
+.j-US .loc{color:var(--us)} .j-CZ .loc{color:var(--cz)}
+.j-EU .loc{color:var(--eu)} .j-INT .loc{color:var(--int)}
+.j-MULTI .loc{color:var(--multi)}
+.badge{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.06em;
+  padding:1px 5px;border:1px solid var(--rule-strong);color:var(--ink-3);text-transform:uppercase}
+.badge.pri{color:var(--ok);border-color:var(--ok)}
+.snip{color:var(--ink-2);font-size:13.4px;display:-webkit-box;-webkit-line-clamp:2;
+  -webkit-box-orient:vertical;overflow:hidden}
+mark{background:var(--accent-soft);color:var(--ink);padding:0 1px}
+.body{padding:2px 15px 18px 19px;display:none;flex-direction:column;gap:13px}
+.item.open .body{display:flex}
+.item.open .hdb{background:var(--surface-2)}
+.blk{display:flex;flex-direction:column;gap:4px}
+.blk .k{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3)}
+.blk .t{font-size:14px;color:var(--ink-2);max-width:74ch}
+.blk .t.ko{color:var(--ink)}
+.kp{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:12.8px;align-items:baseline}
+.kp dt{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)}
+.kp dd{margin:0;color:var(--ink-2);overflow-wrap:anywhere}
+.note{border-left:3px solid var(--rule-strong);padding:3px 0 3px 13px;
+  font-size:13.2px;color:var(--ink-2);max-width:74ch}
+.foot{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink-3);
+  padding-top:3px;border-top:1px solid var(--rule);margin-top:2px;padding-top:9px}
+.rel{display:inline-block;font-size:11px;padding:1px 7px;border:1px solid var(--rule-strong);
+  color:var(--ink-2);white-space:nowrap}
+.rel.baseline{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.rel.equivalent{color:var(--ok);border-color:var(--ok)}
+.poslist{display:flex;flex-direction:column;gap:7px}
+.pos{display:grid;grid-template-columns:150px 76px 1fr;gap:10px;font-size:12.8px;align-items:baseline}
+.pos .sid{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-3)}
+.pos .pn{color:var(--ink-2)}
+
+/* ---------- matrix ---------- */
+.tw{overflow-x:auto;border:1px solid var(--rule);background:var(--surface);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font-size:12.5px;min-width:900px}
+th,td{padding:7px 9px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+thead th{position:sticky;top:0;background:var(--surface-2);font-family:'IBM Plex Mono',monospace;
+  font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+  font-weight:500;border-bottom:1px solid var(--rule-strong);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:var(--surface-2)}
+td.q{min-width:210px;color:var(--ink);line-height:1.4}
+td.cwid{font-family:'IBM Plex Mono',monospace;font-weight:600;white-space:nowrap}
+td.c{text-align:center;font-size:11px;white-space:nowrap}
+td.c button{width:100%;padding:2px 4px;color:var(--ink-2)}
+td.c button:hover{color:var(--accent);text-decoration:underline}
+td.c.none{color:var(--ink-3);opacity:.45}
+.legend{padding:11px 0 0;font-size:11.5px;color:var(--ink-3);line-height:1.9}
+
+/* ---------- sources ---------- */
+.srcgrid{display:flex;flex-direction:column;border:1px solid var(--rule);
+  background:var(--surface);box-shadow:var(--shadow)}
+.src{display:grid;grid-template-columns:4px 1fr;border-top:1px solid var(--rule)}
+.src:first-child{border-top:0}
+.srcb{padding:13px 15px;display:flex;flex-direction:column;gap:5px}
+.srcmeta{display:flex;gap:8px;flex-wrap:wrap;font-size:11.5px;color:var(--ink-3)}
+
+.empty{padding:34px 16px;text-align:center;color:var(--ink-3);font-size:14px}
+footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);
+  color:var(--ink-3);font-size:12px;line-height:1.8}
+@media (max-width:600px){
+  .wrap{padding:0 14px 60px}
+  h1{font-size:21px}
+  .pos{grid-template-columns:1fr;gap:2px}
+  .kp{grid-template-columns:1fr;gap:1px 0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="top">
+  <div class="wrap">
+    <div class="mast">
+      <div>
+        <p class="eyebrow">미국 · 체코 · EU · IAEA</p>
+        <h1>항공기 충돌 규제 대조기</h1>
+      </div>
+      <div class="stat" id="stat"></div>
+    </div>
+    <div class="searchrow">
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+             placeholder="한국어 또는 영어로 검색 — 예: 관통, 일몰, 1E-7, perforation">
+      <button id="clear" title="검색어 지우기">지우기</button>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" data-tab="search" aria-selected="true">검색</button>
+      <button class="tab" role="tab" data-tab="matrix" aria-selected="false">비교표</button>
+      <button class="tab" role="tab" data-tab="sources" aria-selected="false">문서</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div id="pane-search">
+    <div class="filters" id="filters"></div>
+    <div id="presets" class="presets"></div>
+    <div class="count" id="count"></div>
+    <div class="list" id="results"></div>
+  </div>
+
+  <div id="pane-matrix" hidden>
+    <div class="count">12개 비교항목 × 15개 문서 — 칸을 누르면 근거가 열립니다</div>
+    <div class="tw"><table id="matrix"></table></div>
+    <div class="legend" id="legend"></div>
+    <div class="list" id="cwdetail" style="margin-top:16px"></div>
+  </div>
+
+  <div id="pane-sources" hidden>
+    <div class="count" id="srccount"></div>
+    <div class="srcgrid" id="sources"></div>
+  </div>
+
+  <footer>
+    큐레이션 계층만 담긴 단독 파일입니다 — 조항 요약·비교·출처. NEI 07-13, IAEA 발간물,
+    WENRA, EUR의 <strong>축자 원문은 저작권·라이선스 대상이라 포함되지 않습니다</strong>;
+    원문 검색은 로컬 데이터베이스에서 <span class="mono">scripts/query.py</span> 로 하세요.<br>
+    <span class="mono">★ primary_source</span> 원문 대조 완료 ·
+    <span class="mono">web_verified</span> 검색 확인 · 인용 전 출처 링크로 최종 확인하세요.
+  </footer>
+</div>
+
+<script>
+/*__DATA__*/
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const SRC = Object.fromEntries(DB.sources.map(s => [s.id, s]));
+const TOPIC = Object.fromEntries(DB.topics.map(t => [t.id, t]));
+const JN = {US:"미국", CZ:"체코", EU:"EU", INT:"IAEA", MULTI:"비교"};
+const REL = {baseline:"기준", equivalent:"동등", partial:"부분", stricter:"더 엄격",
+  looser:"더 완화", "different-architecture":"구조 상이", "no-equivalent":"없음", "not-public":"비공개"};
+
+/* ---- unified record list: clauses + crosswalk entries ---- */
+const RECS = [];
+for (const c of DB.clauses) {
+  RECS.push({kind:"clause", id:c.id, j:c.j, doc:c.doc, loc:c.loc,
+    title:(c.hk||c.he||""), sub:(c.he||""), topics:c.t, v:c.v, ts:c.ts,
+    ko:c.ko, en:c.en, kp:c.kp, nt:c.nt, u:c.u, s:c.s,
+    hay:[c.id,c.loc,c.doc,c.hk,c.he,c.ko,c.en,c.nt,JSON.stringify(c.kp||"")].join(" ").toLowerCase()});
+}
+for (const w of DB.crosswalk) {
+  const t = TOPIC[w.topic];
+  RECS.push({kind:"crosswalk", id:w.id, j:"MULTI", doc:"비교항목", loc:w.id,
+    title:(w.qk||w.qe||""), sub:(w.qe||""), topics:[w.topic], v:"web_verified", ts:"editorial",
+    ko:w.ko, en:"", div:w.div, pos:w.pos, cl:w.cl, u:null,
+    hay:[w.id,w.qk,w.qe,w.ko,w.div,(t?t.ko+" "+t.en:""),
+         w.pos.map(p=>p.s+" "+p.n).join(" ")].join(" ").toLowerCase()});
+}
+
+/* ---- search: token overlap, title weighted, substring fallback for Korean ---- */
+const STOP = new Set(["the","a","of","and","or","to","in","is","are","for","무엇","어떻게","인가","한다","되는"]);
+function tokens(q){
+  return (q.toLowerCase().match(/[0-9a-z가-힣À-ſ§.\-_/]+/g)||[])
+    .filter(t => t.length>1 && !STOP.has(t));
+}
+function score(rec, toks){
+  if(!toks.length) return 0;
+  let s=0, hits=0;
+  const title=(rec.title+" "+rec.sub+" "+rec.loc+" "+rec.doc).toLowerCase();
+  for(const t of toks){
+    const inH=rec.hay.includes(t);
+    if(!inH) continue;
+    hits++;
+    let n=0, i=0; while((i=rec.hay.indexOf(t,i))>=0){n++;i+=t.length;}
+    s += (title.includes(t)?9:0) + Math.min(n,6)*2;
+  }
+  // A multi-word query is a description of one thing, not a list of alternatives.
+  // Requiring half its terms keeps a preset like "설계기준초과 beyond design basis"
+  // from returning most of the corpus on the strength of one common word.
+  const need = toks.length >= 3 ? Math.ceil(toks.length/2) : toks.length >= 2 ? 2 : 1;
+  if(hits < need) return 0;
+  return hits === toks.length ? s*1.6 : s;
+}
+
+/* ---- state ---- */
+const S = {tab:"search", q:"", j:new Set(), topic:new Set(), kind:new Set(), open:new Set()};
+try{ const p=JSON.parse(localStorage.getItem("aic")||"{}");
+  if(p.tab) S.tab=p.tab; if(p.q) S.q=p.q; }catch(e){}
+function save(){ try{ localStorage.setItem("aic",JSON.stringify({tab:S.tab,q:S.q})); }catch(e){} }
+
+/* ---- filters ---- */
+function buildFilters(){
+  const parts=[];
+  parts.push(`<span class="eyebrow" style="align-self:center;margin-right:2px">관할</span>`);
+  for(const j of ["US","CZ","EU","INT","MULTI"])
+    parts.push(`<button class="f" data-f="j" data-v="${j}" aria-pressed="false">${JN[j]}</button>`);
+  parts.push(`<span class="eyebrow" style="align-self:center;margin:0 2px 0 10px">종류</span>`);
+  parts.push(`<button class="f" data-f="kind" data-v="clause" aria-pressed="false">조항</button>`);
+  parts.push(`<button class="f" data-f="kind" data-v="crosswalk" aria-pressed="false">비교항목</button>`);
+  parts.push(`<span class="eyebrow" style="align-self:center;margin:0 2px 0 10px">주제</span>`);
+  for(const t of DB.topics)
+    parts.push(`<button class="f" data-f="topic" data-v="${t.id}" aria-pressed="false" title="${esc(t.en)}">${esc(t.ko)}</button>`);
+  $("#filters").innerHTML = parts.join("");
+  $("#filters").addEventListener("click", e=>{
+    const b=e.target.closest(".f"); if(!b) return;
+    const set=S[b.dataset.f], v=b.dataset.v;
+    set.has(v) ? set.delete(v) : set.add(v);
+    b.setAttribute("aria-pressed", set.has(v));
+    render();
+  });
+}
+
+const PRESETS = [
+  ["설계기준인가 초과인가", "각 체계가 항공기 충돌을 어느 계층에 두는지", "설계기준초과 beyond design basis 현실적"],
+  ["국부손상 경험식", "NDRC · Chang · Degen · CEA-EDF 채택 관계", "관통 박리 경험식 NDRC Degen"],
+  ["1E-7 스크리닝 기준", "체코 § 11(4)(b)와 IAEA SPL의 관계", "1E-7 스크리닝 확률 낙하"],
+  ["미국 규정 일몰", "10 CFR 50.150(d) 2027년 실효 조항", "일몰 sunset 2027 실효"],
+  ["고의충돌은 어디에", "보안 · 물리적방호 · 설계기준의 경계", "고의적 공격 물리적방호 intentional"],
+  ["위협 정의가 다른 이유", "대형기 · 경항공기 · 군용기 · 낙하물체", "위협 정의 경항공기 군용 대형 상용"],
+  ["허용기준 비교", "노심냉각 · 격납건전성 · 방출 기반 목표", "허용기준 충족기준 격납 사용후핵연료"],
+  ["부지와 설계의 연결", "체코 378/2016 § 13 ↔ 329/2017 § 11", "부지 평가 확률 설계 저항성"],
+];
+function buildPresets(){
+  $("#presets").innerHTML =
+    `<div class="lbl">무엇을 물어야 할지 모르겠다면 — 이 DB가 실제로 답할 수 있는 질문들</div>
+     <div class="pgrid">` +
+    PRESETS.map(([t,d,q])=>`<button class="p" data-q="${esc(q)}"><b>${esc(t)}</b>${esc(d)}</button>`).join("") +
+    `</div>`;
+  $("#presets").addEventListener("click", e=>{
+    const b=e.target.closest(".p"); if(!b) return;
+    S.q=b.dataset.q; $("#q").value=S.q; S.open.clear(); render(); save();
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
+}
+
+// The corpus is authored in YAML where emphasis is written **like this**.
+// Render it, then highlight search terms only in the text between tags so a
+// match inside <strong> or <mark> cannot corrupt the markup.
+function md(t){ return t.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>"); }
+function hl(text, toks){
+  let out = md(esc(text));
+  const live = toks.filter(t => t.length > 1);
+  if(!live.length) return out;
+  const rx = new RegExp("(" + live.map(t=>t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|") + ")","gi");
+  return out.split(/(<[^>]+>)/).map(part =>
+    part.startsWith("<") ? part : part.replace(rx, "<mark>$1</mark>")).join("");
+}
+
+function renderResults(){
+  const toks=tokens(S.q);
+  let rows=RECS.filter(r=>{
+    if(S.j.size && !S.j.has(r.j)) return false;
+    if(S.kind.size && !S.kind.has(r.kind)) return false;
+    if(S.topic.size && !(r.topics||[]).some(t=>S.topic.has(t))) return false;
+    return true;
+  });
+  if(toks.length){
+    rows=rows.map(r=>({r,sc:score(r,toks)})).filter(x=>x.sc>0)
+             .sort((a,b)=>b.sc-a.sc).map(x=>x.r);
+  }else{
+    rows.sort((a,b)=> a.kind===b.kind ? a.id.localeCompare(b.id) : (a.kind==="crosswalk"?-1:1));
+  }
+  $("#presets").hidden = !!toks.length;
+  $("#count").textContent = toks.length
+    ? `${rows.length}건 · "${S.q}"`
+    : `${rows.length}건 — 조항 ${DB.stats.clauses} · 비교항목 ${DB.stats.crosswalk}`;
+
+  if(!rows.length){
+    $("#results").innerHTML=`<div class="empty">일치하는 항목이 없습니다. 검색어를 줄이거나 필터를 해제해 보세요.</div>`;
+    return;
+  }
+  $("#results").innerHTML = rows.map(r=>{
+    const open=S.open.has(r.id);
+    const badge = r.v==="primary_source"
+      ? `<span class="badge pri">★ 원문</span>`
+      : `<span class="badge">${esc(r.v==="web_verified"?"검색확인":r.v)}</span>`;
+    const snip = r.kind==="crosswalk" ? (r.ko||"") : (r.ko||r.en||"");
+    return `<div class="item j-${r.j} ${open?"open":""}" data-id="${esc(r.id)}">
+      <button class="hd" aria-expanded="${open}"><span class="stripe"></span><span class="hdb">
+        <span class="line1">
+          <span class="loc">${esc(r.doc||"")} ${esc(r.loc||"")}</span>${badge}
+        </span>
+        <h3>${hl(r.title,toks)}</h3>
+        <span class="snip">${hl(snip,toks)}</span>
+      </span></button>
+      <div class="body">${open?detail(r,toks):""}</div>
+    </div>`;
+  }).join("");
+}
+
+function detail(r,toks){
+  const out=[];
+  if(r.kind==="crosswalk"){
+    if(r.sub) out.push(`<div class="blk"><span class="k">question (en)</span><span class="t">${hl(r.sub,toks)}</span></div>`);
+    if(r.ko) out.push(`<div class="blk"><span class="k">정리</span><span class="t ko">${hl(r.ko,toks)}</span></div>`);
+    if(r.pos && r.pos.length){
+      out.push(`<div class="blk"><span class="k">문서별 입장</span><div class="poslist">` +
+        r.pos.map(p=>{
+          const s=SRC[p.s]||{};
+          return `<div class="pos"><span class="sid">${esc(s.doc||p.s)}</span>
+            <span><span class="rel ${esc(p.rel)}">${esc(REL[p.rel]||p.rel)}</span></span>
+            <span class="pn">${hl(p.n||"",toks)}</span></div>`;
+        }).join("") + `</div></div>`);
+    }
+    if(r.div) out.push(`<div class="blk"><span class="k">차이점 · 유의사항</span><div class="note">${hl(r.div,toks)}</div></div>`);
+    if(r.cl && r.cl.length)
+      out.push(`<div class="foot"><span>근거 조항: <span class="mono">${r.cl.map(esc).join(", ")}</span></span></div>`);
+    return out.join("");
+  }
+  if(r.ko) out.push(`<div class="blk"><span class="k">국문</span><span class="t ko">${hl(r.ko,toks)}</span></div>`);
+  if(r.en) out.push(`<div class="blk"><span class="k">english</span><span class="t">${hl(r.en,toks)}</span></div>`);
+  if(r.kp){
+    out.push(`<div class="blk"><span class="k">핵심 파라미터</span><dl class="kp">` +
+      Object.entries(r.kp).map(([k,v])=>
+        `<dt>${esc(k)}</dt><dd>${hl(Array.isArray(v)?v.join(" · "):String(v),toks)}</dd>`).join("") +
+      `</dl></div>`);
+  }
+  if(r.nt) out.push(`<div class="blk"><span class="k">note</span><div class="note">${hl(r.nt,toks)}</div></div>`);
+  const f=[`<span class="mono">${esc(r.id)}</span>`,
+           `<span>${esc(r.ts)} · ${esc(r.v)}</span>`];
+  if(r.u) f.push(`<a href="${esc(r.u)}" target="_blank" rel="noopener">출처 열기 ↗</a>`);
+  out.push(`<div class="foot">${f.join("")}</div>`);
+  return out.join("");
+}
+
+$("#results").addEventListener("click", e=>{
+  const hd=e.target.closest(".hd"); if(!hd) return;
+  const item=hd.closest(".item"), id=item.dataset.id;
+  S.open.has(id) ? S.open.delete(id) : S.open.add(id);
+  renderResults();
+});
+
+/* ---- matrix ---- */
+// Short column labels — the full doc_number ("vyhláška č. 329/2017 Sb.") makes a
+// fifteen-column table unreadable. Full titles stay in the header tooltip.
+const COLS = [["US-10CFR50.150","50.150"],["US-RG-1.217","RG 1.217"],["US-NEI-07-13","NEI 07-13"],
+  ["CZ-263-2016","263/2016"],["CZ-329-2017","329/2017"],["CZ-378-2016","378/2016"],
+  ["EU-EUR","EUR"],["EU-2014-87-EURATOM","2014/87"],["EU-WENRA-SRL","WENRA"],
+  ["IAEA-SSR-2-1","SSR-2/1"],["IAEA-SSG-68","SSG-68"],["IAEA-SSG-79","SSG-79"],
+  ["IAEA-SRS-86","SRS-86"],["IAEA-SRS-87","SRS-87"],["IAEA-SRS-88","SRS-88"]];
+function buildMatrix(){
+  const head = `<thead><tr><th>#</th><th>비교 항목</th>` +
+    COLS.map(([c,lbl])=>`<th title="${esc(SRC[c]?SRC[c].doc+" — "+SRC[c].title:c)}">${esc(lbl)}</th>`).join("") +
+    `</tr></thead>`;
+  const body = DB.crosswalk.map(w=>{
+    const by=Object.fromEntries(w.pos.map(p=>[p.s,p]));
+    return `<tr><td class="cwid">${esc(w.id)}</td><td class="q">${esc(w.qk||w.qe)}</td>` +
+      COLS.map(([c])=>{
+        const p=by[c];
+        if(!p) return `<td class="c none">–</td>`;
+        return `<td class="c"><button data-cw="${esc(w.id)}">${esc(REL[p.rel]||p.rel)}</button></td>`;
+      }).join("") + `</tr>`;
+  }).join("");
+  $("#matrix").innerHTML = head + `<tbody>${body}</tbody>`;
+  $("#legend").innerHTML = "범례: " +
+    Object.entries(REL).map(([k,v])=>`<span class="mono">${esc(k)}</span> = ${esc(v)}`).join(" · ") +
+    ` · <span class="mono">–</span> 해당 문서에 기재 없음`;
+  $("#matrix").addEventListener("click", e=>{
+    const b=e.target.closest("button[data-cw]"); if(!b) return;
+    const w=DB.crosswalk.find(x=>x.id===b.dataset.cw);
+    const r=RECS.find(x=>x.id===w.id);
+    $("#cwdetail").innerHTML = `<div class="item j-MULTI open">
+      <div class="hd"><span class="stripe"></span><span class="hdb">
+        <span class="line1"><span class="loc">${esc(w.id)}</span></span>
+        <h3>${esc(w.qk||w.qe)}</h3></span></div>
+      <div class="body">${detail(r,[])}</div></div>`;
+    $("#cwdetail").scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+
+/* ---- sources ---- */
+function buildSources(){
+  $("#srccount").textContent = `${DB.sources.length}개 문서 · 원문 축자 청크 ${DB.stats.raw.toLocaleString()}개는 로컬 DB에 있습니다`;
+  $("#sources").innerHTML = DB.sources.map(s=>{
+    const raw = s.raw ? `원문 색인 ${s.raw}청크` : (s.access==="proprietary" ? "목차만" : "미색인");
+    return `<div class="src j-${s.j}"><span class="stripe"></span><div class="srcb">
+      <span class="line1"><span class="loc">${esc(s.doc)}</span>
+        <span class="badge">${esc(s.binding?"구속력 O":"구속력 X")}</span>
+        <span class="badge">${esc(raw)}</span></span>
+      <h3>${esc(s.ko||s.title)}</h3>
+      <p class="snip" style="-webkit-line-clamp:3">${esc(s.role||"")}</p>
+      <div class="srcmeta"><span>${esc(s.issuer||"")}</span><span>${esc(s.version||"")}</span>
+        ${s.urls[0]?`<a href="${esc(s.urls[0])}" target="_blank" rel="noopener">출처 ↗</a>`:""}</div>
+    </div></div>`;
+  }).join("");
+}
+
+/* ---- tabs ---- */
+function setTab(t){
+  S.tab=t; save();
+  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected", b.dataset.tab===t));
+  $("#pane-search").hidden = t!=="search";
+  $("#pane-matrix").hidden = t!=="matrix";
+  $("#pane-sources").hidden = t!=="sources";
+}
+document.querySelector(".tabs").addEventListener("click", e=>{
+  const b=e.target.closest(".tab"); if(b) setTab(b.dataset.tab);
+});
+
+function render(){ renderResults(); }
+
+$("#q").addEventListener("input", e=>{ S.q=e.target.value; S.open.clear(); render(); save(); });
+$("#clear").addEventListener("click", ()=>{ S.q=""; $("#q").value=""; S.open.clear(); render(); save(); $("#q").focus(); });
+document.addEventListener("keydown", e=>{
+  if(e.key==="/" && document.activeElement!==$("#q")){ e.preventDefault(); $("#q").focus(); }
+  if(e.key==="Escape" && document.activeElement===$("#q")){ $("#clear").click(); }
+});
+
+$("#stat").textContent =
+  `조항 ${DB.stats.clauses} · 비교 ${DB.stats.crosswalk} · 문서 ${DB.stats.sources} · 원문검증 ${DB.stats.primary}`;
+buildFilters(); buildPresets(); buildMatrix(); buildSources();
+$("#q").value = S.q; setTab(S.tab); render();
+</script>
