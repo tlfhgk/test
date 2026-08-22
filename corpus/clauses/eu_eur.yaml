@@ -1,0 +1,138 @@
+schema_version: 1
+source_id: EU-EUR
+license_warning: >-
+  EUR is a licensed, proprietary document. Only the PUBLIC CHAPTER TABLES OF CONTENTS are
+  held here — section numbers and titles. No requirement text, no load-function values, no
+  figures. The records below therefore describe EUR's STRUCTURE with confidence and say
+  nothing about its numeric content.
+provenance_note: >-
+  Written from the official EUR Volume 2 chapter tables of contents for Chapter 2.1 (Safety
+  Requirements) and Chapter 2.4 (Design Basis), Revision E, December 2016, supplied by the
+  user. Eighteen further chapter ToCs (2.2, 2.3, 2.5-2.20) are available but not yet read.
+clauses:
+
+  - clause_id: EU-EUR-scope
+    locator: "EUR Volume 2, Revision E (December 2016)"
+    heading_en: "What EUR is and who stands behind it"
+    heading_ko: "EUR의 성격과 주체"
+    topics: [T01, T02]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      The European Utility Requirements for LWR Nuclear Power Plants, Volume 2 "Generic and
+      Nuclear Island Requirements", Revision E, December 2016. The copyright line names the
+      promoters: CEZ, EDF, EDF Energy, ENERGOATOM, ENGIE/TRACTEBEL, FORTUM, Gen Energija,
+      HORIZON, IBERDROLA, MVM Paks II, NRG, ROSENERGOATOM, TVO, VGB PowerTech. Each chapter
+      carries the disclaimer that "the EUR promoters assume no liability for any consequences
+      of the use of any part of the EUR document by a third party". EUR is a utility-side
+      contractual specification, not a legal instrument: it binds a vendor only through the
+      procurement contract that invokes it.
+    summary_ko: >-
+      「경수로 원전에 관한 유럽 사업자 요건」제2권 "일반 및 원자로계통 요건", Rev. E,
+      2016년 12월. 저작권 표시에 참여 사업자가 명기되어 있다: CEZ, EDF, EDF Energy,
+      ENERGOATOM, ENGIE/TRACTEBEL, FORTUM, Gen Energija, HORIZON, IBERDROLA, MVM Paks II,
+      NRG, ROSENERGOATOM, TVO, VGB PowerTech. 각 장에는 "EUR 참여사는 제3자의 EUR 문서 사용
+      결과에 대해 어떠한 책임도 지지 않는다"는 면책조항이 있다. EUR은 법령이 아니라 사업자
+      측 계약 사양이며, EUR을 인용한 구매계약을 통해서만 공급자를 구속한다.
+    key_parameters:
+      revision: "E, December 2016"
+      promoters: 14
+      legal_nature: "contractual utility requirement"
+      czech_promoter: "CEZ — the Czech utility is an EUR promoter, so EUR and Czech regulation share an author community"
+    source_url: "https://europeanutilityrequirements.eu/"
+    notes: >-
+      Worth noting for the comparison: CEZ is an EUR promoter and SÚJB is a WENRA member, so
+      the Czech design decree and EUR are not independent observations — they draw on
+      overlapping European practice.
+
+  - clause_id: EU-EUR-aircraft-structure
+    locator: "EUR Vol. 2 Ch. 2.4 §1.3.3 and Ch. 2.1 §2.6.2.1.1 / §8.3.3"
+    heading_en: "EUR splits the aircraft crash across two chapters and two regimes"
+    heading_ko: "EUR은 항공기 충돌을 두 개 장·두 개 체계로 분리한다"
+    topics: [T03, T04, T13]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      EUR treats the accidental and the intentional aircraft crash as two separate subjects,
+      each appearing twice — once in the safety-requirements chapter and once in the
+      design-basis chapter:
+      ACCIDENTAL — Ch. 2.1 §2.6.2.1.1 "Accidental aircraft crash", under §2.6.2.1
+      "Identification of external hazards for standard design"; and Ch. 2.4 §1.3.3.1
+      "Accidental Aircraft crash", under §1.3 "Man-Made External hazards", carrying TWO load
+      functions: §1.3.3.1.1 "Figure 4 - Light Aircraft load function" and §1.3.3.1.2
+      "Figure 5 - Military Aircraft load function".
+      INTENTIONAL — Ch. 2.1 §8.3.3 "Intentional aircraft crash", under §8.3 SECURITY
+      (alongside §8.3.2 "Design of physical protection system"); and Ch. 2.4 §1.3.3.2
+      "Intentional Aircraft crash", with §1.3.3.2.1 "Figure 6 - Example of intentional
+      aircraft impact load function".
+      Ch. 2.4 §1.4 "Sabotage" sits as a further separate man-made hazard, and Ch. 2.4
+      §5.8.1.4 "Aircraft impact" appears again under design loads for buildings.
+    summary_ko: >-
+      EUR은 우발적 충돌과 고의적 충돌을 별개 주제로 다루며, 각각 안전요건 장과 설계기준 장에
+      한 번씩 총 두 번 등장한다:
+      **우발적** — 제2.1장 §2.6.2.1.1 "Accidental aircraft crash"(§2.6.2.1 표준설계 외부재해
+      식별 하위); 제2.4장 §1.3.3.1 "Accidental Aircraft crash"(§1.3 인위적 외부재해 하위)이며
+      하중함수가 **두 개**다: §1.3.3.1.1 "그림 4 — 경항공기 하중함수",
+      §1.3.3.1.2 "그림 5 — **군용항공기** 하중함수".
+      **고의적** — 제2.1장 §8.3.3 "Intentional aircraft crash"(§8.3 **보안(Security)** 하위,
+      §8.3.2 물리적방호계통 설계와 나란히); 제2.4장 §1.3.3.2 "Intentional Aircraft crash",
+      §1.3.3.2.1 "그림 6 — 고의적 항공기 충돌 하중함수 예시".
+      제2.4장 §1.4 "Sabotage"는 또 다른 별도 인위적 재해로 존재하고, 제2.4장 §5.8.1.4
+      "Aircraft impact"가 건물 설계하중 항목에 다시 등장한다.
+    key_parameters:
+      accidental_load_functions: ["Light Aircraft", "Military Aircraft"]
+      intentional_load_function: "example intentional aircraft impact load function"
+      intentional_placement: "Chapter 2.1 §8.3 SECURITY"
+      accidental_placement: "Chapter 2.1 §2.6 external hazards; Chapter 2.4 §1.3 man-made external hazards"
+      separate_sabotage_section: "Ch. 2.4 §1.4"
+    source_url: "https://europeanutilityrequirements.eu/"
+    notes: >-
+      MAJOR FINDING, and it revises what this database previously said. EUR's ACCIDENTAL
+      design case is a LIGHT AIRCRAFT and a MILITARY AIRCRAFT — not a large commercial one.
+      The large-aircraft threat is carried by the INTENTIONAL case, which EUR files under
+      Security. So EUR and 10 CFR 50.150 are not addressing the same event through different
+      regimes: EUR's accidental case is a smaller aircraft than the US case, and EUR's
+      large-aircraft case is a security subject. Earlier records here described EUR as
+      defining "multiple threat scenarios with multi-level performance objectives" from
+      secondary sources; the actual structure is sharper and differently organised.
+      The VALUES in Figures 4, 5 and 6 remain licensed and are not held here.
+
+  - clause_id: EU-EUR-design-conditions
+    locator: "EUR Vol. 2 Ch. 2.1 §2 (Design Conditions) and §5.1.7"
+    heading_en: "EUR plant-state framework and resistance levels"
+    heading_ko: "EUR 발전소 상태 체계 및 저항수준"
+    topics: [T04, T06, T12]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      Chapter 2.1 §2 "Design Conditions" runs: §2.1 Plant states, §2.2 Postulated initiating
+      events, §2.3 Design Basis Accidents, §2.4 Design Extension Conditions — split into
+      §2.4.1 Complex Sequences and §2.4.2 Severe Accidents — and §2.5 Practical elimination.
+      §2.6 "Internal and external hazards" then separates identification for STANDARD DESIGN
+      (§2.6.2.1) from identification for SITE-SPECIFIC evaluation (§2.6.2.2), with §2.6.3
+      screening for site-specific evaluation and §2.6.4 external hazard design rules for
+      both. §5.1.7 defines "Environmental condition resistance levels" 1, 2, S and N, and
+      §9.3 gives two hazard lists — one for standard design, one for site-specific
+      evaluation.
+    summary_ko: >-
+      제2.1장 §2 "설계조건"의 구성: §2.1 발전소 상태, §2.2 가정 기인사건, §2.3 설계기준사고,
+      §2.4 설계확장조건(§2.4.1 복합시퀀스, §2.4.2 중대사고로 분리), §2.5 실질적 배제
+      (practical elimination). 이어 §2.6 "내부 및 외부 재해"는 **표준설계용 식별**(§2.6.2.1)과
+      **부지특정 평가용 식별**(§2.6.2.2)을 분리하고, §2.6.3 부지특정 스크리닝, §2.6.4 양자에
+      대한 외부재해 설계규칙을 둔다. §5.1.7은 환경조건 저항수준 1·2·S·N을 정의하며,
+      §9.3은 표준설계용과 부지특정 평가용 두 개의 재해 목록을 제공한다.
+    key_parameters:
+      plant_states: ["Design Basis Accidents", "Design Extension Conditions (Complex Sequences, Severe Accidents)", "Practical elimination"]
+      hazard_identification_split: "standard design vs site-specific evaluation, with separate hazard lists (§9.3.1, §9.3.2)"
+      resistance_levels: ["1", "2", "S", "N"]
+    source_url: "https://europeanutilityrequirements.eu/"
+    notes: >-
+      The standard-design / site-specific split is the structural feature that lets EUR put
+      the accidental aircraft crash into the STANDARD design (a fixed light/military aircraft
+      load function applying to every EUR plant) while leaving site-specific hazards to
+      §2.6.2.2. Czech decree 329/2017 has no standard-design layer: everything is derived
+      from the site under § 11. That is a real architectural difference, separate from the
+      design-basis / beyond-design-basis question in CW-04.

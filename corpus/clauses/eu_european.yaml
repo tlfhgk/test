@@ -7,67 +7,6 @@ license_warning: >-
   and the role it plays. Obtain a licence for the technical values.
 clauses:
 
-  - clause_id: EU-EUR-scope
-    source_id: EU-EUR
-    locator: "EUR Volume 2 (Generic Nuclear Island Requirements), Rev. E"
-    heading_en: "Role of EUR in European new build"
-    heading_ko: "유럽 신규건설에서 EUR의 역할"
-    topics: [T01, T02]
-    text_status: summary
-    verification: web_verified
-    confidence: high
-    summary_en: >-
-      The European Utility Requirements are a utility-side reference technical specification
-      intended to carry the highest safety and competitiveness standards for new LWR plants
-      in Europe, used for design development and in bidding and licensing processes.
-      Revision E was finalised in December 2016. Volume 2 contains the generic Nuclear
-      Island requirements. EUR is contractual/commercial in nature, not a legal instrument:
-      it binds a vendor only through the procurement contract that invokes it.
-    summary_ko: >-
-      EUR(유럽 사업자 요건)은 유럽 내 신규 경수로에 대해 최고 수준의 안전성과 경쟁력
-      기준을 담고자 하는 사업자 측 참조 기술사양으로, 설계개발 및 입찰·인허가 과정에서
-      사용된다. Rev. E는 2016년 12월에 확정되었다. 제2권은 원자로계통(Nuclear Island)
-      일반 요건을 담는다. EUR은 법령이 아니라 계약·상업적 성격의 문서이며, EUR을 인용한
-      구매계약을 통해서만 공급자를 구속한다.
-    key_parameters:
-      revision: "E (December 2016)"
-      legal_nature: "contractual utility requirement, not regulation"
-    source_url: "https://europeanutilityrequirements.eu/"
-
-  - clause_id: EU-EUR-aircraft-crash
-    source_id: EU-EUR
-    locator: "EUR Volume 2, Chapter 2.4 (Design Basis) — aircraft crash"
-    heading_en: "Accidental and intentional aircraft crash load cases"
-    heading_ko: "우발적 및 고의적 항공기 충돌 하중조건"
-    topics: [T03, T04, T13]
-    text_status: summary
-    verification: web_verified
-    confidence: medium
-    summary_en: >-
-      EUR Volume 2 addresses aircraft crash within the design basis chapter and includes a
-      dedicated treatment of the intentional (malicious) aircraft crash in addition to the
-      accidental crash. Together with recent IAEA safety reports and some national
-      regulations (for example Belgium and Finland), EUR defines aircraft impact through
-      multiple threat scenarios with multi-level performance objectives, which can be grouped
-      into a design-basis external event level (DBEE) and a beyond-design-basis external
-      event level (BDBEE / design extension conditions).
-    summary_ko: >-
-      EUR 제2권은 설계기준 장(章)에서 항공기 충돌을 다루며, 우발적 추락에 더하여 고의적
-      (악의적) 항공기 충돌을 별도로 취급한다. 최근 IAEA 안전보고서 및 일부 국가 규제
-      (예: 벨기에, 핀란드)와 마찬가지로 EUR은 항공기 충돌을 복수의 위협 시나리오와
-      다단계 성능목표로 정의하며, 이는 설계기준 외부사건(DBEE) 수준과 설계기준초과
-      외부사건(BDBEE / 설계확장조건) 수준으로 묶을 수 있다.
-    key_parameters:
-      crash_types: ["accidental", "intentional / malicious"]
-      structure: "multiple threat scenarios × multi-level performance objectives"
-      levels: ["DBEE", "BDBEE / DEC"]
-    source_url: "https://europeanutilityrequirements.eu/sites/default/files/2023-04/TableOfContent2_4..pdf"
-    notes: >-
-      KEY COMPARISON POINT. EUR's multi-threat, multi-level structure is the main
-      architectural difference from the single-threat, single-level US rule: 10 CFR 50.150
-      defines one BDB threat and one pass/fail criterion set, whereas EUR grades scenarios
-      against graded objectives. See crosswalk CW-03 and CW-04.
-
   - clause_id: EU-2014-87-framework
     source_id: EU-2014-87-EURATOM
     locator: "Council Directive 2014/87/Euratom, Articles 8a and 8b"
@@ -128,4 +67,3 @@ clauses:
       so that the installation can withstand them without exceeding authorised limits by the
       planned operation of safety systems", and "severe conditions" are "conditions that are
       more severe than conditions related to design basis accidents".
-

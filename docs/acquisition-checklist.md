@@ -21,30 +21,38 @@
 
 ---
 
-## 남은 것 — 2건
+## 남은 것 — EUR 요건 본문 1건
 
-### 1. IAEA SRS No. 88 — 잘못된 파일이 왔습니다
+15개 소스 전부가 색인되었습니다. EUR만 **공개 목차 수준**입니다.
 
-`IAEA SRS 88.pdf` 는 **STI/PUB/771 「Medical Handling of Accidentally Exposed
-Individuals」**(1988년 의료 피폭 문헌)였습니다. "88"로 검색하다 연도가 걸린 것으로 보입니다.
+### EUR Volume 2 Rev. E — 요건 본문 (라이선스 필요)
 
-- 필요한 것: *Human Induced External Events: **Margin Assessment***
-- https://www.iaea.org/publications/10914/safety-aspects-of-nuclear-power-plants-in-human-induced-external-events-margin-assessment
-- 푸는 것: CW-09의 IAEA 여유도(HCLPF) 근거 — 현재 `web_verified`
+공개 챕터 목차로 **구조는 확정**되었습니다. 없는 것은 요건 본문과 그림의 **수치**입니다.
 
-### 2. EUR Volume 2 Rev. E — 유료, 대체 불가
+확보된 목차 정보:
 
-비교 매트릭스에서 EUR 칸이 CW-03 · CW-08 · CW-11에서 `비공개`로 남은 유일한 원인입니다.
+| 위치 | 내용 |
+|---|---|
+| Ch. 2.4 §1.3.3.1 | Accidental Aircraft crash — **Fig. 4 Light Aircraft**, **Fig. 5 Military Aircraft** 하중함수 |
+| Ch. 2.4 §1.3.3.2 | Intentional Aircraft crash — Fig. 6 하중함수 예시 |
+| Ch. 2.4 §1.4 | Sabotage (별도 인위적 재해) |
+| Ch. 2.4 §5.8.1.4 | Aircraft impact (건물 설계하중) |
+| Ch. 2.1 §2.6.2.1.1 | Accidental aircraft crash (표준설계 외부재해 식별) |
+| Ch. 2.1 §8.3.3 | Intentional aircraft crash (**§8.3 Security** 하위) |
+
+없는 것: Figure 4·5·6의 하중-시간 값, 성능목표 수치, §5.9 하중조합, §5.1.7 저항수준의 정의.
 
 - https://europeanutilityrequirements.eu/ (라이선스 구매)
-- **사기 전에 판단하세요:** RG 1.217 원문에서 미국도 위협 수치를 SGI(안전조치정보)로
-  통제한다는 것이 확인되었으므로, EUR을 구매해도 3자 수치 비교는 여전히 반쪽입니다.
+- **구매 판단:** 목차만으로 EUR이 미국·체코와 **다른 사건**을 다룬다는 사실이 이미 확정
+  되었으므로(CW-03), 구조 비교 목적이라면 추가 구매가 불필요합니다. 하중값 대 하중값
+  비교가 목표일 때만 의미가 있는데, 미국 측 값이 SGI로 통제되므로 그 경우에도 3자 비교는
+  성립하지 않습니다.
 - 라이선스 문서이므로 본문을 저장소에 커밋하지 마세요.
 
-### 참고 — 다시 받을 필요 없는 것
+### 선택사항 — EUR 나머지 챕터 목차 18개
 
-`IAEA SSR 68.pdf` 로 주신 파일은 SSR-6(방사성물질 안전수송)이었으나,
-**진짜 SSG-68은 이미 색인되어 있습니다.**
+Drive `EUR TABLE VOLUME 2` 폴더에 2.2, 2.3, 2.5~2.20 목차가 있습니다. 항공기 관련 항목은
+2.1과 2.4에 집중되어 있어 읽지 않았습니다. 필요하시면 마저 색인하겠습니다.
 
 ## 파일 형식 요령
 

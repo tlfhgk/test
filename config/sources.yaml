@@ -186,7 +186,11 @@ sources:
     version: "Revision E (Dec 2016); Revision F in circulation"
     language: en
     access: proprietary
-    copyright_note: "© EUR Organisation. Licence required. Only the public table of contents is referenced here; no requirement text is reproduced."
+    copyright_note: "© 2017 CEZ - EDF - EDF Energy - ENERGOATOM - ENGIE/TRACTEBEL - FORTUM - Gen Energija - HORIZON - IBERDROLA - MVM Paks II - NRG - ROSENERGOATOM - TVO - VGB PowerTech. Licence required. Only the public chapter tables of contents are held; no requirement text, load-function values or figures are reproduced."
+    obtained: "toc-only"
+    obtained_via: "user-supplied public chapter tables of contents (Ch. 2.1 and Ch. 2.4 read; 18 further chapter ToCs available, not yet read)"
+    indexed_verbatim: "table of contents only"
+    aircraft_provisions: "Ch. 2.4 §1.3.3 Aircraft crash (§1.3.3.1 Accidental — Fig. 4 Light Aircraft, Fig. 5 Military Aircraft; §1.3.3.2 Intentional — Fig. 6); Ch. 2.4 §1.4 Sabotage; Ch. 2.4 §5.8.1.4 Aircraft impact; Ch. 2.1 §2.6.2.1.1 Accidental aircraft crash; Ch. 2.1 §8.3.3 Intentional aircraft crash (under Security)"
     urls:
       - "https://europeanutilityrequirements.eu/"
       - "https://europeanutilityrequirements.eu/sites/default/files/2023-04/TableOfContent2_4..pdf"
@@ -356,9 +360,11 @@ sources:
     copyright_note: "© IAEA. Freely downloadable; keep text local, do not commit."
     urls:
       - "https://www.iaea.org/publications/10914/safety-aspects-of-nuclear-power-plants-in-human-induced-external-events-margin-assessment"
-    obtained: false
+    obtained: true
+    obtained_via: "user's Google Drive (replacement file, verified as SRS No. 88)"
+    indexed_verbatim: true
     acquisition_note: >-
-      A file supplied for this source was NOT SRS No. 88 — it was STI/PUB/771, "Medical
-      Handling of Accidentally Exposed Individuals", an unrelated older Safety Series
-      publication. Held in .quarantine/, not indexed. SRS No. 88 is still needed.
+      An earlier file supplied for this source was STI/PUB/771, "Medical Handling of
+      Accidentally Exposed Individuals" — the wrong publication; it remains in .quarantine/.
+      The replacement is the correct Margin Assessment volume.
     role: "Plant/system-level margin (HCLPF-style) evaluation against human-induced external hazards."

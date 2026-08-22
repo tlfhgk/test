@@ -9,15 +9,15 @@
 |---|---|---|---|---|---|---|---|---|---|
 | CW-01 | 항공기 충돌 요건은 어떤 형식의 문서가 담고 있으며 구속력이 있는가? | **기준** | **기준** | – | 구조 상이 | 구조 상이 | 부분 | 부분 | – |
 | CW-02 | 적용 대상이 신규 원전에 한정되는가, 기존 원전도 포함하는가? | **기준** | – | – | 구조 상이 | – | – | – | – |
-| CW-03 | 항공기 위협은 어떻게 정의되며, 수치는 공개되는가? | **기준** | – | – | 구조 상이 | 비공개 | – | 부분 | – |
+| CW-03 | 항공기 위협은 어떻게 정의되며, 수치는 공개되는가? | **기준** | – | – | 구조 상이 | 구조 상이 | – | 부분 | – |
 | CW-04 | 대형 항공기 충돌은 설계기준사건인가, 설계기준초과사건인가? | **기준** | **기준** | – | 구조 상이 | 구조 상이 | 구조 상이 | 동등 | – |
 | CW-05 | 항공기 추락 포함 여부를 정하는 명시적 확률 스크리닝 기준이 있는가? | **기준** | – | – | 구조 상이 | – | 구조 상이 | 구조 상이 | – |
 | CW-06 | 어떤 구조물과 기기를 평가해야 하는가? | – | – | **기준** | 동등 | – | 부분 | 부분 | – |
 | CW-07 | 충돌하중은 어떻게 정의되며 특정 방법이 강제되는가? | – | – | **기준** | 없음 | – | – | 동등 | 동등 |
 | CW-08 | 국부손상(침투·배면박리·관통)은 어떻게 평가하는가? | – | **기준** | **기준** | 없음 | 비공개 | – | 구조 상이 | 부분 |
 | CW-09 | 합격/불합격 판정기준은 무엇인가? | **기준** | – | **기준** | 부분 | 구조 상이 | – | 동등 | – |
-| CW-10 | 고의적 충돌과 우발적 충돌을 함께 다루는가? | **기준** | **기준** | – | 동등 | 부분 | 없음 | – | – |
-| CW-11 | 운전원 조치를 어느 정도까지 인정할 수 있는가? | **기준** | – | **기준** | 없음 | 비공개 | – | 없음 | – |
+| CW-10 | 고의적 충돌과 우발적 충돌을 함께 다루는가? | **기준** | **기준** | – | 동등 | 구조 상이 | 없음 | – | – |
+| CW-11 | 운전원 조치를 어느 정도까지 인정할 수 있는가? | **기준** | – | **기준** | 없음 | 구조 상이 | – | 없음 | – |
 | CW-12 | 평가결과는 어떻게 문서화·심사·공개되는가? | **기준** | – | **기준** | 부분 | – | – | – | – |
 
 범례: `baseline` = **기준** · `equivalent` = 동등 · `partial` = 부분 · `stricter` = 더 엄격 · `looser` = 더 완화 · `different-architecture` = 구조 상이 · `no-equivalent` = 없음 · `not-public` = 비공개 · `–` 해당 항목에 기재 없음
@@ -76,10 +76,10 @@
 |---|---|---|
 | `US-10CFR50.150` | **기준** | Qualitative definition public; impact speed/angle/mass/fuel supplied by NRC as security-related information. |
 | `CZ-329-2017` | 구조 상이 | No prescribed aircraft; the threat is whatever object exceeds the 1E-7/yr fall frequency at the site. |
-| `EU-EUR` | 비공개 | Defines multiple explicit threat scenarios, but the values are behind a licence. |
+| `EU-EUR` | 구조 상이 | STRUCTURE now known from the public ToC, VALUES still licensed. The ACCIDENTAL design case is a Light Aircraft load function (Ch. 2.4 §1.3.3.1.1) and a Military Aircraft load function (§1.3.3.1.2) — not a large commercial aircraft. The large-aircraft threat is carried by the INTENTIONAL case (§1.3.3.2), which Ch. 2.1 files under §8.3 Security. |
 | `IAEA-SSG-68` | 부분 | Recommends how to characterise the hazard; does not prescribe a threat aircraft. |
 
-> **차이점/유의사항:** CRITICAL for any benchmarking exercise: a numeric comparison of threat parameters between the US, Czech and EUR frameworks cannot be performed from public sources. Comparison is only meaningful at the level of method and acceptance logic.
+> **차이점/유의사항:** CRITICAL for any benchmarking exercise: a numeric comparison of threat parameters between the US, Czech and EUR frameworks cannot be performed from public sources. Comparison is only meaningful at the level of method and acceptance logic. REVISED after reading the EUR chapter tables of contents. The three frameworks are not three treatments of one event. EUR's ACCIDENTAL case is a light aircraft and a military aircraft; the US case is a large commercial aircraft; the Czech case is any falling object above 1E-7/yr, aircraft or not. EUR reaches the large aircraft only through its INTENTIONAL case, filed under Security. So "aircraft crash" names a different physical event in each framework before any question of design basis or acceptance criteria arises — which is a stronger caution than this database previously carried.
 
 근거 조항: `US-10CFR50.150-a-2`, `US-NEI-07-13-riera`, `CZ-329-2017-aircraft-dbe`, `EU-EUR-aircraft-crash`, `IAEA-SSG-68-5.161-hazard-input`, `IAEA-SSG-68-5.181-fire`
 
@@ -95,7 +95,7 @@
 |---|---|---|
 | `US-10CFR50.150` | **기준** | Explicitly beyond design basis; realistic (best-estimate) analysis, not design-basis conservatism. |
 | `CZ-329-2017` | 구조 상이 | Accidental crash sits INSIDE the design basis once the frequency criterion is met. |
-| `EU-EUR` | 구조 상이 | Multi-level: both DBEE and BDBEE/DEC performance objectives. |
+| `EU-EUR` | 구조 상이 | Ch. 2.1 §2 runs Design Basis Accidents → Design Extension Conditions (Complex Sequences, Severe Accidents) → Practical elimination, and §2.6 splits hazard identification into STANDARD DESIGN and SITE-SPECIFIC. The accidental aircraft crash sits in the standard-design layer, so every EUR plant carries the same fixed load function regardless of site. |
 | `IAEA-SSG-68` | 동등 | Covers both levels explicitly: para. 5.185 requires no perforation for an ACCIDENTAL crash (design basis), while para. 5.192 handles a BEYOND design basis crash by fully fuelled commercial airplanes with a best-estimate margin assessment. The closest structural match to the US posture, plus a design-basis layer the US rule lacks. |
 | `US-RG-1.217` | **기준** | States the consequence of the BDB determination: NRC requirements for design-basis events do NOT apply to design features or functional capabilities selected solely to meet the aircraft impact rule. |
 | `EU-2014-87-EURATOM` | 구조 상이 | Art. 3 supplies the shared vocabulary: 'design basis' is the range of conditions and events taken explicitly into account so the installation withstands them within authorised limits by planned operation of safety systems; 'severe conditions' are more severe than design basis accidents. Art. 8b(1) requires both (d) design basis accidents and (e) severe conditions to be controlled. |
@@ -180,7 +180,7 @@ NEI 07-13은 국부하중과 전체하중의 산정, 재료 특성화, 파괴기
 | `IAEA-SSG-68` | 구조 상이 | Para. 5.176 treats empirical rigid-missile formulas as an ALTERNATIVE for secondary missiles and debris only, warning their validity ranges usually do not coincide with aircraft impact; the primary route is a coupled non-linear model able to assess failure modes from spalling to perforation (5.174). |
 | `US-RG-1.217` | **기준** | Regulatory Position 2: 'NEI 07-13 references other documents, but this RG does not endorse any of the referenced documents.' The empirical correlations are drawn from those referenced documents. |
 | `CZ-329-2017` | 없음 |  |
-| `EU-EUR` | 비공개 |  |
+| `EU-EUR` | 비공개 | Ch. 2.4 §5.8.1.4 Aircraft impact and §5.8.1.5 Missiles sit under design loads for buildings, and §5.9 covers load combinations — but the methods and values are licensed. |
 
 > **차이점/유의사항:** RESOLVED — this was the open technical question in the first build of this database; it is now answered from both primary texts. The substantive finding is a hierarchy difference, not a formula disagreement: NEI 07-13 makes named empirical formulas the working method for local damage, whereas SSG-68 demotes them to an alternative for secondary missiles and debris and makes coupled non-linear analysis the primary route. An applicant using NEI 07-13 formulas in an IAEA-aligned jurisdiction should expect to justify (a) applicability of solid-projectile correlations to a crushable engine — SRS-87 suggests a 0.60-0.65 reduction factor — and (b) the reinforcement ratio of the real target versus the lightly reinforced test specimens the formulas came from. DECISIVE ADDITION from RG 1.217 Section C, position 2: the NRC endorses NEI 07-13 but expressly does NOT endorse the documents NEI 07-13 references — which is where the Modified NDRC, Chang, Degen and CEA-EDF correlations come from. So even on the US side the regulator has accepted the METHOD AS ASSEMBLED, not the underlying correlations. The earlier reading of this database, that no qualification to the endorsement could be found, was wrong.
 
@@ -199,8 +199,8 @@ NEI 07-13은 국부하중과 전체하중의 산정, 재료 특성화, 파괴기
 | `US-10CFR50.150` | **기준** | (core cooling OR containment integrity) AND (SFP cooling OR SFP integrity), with reduced use of operator actions. |
 | `US-NEI-07-13` | **기준** | §2.5: containment intact = no perforation AND ultimate pressure capability not exceeded before effective mitigation; SFP integrity = no liner leakage below required minimum water level, localized crushing/cracking acceptable. |
 | `IAEA-SSG-68` | 동등 | Para. 5.192 (BDB): at a minimum, items important to safety necessary to prevent large or early release remain functional; best estimate approach permitted. Para. 5.185 (accidental/DB): confinement structures withstand impact WITHOUT perforation. |
-| `EU-EUR` | 구조 상이 | Multi-level performance objectives graded by threat scenario. |
-| `IAEA-SRS-88` | 부분 | Margin-based plant/system performance evaluation rather than a binary criterion. |
+| `EU-EUR` | 구조 상이 | Ch. 2.1 §3 sets quantitative safety objectives including §3.5 probabilistic safety targets, and §5.1.7 defines environmental condition resistance levels 1/2/S/N against which SSCs are qualified. Acceptance is graded through those levels rather than by a single pass/fail statement. |
+| `IAEA-SRS-88` | 부분 | A TIERED approach to margin assessment; the margin is quantified with best estimate or conservative values, HCLPF being one such value rather than the mandated measure. |
 | `CZ-329-2017` | 부분 | § 12(1) requires a conservative approach to basic external design events; no aircraft-specific pass/fail statement equivalent to NEI 07-13 §2.5. |
 
 > **차이점/유의사항:** The sharpest practical difference sits inside the containment test. NEI 07-13 §2.5.1 presumes a core damage event and asks only that the ultimate pressure capability hold long enough for mitigation; SSG-68 para. 5.185 requires confinement structures to withstand an accidental crash without perforation outright. The two are not in conflict because they sit at different hazard levels (BDB vs design basis) — which is exactly the CW-04 finding, now visible in the acceptance criteria themselves.
@@ -218,14 +218,16 @@ NEI 07-13은 국부하중과 전체하중의 산정, 재료 특성화, 파괴기
 | 문서 | 관계 | 내용 |
 |---|---|---|
 | `US-10CFR50.150` | **기준** | One rule covers the large commercial aircraft impact; (a)(2) footnote 1 says the detailed parameters are set forth in guidance and changes require Commission approval. |
-| `EU-EUR` | 부분 | Explicit separate treatment of the intentional aircraft crash alongside the accidental one. |
+| `EU-EUR` | 구조 상이 | The intentional crash has its own sections in BOTH chapters: Ch. 2.1 §8.3.3 under SECURITY (beside §8.3.2 design of the physical protection system) and Ch. 2.4 §1.3.3.2 in the DESIGN BASIS chapter with its own example load function (§1.3.3.2.1). Ch. 2.4 §1.4 Sabotage is a further separate man-made hazard. |
 | `EU-2014-87-EURATOM` | 없음 | Art. 8b(1)(a) reaches 'extreme external natural and UNINTENDED man-made hazards' — the operative defence-in-depth clause covers the accidental crash and expressly not the deliberate one. |
 | `CZ-263-2016` | 구조 상이 | § 2(4)(b) defines the design basis threat in terms of a NATURAL PERSON capable of intentional unlawful handling — not a vehicle or aircraft. The intentional aircraft attack therefore reaches the design through the physical protection plan, not through the DBT definition. |
 | `EU-WENRA-SRL` | 없음 | Issue TU footnote 88: 'Within these reference levels malicious acts are not considered.' |
 | `CZ-329-2017` | 동등 | § 10(1)(d) requires the design bases to include data from the physical protection plan derived from the consequence analysis of an INTENTIONAL ATTACK BY A TRANSPORT AIRCRAFT. The malicious case is an explicit design input, handled separately from the accidental fall in § 11(4)(b). |
 | `US-RG-1.217` | **기준** | Section A: the non-public versions of RG 1.217 and NEI 07-13 carry the detailed methodology under Safeguards Information controls, available only to SGI-qualified personnel including plant designers. |
 
-근거 조항: `US-10CFR50.150-a-2`, `US-RG-1.217-sgi`, `EU-EUR-aircraft-crash`, `EU-2014-87-framework`, `CZ-329-2017-intentional-attack`, `CZ-263-2016-dbt`
+> **차이점/유의사항:** Four distinct architectures, all now confirmed from primary or official-ToC sources. US: one rule for one large-commercial-aircraft event, with the detail held under Safeguards Information. EUR: the intentional crash is a named subject in the Security section AND carries its own design-basis load function. Czech: the intentional attack enters the design bases as physical-protection-plan data (§ 10(1)(d)), while the statutory design basis threat itself is defined as a PERSON (§ 2(4)(b)). EU directive and WENRA: expressly out of scope — "unintended man-made hazards" (Art. 8b(1)(a)) and Issue TU footnote 88 respectively. Only EUR gives the deliberate case an explicit design load function in a design chapter; only Czechia routes it through a plan the design must then absorb.
+
+근거 조항: `US-10CFR50.150-a-2`, `US-RG-1.217-sgi`, `EU-EUR-aircraft-structure`, `EU-2014-87-framework`, `CZ-329-2017-intentional-attack`, `CZ-263-2016-dbt`
 
 ### CW-11 — 운전원 조치를 어느 정도까지 인정할 수 있는가?
 
@@ -233,7 +235,7 @@ NEI 07-13은 국부하중과 전체하중의 산정, 재료 특성화, 파괴기
 
 **EN:** How much credit may be taken for operator action?
 
-미국 규정은 'reduced use of operator actions'라는 명시적 제약을 판정기준 안에 넣은 유일한 문서이다. 본 코퍼스의 다른 어떤 문서도 항공기 충돌에 대해 이에 상응하는 명시적 제약을 두지 않는다.
+미국 규정은 'reduced use of operator actions'라는 제약을 **판정기준 문장 안에** 넣은 유일한 문서다. 다만 EUR은 다른 방식으로 같은 문제를 다룬다 — 제2.1장 §6.7이 운전원· 발전소 인력, 비상설설비, 최종열침원, 전원, 압축공기, 주제어실에 대한 **자율운전 목표(autonomy objectives)**를 설정하고 §6.8이 비상설설비를 규율한다. 즉 미국은 허용기준 문구로, EUR은 자율운전 시간으로 운전원 의존을 제한한다. 체코 시행령과 IAEA SSG-68에는 항공기 충돌에 대한 대응 조항이 없다.
 
 | 문서 | 관계 | 내용 |
 |---|---|---|
@@ -241,9 +243,9 @@ NEI 07-13은 국부하중과 전체하중의 산정, 재료 특성화, 파괴기
 | `CZ-329-2017` | 없음 |  |
 | `IAEA-SSG-68` | 없음 |  |
 | `US-NEI-07-13` | **기준** | In practice the methodology leans on operator-implemented 10 CFR 50.54(hh)(2) mitigation strategies; reconciled with 'reduced use of operator actions' by timing — mitigation need only be implementable before the ultimate pressure capability is challenged. |
-| `EU-EUR` | 비공개 |  |
+| `EU-EUR` | 구조 상이 | Ch. 2.1 §6.7 sets AUTONOMY OBJECTIVES — in respect of operators and plant personnel (§6.7.1), non-permanent equipment (§6.7.1.1), ultimate heat sink, power supplies, compressed air and the MCR — and §6.8 governs Non-Permanent Equipment including its role in plant robustness. EUR constrains operator dependence through autonomy periods rather than through a phrase in an acceptance criterion. Values are licensed. |
 
-근거 조항: `US-10CFR50.150-a-1`, `US-NEI-07-13-sufficiency`, `US-NEI-07-13-fire-spurious`
+근거 조항: `US-10CFR50.150-a-1`, `US-NEI-07-13-sufficiency`, `US-NEI-07-13-fire-spurious`, `EU-EUR-design-conditions`
 
 ### CW-12 — 평가결과는 어떻게 문서화·심사·공개되는가?
 

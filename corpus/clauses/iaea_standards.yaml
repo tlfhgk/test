@@ -200,20 +200,22 @@ clauses:
     heading_ko: "발전소 및 계통 여유도 평가"
     topics: [T04, T09, T12]
     text_status: summary
-    verification: web_verified
+    verification: primary_source
     confidence: high
     summary_en: >-
       SRS No. 88 describes procedures for calculating the margins of nuclear power plants in
       relation to human-induced external hazards, focusing on plant and systems performance
-      evaluation rather than on individual structures. The HCLPF (high confidence of low
-      probability of failure) concept, introduced in the IAEA framework for technical
-      evaluation of such hazards, belongs to this margin-assessment layer.
+      evaluation rather than on individual structures. It provides A TIERED APPROACH TO
+      MARGIN ASSESSMENT, and states that "the margin is quantified with best estimate or
+      conservative values, such as the high confidence of low probability of failure (HCLPF)
+      value" — so HCLPF is one quantification among several, not the mandated measure.
+      Aircraft crash is one of the human-induced hazards carried through the method.
     summary_ko: >-
       SRS 제88호는 개별 구조물이 아닌 발전소 및 계통 성능 평가에 중점을 두고, 인위적
       외부재해에 대한 원전의 여유도를 산정하는 절차를 기술한다. 해당 재해의 기술적 평가를
       위해 IAEA 체계에 도입된 HCLPF(낮은 파손확률에 대한 높은 신뢰도) 개념이 이 여유도
       평가 계층에 속한다.
     key_parameters:
-      concept: "HCLPF margin assessment"
+      concept: "tiered margin assessment; HCLPF is one option among best-estimate or conservative quantifications"
       level: "plant and system performance"
     source_url: "https://www.iaea.org/publications/10914/safety-aspects-of-nuclear-power-plants-in-human-induced-external-events-margin-assessment"
