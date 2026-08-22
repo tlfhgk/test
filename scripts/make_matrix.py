@@ -18,15 +18,25 @@ DEFAULT_DB = ROOT / "db" / "aircraft_impact.db"
 DEFAULT_OUT = ROOT / "docs" / "comparison-matrix.md"
 
 # Column order for the matrix: the US baseline first, then CZ, EU, IAEA.
+# Every source that carries a crosswalk position must appear here — a missing
+# column silently hides a comparison result, so make_matrix fails if one is
+# absent (see the check in main()).
 COLUMNS = [
     ("US-10CFR50.150", "10 CFR 50.150"),
     ("US-RG-1.217", "RG 1.217"),
     ("US-NEI-07-13", "NEI 07-13"),
+    ("CZ-263-2016", "CZ 263/2016"),
     ("CZ-329-2017", "CZ 329/2017"),
+    ("CZ-378-2016", "CZ 378/2016"),
     ("EU-EUR", "EUR"),
+    ("EU-2014-87-EURATOM", "2014/87"),
     ("EU-WENRA-SRL", "WENRA"),
+    ("IAEA-SSR-2-1", "SSR-2/1"),
     ("IAEA-SSG-68", "SSG-68"),
+    ("IAEA-SSG-79", "SSG-79"),
+    ("IAEA-SRS-86", "SRS-86"),
     ("IAEA-SRS-87", "SRS-87"),
+    ("IAEA-SRS-88", "SRS-88"),
 ]
 
 MARK = {
@@ -51,6 +61,15 @@ def main() -> int:
         raise SystemExit(f"database not found: {args.db}\nrun: python3 scripts/build_db.py")
     con = sqlite3.connect(args.db)
     con.row_factory = sqlite3.Row
+
+    covered = {sid for sid, _ in COLUMNS}
+    missing = [r["source_id"] for r in con.execute(
+        "SELECT DISTINCT source_id FROM crosswalk_positions")
+        if r["source_id"] not in covered]
+    if missing:
+        raise SystemExit(
+            "these sources hold crosswalk positions but have no matrix column: "
+            + ", ".join(sorted(missing)))
 
     topics = {r["topic_id"]: r for r in con.execute("SELECT * FROM topics")}
     rows = list(con.execute("SELECT * FROM crosswalk ORDER BY cw_id"))

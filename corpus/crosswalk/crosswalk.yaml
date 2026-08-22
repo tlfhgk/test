@@ -101,7 +101,7 @@ crosswalk:
       - source_id: IAEA-SSG-68
         relation: partial
         note: "Recommends how to characterise the hazard; does not prescribe a threat aircraft."
-    clause_ids: [US-10CFR50.150-a-2, US-NEI-07-13-riera, CZ-329-2017-aircraft-dbe, EU-EUR-aircraft-crash, IAEA-SSG-68-5.161-hazard-input, IAEA-SSG-68-5.181-fire]
+    clause_ids: [US-10CFR50.150-a-2, US-NEI-07-13-riera, CZ-329-2017-aircraft-dbe, EU-EUR-aircraft-structure, IAEA-SSG-68-5.161-hazard-input, IAEA-SSG-68-5.181-fire]
     divergence_note: >-
       CRITICAL for any benchmarking exercise: a numeric comparison of threat parameters
       between the US, Czech and EUR frameworks cannot be performed from public sources.
@@ -153,7 +153,7 @@ crosswalk:
       - source_id: IAEA-SRS-88
         relation: partial
         note: "Supplies the margin-assessment layer that the BDB level needs."
-    clause_ids: [US-10CFR50.150-a-1, US-10CFR50.150-a-2, US-RG-1.217-bdb-consequence, CZ-329-2017-aircraft-dbe, CZ-329-2017-conservative-approach, EU-EUR-aircraft-crash, IAEA-SSG-68-scope, IAEA-SSG-68-5.192-bdb, IAEA-SSG-68-5.185-confinement, EU-WENRA-TU4-design-basis, EU-WENRA-TU1-objective, IAEA-SRS-88-margins]
+    clause_ids: [US-10CFR50.150-a-1, US-10CFR50.150-a-2, US-RG-1.217-bdb-consequence, CZ-329-2017-aircraft-dbe, CZ-329-2017-conservative-approach, EU-EUR-aircraft-structure, IAEA-SSG-68-scope, IAEA-SSG-68-5.192-bdb, IAEA-SSG-68-5.185-confinement, EU-WENRA-TU4-design-basis, EU-WENRA-TU1-objective, IAEA-SRS-88-margins]
     divergence_note: >-
       This is the single largest divergence in the corpus, and both sides are now confirmed
       from primary text. 10 CFR 50.150(a)(1) requires "realistic analyses" and RG 1.217
@@ -281,7 +281,7 @@ crosswalk:
       - source_id: EU-2014-87-EURATOM
         relation: no-equivalent
         note: "Directive prescribes no load or method."
-    clause_ids: [US-NEI-07-13-riera, US-RG-1.217-endorsement, IAEA-SRS-87-structures, IAEA-SSG-68-5.168-load-time, IAEA-SSG-68-5.170-missile-target, CZ-329-2017-aircraft-dbe, EU-2014-87-framework]
+    clause_ids: [US-NEI-07-13-riera, US-RG-1.217-position, IAEA-SRS-87-structures, IAEA-SSG-68-5.168-load-time, IAEA-SSG-68-5.170-missile-target, CZ-329-2017-aircraft-dbe, EU-2014-87-framework]
     divergence_note: >-
       VERIFIED AGAINST BOTH PRIMARY TEXTS. NEI 07-13 and IAEA converge on method: both use a
       Riera-type force-time history and both provide a coupled missile-target interaction
@@ -376,7 +376,7 @@ crosswalk:
       - source_id: CZ-329-2017
         relation: partial
         note: "§ 12(1) requires a conservative approach to basic external design events; no aircraft-specific pass/fail statement equivalent to NEI 07-13 §2.5."
-    clause_ids: [US-10CFR50.150-a-1, US-NEI-07-13-sufficiency, IAEA-SSG-68-5.192-bdb, IAEA-SSG-68-5.185-confinement, EU-EUR-aircraft-crash, IAEA-SRS-88-margins, CZ-329-2017-external-events-general]
+    clause_ids: [US-10CFR50.150-a-1, US-NEI-07-13-sufficiency, IAEA-SSG-68-5.192-bdb, IAEA-SSG-68-5.185-confinement, EU-EUR-aircraft-structure, IAEA-SRS-88-margins, CZ-329-2017-external-events-general]
     divergence_note: >-
       The sharpest practical difference sits inside the containment test. NEI 07-13 §2.5.1
       presumes a core damage event and asks only that the ultimate pressure capability hold

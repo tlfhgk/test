@@ -330,6 +330,18 @@ def main() -> int:
                 "clause_ids": cw.get("clause_ids")})),
         )
 
+    # ---- referential integrity -------------------------------------------
+    # crosswalk.clause_ids is a json array of clause_id, so SQLite cannot
+    # enforce it. Records get rewritten often; a dangling id silently drops a
+    # citation from the retrieved context, so fail the build instead.
+    dangling = con.execute(
+        """SELECT cw.cw_id, je.value FROM crosswalk cw, json_each(cw.clause_ids) je
+           WHERE je.value NOT IN (SELECT clause_id FROM clauses)"""
+    ).fetchall()
+    if dangling:
+        lines = "\n".join(f"  {cw} -> {cid}" for cw, cid in dangling)
+        raise SystemExit(f"dangling crosswalk clause_ids:\n{lines}")
+
     con.commit()
     counts = {t: con.execute(f"SELECT count(*) FROM {t}").fetchone()[0]
               for t in ["sources", "topics", "clauses", "crosswalk", "crosswalk_positions", "chunks"]}

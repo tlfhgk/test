@@ -5,20 +5,20 @@
 
 기준(baseline)은 미국 방법론(10 CFR 50.150 → RG 1.217 → NEI 07-13)이며, 각 칸은 그 기준 대비 해당 문서의 위치를 나타냅니다.
 
-| # | 비교 항목 | 10 CFR 50.150 | RG 1.217 | NEI 07-13 | CZ 329/2017 | EUR | WENRA | SSG-68 | SRS-87 |
-|---|---|---|---|---|---|---|---|---|---|
-| CW-01 | 항공기 충돌 요건은 어떤 형식의 문서가 담고 있으며 구속력이 있는가? | **기준** | **기준** | – | 구조 상이 | 구조 상이 | 부분 | 부분 | – |
-| CW-02 | 적용 대상이 신규 원전에 한정되는가, 기존 원전도 포함하는가? | **기준** | – | – | 구조 상이 | – | – | – | – |
-| CW-03 | 항공기 위협은 어떻게 정의되며, 수치는 공개되는가? | **기준** | – | – | 구조 상이 | 구조 상이 | – | 부분 | – |
-| CW-04 | 대형 항공기 충돌은 설계기준사건인가, 설계기준초과사건인가? | **기준** | **기준** | – | 구조 상이 | 구조 상이 | 구조 상이 | 동등 | – |
-| CW-05 | 항공기 추락 포함 여부를 정하는 명시적 확률 스크리닝 기준이 있는가? | **기준** | – | – | 구조 상이 | – | 구조 상이 | 구조 상이 | – |
-| CW-06 | 어떤 구조물과 기기를 평가해야 하는가? | – | – | **기준** | 동등 | – | 부분 | 부분 | – |
-| CW-07 | 충돌하중은 어떻게 정의되며 특정 방법이 강제되는가? | – | – | **기준** | 없음 | – | – | 동등 | 동등 |
-| CW-08 | 국부손상(침투·배면박리·관통)은 어떻게 평가하는가? | – | **기준** | **기준** | 없음 | 비공개 | – | 구조 상이 | 부분 |
-| CW-09 | 합격/불합격 판정기준은 무엇인가? | **기준** | – | **기준** | 부분 | 구조 상이 | – | 동등 | – |
-| CW-10 | 고의적 충돌과 우발적 충돌을 함께 다루는가? | **기준** | **기준** | – | 동등 | 구조 상이 | 없음 | – | – |
-| CW-11 | 운전원 조치를 어느 정도까지 인정할 수 있는가? | **기준** | – | **기준** | 없음 | 구조 상이 | – | 없음 | – |
-| CW-12 | 평가결과는 어떻게 문서화·심사·공개되는가? | **기준** | – | **기준** | 부분 | – | – | – | – |
+| # | 비교 항목 | 10 CFR 50.150 | RG 1.217 | NEI 07-13 | CZ 263/2016 | CZ 329/2017 | CZ 378/2016 | EUR | 2014/87 | WENRA | SSR-2/1 | SSG-68 | SSG-79 | SRS-86 | SRS-87 | SRS-88 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| CW-01 | 항공기 충돌 요건은 어떤 형식의 문서가 담고 있으며 구속력이 있는가? | **기준** | **기준** | – | 구조 상이 | 구조 상이 | – | 구조 상이 | – | 부분 | – | 부분 | – | – | – | – |
+| CW-02 | 적용 대상이 신규 원전에 한정되는가, 기존 원전도 포함하는가? | **기준** | – | – | – | 구조 상이 | 구조 상이 | – | 구조 상이 | – | – | – | – | 부분 | – | – |
+| CW-03 | 항공기 위협은 어떻게 정의되며, 수치는 공개되는가? | **기준** | – | – | – | 구조 상이 | – | 구조 상이 | – | – | – | 부분 | – | – | – | – |
+| CW-04 | 대형 항공기 충돌은 설계기준사건인가, 설계기준초과사건인가? | **기준** | **기준** | – | 구조 상이 | 구조 상이 | – | 구조 상이 | 구조 상이 | 구조 상이 | – | 동등 | – | – | – | 부분 |
+| CW-05 | 항공기 추락 포함 여부를 정하는 명시적 확률 스크리닝 기준이 있는가? | **기준** | – | – | – | 구조 상이 | 구조 상이 | – | – | 구조 상이 | – | 구조 상이 | 구조 상이 | – | – | – |
+| CW-06 | 어떤 구조물과 기기를 평가해야 하는가? | – | – | **기준** | – | 동등 | – | – | – | 부분 | – | 부분 | – | – | – | – |
+| CW-07 | 충돌하중은 어떻게 정의되며 특정 방법이 강제되는가? | – | – | **기준** | – | 없음 | – | – | 없음 | – | – | 동등 | – | – | 동등 | – |
+| CW-08 | 국부손상(침투·배면박리·관통)은 어떻게 평가하는가? | – | **기준** | **기준** | – | 없음 | – | 비공개 | – | – | – | 구조 상이 | – | – | 부분 | – |
+| CW-09 | 합격/불합격 판정기준은 무엇인가? | **기준** | – | **기준** | – | 부분 | – | 구조 상이 | – | – | – | 동등 | – | – | – | 부분 |
+| CW-10 | 고의적 충돌과 우발적 충돌을 함께 다루는가? | **기준** | **기준** | – | 구조 상이 | 동등 | – | 구조 상이 | 없음 | 없음 | – | – | – | – | – | – |
+| CW-11 | 운전원 조치를 어느 정도까지 인정할 수 있는가? | **기준** | – | **기준** | – | 없음 | – | 구조 상이 | – | – | – | 없음 | – | – | – | – |
+| CW-12 | 평가결과는 어떻게 문서화·심사·공개되는가? | **기준** | – | **기준** | – | 부분 | – | – | – | – | – | – | – | – | – | – |
 
 범례: `baseline` = **기준** · `equivalent` = 동등 · `partial` = 부분 · `stricter` = 더 엄격 · `looser` = 더 완화 · `different-architecture` = 구조 상이 · `no-equivalent` = 없음 · `not-public` = 비공개 · `–` 해당 항목에 기재 없음
 
@@ -81,7 +81,7 @@
 
 > **차이점/유의사항:** CRITICAL for any benchmarking exercise: a numeric comparison of threat parameters between the US, Czech and EUR frameworks cannot be performed from public sources. Comparison is only meaningful at the level of method and acceptance logic. REVISED after reading the EUR chapter tables of contents. The three frameworks are not three treatments of one event. EUR's ACCIDENTAL case is a light aircraft and a military aircraft; the US case is a large commercial aircraft; the Czech case is any falling object above 1E-7/yr, aircraft or not. EUR reaches the large aircraft only through its INTENTIONAL case, filed under Security. So "aircraft crash" names a different physical event in each framework before any question of design basis or acceptance criteria arises — which is a stronger caution than this database previously carried.
 
-근거 조항: `US-10CFR50.150-a-2`, `US-NEI-07-13-riera`, `CZ-329-2017-aircraft-dbe`, `EU-EUR-aircraft-crash`, `IAEA-SSG-68-5.161-hazard-input`, `IAEA-SSG-68-5.181-fire`
+근거 조항: `US-10CFR50.150-a-2`, `US-NEI-07-13-riera`, `CZ-329-2017-aircraft-dbe`, `EU-EUR-aircraft-structure`, `IAEA-SSG-68-5.161-hazard-input`, `IAEA-SSG-68-5.181-fire`
 
 ### CW-04 — 대형 항공기 충돌은 설계기준사건인가, 설계기준초과사건인가?
 
@@ -105,7 +105,7 @@
 
 > **차이점/유의사항:** This is the single largest divergence in the corpus, and both sides are now confirmed from primary text. 10 CFR 50.150(a)(1) requires "realistic analyses" and RG 1.217 Section B states that design-basis requirements for design, construction, testing, operation and maintenance do NOT attach to features selected solely for the aircraft rule. Decree 329/2017 § 12(1) requires basic external design events — which include the accidental aircraft fall under § 11(4)(b) — to be treated with a CONSERVATIVE APPROACH. So the same physical event is analysed best-estimate in the US and conservatively in Czechia, and only the Czech result carries design-basis obligations. A NEW AND OVERRIDING CONSIDERATION: 10 CFR 50.150(d), added in April 2026, sunsets the entire US rule on 8 April 2027 unless the NRC extends it. The US side of this comparison has an expiry date; the Czech and IAEA sides do not. WHY THE CZECH SIDE LOOKS AS IT DOES: WENRA reference level TU4.2 requires a 1E-4/yr design basis exceedance frequency, a 0.1 g seismic floor regardless of frequency, and a defined design basis event for accidental airplane crashes to ensure minimum protection. Decree 329/2017 § 11(3), § 11(4)(a) and § 11(4)(b) reproduce that three-part structure almost literally. The Czech placement of the crash inside the design basis is therefore not a national idiosyncrasy but a transposition of the European harmonised expectation.
 
-근거 조항: `US-10CFR50.150-a-1`, `US-10CFR50.150-a-2`, `US-RG-1.217-bdb-consequence`, `CZ-329-2017-aircraft-dbe`, `CZ-329-2017-conservative-approach`, `EU-EUR-aircraft-crash`, `IAEA-SSG-68-scope`, `IAEA-SSG-68-5.192-bdb`, `IAEA-SSG-68-5.185-confinement`, `EU-WENRA-TU4-design-basis`, `EU-WENRA-TU1-objective`, `IAEA-SRS-88-margins`
+근거 조항: `US-10CFR50.150-a-1`, `US-10CFR50.150-a-2`, `US-RG-1.217-bdb-consequence`, `CZ-329-2017-aircraft-dbe`, `CZ-329-2017-conservative-approach`, `EU-EUR-aircraft-structure`, `IAEA-SSG-68-scope`, `IAEA-SSG-68-5.192-bdb`, `IAEA-SSG-68-5.185-confinement`, `EU-WENRA-TU4-design-basis`, `EU-WENRA-TU1-objective`, `IAEA-SRS-88-margins`
 
 ### CW-05 — 항공기 추락 포함 여부를 정하는 명시적 확률 스크리닝 기준이 있는가?
 
@@ -163,7 +163,7 @@ NEI 07-13은 국부하중과 전체하중의 산정, 재료 특성화, 파괴기
 
 > **차이점/유의사항:** VERIFIED AGAINST BOTH PRIMARY TEXTS. NEI 07-13 and IAEA converge on method: both use a Riera-type force-time history and both provide a coupled missile-target interaction route for flexible targets. They diverge on WHO SUPPLIES THE NUMBERS. NEI 07-13 states that the rule "does not define a unique model of the aircraft nor its initial impact velocity" and that the Riera function is "provided to the vendors" — outside the public document. SSG-68 para. 5.170 instead says the aircraft type, mass and velocity "may be specified by the regulatory body", and para. 5.161 lets the site hazard evaluation express the result either as aircraft parameters or as load-time functions.
 
-근거 조항: `US-NEI-07-13-riera`, `US-RG-1.217-endorsement`, `IAEA-SRS-87-structures`, `IAEA-SSG-68-5.168-load-time`, `IAEA-SSG-68-5.170-missile-target`, `CZ-329-2017-aircraft-dbe`, `EU-2014-87-framework`
+근거 조항: `US-NEI-07-13-riera`, `US-RG-1.217-position`, `IAEA-SRS-87-structures`, `IAEA-SSG-68-5.168-load-time`, `IAEA-SSG-68-5.170-missile-target`, `CZ-329-2017-aircraft-dbe`, `EU-2014-87-framework`
 
 ### CW-08 — 국부손상(침투·배면박리·관통)은 어떻게 평가하는가?
 
@@ -205,7 +205,7 @@ NEI 07-13은 국부하중과 전체하중의 산정, 재료 특성화, 파괴기
 
 > **차이점/유의사항:** The sharpest practical difference sits inside the containment test. NEI 07-13 §2.5.1 presumes a core damage event and asks only that the ultimate pressure capability hold long enough for mitigation; SSG-68 para. 5.185 requires confinement structures to withstand an accidental crash without perforation outright. The two are not in conflict because they sit at different hazard levels (BDB vs design basis) — which is exactly the CW-04 finding, now visible in the acceptance criteria themselves.
 
-근거 조항: `US-10CFR50.150-a-1`, `US-NEI-07-13-sufficiency`, `IAEA-SSG-68-5.192-bdb`, `IAEA-SSG-68-5.185-confinement`, `EU-EUR-aircraft-crash`, `IAEA-SRS-88-margins`, `CZ-329-2017-external-events-general`
+근거 조항: `US-10CFR50.150-a-1`, `US-NEI-07-13-sufficiency`, `IAEA-SSG-68-5.192-bdb`, `IAEA-SSG-68-5.185-confinement`, `EU-EUR-aircraft-structure`, `IAEA-SRS-88-margins`, `CZ-329-2017-external-events-general`
 
 ### CW-10 — 고의적 충돌과 우발적 충돌을 함께 다루는가?
 
