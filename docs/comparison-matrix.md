@@ -10,13 +10,13 @@
 | CW-01 | 항공기 충돌 요건은 어떤 형식의 문서가 담고 있으며 구속력이 있는가? | **기준** | **기준** | – | 구조 상이 | 구조 상이 | 부분 | 부분 | – |
 | CW-02 | 적용 대상이 신규 원전에 한정되는가, 기존 원전도 포함하는가? | **기준** | – | – | 구조 상이 | – | – | – | – |
 | CW-03 | 항공기 위협은 어떻게 정의되며, 수치는 공개되는가? | **기준** | – | – | 구조 상이 | 비공개 | – | 부분 | – |
-| CW-04 | 대형 항공기 충돌은 설계기준사건인가, 설계기준초과사건인가? | **기준** | – | – | 구조 상이 | 구조 상이 | 부분 | 동등 | – |
+| CW-04 | 대형 항공기 충돌은 설계기준사건인가, 설계기준초과사건인가? | **기준** | **기준** | – | 구조 상이 | 구조 상이 | 부분 | 동등 | – |
 | CW-05 | 항공기 추락 포함 여부를 정하는 명시적 확률 스크리닝 기준이 있는가? | **기준** | – | – | 구조 상이 | – | – | 구조 상이 | – |
 | CW-06 | 어떤 구조물과 기기를 평가해야 하는가? | – | – | **기준** | 동등 | – | – | 부분 | – |
 | CW-07 | 충돌하중은 어떻게 정의되며 특정 방법이 강제되는가? | – | – | **기준** | 없음 | – | – | 동등 | 동등 |
-| CW-08 | 국부손상(침투·배면박리·관통)은 어떻게 평가하는가? | – | – | **기준** | 없음 | 비공개 | – | 구조 상이 | 부분 |
+| CW-08 | 국부손상(침투·배면박리·관통)은 어떻게 평가하는가? | – | **기준** | **기준** | 없음 | 비공개 | – | 구조 상이 | 부분 |
 | CW-09 | 합격/불합격 판정기준은 무엇인가? | **기준** | – | **기준** | 부분 | 구조 상이 | – | 동등 | – |
-| CW-10 | 고의적 충돌과 우발적 충돌을 함께 다루는가? | **기준** | – | – | – | 부분 | – | – | – |
+| CW-10 | 고의적 충돌과 우발적 충돌을 함께 다루는가? | **기준** | **기준** | – | 동등 | 부분 | – | – | – |
 | CW-11 | 운전원 조치를 어느 정도까지 인정할 수 있는가? | **기준** | – | **기준** | 없음 | 비공개 | – | 없음 | – |
 | CW-12 | 평가결과는 어떻게 문서화·심사·공개되는가? | **기준** | – | **기준** | 부분 | – | – | – | – |
 
@@ -94,10 +94,11 @@
 | `CZ-329-2017` | 구조 상이 | Accidental crash sits INSIDE the design basis once the frequency criterion is met. |
 | `EU-EUR` | 구조 상이 | Multi-level: both DBEE and BDBEE/DEC performance objectives. |
 | `IAEA-SSG-68` | 동등 | Covers both levels explicitly: para. 5.185 requires no perforation for an ACCIDENTAL crash (design basis), while para. 5.192 handles a BEYOND design basis crash by fully fuelled commercial airplanes with a best-estimate margin assessment. The closest structural match to the US posture, plus a design-basis layer the US rule lacks. |
+| `US-RG-1.217` | **기준** | States the consequence of the BDB determination: NRC requirements for design-basis events do NOT apply to design features or functional capabilities selected solely to meet the aircraft impact rule. |
 | `EU-WENRA-SRL` | 부분 | Aircraft crash in the design per site; DEC for events exceeding the design basis. |
 | `IAEA-SRS-88` | 부분 | Supplies the margin-assessment layer that the BDB level needs. |
 
-> **차이점/유의사항:** This is the single largest divergence in the corpus. Consequences: (a) US analyses may use realistic material properties and best-estimate methods that a Czech design-basis analysis would not accept; (b) Czech/EUR results carry design-basis safety classification obligations that the US BDB assessment does not trigger.
+> **차이점/유의사항:** This is the single largest divergence in the corpus, and both sides are now confirmed from primary text. 10 CFR 50.150(a)(1) requires "realistic analyses" and RG 1.217 Section B states that design-basis requirements for design, construction, testing, operation and maintenance do NOT attach to features selected solely for the aircraft rule. Decree 329/2017 § 12(1) requires basic external design events — which include the accidental aircraft fall under § 11(4)(b) — to be treated with a CONSERVATIVE APPROACH. So the same physical event is analysed best-estimate in the US and conservatively in Czechia, and only the Czech result carries design-basis obligations. A NEW AND OVERRIDING CONSIDERATION: 10 CFR 50.150(d), added in April 2026, sunsets the entire US rule on 8 April 2027 unless the NRC extends it. The US side of this comparison has an expiry date; the Czech and IAEA sides do not.
 
 근거 조항: `US-10CFR50.150-a-1`, `US-10CFR50.150-a-2`, `CZ-329-2017-aircraft-dbe`, `EU-EUR-aircraft-crash`, `IAEA-SSG-68-scope`, `IAEA-SSG-68-5.192-bdb`, `IAEA-SSG-68-5.185-confinement`, `EU-WENRA-external-hazards`, `IAEA-SRS-88-margins`
 
@@ -112,12 +113,13 @@
 | 문서 | 관계 | 내용 |
 |---|---|---|
 | `US-10CFR50.150` | **기준** | NO screening criterion. The threat is prescribed by rule, not selected by frequency. |
-| `CZ-329-2017` | 구조 상이 | TWO levels. § 12: basic external design events generally = intensity of the territorial property with occurrence frequency 1E-4/yr (once per 10,000 years) or lower. § 13(2)(b): fall of an aircraft OR OTHER OBJECT = intensity of the effects of an object whose fall frequency onto an area where it could cause a basic external initiating event is > 1E-7/yr. |
-| `IAEA-SSG-68` | 구조 상이 | Footnote 9: in some States 1E-7 per reactor-year is used as an acceptable probability limit for interacting events with serious radiological consequences; conservative as an SPL only if applied to all events of the same type. Attributed to NS-G-3.1. |
+| `CZ-329-2017` | 구조 상이 | TWO levels. § 11(3): basic external design events generally = intensity of the territorial property with occurrence frequency 1E-4/yr (once per 10,000 years) or lower. § 11(4)(b): fall of an aircraft OR OTHER OBJECT = intensity of the effects of an object whose fall frequency onto an area where it could cause a basic external initiating event is > 1E-7/yr. § 11(4)(a) pairs it with a 0.1 g seismic floor for the same SSC set. |
+| `IAEA-SSG-79` | 구조 상이 | SPL = limiting annual probability of events with potential radiological consequences. 1E-7 per reactor-year used in some States; conservative only if applied to all events of the same type. Aircraft screened per category (general aviation / medium and large commercial / military). Supersedes NS-G-3.1. |
+| `IAEA-SSG-68` | 구조 상이 | Footnote 9 restates the same 1E-7 statement, citing NS-G-3.1. |
 
-> **차이점/유의사항:** Strongest quantitative link in the crosswalk: CZ 329/2017 and the IAEA level are the same 1E-7/yr figure. Three caveats now verified against the primary text of SSG-68: (1) the IAEA presents it as what "some States" use, NOT as an IAEA-mandated value; (2) it is conservative only when applied to ALL events of one type collectively — applying 1E-7 to a single crash scenario is a different and less conservative reading; (3) SSG-68 adds a procedural requirement absent from the Czech decree: where an SPL approach is used, the annual exceedance frequency must be AGREED BEFORE the site hazard evaluation. Attribution correction: this database first credited the statement to SSG-79 from a search result; the text is footnote 9 of SSG-68, citing NS-G-3.1. Second correction, from recovering the Czech § numbering: the decree operates TWO frequency levels, not one — 1E-4/yr for basic external design events generally (§ 12) and 1E-7/yr for a falling aircraft or other object (§ 13(2)(b)). The earlier version of this crosswalk compared the IAEA level against the Czech 1E-7 figure alone and so presented the Czech scheme as a single-threshold system. The three-orders-of-magnitude gap between § 12 and § 13(2)(b) is itself the finding: the Czech regulator treats a falling aircraft as far rarer than the events it otherwise designs for, which is what lets the crash stay inside the design basis without driving the whole design.
+> **차이점/유의사항:** Strongest quantitative link in the crosswalk: CZ 329/2017 and the IAEA level are the same 1E-7/yr figure. Three caveats now verified against the primary text of SSG-68: (1) the IAEA presents it as what "some States" use, NOT as an IAEA-mandated value; (2) it is conservative only when applied to ALL events of one type collectively — applying 1E-7 to a single crash scenario is a different and less conservative reading; (3) SSG-68 adds a procedural requirement absent from the Czech decree: where an SPL approach is used, the annual exceedance frequency must be AGREED BEFORE the site hazard evaluation. Attribution, now settled against both primary texts: the 1E-7 statement appears in BOTH SSG-79 and SSG-68 (footnote 9) in almost identical wording, and SSG-79 supersedes NS-G-3.1. An intermediate version of this database wrongly declared the SSG-79 attribution an error; it was not. SSG-79 alone carries the per-aircraft-category screening procedure. Second point, from the Czech primary text: the decree operates TWO frequency levels, not one — 1E-4/yr for basic external design events generally (§ 12) and 1E-7/yr for a falling aircraft or other object (§ 13(2)(b)). The earlier version of this crosswalk compared the IAEA level against the Czech 1E-7 figure alone and so presented the Czech scheme as a single-threshold system. The three-orders-of-magnitude gap between § 12 and § 13(2)(b) is itself the finding: the Czech regulator treats a falling aircraft as far rarer than the events it otherwise designs for, which is what lets the crash stay inside the design basis without driving the whole design.
 
-근거 조항: `US-10CFR50.150-a-2`, `CZ-329-2017-aircraft-dbe`, `IAEA-SSG-68-fn9-spl`
+근거 조항: `US-10CFR50.150-a-2`, `CZ-329-2017-aircraft-dbe`, `CZ-329-2017-external-events-general`, `IAEA-SSG-79-spl`, `IAEA-SSG-68-fn9-spl`
 
 ### CW-06 — 어떤 구조물과 기기를 평가해야 하는가?
 
@@ -168,12 +170,13 @@ NEI 07-13은 국부하중과 전체하중의 산정, 재료 특성화, 파괴기
 | `US-NEI-07-13` | **기준** | §2.1.2 SELECTS: Modified NDRC (penetration), reduced Chang (scabbing thickness), reduced Degen (perforation thickness), CEA-EDF per Kar (perforation velocity). Notes Degen/CEA-EDF/Chang/CRIEPI give comparable VP. |
 | `IAEA-SRS-87` | 부분 | PRESENTS the same formula family (Chang, modified Chang, CRIEPI, NDRC/modified NDRC, Degen) as a catalogue without mandating one; adds a 0.60-0.65 reduction factor for deformable aircraft engine parts and landing gear, and a lightly-reinforced-target validity caveat. |
 | `IAEA-SSG-68` | 구조 상이 | Para. 5.176 treats empirical rigid-missile formulas as an ALTERNATIVE for secondary missiles and debris only, warning their validity ranges usually do not coincide with aircraft impact; the primary route is a coupled non-linear model able to assess failure modes from spalling to perforation (5.174). |
+| `US-RG-1.217` | **기준** | Regulatory Position 2: 'NEI 07-13 references other documents, but this RG does not endorse any of the referenced documents.' The empirical correlations are drawn from those referenced documents. |
 | `CZ-329-2017` | 없음 |  |
 | `EU-EUR` | 비공개 |  |
 
-> **차이점/유의사항:** RESOLVED — this was the open technical question in the first build of this database; it is now answered from both primary texts. The substantive finding is a hierarchy difference, not a formula disagreement: NEI 07-13 makes named empirical formulas the working method for local damage, whereas SSG-68 demotes them to an alternative for secondary missiles and debris and makes coupled non-linear analysis the primary route. An applicant using NEI 07-13 formulas in an IAEA-aligned jurisdiction should expect to justify (a) applicability of solid-projectile correlations to a crushable engine — SRS-87 suggests a 0.60-0.65 reduction factor — and (b) the reinforcement ratio of the real target versus the lightly reinforced test specimens the formulas came from.
+> **차이점/유의사항:** RESOLVED — this was the open technical question in the first build of this database; it is now answered from both primary texts. The substantive finding is a hierarchy difference, not a formula disagreement: NEI 07-13 makes named empirical formulas the working method for local damage, whereas SSG-68 demotes them to an alternative for secondary missiles and debris and makes coupled non-linear analysis the primary route. An applicant using NEI 07-13 formulas in an IAEA-aligned jurisdiction should expect to justify (a) applicability of solid-projectile correlations to a crushable engine — SRS-87 suggests a 0.60-0.65 reduction factor — and (b) the reinforcement ratio of the real target versus the lightly reinforced test specimens the formulas came from. DECISIVE ADDITION from RG 1.217 Section C, position 2: the NRC endorses NEI 07-13 but expressly does NOT endorse the documents NEI 07-13 references — which is where the Modified NDRC, Chang, Degen and CEA-EDF correlations come from. So even on the US side the regulator has accepted the METHOD AS ASSEMBLED, not the underlying correlations. The earlier reading of this database, that no qualification to the endorsement could be found, was wrong.
 
-근거 조항: `US-NEI-07-13-local-formulas`, `US-NEI-07-13-failure-modes`, `IAEA-SRS-87-structures`, `IAEA-SSG-68-5.170-missile-target`, `IAEA-SSG-68-5.163-effects`
+근거 조항: `US-NEI-07-13-local-formulas`, `US-NEI-07-13-failure-modes`, `US-RG-1.217-position`, `IAEA-SRS-87-structures`, `IAEA-SSG-68-5.170-missile-target`, `IAEA-SSG-68-5.163-effects`
 
 ### CW-09 — 합격/불합격 판정기준은 무엇인가?
 
@@ -190,7 +193,7 @@ NEI 07-13은 국부하중과 전체하중의 산정, 재료 특성화, 파괴기
 | `IAEA-SSG-68` | 동등 | Para. 5.192 (BDB): at a minimum, items important to safety necessary to prevent large or early release remain functional; best estimate approach permitted. Para. 5.185 (accidental/DB): confinement structures withstand impact WITHOUT perforation. |
 | `EU-EUR` | 구조 상이 | Multi-level performance objectives graded by threat scenario. |
 | `IAEA-SRS-88` | 부분 | Margin-based plant/system performance evaluation rather than a binary criterion. |
-| `CZ-329-2017` | 부분 | General design-basis safety-function requirements; no aircraft-specific pass/fail statement. |
+| `CZ-329-2017` | 부분 | § 12(1) requires a conservative approach to basic external design events; no aircraft-specific pass/fail statement equivalent to NEI 07-13 §2.5. |
 
 > **차이점/유의사항:** The sharpest practical difference sits inside the containment test. NEI 07-13 §2.5.1 presumes a core damage event and asks only that the ultimate pressure capability hold long enough for mitigation; SSG-68 para. 5.185 requires confinement structures to withstand an accidental crash without perforation outright. The two are not in conflict because they sit at different hazard levels (BDB vs design basis) — which is exactly the CW-04 finding, now visible in the acceptance criteria themselves.
 
@@ -202,16 +205,17 @@ NEI 07-13은 국부하중과 전체하중의 산정, 재료 특성화, 파괴기
 
 **EN:** Are malicious (intentional) impacts treated together with accidental ones?
 
-미국은 두 가지를 하나의 규정 안에서 다루되 위협 수치를 비공개로 처리한다 (10 CFR 50.150 + 2.390 비공개). EUR은 고의적 충돌을 별도 항목으로 명시적으로 둔다. EU 원자력안전지침은 보안·악의적 행위를 적용범위에서 명시적으로 제외한다. 체코는 설계 시행령이 아니라 물리적방호 체계에서 다루는 것으로 보인다.
+**두 곳을 원문으로 확인하여 결론이 바뀐 항목.** 미국은 하나의 규정으로 다루되 상세 방법론을 비공개본에 두고 SGI(안전조치정보)로 통제한다 — 근거는 10 CFR 50.150(d)가 아니라 RG 1.217 Section A이다. 체코는 설계 시행령 **안에서** 다룬다: § 10(1)(d)가 "수송항공기에 의한 고의적 공격"의 결과분석에서 도출된 물리적방호계획 자료를 설계기준에 포함하도록 요구하며, 우발적 낙하(§ 11(4)(b))와 별도 경로로 처리한다. EUR도 고의적 충돌을 별도 항목으로 둔다. EU 원자력안전지침만 보안·악의적 행위를 적용범위에서 명시적으로 제외한다.
 
 | 문서 | 관계 | 내용 |
 |---|---|---|
-| `US-10CFR50.150` | **기준** | One rule covers the large commercial aircraft impact; the threat characterisation is withheld under 10 CFR 2.390. |
+| `US-10CFR50.150` | **기준** | One rule covers the large commercial aircraft impact; (a)(2) footnote 1 says the detailed parameters are set forth in guidance and changes require Commission approval. |
 | `EU-EUR` | 부분 | Explicit separate treatment of the intentional aircraft crash alongside the accidental one. |
 | `EU-2014-87-EURATOM` | 없음 | Security and malicious acts are expressly outside the nuclear safety directive's scope. |
-| `CZ-263-2016` | 구조 상이 | Handled through nuclear security / physical protection provisions, not the public design decree. |
+| `CZ-329-2017` | 동등 | § 10(1)(d) requires the design bases to include data from the physical protection plan derived from the consequence analysis of an INTENTIONAL ATTACK BY A TRANSPORT AIRCRAFT. The malicious case is an explicit design input, handled separately from the accidental fall in § 11(4)(b). |
+| `US-RG-1.217` | **기준** | Section A: the non-public versions of RG 1.217 and NEI 07-13 carry the detailed methodology under Safeguards Information controls, available only to SGI-qualified personnel including plant designers. |
 
-근거 조항: `US-10CFR50.150-a-2`, `US-10CFR50.150-d`, `EU-EUR-aircraft-crash`, `EU-2014-87-framework`, `CZ-malicious-separation`
+근거 조항: `US-10CFR50.150-a-2`, `US-RG-1.217-sgi`, `EU-EUR-aircraft-crash`, `EU-2014-87-framework`, `CZ-329-2017-intentional-attack`
 
 ### CW-11 — 운전원 조치를 어느 정도까지 인정할 수 있는가?
 
@@ -237,12 +241,12 @@ NEI 07-13은 국부하중과 전체하중의 산정, 재료 특성화, 파괴기
 
 **EN:** How are the assessment results documented, reviewed and disclosed?
 
-미국은 핵심 설계특성을 FSAR에 기재하고 변경을 통제하며, NRC의 AIA 검사 프로그램으로 실제 구현 여부를 확인하되 평가내용 자체는 비공개할 수 있다. 그 결과 AP1000, US-EPR 등의 실제 평가결과는 공개 FSAR에 없고, 공개자료로는 방법론 수준의 비교만 가능하다.
+미국은 (b)에 따라 설계특성·기능적 능력과 그것이 (a)(1)을 어떻게 충족하는지를 PSAR/FSAR에 기재하고, (c)에 따라 안전성분석보고서 기재요건을 통해 변경을 통제하며, NRC의 AIA 검사 프로그램으로 실제 구현 여부를 확인한다. 상세 방법론은 SGI 통제 하의 비공개본에 있어 공개자료로는 방법론 수준의 비교만 가능하다. **정정:** 이전 판은 비공개 근거를 10 CFR 50.150(d)로 기재했으나, (d)는 일몰 조항이며 비공개 근거는 RG 1.217 Section A의 SGI 통제이다.
 
 | 문서 | 관계 | 내용 |
 |---|---|---|
-| `US-10CFR50.150` | **기준** | Key design features in the FSAR, change control, withholding under 2.390. |
+| `US-10CFR50.150` | **기준** | (b) requires the PSAR/FSAR to describe the design features and functional capabilities AND how they meet (a)(1); (c) routes change control through the SAR content requirements (50.34(a)(13), 50.34(b)(12), 52.47(a)(28)/52.63, 52.79(a)(47), 52.157(f)(32)/52.171). |
 | `US-NEI-07-13` | **기준** | NRC AIA inspection programme verifies as-built implementation. |
 | `CZ-329-2017` | 부분 | Documented within the standard Czech safety documentation and SÚJB review; specifics not captured in this database. |
 
-근거 조항: `US-10CFR50.150-b`, `US-10CFR50.150-c`, `US-10CFR50.150-d`, `US-NEI-07-13-aia-inspection`
+근거 조항: `US-10CFR50.150-b`, `US-10CFR50.150-c`, `US-RG-1.217-sgi`, `US-RG-1.217-implementation`, `US-NEI-07-13-aia-inspection`

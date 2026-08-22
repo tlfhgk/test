@@ -104,29 +104,30 @@ docs/acquisition-checklist.md  확보해야 할 원문 목록 (우선순위별)
 
 | 등급 | 조항 레코드 |
 |---|---|
-| `primary_source` | 16 |
-| `web_verified` | 13 |
-| `model_knowledge` | 8 |
-| `to_verify` | 3 |
+| `primary_source` | 32 |
+| `web_verified` | 8 |
+| `model_knowledge` | 2 |
+| `to_verify` | 1 |
 
-여기에 더해 **원문 축자 청크 704개**(NEI 07-13 69쪽 + IAEA SSG-68 112쪽 +
-IAEA SRS-87 220쪽 = 401쪽)가 색인되어 있습니다.
+여기에 더해 **원문 축자 청크 1,388개**가 색인되어 있습니다 —
+10 CFR 50.150, RG 1.217, NEI 07-13, 체코 시행령 329/2017,
+IAEA SSG-68 · SSG-79 · SSR-2/1 · SRS-86 · SRS-87 총 9개 문서 933쪽.
 
 이 DB를 구축한 실행환경은 아웃바운드 HTTPS가 조직 egress 정책으로 전면 차단되어
 (ecfr.gov, nrc.gov, sujb.gov.cz, www-pub.iaea.org 모두 CONNECT 403) 웹에서 원문을
 내려받을 수 없었습니다. 위 3개 문서는 **사용자 Google Drive에 보관된 사본**을 통해
-확보했습니다. 체코 시행령 329/2017의 조문번호(§ 6, § 12, § 13(2)(b))와 체코어 원문은 검색으로
-복구하여 `web_verified`로 기록했습니다 — 원문 PDF 자체는 여전히 미확보입니다.
-
-남은 미확보 문서(체코 시행령 원문·378/2016, RG 1.217, EUR)는 네트워크가 열린
-환경에서 `scripts/fetch_sources.sh` → `scripts/ingest_raw.py`를 실행하면 같은 DB에
-들어가고 검색 시 요약본보다 우선하게 됩니다. 가장 값어치 있는 잔여 항목은
-**RG 1.217 Section C**(ADAMS ML092900004)입니다 — 미국 규제기관이 NEI 07-13을
-무조건 승인했는지, 단서를 달았는지가 여기서 갈립니다.
+확보했습니다. 남은 미확보 문서는 **EUR Volume 2**(라이선스 필요), **IAEA SRS No. 88**,
+**체코 원자력법 263/2016**, **체코 부지 시행령 378/2016**(스캔본이라 OCR 필요),
+**Euratom 지침 2014/87**, **WENRA SRL**입니다.
+자세한 내용은 `docs/acquisition-checklist.md`를 보세요.
 
 ## 핵심 결론 3가지
 
 `docs/comparison-matrix.md`의 상세 근거를 요약하면:
+
+0. **10 CFR 50.150에는 일몰 조항이 있습니다.** 2026년 4월 개정으로 추가된 (d)항에
+   따라 본 조는 **2027년 4월 8일에 실효**하며, NRC가 공중의견을 수렴해 최대 5년까지
+   연장하기로 결정하지 않는 한 소멸합니다. 미국 측 비교 대상 자체에 만료일이 있습니다.
 
 1. **CW-04 / CW-09 — 규제 계층이 다릅니다.** 미국은 대형 상용항공기 충돌을
    설계기준*초과*(BDB)로 두고 현실적 해석을 요구합니다. IAEA SSG-68은 두 계층을

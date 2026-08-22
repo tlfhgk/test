@@ -1,13 +1,11 @@
 schema_version: 1
 source_id: CZ-329-2017
 also_covers: [CZ-263-2016, CZ-378-2016]
-locator_warning: >-
-  The official PDF of decree 329/2017 Sb. is still unreachable from this environment
-  (sujb.gov.cz, zakonyprolidi.cz, tzb-info.cz and e-sbirka.gov.cz all return 403 at the
-  egress proxy). The § numbering below was recovered from search results quoting the decree
-  text and is recorded as web_verified, NOT primary_source: the wording is reproduced as
-  quoted by those sources and should be checked against the Sbírka zákonů before it is
-  cited in a licensing document.
+provenance_note: >-
+  Rewritten from the official text of vyhláška č. 329/2017 Sb. (Sbírka zákonů, částka 112,
+  48 pp.), obtained from the user's Google Drive and indexed by scripts/ingest_raw.py.
+  The § numbers recovered earlier from search results were WRONG — every locator below is
+  taken from the decree itself. Czech fragments are quoted from that text.
 clauses:
 
   - clause_id: CZ-263-2016-enabling
@@ -20,105 +18,182 @@ clauses:
     verification: web_verified
     confidence: medium
     summary_en: >-
-      Decree No. 329/2017 Sb. on requirements for the design of a nuclear installation was
-      issued by SÚJB under the empowering provisions of the Atomic Act (Act No. 263/2016
-      Sb.), namely § 24(7), § 44(4)(a) and (b), § 45(4) and § 46. The Atomic Act is the
-      binding primary legislation; the decree carries the technical design requirements.
+      Decree No. 329/2017 Sb. was issued by SÚJB under the empowering provisions of the Atomic
+      Act (Act No. 263/2016 Sb.). The Atomic Act is the binding primary legislation; the decree
+      carries the technical design requirements.
     summary_ko: >-
-      원자력시설 설계 요건에 관한 시행령 제329/2017호는 원자력법(제263/2016호)의 위임규정,
-      즉 제24조 제7항, 제44조 제4항 (a)·(b), 제45조 제4항, 제46조에 근거하여 SÚJB가
-      발령하였다. 원자력법이 구속력 있는 상위 법률이며, 기술적 설계요건은 시행령이 담는다.
+      시행령 제329/2017호는 원자력법(제263/2016호)의 위임규정에 근거하여 SÚJB가 발령하였다.
+      원자력법이 구속력 있는 상위 법률이며, 기술적 설계요건은 시행령이 담는다.
     source_url: "https://www.zakonyprolidi.cz/cs/2017-329"
+    notes: "The Atomic Act itself is not yet indexed; the enabling-provision list is unverified."
 
-  - clause_id: CZ-329-2017-aircraft-dbe
+  - clause_id: CZ-329-2017-intentional-attack
     source_id: CZ-329-2017
-    locator: "vyhláška č. 329/2017 Sb., § 13 odst. 2 písm. b)"
-    heading_en: "Accidental aircraft crash as a design-basis external initiating event"
-    heading_ko: "설계기준 외부 기인사건으로서의 우발적 항공기 추락"
-    topics: [T02, T03, T04, T05, T06, T13]
+    locator: "vyhláška č. 329/2017 Sb., § 10 odst. 1 písm. d)"
+    heading_en: "Intentional aircraft attack as a design input via the physical protection plan"
+    heading_ko: "물리적방호계획을 통한 고의적 항공기 공격의 설계입력화"
+    topics: [T03, T04, T13, T06]
     text_status: summary
-    verification: web_verified
+    verification: primary_source
     confidence: high
     quoted_source_text_cs: >-
-      "pro stanovení odolnosti proti náhodnému pádu letadla nebo jiného objektu se vychází
-      z intenzity účinků pádu takového objektu, jehož četnost pádu na plochu, na níž může
-      způsobit základní vnější iniciační událost, je vyšší než jednou za 10 000 000 let"
+      "údajů plánu zajištění fyzické ochrany vycházejících z analýzy následků v případě
+      úmyslného útoku dopravním letadlem proti jadernému zařízení"
     summary_en: >-
-      § 13(2)(b): to establish resistance against an accidental crash of an aircraft OR ANOTHER
-      OBJECT, the basis is the intensity of the effects of the fall of such an object whose
-      frequency of falling onto an area where it could cause a basic external initiating event
-      is higher than once in 10,000,000 years (frequency > 1E-7 per year).
-      § 13 applies this to selected equipment, systems, structures and components with an
-      influence on nuclear safety that are NECESSARY FOR MANAGING EMERGENCY CONDITIONS AND
-      RADIATION EMERGENCIES, at nuclear installations with a reactor of thermal power
-      exceeding 50 MW.
+      § 10(1) lists what the design bases (projektová východiska) must establish. Item (d)
+      requires the design bases to include "data of the physical protection plan derived from
+      the analysis of consequences in the case of an INTENTIONAL ATTACK BY A TRANSPORT
+      AIRCRAFT against the nuclear installation". The malicious aircraft impact is therefore
+      not outside the design decree: it enters the design bases as an input carried over from
+      the physical protection plan, alongside the accidental crash handled separately in
+      § 11(4)(b).
     summary_ko: >-
-      § 13(2)(b): 항공기 **또는 기타 물체**의 우발적 낙하에 대한 저항성을 정하는 기준은,
-      기본 외부 기인사건을 유발할 수 있는 구역에 낙하할 빈도가 1천만 년에 1회를 초과하는
-      (빈도 > 1E-7/년) 물체의 낙하 영향 강도이다.
-      § 13은 이를 열출력 50 MW를 초과하는 원자로를 가진 원자력시설에서, 핵안전에 영향을
-      미치며 **사고조건 및 방사선비상 관리에 필요한** 선정 설비·계통·구조물·기기에 적용한다.
+      § 10(1)은 설계기준(projektová východiska)이 정해야 할 사항을 열거한다. 그중 (d)는
+      설계기준이 "원자력시설에 대한 **수송항공기에 의한 고의적 공격** 시의 결과분석에서
+      도출된 물리적방호계획의 자료"를 포함하도록 요구한다. 따라서 고의적 항공기 충돌은
+      설계 시행령 밖에 있는 것이 아니라, 물리적방호계획으로부터 넘어온 입력으로서 설계기준
+      안으로 들어온다. 우발적 추락은 § 11(4)(b)에서 별도로 다룬다.
     key_parameters:
-      applicability_threshold: "reactor thermal power > 50 MW"
-      ssc_scope: "selected SSCs with influence on nuclear safety NECESSARY for managing emergency conditions and radiation emergencies — not all safety SSCs"
-      crash_type: "accidental (náhodný pád letadla nebo jiného objektu) — aircraft OR other object"
-      screening_frequency: "> 1E-7 per year → included in the design basis"
-      basis_quantity: "intensity of the effects of the falling object"
+      threat_type: "úmyslný útok dopravním letadlem — intentional attack by a transport aircraft"
+      route_into_design: "physical protection plan → consequence analysis → design bases"
+      separate_from: "the accidental fall provision in § 11(4)(b)"
     source_url: "https://www.zakonyprolidi.cz/cs/2017-329"
     notes: >-
-      KEY COMPARISON POINT. Czech law puts the accidental aircraft crash INSIDE the design
-      basis, selected by an explicit numerical frequency criterion. The US rule instead
-      places the large-commercial-aircraft impact OUTSIDE the design basis and applies
-      realistic rather than design-basis analysis — see CW-04 and CW-05.
-      Two refinements recovered with the § locator, both of which narrow the earlier reading
-      of this record: (1) the provision covers an aircraft OR ANOTHER OBJECT, so it is a
-      generic falling-object rule rather than an aircraft-specific one; (2) the SSC scope is
-      not all safety-related SSCs but those necessary for MANAGING EMERGENCY CONDITIONS AND
-      RADIATION EMERGENCIES — a narrowing that is structurally close to the US "key design
-      features and functional capabilities", and closer to it than a blanket design-basis
-      requirement would be.
+      MAJOR CORRECTION. The previous database contained an editorial record
+      (CZ-malicious-separation) asserting that the Czech framework handles the deliberate
+      aircraft impact through security provisions rather than the public design decree. That
+      record has been deleted. The decree itself puts the intentional attack into the design
+      bases at § 10(1)(d). What remains true is that the threat characterisation lives in the
+      physical protection plan, which is not public — but the design obligation is public and
+      explicit. This makes the Czech treatment structurally CLOSER to EUR (which also names an
+      intentional crash case) than the previous version of this database claimed.
 
   - clause_id: CZ-329-2017-external-events-general
     source_id: CZ-329-2017
-    locator: "vyhláška č. 329/2017 Sb., § 6 and § 12"
-    heading_en: "External initiating events in the design basis and the general 1E-4/yr level"
-    heading_ko: "설계기준 내 외부 기인사건 및 일반 1E-4/년 수준"
+    locator: "vyhláška č. 329/2017 Sb., § 11 odst. 1-3"
+    heading_en: "Basic external design events and the 1E-4/yr intensity level"
+    heading_ko: "기본 외부 설계사건 및 1E-4/년 강도 수준"
     topics: [T04, T05, T06]
     text_status: summary
-    verification: web_verified
-    confidence: medium
+    verification: primary_source
+    confidence: high
+    quoted_source_text_cs: >-
+      "Intenzita základní vnější projektové události musí být rovna intenzitě hodnocené
+      vlastnosti území s četností výskytu jednou za 10 000 let nebo nižší, s výjimkou případů
+      vlastností území, pro které musí být na základě použité metody posouzení území
+      k umístění jaderného zařízení použity jiné četnosti výskytu"
     summary_en: >-
-      § 6 requires the basic design bases (projektová východiska) to establish the basic
-      external design events for the territory where the nuclear installation is to be sited.
-      § 12 then fixes their intensity: the intensity of a basic external design event must
-      equal the intensity of the evaluated territorial property with an occurrence frequency
-      of ONCE PER 10,000 YEARS (1E-4 per year) or lower, except for territorial properties
-      for which other occurrence frequencies must be used under the siting assessment
-      methodology. Design bases must ensure compliance with the principles of safe use of
-      nuclear energy for basic external design events and their highly probable combinations,
-      using a conservative approach.
+      § 11(1): the basic design bases must establish the basic external design events for the
+      territory where the installation is to be sited; these events are the limiting value of
+      loading of SSCs by territorial properties and their combinations at which the safety
+      objectives of the design are met with high credibility.
+      § 11(2): all events induced by territorial properties included in the siting assessment
+      must be taken into account.
+      § 11(3): the intensity of a basic external design event must equal the intensity of the
+      evaluated territorial property with an occurrence frequency of ONCE PER 10,000 YEARS
+      (1E-4/yr) or lower, except for territorial properties for which the siting assessment
+      method requires other occurrence frequencies and corresponding acceptance criteria.
     summary_ko: >-
-      § 6은 기본 설계기준(projektová východiska)이 원자력시설이 입지할 지역에 대한 기본
-      외부 설계사건을 설정하도록 요구한다. § 12는 그 강도를 정한다: 기본 외부 설계사건의
-      강도는 발생빈도가 **1만 년에 1회(1E-4/년)** 이하인 평가 대상 지역특성의 강도와
-      같아야 하며, 부지선정 평가방법론에 따라 다른 발생빈도를 적용해야 하는 지역특성은
-      예외로 한다. 설계기준은 기본 외부 설계사건 및 그 발생가능성이 높은 조합에 대해
-      보수적 접근법으로 원자력 안전이용 원칙의 준수를 보장해야 한다.
+      § 11(1): 기본 설계기준은 시설이 입지할 지역에 대한 기본 외부 설계사건을 정해야 한다.
+      이 사건들은 지역특성 및 그 조합에 의한 SSC 부하의 한계값으로서, 그 수준에서 설계의
+      안전목표가 높은 신뢰도로 충족되는 값이다.
+      § 11(2): 부지선정 평가에 포함된 지역특성으로 유발되는 모든 사건을 고려해야 한다.
+      § 11(3): 기본 외부 설계사건의 강도는 발생빈도가 **1만 년에 1회(1E-4/년)** 이하인
+      평가 대상 지역특성의 강도와 같아야 한다. 다만 부지선정 평가방법에 따라 다른 발생빈도와
+      그에 상응하는 허용기준을 적용해야 하는 지역특성은 예외로 한다.
     key_parameters:
       general_external_event_frequency: "1E-4 per year (once per 10,000 years) or lower"
-      approach: "conservative"
-      relationship_to_aircraft: "aircraft/falling objects use the separate 1E-7/yr level in § 13(2)(b) — three orders of magnitude lower"
+      definition: "limiting load at which design safety objectives are met with high credibility"
     source_url: "https://www.zakonyprolidi.cz/cs/2017-329"
     notes: >-
-      IMPORTANT STRUCTURAL FINDING. The Czech decree operates TWO frequency levels, not one:
-      1E-4/yr for basic external design events generally (§ 12), and 1E-7/yr for the fall of
-      an aircraft or other object (§ 13(2)(b)). The earlier version of this database recorded
-      only the 1E-7 figure and so misrepresented the decree as having a single screening
-      level. See crosswalk CW-05.
+      LOCATOR CORRECTION. The previous version placed this at "§ 6 and § 12" on the strength
+      of search snippets. The primary text puts it at § 11(1)-(3). The 1E-4/yr figure itself
+      was recorded correctly.
+
+  - clause_id: CZ-329-2017-aircraft-dbe
+    source_id: CZ-329-2017
+    locator: "vyhláška č. 329/2017 Sb., § 11 odst. 4 písm. b)"
+    heading_en: "Accidental fall of an aircraft or other object — the 1E-7/yr basis"
+    heading_ko: "항공기 또는 기타 물체의 우발적 낙하 — 1E-7/년 기준"
+    topics: [T02, T03, T04, T05, T06, T13]
+    text_status: verbatim
+    verification: primary_source
+    confidence: high
+    quoted_source_text_cs: >-
+      "Základní vnější projektové události pro návrh a pro hodnocení odolnosti vybraných
+      zařízení a systémů, konstrukcí a komponent s vlivem na jadernou bezpečnost nezbytných
+      pro zvládání havarijních podmínek a radiační havárie jaderných zařízení s jaderným
+      reaktorem o tepelném výkonu vyšším než 50 MW musí ... b) pro stanovení odolnosti proti
+      náhodnému pádu letadla nebo jiného objektu vycházet z intenzity účinků pádu takového
+      objektu, jehož četnost pádu na plochu, na níž může způsobit základní vnější iniciační
+      událost, je vyšší než jednou za 10 000 000 let."
+    summary_en: >-
+      § 11(4) applies to basic external design events used for the design and for the
+      evaluation of resistance of selected equipment and systems, structures and components
+      with an influence on nuclear safety that are NECESSARY FOR MANAGING EMERGENCY CONDITIONS
+      AND RADIATION EMERGENCIES, at nuclear installations with a reactor of thermal power
+      exceeding 50 MW. For those SSCs:
+      (a) seismic resistance must be based on a postulated peak horizontal ground acceleration
+      of the structure carrying the SSC of at least 1/10 of gravitational acceleration (0.1 g);
+      (b) resistance against the accidental fall of an aircraft OR ANOTHER OBJECT must be based
+      on the intensity of the effects of the fall of such an object whose frequency of falling
+      onto an area where it could cause a basic external initiating event is higher than once
+      in 10,000,000 years (> 1E-7/yr).
+    summary_ko: >-
+      § 11(4)는 열출력 50 MW를 초과하는 원자로를 가진 원자력시설에서, 핵안전에 영향을 미치며
+      **사고조건 및 방사선비상 관리에 필요한** 선정 설비·계통·구조물·기기의 설계 및 저항성
+      평가에 사용되는 기본 외부 설계사건에 적용된다. 해당 SSC에 대해:
+      (a) 내진저항성은 해당 SSC를 지지하는 구조물 지반의 가정 최대수평가속도를 중력가속도의
+      **1/10(0.1 g) 이상**으로 하여 정한다;
+      (b) 항공기 **또는 기타 물체**의 우발적 낙하에 대한 저항성은, 기본 외부 기인사건을
+      유발할 수 있는 구역에 낙하할 빈도가 1천만 년에 1회를 초과하는(> 1E-7/년) 물체의
+      낙하 영향 강도를 기준으로 정한다.
+    key_parameters:
+      applicability_threshold: "reactor thermal power > 50 MW"
+      ssc_scope: "selected SSCs necessary for managing emergency conditions and radiation emergencies"
+      seismic_floor: "0.1 g minimum postulated PGA (§ 11(4)(a))"
+      aircraft_frequency: "> 1E-7 per year (§ 11(4)(b))"
+      object_scope: "aircraft OR another object"
+    source_url: "https://www.zakonyprolidi.cz/cs/2017-329"
+    notes: >-
+      LOCATOR CORRECTION. The previous version placed this at "§ 13 odst. 2 písm. b)" from a
+      search result. The primary text puts it at § 11(4)(b). The quoted Czech wording and the
+      1E-7/yr figure recovered earlier were otherwise accurate, as was the reading that the
+      SSC scope is narrowed to emergency-management SSCs rather than all safety SSCs.
+      New from the primary text: § 11(4)(a) sets a 0.1 g seismic floor for the same SSC set,
+      which shows the two hazards being treated as a matched pair of minimum design bases.
+
+  - clause_id: CZ-329-2017-conservative-approach
+    source_id: CZ-329-2017
+    locator: "vyhláška č. 329/2017 Sb., § 12 odst. 1"
+    heading_en: "Conservative approach for basic external design events"
+    heading_ko: "기본 외부 설계사건에 대한 보수적 접근"
+    topics: [T04, T12]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      § 12(1): the design bases must ensure fulfilment of the principles of safe use of nuclear
+      energy for basic external design events and their highly probable combinations, with a
+      CONSERVATIVE APPROACH to the assumed initial state of the installation and to possible
+      accompanying failures that do not prevent effective actuation of the safety systems.
+    summary_ko: >-
+      § 12(1): 설계기준은 기본 외부 설계사건 및 그 발생가능성이 높은 조합에 대해, 원자력시설의
+      초기상태 가정과 안전계통의 유효한 작동을 방해하지 않는 동반고장 가능성에 관하여
+      **보수적 접근법**으로 원자력 안전이용 원칙의 충족을 보장해야 한다.
+    key_parameters:
+      approach: "conservative (konzervativní přístup)"
+    source_url: "https://www.zakonyprolidi.cz/cs/2017-329"
+    notes: >-
+      This is the provision that makes the CW-04 divergence concrete. Because the Czech
+      accidental aircraft crash is a basic external design event, it is analysed under this
+      conservative approach — whereas 10 CFR 50.150(a)(1) requires "realistic analyses" and
+      RG 1.217 confirms design-basis requirements do not attach to features selected solely
+      for the aircraft rule.
 
   - clause_id: CZ-378-2016-siting
     source_id: CZ-378-2016
-    locator: "vyhláška č. 378/2016 Sb. (siting)"
+    locator: "vyhláška č. 378/2016 Sb. (siting) — number still unconfirmed"
     heading_en: "Site-stage evaluation of air traffic hazard"
     heading_ko: "부지단계 항공교통 위험 평가"
     topics: [T02, T05]
@@ -126,37 +201,20 @@ clauses:
     verification: to_verify
     confidence: low
     summary_en: >-
-      Czech siting rules require the evaluation of external human-induced hazards at the
-      site, including air traffic (airports, air corridors, flight frequencies), which
-      produces the crash-frequency input used to decide whether aircraft crash enters the
-      design basis under decree 329/2017.
+      Czech siting rules are expected to require evaluation of external human-induced hazards
+      at the site, including air traffic, producing the crash-frequency input that decides
+      whether the fall of an aircraft enters the design basis under § 11(4)(b) of decree
+      329/2017. The decree 329/2017 refers repeatedly to "the method of assessment of the
+      territory for siting a nuclear installation", which is the siting instrument this record
+      stands for.
     summary_ko: >-
-      체코 부지 관련 규정은 공항, 항공로, 운항빈도 등 항공교통을 포함한 부지의 인위적
-      외부 위험을 평가하도록 요구하며, 그 결과로 산출된 추락빈도가 시행령 329/2017에 따라
-      항공기 추락을 설계기준에 포함할지 결정하는 입력이 된다.
+      체코 부지 규정은 항공교통을 포함한 부지의 인위적 외부 위험 평가를 요구하며, 그 결과인
+      추락빈도가 시행령 329/2017 § 11(4)(b)에 따라 항공기 낙하를 설계기준에 포함할지
+      결정하는 입력이 될 것으로 보인다. 329/2017은 "원자력시설 입지를 위한 지역 평가방법"을
+      반복 인용하는데, 본 레코드는 그 부지 관련 법령을 가리킨다.
     source_url: "https://www.zakonyprolidi.cz/cs/2016-378"
-    notes: "GAP — decree number and content both to be confirmed."
-
-  - clause_id: CZ-malicious-separation
-    source_id: CZ-263-2016
-    locator: "Atomic Act — physical protection provisions"
-    heading_en: "Malicious aircraft impact handled outside the design decree"
-    heading_ko: "고의적 항공기 충돌은 설계 시행령 밖에서 취급"
-    topics: [T13, T14]
-    text_status: editorial
-    verification: model_knowledge
-    confidence: low
-    summary_en: >-
-      In the Czech framework, as in most European frameworks, the deliberate (malicious)
-      aircraft impact is handled through nuclear security and physical protection provisions
-      rather than through the publicly available design decree, and the associated threat
-      characterisation is treated as sensitive information. The design decree addresses the
-      accidental crash.
-    summary_ko: >-
-      체코 체계에서는 대부분의 유럽 체계와 마찬가지로 고의적(악의적) 항공기 충돌은 공개된
-      설계 시행령이 아니라 핵안보 및 물리적방호 규정을 통해 다루어지며, 관련 위협 정의는
-      민감정보로 취급된다. 설계 시행령은 우발적 추락을 대상으로 한다.
     notes: >-
-      EDITORIAL record — this is the database author's structural reading, not a citation.
-      It exists so that retrieval on "malicious / intentional crash / 고의충돌" returns an
-      explicit statement of where the Czech answer does and does not live.
+      STILL UNRESOLVED. A PDF supplied for this record was a SCANNED IMAGE with no text layer
+      (0 extractable characters across 11 pages) and no OCR engine is available in this
+      environment, so it could not be read or indexed; it is held in .quarantine/. Neither the
+      decree number nor the content is confirmed. Do not cite this record.

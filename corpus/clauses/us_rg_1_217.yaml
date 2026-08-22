@@ -1,85 +1,167 @@
 schema_version: 1
 source_id: US-RG-1.217
+provenance_note: >-
+  Rewritten from the text of RG 1.217 (August 2011, ADAMS ML092900004, 6 pp.), obtained from
+  the user's Google Drive and indexed by scripts/ingest_raw.py.
 clauses:
 
   - clause_id: US-RG-1.217-purpose
     locator: "RG 1.217, Section A (Introduction)"
-    heading_en: "Purpose and regulatory hook"
-    heading_ko: "목적 및 규제 근거"
+    heading_en: "Purpose and the endorsement of NEI 07-13"
+    heading_ko: "목적 및 NEI 07-13 승인"
     topics: [T01, T02]
     text_status: summary
-    verification: web_verified
+    verification: primary_source
     confidence: high
     summary_en: >-
-      Regulatory Guide 1.217, "Guidance for the Assessment of Beyond-Design-Basis Aircraft
-      Impacts" (Revision 0, August 2011), describes a method that the NRC staff considers
-      acceptable for use in satisfying the requirements of 10 CFR 50.150 concerning the
-      consideration of aircraft impacts for new nuclear power reactors.
+      RG 1.217 (August 2011; draft issued as DG-1176, July 2009) describes a method the NRC
+      staff considers acceptable for satisfying 10 CFR Part 50 regarding the consideration of
+      aircraft impacts for new nuclear power reactors. It endorses the methodologies described
+      in NEI 07-13, Revision 8, dated April 2011 (public version at ADAMS ML111440006).
+      Regulatory guides are not substitutes for regulations and compliance with them is not
+      required; differing methods are acceptable if they provide a basis for the findings
+      required for issuance or continuance of a permit or licence.
     summary_ko: >-
-      규제지침 1.217 「설계기준 초과 항공기 충돌 평가 지침」(Rev.0, 2011.8)은 신규 원전에
-      대한 항공기 충돌 고려에 관한 10 CFR 50.150 요건을 만족하는 데 NRC 실무진이 수용
-      가능하다고 보는 방법을 기술한다.
-    source_url: "https://www.federalregister.gov/documents/2011/08/12/2011-20513/guidance-for-the-assessment-of-beyond-design-basis-aircraft-impacts"
-    notes: "Regulatory guides are not requirements; an applicant may propose an alternative method."
+      RG 1.217(2011년 8월, 초안 DG-1176, 2009년 7월)은 신규 원전의 항공기 충돌 고려에 관한
+      10 CFR Part 50 요건 충족에 NRC 실무진이 수용 가능하다고 보는 방법을 기술한다.
+      NEI 07-13 Rev.8(2011년 4월, 공개본 ADAMS ML111440006)에 기술된 방법론을 승인한다.
+      규제지침은 규정을 대체하지 않으며 준수가 강제되지 않는다. 다른 방법도 허가 발급·유지에
+      필요한 판단의 근거를 제공하면 수용된다.
+    source_url: "https://www.nrc.gov/docs/ML0929/ML092900004.pdf"
 
-  - clause_id: US-RG-1.217-endorsement
-    locator: "RG 1.217, Section C (Staff Regulatory Guidance)"
-    heading_en: "Endorsement of NEI 07-13 Revision 8"
-    heading_ko: "NEI 07-13 Rev.8 승인(endorsement)"
+  - clause_id: US-RG-1.217-position
+    locator: "RG 1.217, Section C (Regulatory Position), items 1-3"
+    heading_en: "Regulatory Position — endorsement and its explicit limitation"
+    heading_ko: "규제입장 — 승인과 그 명시적 한계"
     topics: [T01, T07, T08, T09, T10, T11, T12]
-    text_status: summary
-    verification: web_verified
+    text_status: verbatim
+    verification: primary_source
     confidence: high
     summary_en: >-
-      The guide endorses the methodologies described in NEI 07-13, "Methodology for
-      Performing Aircraft Impact Assessments for New Plant Designs," Revision 8, issued
-      April 2011, as an acceptable means of performing the assessment required by
-      10 CFR 50.150(a).
+      "1. The NRC staff (staff) considers conformance with the guidance in NEI 07-13,
+      Revision 8, an acceptable method for use in satisfying the NRC's requirements in
+      10 CFR 50.150(a) regarding the assessment of aircraft impacts for new nuclear power
+      reactors.
+      2. NEI 07-13 references other documents, but this RG does not endorse any of the
+      referenced documents.
+      3. Licensees or applicants may use methods other than those provided in NEI 07-13,
+      Revision 8, to meet the requirements of 10 CFR 50.150(a). The staff will review such
+      methods and determine their acceptability on a case-by-case basis."
     summary_ko: >-
-      본 지침은 NEI 07-13 「신규 원전 설계에 대한 항공기 충돌 평가 수행 방법론」
-      Rev.8(2011년 4월)에 기술된 방법론을 10 CFR 50.150(a)가 요구하는 평가의
-      수용 가능한 수행 수단으로 승인한다.
+      "1. NRC 실무진은 NEI 07-13 Rev.8의 지침에 부합하는 것을, 신규 원전의 항공기 충돌
+      평가에 관한 10 CFR 50.150(a) 요건 충족의 수용 가능한 방법으로 본다.
+      2. NEI 07-13은 다른 문서들을 참조하고 있으나, 본 규제지침은 그 참조문서들 중 어느
+      것도 승인하지 않는다.
+      3. 허가보유자 또는 신청자는 10 CFR 50.150(a) 요건 충족을 위해 NEI 07-13 Rev.8이
+      제시한 것 외의 방법을 사용할 수 있다. 실무진은 그러한 방법을 심사하여 사안별로
+      수용 여부를 판단한다."
     key_parameters:
-      endorsed_document: "NEI 07-13 Revision 8 (April 2011)"
-      endorsement_type: "endorsement, possibly with staff clarifications/exceptions"
-    source_url: "https://www.federalregister.gov/documents/2011/08/12/2011-20513/guidance-for-the-assessment-of-beyond-design-basis-aircraft-impacts"
+      endorsed: "NEI 07-13 Revision 8 (April 2011)"
+      limitation: "referenced documents inside NEI 07-13 are NOT endorsed"
+      alternatives: "permitted, reviewed case-by-case"
+    source_url: "https://www.nrc.gov/docs/ML0929/ML092900004.pdf"
     notes: >-
-      This endorsement is the single most important structural fact of the US framework:
-      the binding rule (50.150) contains no methodology at all, and the entire technical
-      method lives in an industry document pulled in by a non-binding guide.
+      CORRECTION AND KEY FINDING. The previous version of this database recorded that no
+      qualifying clause could be found and treated the endorsement as possibly unqualified.
+      Position 2 is exactly such a qualification, and it bites precisely where CW-08 lands:
+      the empirical local-damage correlations NEI 07-13 adopts — Modified NDRC, reduced
+      Chang, reduced Degen, CEA-EDF per Kar — are drawn from NEI 07-13's REFERENCED
+      documents, which this guide expressly does not endorse. The NRC endorses the method as
+      assembled in NEI 07-13, not the underlying correlation literature.
 
-  - clause_id: US-RG-1.217-exceptions
-    locator: "RG 1.217, Section C — staff clarifications"
-    heading_en: "Staff clarifications and exceptions to the endorsement"
-    heading_ko: "승인에 대한 실무진 명확화 및 예외사항"
-    topics: [T07, T08, T09, T11]
+  - clause_id: US-RG-1.217-bdb-consequence
+    locator: "RG 1.217, Section B (Discussion), Background"
+    heading_en: "Beyond-design-basis status and its regulatory consequence"
+    heading_ko: "설계기준초과 지위와 그 규제상 귀결"
+    topics: [T04, T12]
     text_status: summary
-    verification: to_verify
-    confidence: low
+    verification: primary_source
+    confidence: high
     summary_en: >-
-      NRC regulatory guides that endorse an industry document normally attach clarifications,
-      exceptions or additional staff positions. The specific clarifications RG 1.217 attaches
-      to NEI 07-13 Revision 8 could NOT be retrieved during the build of this database and
-      are recorded here as an explicit gap.
-      NEGATIVE FINDING (not proof of absence): repeated searches return only the bare
-      endorsement sentence — "endorses the methodologies described in ... NEI 07-13 ...
-      Revision 8, issued April 2011" — with no accompanying "with the following exceptions"
-      or "except that" clause surfacing in any indexed source. This is consistent with an
-      unqualified endorsement, but the full Section C text has not been read, so an
-      unqualified endorsement is NOT established.
+      The NRC has determined that the impact of a large, commercial aircraft is a
+      beyond-design-basis event, and that NRC requirements applying to the design,
+      construction, testing, operation and maintenance of design features and functional
+      capabilities for DESIGN-BASIS events will NOT apply to design features or functional
+      capabilities selected by the applicant solely to meet the requirements of the aircraft
+      impact rule. The objective of the rule is to require designers to rigorously assess
+      their designs to identify features and capabilities providing additional inherent
+      protection; the rule provides protection beyond the existing adequate protection
+      requirements applicable to currently operating reactors. The 2009 rulemaking
+      (74 FR 28111, 12 June 2009) also touched 10 CFR 50.8, 50.34, 52.47, 52.59, 52.79,
+      52.137 and 52.157.
     summary_ko: >-
-      산업계 문서를 승인하는 NRC 규제지침은 통상 명확화 사항·예외·추가 실무진 입장을
-      부기한다. RG 1.217이 NEI 07-13 Rev.8에 대해 부기한 구체적 명확화 사항은 본 DB
-      구축 시점에 확보하지 못했으며, 명시적 미확인 항목으로 기록한다.
-      **부정적 소견(부재의 증명은 아님):** 반복 검색 결과 승인 문장 자체 — "NEI 07-13
-      Rev.8(2011년 4월)에 기술된 방법론을 승인한다" — 외에 "다음 예외를 두고" 류의 단서
-      조항이 어떤 색인 자료에서도 나타나지 않는다. 이는 무조건부 승인과 일관되지만,
-      Section C 전문을 읽지 못했으므로 무조건부 승인이라고 **확정할 수는 없다**.
-    source_url: "https://www.govinfo.gov/app/details/GOVPUB-Y3_N88-PURL-gpo37127"
+      NRC는 대형 상용항공기 충돌을 설계기준초과 사건으로 판단하였으며, 설계기준사건에 대한
+      설계특성·기능적 능력의 설계·건설·시험·운전·정비에 적용되는 NRC 요건은 신청자가
+      **오로지 항공기 충돌 규정 충족만을 위해** 선정한 설계특성·기능적 능력에는 **적용되지
+      않는다**고 하였다. 본 규정의 목적은 설계자가 자신의 설계를 엄밀히 평가하여 추가적
+      고유 방호를 제공하는 특성·능력을 도출하도록 하는 것이며, 기존 가동원전에 적용되는
+      적정방호 요건을 넘어서는 방호 수준을 제공한다. 2009년 규칙제정(74 FR 28111,
+      2009.6.12.)은 50.8, 50.34, 52.47, 52.59, 52.79, 52.137, 52.157도 함께 다루었다.
+    key_parameters:
+      determination: "large commercial aircraft impact is a beyond-design-basis event"
+      consequence: "design-basis requirements do not attach to features selected solely for this rule"
+      rulemaking_cite: "74 FR 28111, 12 June 2009"
+    source_url: "https://www.nrc.gov/docs/ML0929/ML092900004.pdf"
     notes: >-
-      GAP. Resolve by obtaining RG 1.217 (ADAMS ML092900004, nrc.gov/docs/ML0929/ML092900004.pdf)
-      and re-running scripts/ingest_raw.py; then replace this record with the verbatim
-      Section C positions. This is the single highest-value remaining gap in the corpus:
-      it determines whether the US regulator accepts NEI 07-13 as written — including the
-      Modified NDRC / reduced Chang / reduced Degen / CEA-EDF selection in CW-08 — or with
-      qualifications.
+      This is the cleanest available statement of what "beyond design basis" buys an
+      applicant in the US system, and the sharpest contrast with the Czech decree, where the
+      accidental crash sits inside the design basis and therefore does carry design-basis
+      obligations. See CW-04.
+
+  - clause_id: US-RG-1.217-sgi
+    locator: "RG 1.217, Section A (Introduction) — non-public versions"
+    heading_en: "Safeguards Information control of the detailed methodology"
+    heading_ko: "상세 방법론의 안전조치정보(SGI) 통제"
+    topics: [T03, T13, T14]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      Non-public versions of this RG and of NEI 07-13 contain more specific details about the
+      methodology used in performing aircraft impact assessments and are handled under
+      Safeguards Information (SGI) controls. Because the non-public guidance documents contain
+      SGI, they are made available only to individuals who have a need to know and are
+      otherwise qualified to access SGI. Plant designers, including their employees and agents,
+      who meet the NRC's requirements for access to SGI are entitled to use the more detailed
+      guidance documents to perform the assessments.
+    summary_ko: >-
+      본 규제지침과 NEI 07-13의 비공개본은 항공기 충돌 평가 수행에 사용되는 방법론에 관한
+      더 구체적인 세부사항을 담고 있으며 안전조치정보(SGI) 통제 하에 취급된다. 비공개
+      지침문서가 SGI를 포함하므로, 알 필요가 있고 SGI 접근 자격을 갖춘 자에게만 제공된다.
+      SGI 접근 요건을 충족하는 발전소 설계자(그 임직원 및 대리인 포함)는 평가 수행을 위해
+      상세 지침문서를 사용할 수 있다.
+    key_parameters:
+      control_regime: "Safeguards Information (SGI)"
+      who_may_access: "need to know + SGI qualification; plant designers and their agents"
+      what_is_withheld: "the more specific methodology details, in non-public versions of RG 1.217 and NEI 07-13"
+    source_url: "https://www.nrc.gov/docs/ML0929/ML092900004.pdf"
+    notes: >-
+      This record carries the withholding fact that the previous database version wrongly
+      attributed to 10 CFR 50.150(d). The mechanism is SGI control of the non-public guidance,
+      not a provision of the rule itself. It confirms CW-03: the numeric threat parameters are
+      genuinely unavailable to anyone outside the SGI-cleared population.
+
+  - clause_id: US-RG-1.217-implementation
+    locator: "RG 1.217, Section D (Implementation)"
+    heading_en: "Voluntary use and backfit posture"
+    heading_ko: "임의적 사용 및 백피트 입장"
+    topics: [T01, T14]
+    text_status: summary
+    verification: primary_source
+    confidence: high
+    summary_en: >-
+      Applicants and licensees may voluntarily use the guidance to demonstrate compliance with
+      the underlying regulations. Methods or solutions that differ may be deemed acceptable if
+      they give the staff sufficient basis to verify compliance. Current licensees may continue
+      using guidance the NRC previously found acceptable as long as their licensing basis is
+      unchanged. Licensees may use the guide for actions not requiring NRC review and approval,
+      such as changes to a facility design under 10 CFR 50.59. The section also describes how
+      the staff complies with the Backfit Rule (10 CFR 50.109) and Part 52 finality provisions.
+    summary_ko: >-
+      신청자와 허가보유자는 기저 규정의 준수 입증을 위해 본 지침을 임의로 사용할 수 있다.
+      다른 방법·해법도 실무진이 준수를 확인할 충분한 근거를 제공하면 수용될 수 있다. 기존
+      허가보유자는 허가기준이 변경되지 않는 한 NRC가 이전에 수용한 지침을 계속 사용할 수
+      있다. 10 CFR 50.59에 따른 시설 설계변경 등 NRC 심사·승인이 불필요한 조치에도 본
+      지침을 사용할 수 있다. 본 절은 실무진이 백피트 규칙(10 CFR 50.109) 및 Part 52 확정성
+      조항을 준수하는 방식도 기술한다.
+    source_url: "https://www.nrc.gov/docs/ML0929/ML092900004.pdf"

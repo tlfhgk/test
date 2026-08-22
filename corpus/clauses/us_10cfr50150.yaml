@@ -1,10 +1,11 @@
 schema_version: 1
 source_id: US-10CFR50.150
-
-# text_status:  summary | verbatim | editorial
-# verification: web_verified   - confirmed against a retrieved source this session
-#               model_knowledge- written from the assistant's knowledge, NOT re-checked
-#               to_verify      - locator or content uncertain, check before citing
+provenance_note: >-
+  Rewritten from the eCFR text of 10 CFR 50.150 current as of 2026-08-20, obtained from the
+  user's Google Drive and indexed by scripts/ingest_raw.py. Source note in the document:
+  [74 FR 28146, June 12, 2009, as amended at 91 FR 17762, Apr. 8, 2026].
+  Several records in the previous version of this database were written from unverified
+  knowledge and were wrong; the corrections are called out in the notes fields.
 clauses:
 
   - clause_id: US-10CFR50.150-a-1
@@ -12,64 +13,67 @@ clauses:
     heading_en: "Assessment requirement and acceptance criteria"
     heading_ko: "평가 의무 및 허용기준"
     topics: [T01, T02, T12, T15]
-    text_status: summary
-    verification: web_verified
+    text_status: verbatim
+    verification: primary_source
     confidence: high
     summary_en: >-
-      Each applicant within the scope of paragraph (a)(3) must perform a design-specific
-      assessment of the effects on the facility of the impact of a large, commercial aircraft.
-      Using realistic analyses, the applicant must identify and incorporate into the design
-      those design features and functional capabilities that show, with reduced use of
-      operator actions, that (i) the reactor core remains cooled or the containment remains
-      intact, and (ii) spent fuel cooling or spent fuel pool integrity is maintained.
+      "(1) Assessment. Each applicant listed in paragraph (a)(3) shall perform a
+      design-specific assessment of the effects on the facility of the impact of a large,
+      commercial aircraft. Using realistic analyses, the applicant shall identify and
+      incorporate into the design those design features and functional capabilities to show
+      that, with reduced use of operator actions: (i) The reactor core remains cooled, or the
+      containment remains intact; and (ii) spent fuel cooling or spent fuel pool integrity is
+      maintained."
     summary_ko: >-
-      (a)(3)의 적용 대상 신청자는 대형 상용항공기 충돌이 시설에 미치는 영향에 대한
-      설계특정 평가를 수행해야 한다. 현실적(realistic) 해석을 사용하여, 운전원 조치
+      "(1) 평가. (a)(3)에 열거된 각 신청자는 대형 상용항공기 충돌이 시설에 미치는 영향에
+      대한 설계특정 평가를 수행해야 한다. 현실적 해석을 사용하여, 신청자는 운전원 조치
       의존을 줄인 상태에서 (i) 노심냉각이 유지되거나 격납건물 건전성이 유지되고,
-      (ii) 사용후핵연료 냉각 또는 사용후핵연료저장조 건전성이 유지됨을 보이는
-      설계특성(design features) 및 기능적 능력(functional capabilities)을 도출하여
-      설계에 반영해야 한다.
+      (ii) 사용후핵연료 냉각 또는 사용후핵연료저장조 건전성이 유지됨을 보이는 설계특성 및
+      기능적 능력을 도출하여 설계에 반영해야 한다."
     key_parameters:
-      analysis_type: "realistic (best-estimate), not design-basis conservative"
-      criteria_logic: "(core cooling OR containment integrity) AND (SFP cooling OR SFP integrity)"
-      operator_action: "reduced use of operator actions"
-    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/subject-group-ECFR448a4b6d297d970/section-50.150"
-    notes: >-
-      This is the operative acceptance criterion the whole US framework hangs on. Note the
-      OR structure: neither containment integrity nor core cooling alone is mandatory.
+      analysis_type: "realistic analyses"
+      criteria_logic: "(core cooling OR containment intact) AND (SFP cooling OR SFP integrity)"
+      operator_action: "with reduced use of operator actions"
+    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/section-50.150"
+    notes: "Confirmed verbatim; the earlier summary of this paragraph was accurate."
 
   - clause_id: US-10CFR50.150-a-2
-    locator: "10 CFR 50.150(a)(2)"
+    locator: "10 CFR 50.150(a)(2) and its footnote 1"
     heading_en: "Aircraft impact characteristics"
     heading_ko: "항공기 충돌 특성"
     topics: [T03, T04, T13, T14]
-    text_status: summary
-    verification: model_knowledge
-    confidence: medium
+    text_status: verbatim
+    verification: primary_source
+    confidence: high
     summary_en: >-
-      The assessment is based on the beyond-design-basis impact of a large, commercial
-      aircraft used for long-distance flights in the United States, with aviation fuel
-      loading typical of such flights. The impact speed and angle of impact are to consider
-      the ability of both experienced and inexperienced pilots to control an aircraft at
-      the low altitude characteristic of nuclear power plant structures. The specific
-      impact characteristics to be used are provided by the NRC as security-related
-      information and are not publicly available.
+      "(2) Aircraft impact characteristics. The assessment must be based on the
+      beyond-design-basis impact of a large, commercial aircraft used for long distance
+      flights in the United States, with aviation fuel loading typically used in such
+      flights, and an impact speed and angle of impact considering the ability of both
+      experienced and inexperienced pilots to control large, commercial aircraft at the low
+      altitude representative of a nuclear power plant's low profile."
+      Footnote 1 to this paragraph: "Changes to the detailed parameters on aircraft impact
+      characteristics set forth in guidance shall be approved by the Commission."
     summary_ko: >-
-      평가는 미국 내 장거리 운항에 사용되는 대형 상용항공기의 설계기준초과
-      (beyond-design-basis) 충돌을 대상으로 하며, 그러한 운항에 통상적인 항공유
-      적재량을 가정한다. 충돌속도와 충돌각도는 숙련·비숙련 조종사가 원전 구조물
-      높이의 저고도에서 항공기를 제어할 수 있는 능력을 고려하여 정한다. 실제 적용할
-      구체적 충돌 특성값은 NRC가 보안 관련 정보로 별도 제공하며 공개되지 않는다.
+      "(2) 항공기 충돌 특성. 평가는 미국 내 장거리 운항에 사용되는 대형 상용항공기의
+      설계기준초과 충돌을 기준으로 해야 하며, 그러한 운항에 통상 사용되는 항공유 적재량과,
+      숙련·비숙련 조종사가 원전의 낮은 형상(low profile)에 해당하는 저고도에서 대형
+      상용항공기를 제어할 수 있는 능력을 고려한 충돌속도 및 충돌각도를 기준으로 한다."
+      본 항의 각주 1: "지침에 규정된 항공기 충돌 특성의 상세 파라미터 변경은 위원회의
+      승인을 받아야 한다."
     key_parameters:
-      classification: "beyond design basis (BDB)"
-      aircraft: "large commercial aircraft, long-distance US flights"
-      fuel: "aviation fuel loading typical of such flights"
-      numeric_values: "withheld — security-related information supplied by NRC"
-    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/subject-group-ECFR448a4b6d297d970/section-50.150"
+      classification: "beyond-design-basis"
+      aircraft: "large, commercial aircraft used for long distance flights in the United States"
+      fuel: "aviation fuel loading typically used in such flights"
+      detailed_parameters: "set forth in guidance; changes require Commission approval"
+    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/section-50.150"
     notes: >-
-      IMPORTANT for comparison work: because the mass/velocity/fuel figures are withheld,
-      any numeric benchmark against EUR or Czech requirements can only be made at the level
-      of methodology, not at the level of the threat parameters themselves.
+      CORRECTION. The previous version of this record asserted that the detailed impact
+      characteristics are "provided by the NRC as security-related information". The rule
+      says only that the detailed parameters are set forth in GUIDANCE and that changes to
+      them require Commission approval. The withholding fact is real but lives elsewhere —
+      RG 1.217 Section A states that the non-public versions of RG 1.217 and NEI 07-13 are
+      handled under Safeguards Information (SGI) controls. See US-RG-1.217-sgi.
 
   - clause_id: US-10CFR50.150-a-3
     locator: "10 CFR 50.150(a)(3)"
@@ -77,83 +81,148 @@ clauses:
     heading_ko: "적용 대상"
     topics: [T02]
     text_status: summary
-    verification: model_knowledge
-    confidence: medium
+    verification: primary_source
+    confidence: high
     summary_en: >-
-      The requirement applies to applicants for new reactors, including applicants for a
-      standard design certification, a standard design approval, a combined licence under
-      Part 52, a manufacturing licence, and a construction permit or operating licence for
-      a new reactor. Applicants that reference a design that has already undergone an
-      aircraft impact assessment do not have to repeat it. The rule is prospective: it does
-      not apply to the existing operating fleet licensed before the rule took effect.
+      The requirements of (a)(1) and (a)(2) apply to applicants for:
+      (i) construction permits for nuclear power reactors issued under Part 50 after
+      13 July 2009;
+      (ii) operating licences under Part 50 for which a construction permit was issued after
+      13 July 2009;
+      (iii)(A) standard design certifications issued under Part 52 after 13 July 2009, and
+      (B) renewal of standard design certifications in effect on 13 July 2009 which have not
+      been amended to comply with this section by the time of application for renewal;
+      (iv) standard design approvals issued under Part 52 after 13 July 2009;
+      (v) combined licences under Part 52 that (A) do not reference a standard design
+      certification, standard design approval or manufactured reactor, or (B) reference a
+      standard design certification issued before 13 July 2009 which has not been amended to
+      address this section;
+      (vi) manufacturing licences under Part 52 that (A) do not reference a standard design
+      certification or standard design approval, or (B) reference a standard design
+      certification issued before 13 July 2009 which has not been amended to address this
+      section.
     summary_ko: >-
-      본 요건은 신규 원전 신청자, 즉 표준설계인증(DC), 표준설계승인(SDA),
-      10 CFR Part 52 통합운영허가(COL), 제조허가(ML), 신규 원전의 건설허가(CP)·
-      운영허가(OL) 신청자에게 적용된다. 이미 항공기 충돌 평가를 수행한 설계를 참조하는
-      신청자는 반복 수행할 필요가 없다. 본 규정은 장래효를 가지며 규칙 발효 전에
-      허가된 기존 가동 원전에는 적용되지 않는다.
+      (a)(1) 및 (a)(2)의 요건은 다음 신청자에게 적용된다:
+      (i) 2009.7.13. 이후 Part 50에 따라 발급된 원자로 건설허가;
+      (ii) 2009.7.13. 이후 건설허가가 발급된 원전에 대한 Part 50 운영허가;
+      (iii)(A) 2009.7.13. 이후 Part 52에 따라 발급된 표준설계인증, (B) 2009.7.13. 시점에
+      유효한 표준설계인증 중 갱신 신청 시까지 본 조 요건에 맞게 개정되지 않은 것의 갱신;
+      (iv) 2009.7.13. 이후 Part 52에 따라 발급된 표준설계승인;
+      (v) Part 52 통합운영허가 중 (A) 표준설계인증·표준설계승인·제조원자로를 참조하지
+      않거나, (B) 2009.7.13. 이전 발급되어 본 조를 반영하도록 개정되지 않은 표준설계인증을
+      참조하는 것;
+      (vi) Part 52 제조허가 중 (A) 표준설계인증·표준설계승인을 참조하지 않거나,
+      (B) 2009.7.13. 이전 발급되어 본 조를 반영하지 않은 표준설계인증을 참조하는 것.
     key_parameters:
-      applies_to: "new reactor applicants (DC, SDA, COL, ML, CP, OL)"
-      excludes: "existing operating reactors licensed before 2009-07-13"
-    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/subject-group-ECFR448a4b6d297d970/section-50.150"
-    notes: "Verify the exact enumeration of subparagraphs (i)-(vi) against eCFR before citing in a licensing document."
+      cutoff_date: "13 July 2009"
+      excludes: "existing operating reactors; applicants referencing a design already assessed under this section"
+      renewal_hook: "renewal of a pre-2009 design certification pulls it into scope unless already amended"
+    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/section-50.150"
+    notes: >-
+      The earlier summary had the gist right but missed the renewal provision in (iii)(B) and
+      the "reference a pre-2009 certification" logic in (v)(B) and (vi)(B), which are the
+      operative mechanisms that pull older designs into scope.
 
   - clause_id: US-10CFR50.150-b
     locator: "10 CFR 50.150(b)"
-    heading_en: "Content of application — description of design features"
-    heading_ko: "신청서 기재사항 — 설계특성 기술"
+    heading_en: "Content of application"
+    heading_ko: "신청서 기재사항"
     topics: [T14]
-    text_status: summary
-    verification: model_knowledge
-    confidence: medium
+    text_status: verbatim
+    verification: primary_source
+    confidence: high
     summary_en: >-
-      The applicant must include in the application a description of the key design features
-      and functional capabilities identified by the assessment, together with the strategies
-      and the basis on which the acceptance criteria of (a)(1) are met. This description
-      becomes part of the final safety analysis report.
+      "(b) Content of application. For applicants identified in paragraph (a)(3) of this
+      section, the preliminary or final safety analysis report, as applicable, must include a
+      description of: (1) The design features and functional capabilities identified in
+      paragraph (a)(1) of this section; and (2) How the design features and functional
+      capabilities identified in paragraph (a)(1) of this section meet the assessment
+      requirements in paragraph (a)(1) of this section."
     summary_ko: >-
-      신청자는 평가를 통해 도출된 핵심 설계특성 및 기능적 능력에 관한 기술과,
-      (a)(1)의 허용기준 충족 근거 및 전략을 신청서에 포함해야 하며, 이 기술내용은
-      최종안전성분석보고서(FSAR)의 일부가 된다.
-    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/subject-group-ECFR448a4b6d297d970/section-50.150"
+      "(b) 신청서 기재사항. (a)(3)에 열거된 신청자의 경우, 예비 또는 최종 안전성분석보고서에
+      다음의 기술을 포함해야 한다: (1) (a)(1)에서 도출된 설계특성 및 기능적 능력, 그리고
+      (2) 해당 설계특성 및 기능적 능력이 (a)(1)의 평가 요건을 어떻게 충족하는지."
+    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/section-50.150"
 
   - clause_id: US-10CFR50.150-c
     locator: "10 CFR 50.150(c)"
-    heading_en: "Change control for key design features"
-    heading_ko: "핵심 설계특성 변경관리"
+    heading_en: "Control of changes"
+    heading_ko: "변경관리"
     topics: [T14]
     text_status: summary
-    verification: model_knowledge
-    confidence: low
+    verification: primary_source
+    confidence: high
     summary_en: >-
-      Holders of a licence, design certification, design approval or manufacturing licence
-      subject to this section are restricted in changing the key design features and
-      functional capabilities credited in the assessment; changes are controlled through the
-      applicable change process rather than made freely.
+      "(c) Control of changes." Change control is routed through the safety-analysis-report
+      content requirements for each licence type. If the holder changes the information
+      required to be in the safety analysis report, it must consider the effect of the changed
+      feature or capability on the original assessment required by 50.150(a) and amend that
+      information to describe how the modified design features and functional capabilities
+      continue to meet the assessment requirements in (a)(1). The hooks are:
+      construction permits → 10 CFR 50.34(a)(13) (PSAR);
+      operating licences → 10 CFR 50.34(b)(12) (FSAR);
+      standard design certifications → 10 CFR 52.47(a)(28), with generic changes governed by
+      10 CFR 52.63;
+      combined licences → 10 CFR 52.79(a)(47);
+      manufacturing licences → 10 CFR 52.157(f)(32), with generic changes governed by
+      10 CFR 52.171.
+      For a combined licence not itself subject to (a) but referencing a design certification
+      or manufactured reactor that is, departures are governed by the change control
+      requirements of the referenced design certification rule or by 10 CFR 52.171(b)(2).
     summary_ko: >-
-      본 조의 적용을 받는 허가·설계인증·설계승인·제조허가 보유자는 평가에서 인정된
-      핵심 설계특성과 기능적 능력을 임의로 변경할 수 없으며, 해당 변경관리 절차를
-      통해 통제된다.
-    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/subject-group-ECFR448a4b6d297d970/section-50.150"
-    notes: "LOW CONFIDENCE on the exact change-control mechanism and paragraph lettering. Confirm against eCFR."
+      "(c) 변경관리." 변경관리는 허가 유형별 안전성분석보고서 기재요건을 통해 이루어진다.
+      보유자가 보고서에 기재하도록 요구된 정보를 변경하는 경우, 변경된 특성·능력이
+      50.150(a)의 원래 평가에 미치는 영향을 고려하고, 수정된 설계특성 및 기능적 능력이
+      (a)(1)의 평가 요건을 계속 충족하는 방식을 기술하도록 해당 정보를 개정해야 한다.
+      연결 조항: 건설허가 → 50.34(a)(13)(PSAR); 운영허가 → 50.34(b)(12)(FSAR);
+      표준설계인증 → 52.47(a)(28), 일반 변경은 52.63; 통합운영허가 → 52.79(a)(47);
+      제조허가 → 52.157(f)(32), 일반 변경은 52.171.
+      본 조 적용을 받지 않으면서 적용대상 설계인증·제조원자로를 참조하는 통합운영허가의
+      이탈(departure)은 참조된 설계인증 규칙의 변경관리 요건 또는 52.171(b)(2)에 따른다.
+    key_parameters:
+      psar_hook: "10 CFR 50.34(a)(13)"
+      fsar_hook: "10 CFR 50.34(b)(12)"
+      dc_hook: "10 CFR 52.47(a)(28) / 52.63"
+      col_hook: "10 CFR 52.79(a)(47)"
+      ml_hook: "10 CFR 52.157(f)(32) / 52.171"
+    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/section-50.150"
+    notes: >-
+      The previous record marked this paragraph low-confidence and described it only in
+      general terms. The substance was right — changes are controlled, not free — but the
+      mechanism is specific: it works through the SAR content requirements, not through a
+      standalone change process.
 
   - clause_id: US-10CFR50.150-d
     locator: "10 CFR 50.150(d)"
-    heading_en: "Withholding of the assessment from public disclosure"
-    heading_ko: "평가결과의 비공개"
-    topics: [T13, T14]
-    text_status: summary
-    verification: model_knowledge
-    confidence: medium
+    heading_en: "Sunsetting provisions — the rule expires 8 April 2027 unless extended"
+    heading_ko: "일몰 조항 — 2027.4.8. 실효, 연장 없으면 종료"
+    topics: [T01, T02, T14]
+    text_status: verbatim
+    verification: primary_source
+    confidence: high
     summary_en: >-
-      The aircraft impact assessment and the supporting analyses are treated as
-      security-related information and may be withheld from public disclosure under the
-      NRC's rules on public inspection of records (10 CFR 2.390).
+      "(d) Sunsetting provisions. This section shall cease to have effect on April 8, 2027,
+      unless the NRC determines that the cessation deadline should be extended to a date not
+      more than 5 years in the future after offering the public an opportunity to provide
+      input on the costs and benefits of this section and considering that input. The NRC
+      will publish a document in the FEDERAL REGISTER announcing its determination and
+      revising or removing this section accordingly."
     summary_ko: >-
-      항공기 충돌 평가 및 관련 해석자료는 보안 관련 정보로 취급되어 NRC의 기록공개
-      규정(10 CFR 2.390)에 따라 비공개될 수 있다.
-    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/subject-group-ECFR448a4b6d297d970/section-50.150"
+      "(d) 일몰 조항. 본 조는 2027년 4월 8일에 효력을 상실한다. 다만 NRC가 본 조의 비용과
+      편익에 관해 공중의 의견제출 기회를 제공하고 그 의견을 고려한 후, 실효기한을 5년
+      이내의 장래 시점으로 연장해야 한다고 결정하는 경우는 예외로 한다. NRC는 그 결정을
+      연방관보에 공표하고 이에 따라 본 조를 개정하거나 삭제한다."
+    key_parameters:
+      sunset_date: "2027-04-08"
+      max_extension: "not more than 5 years"
+      added_by: "91 FR 17762, 8 April 2026"
+      procedure: "public input on costs and benefits, then a Federal Register determination"
+    source_url: "https://www.ecfr.gov/current/title-10/chapter-I/part-50/section-50.150"
     notes: >-
-      Practical consequence: the plant-specific AIA results for AP1000, US-EPR, ESBWR etc.
-      are not in the public FSARs, so a public-domain benchmark against NEI 07-13 outputs
-      is impossible. Only the methodology is public.
+      MAJOR CORRECTION. The previous version of this database recorded 50.150(d) as
+      "withholding of the assessment from public disclosure ... under 10 CFR 2.390". That is
+      wrong. Paragraph (d) is a sunset clause added by the April 2026 amendment, and it is
+      the single most consequential fact about the US framework's current status: unless the
+      NRC acts, the aircraft impact rule ceases to have effect on 8 April 2027. Any
+      comparison that treats 10 CFR 50.150 as a stable fixture should be revisited against
+      this date.

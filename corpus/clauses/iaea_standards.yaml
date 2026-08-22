@@ -68,42 +68,57 @@ clauses:
 
   - clause_id: IAEA-SSG-79-spl
     source_id: IAEA-SSG-79
-    locator: "SSG-79 (site evaluation, human-induced external events) — screening probability level"
-    heading_en: "Screening probability level of 1E-7 per reactor-year"
-    heading_ko: "원자로-년당 1E-7 스크리닝 확률수준"
+    locator: "SSG-79, screening probability level (footnote) and the aircraft crash screening steps"
+    heading_en: "Screening probability level and its application to aircraft crash"
+    heading_ko: "스크리닝 확률수준과 항공기 추락에의 적용"
     topics: [T05, T02]
     text_status: summary
-    verification: to_verify
-    confidence: low
-    superseded_by: IAEA-SSG-68-fn9-spl
+    verification: primary_source
+    confidence: high
     summary_en: >-
-      SUPERSEDED — see IAEA-SSG-68-fn9-spl. This record originally attributed the 1E-7
-      screening probability level to SSG-79 on the basis of a search result. The text was
-      subsequently located in the actual document as footnote 9 of SSG-68, which attributes
-      it to NS-G-3.1. Whether SSG-79 restates it has NOT been confirmed, and SSG-68 (2021)
-      still cites NS-G-3.1 as a live reference rather than a superseded one.
-      Original (unconfirmed) wording follows.
-      In some States a probability of 1E-7 per reactor-year is used in the design of new
-      facilities as one acceptable limit on the probability value for interacting events
-      having serious radiological consequences; this is considered a conservative value for
-      the screening probability level (SPL) if applied to all events of the same type, such
-      as all aircraft crashes or all explosions. Events screened in by the SPL are carried
-      into the design basis; events below it may be screened out.
+      SSG-79 defines the screening probability level (SPL) as "the limiting value of the annual
+      probability of occurrence of events with potential radiological consequences", and states
+      that if the probability of occurrence is less than the specified SPL, no further analysis
+      is necessary for that source. The SPL "should be chosen such that the radiation risk
+      associated with hazards is acceptably low"; if the probability exceeds it, a detailed
+      evaluation should be performed.
+      On the value: "In some States, a probability of 10^-7 per reactor-year is used in the
+      design of new facilities as one acceptable limit on the probability value for interacting
+      events with serious radiological consequences, and this is considered a conservative
+      value for the screening probability level if applied to all events of the same type."
+      Applied to aircraft: the probability of crashing is determined per aircraft category
+      (general aviation, medium and large commercial aircraft, military aircraft) and compared
+      with the SPL; "those aircraft crashes for which the probability of occurrence is less
+      than the screening probability level can be screened out."
     summary_ko: >-
-      일부 국가에서는 심각한 방사선학적 결과를 초래할 수 있는 상호작용 사건의 확률에 대한
-      수용 가능한 한계값으로 신규 시설 설계 시 원자로-년당 1E-7을 사용한다. 이는 동일 유형의
-      모든 사건(예: 모든 항공기 추락, 모든 폭발)에 적용될 경우 스크리닝 확률수준(SPL)으로서
-      보수적인 값으로 간주된다. SPL에 의해 선별된 사건은 설계기준에 편입되고, 그 미만의
-      사건은 배제될 수 있다.
+      SSG-79는 스크리닝 확률수준(SPL)을 "방사선학적 결과를 초래할 수 있는 사건의 연간
+      발생확률의 한계값"으로 정의하고, 발생확률이 지정된 SPL 미만이면 해당 요인에 대해
+      추가 해석이 불필요하다고 규정한다. SPL은 "재해와 관련된 방사선 위험이 수용 가능하게
+      낮도록" 선정되어야 하며, 확률이 이를 초과하면 상세평가를 수행해야 한다.
+      값에 관하여: "일부 국가에서는 심각한 방사선학적 결과를 갖는 상호작용 사건의 확률에
+      대한 하나의 수용 가능한 한계값으로 신규 시설 설계 시 원자로-년당 10^-7을 사용하며,
+      이는 동일 유형의 모든 사건에 적용될 경우 스크리닝 확률수준으로서 보수적인 값으로
+      간주된다."
+      항공기 적용: 추락확률을 항공기 범주별(일반항공, 중형·대형 상용항공기, 군용항공기)로
+      산정하여 SPL과 비교하며, "발생확률이 스크리닝 확률수준보다 낮은 항공기 추락은 배제할
+      수 있다."
     key_parameters:
-      spl_value: "1E-7 per reactor-year"
-      application_rule: "applied to all events of the same type collectively (e.g. all aircraft crashes)"
-      supersedes: "NS-G-3.1 (2002)"
+      spl_definition: "limiting value of the annual probability of occurrence of events with potential radiological consequences"
+      spl_value: "1E-7 per reactor-year, used in some States"
+      application_rule: "conservative only if applied to all events of the same type collectively"
+      aircraft_categories: ["general aviation", "medium and large commercial aircraft", "military aircraft"]
+      supersedes: "NS-G-3.1, External Human Induced Events in Site Evaluation for Nuclear Power Plants (2002)"
     source_url: "https://www-pub.iaea.org/MTCD/Publications/PDF/PUB2036_web.pdf"
     notes: >-
-      SUPERSEDED by IAEA-SSG-68-fn9-spl, which carries the same statement verified against
-      the primary text. The substantive finding stands: the Czech decree's "> once in
-      10,000,000 years" is the same 1E-7/yr level. Only the attribution changed.
+      DOUBLE CORRECTION — this record was right, then wrongly "corrected", and is now restored
+      from the primary text. Sequence: (1) the first build attributed the 1E-7 SPL to SSG-79
+      from a search result; (2) on finding the same statement as footnote 9 of SSG-68, this
+      database demoted the SSG-79 record to to_verify and called the attribution an error;
+      (3) the SSG-79 text itself shows the statement IS in SSG-79, in almost identical wording,
+      and that SSG-79 supersedes NS-G-3.1. Both documents carry it. SSG-68 cites NS-G-3.1 as
+      its source because SSG-68 was published first; that is chronology, not a contradiction.
+      SSG-79 adds what SSG-68 does not: the per-aircraft-category screening procedure.
+      This is the strongest quantitative link to the Czech § 11(4)(b) 1E-7/yr level.
 
   - clause_id: IAEA-SRS-86-framework
     source_id: IAEA-SRS-86

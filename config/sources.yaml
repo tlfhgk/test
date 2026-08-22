@@ -33,8 +33,12 @@ sources:
     instrument_type: regulation
     binding: true
     version: "current (as amended)"
-    origin_rule: "74 FR 28112, 'Consideration of Aircraft Impacts for New Nuclear Power Reactors', 12 June 2009"
+    origin_rule: "74 FR 28111 (section source note: 74 FR 28146), 'Consideration of Aircraft Impacts for New Nuclear Power Reactors', 12 June 2009; amended 91 FR 17762, 8 Apr 2026"
     effective_date: "2009-07-13"
+    sunset_date: "2027-04-08 — § 50.150(d) sunsets the section unless the NRC extends it"
+    obtained: true
+    obtained_via: "user's Google Drive (eCFR text current as of 2026-08-20, 3 pp.)"
+    indexed_verbatim: true
     language: en
     access: public-domain
     urls:
@@ -57,7 +61,10 @@ sources:
     issue_date: "2011-08"
     language: en
     access: public-domain
-    adams: "ML092900004"
+    adams: "ML092900004 (regulatory analysis ML112101610); draft was DG-1176, July 2009"
+    obtained: true
+    obtained_via: "user's Google Drive (6 pp.)"
+    indexed_verbatim: true
     urls:
       - "https://www.federalregister.gov/documents/2011/08/12/2011-20513/guidance-for-the-assessment-of-beyond-design-basis-aircraft-impacts"
       - "https://www.govinfo.gov/app/details/GOVPUB-Y3_N88-PURL-gpo37127"
@@ -128,8 +135,13 @@ sources:
       - "https://www.sagit.cz/_texty/sb17329.htm"
       - "https://e-sbirka.gov.cz/sb/2017/329"
       - "https://www.tzb-info.cz/docu/predpisy/download/V329-2017.pdf"
-    aircraft_provision: "§ 13 odst. 2 písm. b) — accidental fall of an aircraft or other object, > 1E-7/yr"
-    general_external_event_provision: "§ 6 and § 12 — basic external design events at 1E-4/yr or lower"
+    aircraft_provision: "§ 11 odst. 4 písm. b) — accidental fall of an aircraft or other object, > 1E-7/yr"
+    intentional_attack_provision: "§ 10 odst. 1 písm. d) — design bases include physical protection plan data from the consequence analysis of an intentional transport-aircraft attack"
+    general_external_event_provision: "§ 11 odst. 1-3 — basic external design events at 1E-4/yr or lower; § 12(1) conservative approach"
+    seismic_floor: "§ 11 odst. 4 písm. a) — minimum postulated PGA of 0.1 g for the same SSC set"
+    obtained: true
+    obtained_via: "user's Google Drive (Sbírka zákonů částka 112, 48 pp.)"
+    indexed_verbatim: true
     role: "Binding Czech design requirements; contains the accidental-aircraft-crash design basis and both frequency criteria."
 
   - source_id: CZ-378-2016
@@ -145,6 +157,12 @@ sources:
     language: cs
     access: free-download
     verification: to_verify
+    obtained: false
+    acquisition_note: >-
+      A file supplied for this source is a SCANNED IMAGE PDF with no text layer (0
+      extractable characters over 11 pages). No OCR engine is available in this environment,
+      so it could not be read or indexed. Held in .quarantine/. The decree number itself
+      remains unconfirmed.
     urls:
       - "https://www.zakonyprolidi.cz/cs/2016-378"
     role: "Siting-stage screening of external human-induced hazards, incl. air traffic, that feeds the design basis in 329/2017."
@@ -218,6 +236,9 @@ sources:
     copyright_note: "© IAEA. Freely downloadable; keep text local, do not commit."
     urls:
       - "https://www.iaea.org/publications/10646/safety-of-nuclear-power-plants-design"
+    obtained: true
+    obtained_via: "user's Google Drive (99 pp.)"
+    indexed_verbatim: true
     role: "Top-level design requirements; Requirement 17 covers internal and external hazards."
 
   - source_id: IAEA-SSG-68
@@ -253,10 +274,12 @@ sources:
     instrument_type: safety-guide
     binding: false
     version: "(STI/PUB/2036)"
-    supersedes: "claimed to supersede NS-G-3.1 — NOT CONFIRMED. SSG-68 (2021) still cites NS-G-3.1 as a live reference [9], including for the 1E-7 screening probability level."
+    supersedes: "NS-G-3.1, External Human Induced Events in Site Evaluation for Nuclear Power Plants (2002) — CONFIRMED from the SSG-79 text. SSG-68 (2021) cites NS-G-3.1 because it was published earlier."
     language: en
     access: free-download
-    verification: to_verify
+    obtained: true
+    obtained_via: "user's Google Drive (114 pp.)"
+    indexed_verbatim: true
     copyright_note: "© IAEA. Freely downloadable; keep text local, do not commit."
     urls:
       - "https://www.iaea.org/publications/15067/hazards-associated-with-human-induced-external-events-in-site-evaluation-for-nuclear-installations"
@@ -279,6 +302,9 @@ sources:
     copyright_note: "© IAEA. Freely downloadable; keep text local, do not commit."
     urls:
       - "https://www-pub.iaea.org/MTCD/Publications/PDF/P1721_web.pdf"
+    obtained: true
+    obtained_via: "user's Google Drive (104 pp.)"
+    indexed_verbatim: true
     role: "First of the three-part set; framework and roadmap for design/evaluation against human-induced external events."
 
   - source_id: IAEA-SRS-87
@@ -317,4 +343,9 @@ sources:
     copyright_note: "© IAEA. Freely downloadable; keep text local, do not commit."
     urls:
       - "https://www.iaea.org/publications/10914/safety-aspects-of-nuclear-power-plants-in-human-induced-external-events-margin-assessment"
+    obtained: false
+    acquisition_note: >-
+      A file supplied for this source was NOT SRS No. 88 — it was STI/PUB/771, "Medical
+      Handling of Accidentally Exposed Individuals", an unrelated older Safety Series
+      publication. Held in .quarantine/, not indexed. SRS No. 88 is still needed.
     role: "Plant/system-level margin (HCLPF-style) evaluation against human-induced external hazards."
