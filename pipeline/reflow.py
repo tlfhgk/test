@@ -41,7 +41,7 @@ def chunk(lines):
     return out
 
 def reflow(text):
-    lines = text.split('\n')
+    lines = [l.rstrip() for l in text.split('\n')]
     title, body = lines[0], [l for l in lines[1:] if l.strip()]
     blocks, i, n = [], 0, len(body)
     while i < n:

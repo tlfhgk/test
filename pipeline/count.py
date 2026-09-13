@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """회차 본문 글자 수 측정. CLAUDE.md 1항 기준 3,500~4,500자.
 
-측정 기준: 모든 줄의 글자 수(공백 포함). 구분선은 쓰지 않는다.
+측정 기준: 모든 줄의 글자 수(공백 포함). 줄 끝 마크업 공백과 구분선은 제외.
 사용법: python3 pipeline/count.py [회차번호 ...]
 """
 import glob, re, sys
@@ -10,7 +10,9 @@ FLOOR, CEIL = 3500, 4500
 
 
 def count(path):
-    return len(open(path).read().replace("\n", ""))
+    # 줄 끝 공백 두 칸은 마크다운 강제 개행 표시(마크업)이므로 세지 않는다
+    txt = open(path, encoding="utf-8").read()
+    return len("".join(l.rstrip() for l in txt.split("\n")))
 
 
 def main():
