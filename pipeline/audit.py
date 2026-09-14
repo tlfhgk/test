@@ -170,6 +170,31 @@ def main():
                 add("연속성", "「%s %s」이 %d편에만 나온다 (%s) — 정전 수치와 대조"
                     % (fig, kind, len(where), ", ".join(map(str, sorted(set(where))))))
 
+    # ── 8. 연속성: 마당 인원이 입주 일정과 맞는지 ──────────────────────
+    # 1~5화 5 / 6~12화 9 / 13~21화 10 / 22~129화 15 / 130~140화 16
+    ROSTER = [(1, 5, 5), (6, 12, 9), (13, 21, 10), (22, 129, 15), (130, 999, 16)]
+    WORD = {"다섯": 5, "여섯": 6, "일곱": 7, "여덟": 8, "아홉": 9, "열": 10,
+            "열하나": 11, "열한": 11, "열둘": 12, "열두": 12, "열셋": 13,
+            "열넷": 14, "열다섯": 15, "열여섯": 16, "열일곱": 17}
+    ALT = "|".join(sorted(WORD, key=len, reverse=True))
+    HEAD = re.compile(r"(?:마당의|마당에|마당에서)\s*(" + ALT + r")(?=[이가은는도]\s|\s*(?:명|사람))")
+    # 은자림이 아닌 마당(폐사·객잔·총단·하촌)은 이 셈에서 뺀다
+    OUTSIDE = re.compile(r"폐사|객잔|주막|총단|무림맹|하촌|저잣거리|마교|관아")
+    for n, _, t in eps:
+        want = next((v for a, b, v in ROSTER if a <= n <= b), None)
+        if want is None:
+            continue
+        lines = t.split("\n")
+        for i, line in enumerate(lines):
+            for w in set(HEAD.findall(line)):
+                if WORD[w] == want:
+                    continue
+                near = "\n".join(lines[max(0, i - 8):i + 3])
+                if OUTSIDE.search(near):
+                    continue          # 은자림 밖 이야기다
+                add("연속성", "%d화 %d행이 마당을 「%s」(%d)로 적는다 — 입주 일정으로는 %d명이다"
+                    % (n, i + 1, w, WORD[w], want))
+
     # ── 출력 ──────────────────────────────────────────────────────────
     quiet = "--quiet" in sys.argv
     order = ["인물", "복선", "구조", "페이싱", "연속성"]
