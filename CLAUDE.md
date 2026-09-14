@@ -100,8 +100,13 @@
 python3 pipeline/reflow.py  [파일...]   # 블록 재조판
 python3 pipeline/mdbreak.py [파일...]   # 깃허브 강제 개행 (드라이브와 같은 모양)
 python3 pipeline/count.py   [회차번호]  # 분량
-python3 pipeline/check.py   [회차번호]  # 기계 검사 — 오류 0건이어야 커밋한다
+python3 pipeline/check.py   [회차번호]  # 회차 안의 기계 검사 — 오류 0건이어야 커밋한다
+python3 pipeline/audit.py              # 전작 정합성 감사 (회차를 가로지르는 오류)
 ```
+
+`check.py`는 회차 하나 안에서 닫히는 오류를, `audit.py`는 회차 사이에서만 보이는 오류를 잡는다.
+감사 항목은 Novalist(Drommedhar)의 Story Validator 여섯 갈래를 이 원고 구조에 옮긴 것이다.
+고아 번호 · 인물 장기 부재 · 복선 미회수 · 트래커 동기화 · 페이싱 · 인원 표기 드리프트.
 
 도구가 못 잡는 것은 손으로 본다. 순서대로 확인한다.
 1. **시간선** — `settings/world/timeline.md`의 어느 칸인지 먼저 정하고 모든 경과 표지를 대조한다. 은자림 시계(입산 D+0, 늦가을)와 강호 시계(실종 기준, ≈ D+3)는 **갈라질 수 없다.**
