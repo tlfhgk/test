@@ -102,9 +102,12 @@ python3 pipeline/mdbreak.py [파일...]   # 깃허브 강제 개행 (드라이�
 python3 pipeline/count.py   [회차번호]  # 분량
 python3 pipeline/check.py   [회차번호]  # 회차 안의 기계 검사 — 오류 0건이어야 커밋한다
 python3 pipeline/audit.py              # 전작 정합성 감사 (회차를 가로지르는 오류)
+python3 pipeline/lint_ko.py [회차번호]  # 한국어 문장 검사 (조사·리듬·반복·장문)
 ```
 
 `check.py`는 회차 하나 안에서 닫히는 오류를, `audit.py`는 회차 사이에서만 보이는 오류를 잡는다.
+`lint_ko.py`는 형태소 분석기로 조사와 어미를 갈라서 문장 자체의 기계적 오류를 본다.
+KoNLPy가 필요하다: `python3 -m pip install konlpy jpype1` (JVM 필요). 없으면 조사 검사만 건너뛴다.
 감사 항목은 Novalist(Drommedhar)의 Story Validator 여섯 갈래를 이 원고 구조에 옮긴 것이다.
 고아 번호 · 인물 장기 부재 · 복선 미회수 · 트래커 동기화 · 페이싱 · 인원 표기 드리프트.
 
