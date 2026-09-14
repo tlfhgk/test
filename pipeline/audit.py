@@ -154,6 +154,22 @@ def main():
         add("연속성", "→ 인원 표기가 %d가지다. settings/continuity/retired.json의 "
                      "정전 수치와 대조할 것" % len(crowd))
 
+    # ── 7. 연속성: 인물 나이·연차 드리프트 ────────────────────────────
+    # 「삼백십이 년 산 노인」이 「이백사십 년 산 노인」과 섞여 있던 것을 잡는다.
+    AGE = re.compile(r"([가-힣]{2,8})\s*(년 산|살)")
+    age = defaultdict(list)
+    for n, _, t in eps:
+        for fig, kind in AGE.findall(t):
+            if re.fullmatch(r"[일이삼사오육칠팔구십백천만가-힣]{2,8}", fig) and (
+                    "백" in fig or "십" in fig):
+                age[(fig, kind)].append(n)
+    if age:
+        top = max(len(v) for v in age.values())
+        for (fig, kind), where in sorted(age.items(), key=lambda x: -len(x[1])):
+            if len(where) <= 2 and top >= 5:
+                add("연속성", "「%s %s」이 %d편에만 나온다 (%s) — 정전 수치와 대조"
+                    % (fig, kind, len(where), ", ".join(map(str, sorted(set(where))))))
+
     # ── 출력 ──────────────────────────────────────────────────────────
     quiet = "--quiet" in sys.argv
     order = ["인물", "복선", "구조", "페이싱", "연속성"]
