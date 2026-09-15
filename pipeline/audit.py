@@ -180,14 +180,19 @@ def main():
     HEAD = re.compile(r"(?:마당의|마당에|마당에서)\s*(" + ALT + r")(?=[이가은는도]\s|\s*(?:명|사람))")
     # 은자림이 아닌 마당(폐사·객잔·총단·하촌)은 이 셈에서 뺀다
     OUTSIDE = re.compile(r"폐사|객잔|주막|총단|무림맹|하촌|저잣거리|마교|관아")
+    # 3부: 문턱 밖에 나가 있어서 마당 셈에서 빠지는 사람 (회차 구간, 빠지는 수)
+    # 150화에 천 노인이 나가 못 돌아온다. 159화에 13호가 떡 하나로 막힌다.
+    AWAY = [(150, 999, 1), (159, 999, 2)]
     for n, _, t in eps:
         want = next((v for a, b, v in ROSTER if a <= n <= b), None)
         if want is None:
             continue
+        away = max([v for a, b, v in AWAY if a <= n <= b] or [0])
+        ok = {want, want - away, want - away - 1}   # 세는 사람 자신을 뺀 경우도 허용
         lines = t.split("\n")
         for i, line in enumerate(lines):
             for w in set(HEAD.findall(line)):
-                if WORD[w] == want:
+                if WORD[w] in ok:
                     continue
                 near = "\n".join(lines[max(0, i - 8):i + 3])
                 if OUTSIDE.search(near):
