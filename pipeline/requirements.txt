@@ -1,0 +1,4 @@
+# lint_ko.py 의 조사 검사에만 필요하다. 없으면 그 항목만 건너뛴다.
+# JVM 이 있어야 한다 (KoNLPy 의 Okt 는 자바 분석기다).
+konlpy
+jpype1
