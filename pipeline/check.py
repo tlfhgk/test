@@ -28,12 +28,24 @@ ONOM = re.compile(r"(?<![가-힣])(쿵|쾅|퍽|턱|툭|탁|딱|우르르|와르�
 META = re.compile(r"\d+\s*화(의|에|에서|를|는|가)?\s")
 HANJA = re.compile(r"([가-힣]{2,6})\(([一-龥]{1,6})\)")
 
+# 글자 수 주장을 손으로 확인한 예외. 인용구가 다른 회차에 있거나 둘을 합쳐 센 경우다.
+# (회차, 주장 글자 수): 근거
+VERIFIED_CNTCLAIM = {
+    (14, 4): "「미안하다」 — 11화에서 쓴 편지",
+    (28, 7): "「생사는 불문한다」 — 27화의 방문",
+    (30, 2): "유(柳)·백(白) 두 글자를 합쳐 센 것",
+    (139, 2): "「상촌」 — 이 마당에서 입에 안 올리는 두 글자",
+}
+
 
 def norm_quote(q):
     """인용구에서 앞뒤 문장부호를 떼어낸 알맹이. 글자 수는 이것으로 센다."""
+    q = q.strip().strip("\u300c\u300d\"\'").strip()
     q = q.strip().strip("…").strip()
-    q = q.rstrip(".?!,…").strip()
-    q = q.lstrip("…").strip()
+    q = q.rstrip(".?!,…\u300d").strip()
+    q = q.lstrip("…\u300c").strip()
+    # 한자 병기는 한글만 센다 — 「유(柳)」는 한 자다 (CLAUDE.md §6)
+    q = re.sub(r"\(([\u4e00-\u9fff]{1,6})\)", "", q).strip()
     return q
 
 
@@ -98,30 +110,43 @@ def check_one(path, reg, report):
             add("주의", "%d행 근접 중복: %r ↔ %r" % (i + 3, a[:30], c2[:30]))
 
     # 8) 인용구 글자 수 대조  ← 「다섯 글자 / 생사는 불문한다」류
+    #    같은 숫자를 회차 안에서 여러 번 되뇌는 경우가 있다(39화 「다섯 글자」 여섯 번).
+    #    그래서 주장 하나하나를 따로 보지 않고, 같은 숫자끼리 묶어
+    #    그중 하나라도 자기 창 안에서 맞는 인용구를 찾으면 전부 통과시킨다.
+    claims = {}
     for i, l in enumerate(body, start=2):
         m = CNTCLAIM.search(l)
-        if not m:
+        if m:
+            claims.setdefault(NUM[m.group(1)], []).append((i, m.group(1)))
+    for claim, spots in claims.items():
+        if (n, claim) in VERIFIED_CNTCLAIM:
             continue
-        claim = NUM[m.group(1)]
-        lo, hi = max(0, i - 16), min(len(body), i + 10)
-        cands = []
-        for j in range(lo, hi):
-            for q in QUOTE.findall(body[j]):
-                q = norm_quote(q)
-                if q:
-                    cands.append(q)
-            bare = body[j].strip()
-            if bare and 1 < len(bare) <= 14 and not CNTCLAIM.search(bare):
-                q = norm_quote(bare)
-                if q:
-                    cands.append(q)
-        if not cands:
-            continue
-        exact = [q for q in cands if len(q.replace(" ", "")) == claim]
-        if not exact:
-            near = sorted({(len(q.replace(" ", "")), q) for q in cands})
-            add("오류", "%d행 「%s 글자」 주장과 맞는 인용구가 없다 → 주변 후보: %s"
-                % (i, m.group(1), ", ".join("%r=%d자" % (q, k) for k, q in near[:4])))
+        ok, near_all, seen_any = False, set(), False
+        for i, word in spots:
+            lo, hi = max(0, i - 16), min(len(body), i + 10)
+            cands = []
+            for j in range(lo, hi):
+                for q in QUOTE.findall(body[j]):
+                    q = norm_quote(q)
+                    if q:
+                        cands.append(q)
+                bare = body[j].strip()
+                if bare and 1 < len(bare) <= 14 and not CNTCLAIM.search(bare):
+                    q = norm_quote(bare)
+                    if q:
+                        cands.append(q)
+            if not cands:
+                continue
+            seen_any = True
+            if any(len(q.replace(" ", "")) == claim for q in cands):
+                ok = True
+                break
+            near_all |= {(len(q.replace(" ", "")), q) for q in cands}
+        if seen_any and not ok:
+            i, word = spots[0]
+            add("오류", "%d행 「%s 글자」 주장과 맞는 인용구가 없다 (회차 안 %d곳) → 후보: %s"
+                % (i, word, len(spots),
+                   ", ".join("%r=%d자" % (q, k) for k, q in sorted(near_all)[:4])))
 
     # 9) 시간 표지 분포
     months = {}
