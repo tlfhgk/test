@@ -19,6 +19,8 @@ R = lambda *a: os.path.join(ROOT, *a)
 CAST = ["곽진강", "천 노인", "임 노파", "구 노인", "백 영감", "화척", "표일도", "유백", "남궁호"]
 ABSENCE_LIMIT = {"곽진강": 3, "천 노인": 25, "임 노파": 25, "구 노인": 40,
                  "백 영감": 30, "화척": 20, "표일도": 40, "유백": 45, "남궁호": 60}
+# 본문에서 다른 이름으로도 부르는 인물 (4부는 화척이를 주로 「붉은 것」으로 부른다)
+ALIAS = {"화척": ["붉은 것"]}
 MAX_HO = 13          # 정전 최대 번호 (농노는 2호~13호 열둘. 130화 유백은 9호를 물려받는다)
 NAME = re.compile(r"[가-힣]{2,4}(?=[이가은는을를의에게와과도]?\s)")
 
@@ -53,7 +55,8 @@ def main():
 
     # ── 2. 주요 인물 장기 부재 ────────────────────────────────────────
     for who in CAST:
-        seen = [n for n, _, t in eps if who in t]
+        names = [who] + ALIAS.get(who, [])
+        seen = [n for n, _, t in eps if any(x in t for x in names)]
         if not seen:
             add("인물", "%s가 한 번도 안 나온다" % who)
             continue
